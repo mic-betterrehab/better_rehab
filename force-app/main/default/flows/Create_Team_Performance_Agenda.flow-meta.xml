@@ -4,7 +4,7 @@
         <name>Navigate_to_Supervision_Minutes_Detail_Page</name>
         <label>Navigate to Supervision Minutes Detail Page</label>
         <locationX>314</locationX>
-        <locationY>2378</locationY>
+        <locationY>2258</locationY>
         <actionName>c:DetailPageNavigation</actionName>
         <actionType>component</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -21,7 +21,7 @@
         <name>Assign_Values</name>
         <label>Assign Values</label>
         <locationX>314</locationX>
-        <locationY>518</locationY>
+        <locationY>398</locationY>
         <assignmentItems>
             <assignToReference>Supervision.Supervisor__c</assignToReference>
             <operator>Assign</operator>
@@ -250,7 +250,7 @@
             <assignToReference>Supervision.RecordTypeId</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>RecordTypeId</elementReference>
+                <stringValue>0128r000000EiKXAA0</stringValue>
             </value>
         </assignmentItems>
         <assignmentItems>
@@ -402,10 +402,10 @@
     </choices>
     <choices>
         <name>Supervisee_Assessment_DM_Report_Choice4</name>
-        <choiceText>&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 14.6667px; font-family: Calibri; color: rgb(0, 0, 0);&quot;&gt;Support is needed for better forecasting&lt;/span&gt;</choiceText>
+        <choiceText>&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Calibri; font-size: 14.6667px; background-color: rgb(255, 255, 255);&quot;&gt;Support is needed for better forecasting - see discussion&lt;/span&gt;</choiceText>
         <dataType>String</dataType>
         <value>
-            <stringValue>Support is needed for better forecasting</stringValue>
+            <stringValue>Support is needed for better forecasting - see discussion</stringValue>
         </value>
     </choices>
     <choices>
@@ -562,10 +562,10 @@
     </choices>
     <choices>
         <name>Team_Performance_Choice4</name>
-        <choiceText>&lt;span style=&quot;background-color: rgb(255, 255, 255); font-size: 14.6667px; font-family: Calibri; color: rgb(0, 0, 0);&quot;&gt;Team are struggling&lt;/span&gt;</choiceText>
+        <choiceText>&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Calibri; font-size: 14.6667px; background-color: rgb(255, 255, 255);&quot;&gt;Team are struggling - see discussion&lt;/span&gt;</choiceText>
         <dataType>String</dataType>
         <value>
-            <stringValue>Team are struggling</stringValue>
+            <stringValue>Team are struggling - see discussion</stringValue>
         </value>
     </choices>
     <choices>
@@ -604,7 +604,7 @@
         <name>Task_1_Decision</name>
         <label>Task 1 Decision</label>
         <locationX>314</locationX>
-        <locationY>758</locationY>
+        <locationY>638</locationY>
         <defaultConnector>
             <targetReference>Task_2_Decision</targetReference>
         </defaultConnector>
@@ -636,7 +636,7 @@
         <name>Task_2_Decision</name>
         <label>Task 2 Decision</label>
         <locationX>314</locationX>
-        <locationY>1298</locationY>
+        <locationY>1178</locationY>
         <defaultConnector>
             <targetReference>Task_3_Decision</targetReference>
         </defaultConnector>
@@ -668,7 +668,7 @@
         <name>Task_3_Decision</name>
         <label>Task 3 Decision</label>
         <locationX>314</locationX>
-        <locationY>1838</locationY>
+        <locationY>1718</locationY>
         <defaultConnector>
             <targetReference>Navigate_to_Supervision_Minutes_Detail_Page</targetReference>
         </defaultConnector>
@@ -742,7 +742,7 @@
         <name>Add_Supervision_Minutes</name>
         <label>Add Supervision Minutes</label>
         <locationX>314</locationX>
-        <locationY>638</locationY>
+        <locationY>518</locationY>
         <connector>
             <targetReference>Task_1_Decision</targetReference>
         </connector>
@@ -752,7 +752,7 @@
         <name>Create_Task_After_Supervision_Minutes_Creation_0_0_0_0</name>
         <label>Create Task After Supervision Minutes Creation</label>
         <locationX>50</locationX>
-        <locationY>878</locationY>
+        <locationY>758</locationY>
         <connector>
             <targetReference>Task_2_Decision</targetReference>
         </connector>
@@ -802,7 +802,7 @@
         <name>Create_Task_After_Supervision_Minutes_Creation_0_0_0_0_0_0_0_0</name>
         <label>Create Task After Supervision Minutes Creation</label>
         <locationX>50</locationX>
-        <locationY>1418</locationY>
+        <locationY>1298</locationY>
         <connector>
             <targetReference>Task_3_Decision</targetReference>
         </connector>
@@ -852,7 +852,7 @@
         <name>Create_Task_After_Supervision_Minutes_Creation_0_0_0_0_0_0_0_0_0</name>
         <label>Create Task After Supervision Minutes Creation</label>
         <locationX>50</locationX>
-        <locationY>1958</locationY>
+        <locationY>1838</locationY>
         <connector>
             <targetReference>Navigate_to_Supervision_Minutes_Detail_Page</targetReference>
         </connector>
@@ -899,36 +899,13 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
     <recordLookups>
-        <name>Get_RecordType</name>
-        <label>Get RecordType</label>
-        <locationX>314</locationX>
-        <locationY>278</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Add_Team_Performance_Agenda</targetReference>
-        </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>DeveloperName</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>Team_Performance_Agenda</stringValue>
-            </value>
-        </filters>
-        <object>RecordType</object>
-        <outputAssignments>
-            <assignToReference>RecordTypeId</assignToReference>
-            <field>Id</field>
-        </outputAssignments>
-    </recordLookups>
-    <recordLookups>
         <name>Logged_In_User</name>
         <label>Logged In User</label>
         <locationX>314</locationX>
         <locationY>158</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Get_RecordType</targetReference>
+            <targetReference>Add_Team_Performance_Agenda</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -946,7 +923,7 @@
         <name>Add_Team_Performance_Agenda</name>
         <label>Add Team Performance Agenda</label>
         <locationX>314</locationX>
-        <locationY>398</locationY>
+        <locationY>278</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -1307,7 +1284,7 @@
                     <name>Supervisee_Assessment_TL_Discussion_Field</name>
                     <fieldText>Discussion</fieldText>
                     <fieldType>LargeTextArea</fieldType>
-                    <isRequired>true</isRequired>
+                    <isRequired>false</isRequired>
                     <validationRule>
                         <errorMessage>&lt;p&gt;&lt;em style=&quot;color: rgb(255, 0, 0); background-color: rgb(255, 255, 255);&quot;&gt;The maximum characters allowed is only 32,768.&lt;/em&gt;&lt;/p&gt;</errorMessage>
                         <formulaExpression>IF(LEN({!Supervisee_Assessment_TL_Discussion_Field}) &gt; 32768, false, true)</formulaExpression>
@@ -1360,7 +1337,7 @@
                     <name>Supervisee_Assessment_Cap_Discussion_Field</name>
                     <fieldText>Discussion</fieldText>
                     <fieldType>LargeTextArea</fieldType>
-                    <isRequired>true</isRequired>
+                    <isRequired>false</isRequired>
                 </fields>
                 <inputParameters>
                     <name>width</name>
@@ -1410,7 +1387,7 @@
                     <name>Supervisee_Assessment_DM_Report_Discussion_Field</name>
                     <fieldText>Discussion</fieldText>
                     <fieldType>LargeTextArea</fieldType>
-                    <isRequired>true</isRequired>
+                    <isRequired>false</isRequired>
                     <validationRule>
                         <errorMessage>&lt;p&gt;&lt;em style=&quot;background-color: rgb(255, 255, 255); color: rgb(255, 0, 0);&quot;&gt;The maximum characters allowed is only 32,768.&lt;/em&gt;&lt;/p&gt;</errorMessage>
                         <formulaExpression>IF(LEN({!Supervisee_Assessment_DM_Report_Discussion_Field}) &gt; 32768, false, true)</formulaExpression>
@@ -2331,7 +2308,7 @@
         <name>Task_1_Error_Message_0</name>
         <label>Task 1 Error Message</label>
         <locationX>314</locationX>
-        <locationY>998</locationY>
+        <locationY>878</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -2353,7 +2330,7 @@
         <name>Task_2_Error_Message_0_0</name>
         <label>Task 2 Error Message</label>
         <locationX>314</locationX>
-        <locationY>1538</locationY>
+        <locationY>1418</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -2375,7 +2352,7 @@
         <name>Task_3_Error_Message_0_0</name>
         <label>Task 3 Error Message</label>
         <locationX>314</locationX>
-        <locationY>2078</locationY>
+        <locationY>1958</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -2427,13 +2404,6 @@
     </variables>
     <variables>
         <name>recordId</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>true</isInput>
-        <isOutput>false</isOutput>
-    </variables>
-    <variables>
-        <name>RecordTypeId</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>

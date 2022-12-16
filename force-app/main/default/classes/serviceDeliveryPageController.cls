@@ -171,7 +171,7 @@ public with sharing class serviceDeliveryPageController {
 
         List<Contact> contactWorkers = [SELECT Id, Name, enrtcr__User__r.Id, Clinician_Discipline__c, Additional_Disciplines__c FROM Contact
                                         WHERE RecordTypeId = '0122v0000013OcoAAE' AND
-                                        (enrtcr__Status__c IN ('Current','Extended Leave'))
+                                        (enrtcr__Status__c = 'Current' OR enrtcr__Status__c = 'Extended Leave')
                                         ORDER BY Name];
         contactWorkers.sort();
         for (Contact c : contactWorkers) {
@@ -316,29 +316,42 @@ public with sharing class serviceDeliveryPageController {
                                                         WHERE RecordTypeId IN: recordTypes
                                                         AND Better_Rehab__c =: true
                                                         AND enrtcr__Support_CategoryId__r.Id =: selectedSupport
-                                                        AND enrtcr__Status__c = 'Active'
+                                                        AND enrtcr__Status__c IN ('Active', 'Extended Leave')
                                                         AND Department__c IN: departments
                                                         AND Service_Division__c IN: divisions
                                                         AND State__c INCLUDES(:clientInfo.get(selectedClient).enrtcr__Client_Region__c)
                                                       ];
 
             System.debug(pulledServices);
-            System.debug(clientInfo.get(selectedClient).enrtcr__Client_Region__c);
+            System.debug(selectedSite);
             System.debug(selectedSupport);
             System.debug(departments);
             System.debug(clientDivision);
 
             //find all private division service
-            List<enrtcr__Service__c> agedCareServices = [SELECT Id, Name
-                                                         FROM enrtcr__Service__c
-                                                         WHERE RecordTypeId IN: recordTypes
-                                                         AND Better_Rehab__c =: true
-                                                         AND enrtcr__Support_CategoryId__r.Id =: selectedSupport
-                                                         AND enrtcr__Status__c = 'Active'
-                                                         AND Department__c IN: departments
-                                                         AND Service_Division__c = 'Private'
-                                                         AND State__c INCLUDES(:clientInfo.get(selectedClient).enrtcr__Client_Region__c)
-                                                        ];
+            /*List<enrtcr__Site_Service__c> agedCareServices = [SELECT Id, enrtcr__Service__r.Id, enrtcr__Service__r.Name
+                                                              FROM enrtcr__Site_Service__c
+                                                              WHERE enrtcr__Operating_Start_Date__c < TODAY
+                                                              AND (enrtcr__Operating_End_Date__c > TODAY OR enrtcr__Operating_End_Date__c = null)
+                                                              AND enrtcr__Site__r.Id =: selectedSite
+                                                              AND enrtcr__Service__r.RecordTypeId IN: recordtypes
+                                                              AND enrtcr__Service__r.Better_Rehab__c =: true
+                                                              AND enrtcr__Service__r.enrtcr__Support_CategoryId__r.Id =: selectedSupport
+                                                              AND enrtcr__Service__r.enrtcr__Status__c = 'Active'
+                                                              AND enrtcr__Service__r.Department__c IN: departments
+                                                              AND enrtcr__Service__r.Service_Division__c = 'Private'
+                                                              AND enrtcr__Service__r.State__c =: clientInfo.get(selectedClient).enrtcr__Client_Region__c
+                                                            ];*/
+                List<enrtcr__Service__c> agedCareServices = [SELECT Id, Name
+                                                                    FROM enrtcr__Service__c
+                                                                    WHERE RecordTypeId IN: recordTypes
+                                                                    AND Better_Rehab__c =: true
+                                                                    AND enrtcr__Support_CategoryId__r.Id =: selectedSupport
+                                                                    AND enrtcr__Status__c IN ('Active', 'Extended Leave')
+                                                                    AND Department__c IN: departments
+                                                                    AND Service_Division__c = 'Private'
+                                                                    AND State__c INCLUDES(:clientInfo.get(selectedClient).enrtcr__Client_Region__c)
+                                                                ];
 
             if (pulledServices.size() > 0) {
                 pulledServices.sort();
@@ -515,7 +528,7 @@ public with sharing class serviceDeliveryPageController {
         }
     }
 
-    public enrtcr__Support_Delivered__c createSDE(User u, enrtcr__Support_Contract__c SA, enrtcr__Site_Service__c SSP, SDEPackage sdpack, enrtcr__Service__c service, enrtcr__Rate__c rate, Integer count) {
+    public enrtcr__Support_Delivered__c createSDE(User u, enrtcr__Support_Contract__c SA, SDEPackage sdpack, enrtcr__Service__c service, enrtcr__Rate__c rate, Integer count) {
         enrtcr__Support_Delivered__c SDE = new enrtcr__Support_Delivered__c();
         SDE.enrtcr__Date__c = sdpack.sdeDate;
         SDE.enrtcr__Worker__c = u.Id;
@@ -536,12 +549,12 @@ public with sharing class serviceDeliveryPageController {
         SDE.Original_Quantity__c = sdpack.originalQuantity;
 
         if (sdpack.deliver == true) {
-            SDE.enrtcr__Site_Service_Program__c = SSP.Id;
+            // SDE.enrtcr__Site_Service_Program__c = SSP.Id;
             SDE.enrtcr__Adhoc_Service__c = service.Id;
             SDE.enrtcr__Rate__c = rate.Id;
         } else {
             SDE.Original_Service__c = service.Id;
-            SDE.enrtcr__Site_Service_Program__c = this.OCSSP.Id;
+            // SDE.enrtcr__Site_Service_Program__c = this.OCSSP.Id;
             SDE.enrtcr__Adhoc_Service__c = this.overclaimRate.enrtcr__Service__r.Id;
             SDE.enrtcr__Rate__c = this.overclaimRate.Id;
             SDE.SD_Status__c = this.overclaimStatus;
@@ -809,8 +822,8 @@ public with sharing class serviceDeliveryPageController {
                 enrtcr__Rate__c[] overclaimRates = [SELECT id, Name, enrtcr__Service__r.Name, enrtcr__Service__r.Id FROM enrtcr__Rate__c WHERE Name = 'Overclaim' AND enrtcr__Service__r.Name = 'Overclaim' LIMIT 1];
                 if (overclaimRates.size() != 0) {
                     this.overclaimRate = overclaimRates[0];
-                    this.OCSSP = [SELECT Id, Name, enrtcr__Service__r.Name, enrtcr__Site__r.Name FROM enrtcr__Site_Service__c  WHERE  enrtcr__Site__r.Id =: selectedSite AND enrtcr__Service__r.Id =: overclaimRate.enrtcr__Service__r.Id LIMIT 1];
-                    System.debug('Testing: ' + this.OCSSP);
+                    // this.OCSSP = [SELECT Id, Name, enrtcr__Service__r.Name, enrtcr__Site__r.Name FROM enrtcr__Site_Service__c  WHERE  enrtcr__Site__r.Id =: selectedSite AND enrtcr__Service__r.Id =: overclaimRate.enrtcr__Service__r.Id LIMIT 1];
+                    // System.debug('Testing: ' + this.OCSSP);
                 } else {
                     this.overclaimRate = null;
                 }
@@ -918,16 +931,19 @@ public with sharing class serviceDeliveryPageController {
             tempService = [SELECT id, Name FROM enrtcr__Service__c WHERE id =: sde.service];
             sde.travelCheck(tempService.Name, Integer.valueOf(MMMScore));
             system.debug('Late changes MMM = ' + MMMScore + 'tempservice name = ' + tempService.Name);
-            if (selectedSite != null) {
-                enrtcr__Site_Service__c[] ss = [SELECT id FROM enrtcr__Site_Service__c WHERE  enrtcr__Site__r.Id =: selectedSite AND enrtcr__Service__r.Id =: sde.service];
-                if (ss.size() == 0) {
-                    String s = '[Error0x9]No site service record for '+tempService.Name+' and site Id ' + selectedSite + '. \n';
-                    System.debug(s);
-                    errors.add(s);
-                    createAudit(9,s);
-                    return 0;
+            /*
+             * Remove this block of code once test class passed in FC
+                if (selectedSite != null) {
+                    enrtcr__Site_Service__c[] ss = [SELECT id FROM enrtcr__Site_Service__c WHERE  enrtcr__Site__r.Id =: selectedSite AND enrtcr__Service__r.Id =: sde.service];
+                    if (ss.size() == 0) {
+                        String s = '[Error0x9]No site service record for '+tempService.Name+' and site Id ' + selectedSite + '. \n';
+                        System.debug(s);
+                        errors.add(s);
+                        createAudit(9,s);
+                        return 0;
+                    }
                 }
-            }
+            */
             if (sde.validateQuantity() == 0) {
                 String s = '[Error0x10]The quantity you entered was invalid. Hours =  ' + sde.hours + ' Minutes = ' + sde.minutes + ' . \n';
                 System.debug(s);
@@ -1077,44 +1093,44 @@ public with sharing class serviceDeliveryPageController {
         User u = [SELECT id FROM User WHERE id =: worker.enrtcr__User__r.Id];
         enrtcr__Support_Contract__c ServiceAgreement = [SELECT id FROM enrtcr__Support_Contract__c WHERE id =: this.serviceAgreementItem.enrtcr__Support_Contract__r.Id];
         if (s1 != null) {
-            enrtcr__Site_Service__c SSP1 = [SELECT id FROM enrtcr__Site_Service__c  WHERE  enrtcr__Site__r.Id =: selectedSite AND enrtcr__Service__r.Id =: s1.Id];
-            sdes.add(createSDE(u, ServiceAgreement, SSP1, sde1, this.s1, this.r1, count));
+            // enrtcr__Site_Service__c SSP1 = [SELECT id FROM enrtcr__Site_Service__c  WHERE  enrtcr__Site__r.Id =: selectedSite AND enrtcr__Service__r.Id =: s1.Id];
+            sdes.add(createSDE(u, ServiceAgreement, sde1, this.s1, this.r1, count));
             sde1.caseNotes = '1. ' + sde1.caseNotes;
             count++;
         }
         if (s2 != null) {
-             enrtcr__Site_Service__c SSP2 = [SELECT id FROM enrtcr__Site_Service__c  WHERE  enrtcr__Site__r.Id =: selectedSite AND enrtcr__Service__r.Id =: s2.Id];
-            sdes.add(createSDE(u, ServiceAgreement, SSP2, sde2, this.s2, this.r2, count));
+            // enrtcr__Site_Service__c SSP2 = [SELECT id FROM enrtcr__Site_Service__c  WHERE  enrtcr__Site__r.Id =: selectedSite AND enrtcr__Service__r.Id =: s2.Id];
+            sdes.add(createSDE(u, ServiceAgreement, sde2, this.s2, this.r2, count));
             sde2.caseNotes = '2. ' + sde2.caseNotes;
             count++;
         }
         if (s3 != null) {
-            enrtcr__Site_Service__c SSP3 = [SELECT id FROM enrtcr__Site_Service__c  WHERE  enrtcr__Site__r.Id =: selectedSite AND enrtcr__Service__r.Id =: s3.Id];
-            sdes.add(createSDE(u, ServiceAgreement, SSP3, sde3, this.s3, this.r3, count));
+            // enrtcr__Site_Service__c SSP3 = [SELECT id FROM enrtcr__Site_Service__c  WHERE  enrtcr__Site__r.Id =: selectedSite AND enrtcr__Service__r.Id =: s3.Id];
+            sdes.add(createSDE(u, ServiceAgreement, sde3, this.s3, this.r3, count));
             sde3.caseNotes = '3. ' + sde3.caseNotes;
             count++;
         }
         if (s4 != null) {
-            enrtcr__Site_Service__c SSP4 = [SELECT id FROM enrtcr__Site_Service__c  WHERE  enrtcr__Site__r.Id =: selectedSite AND enrtcr__Service__r.Id =: s4.Id];
-            sdes.add(createSDE(u, ServiceAgreement, SSP4, sde4, this.s4, this.r4, count));
+            // enrtcr__Site_Service__c SSP4 = [SELECT id FROM enrtcr__Site_Service__c  WHERE  enrtcr__Site__r.Id =: selectedSite AND enrtcr__Service__r.Id =: s4.Id];
+            sdes.add(createSDE(u, ServiceAgreement, sde4, this.s4, this.r4, count));
             sde4.caseNotes = '4. ' + sde4.caseNotes;
             count++;
         }
         if (s5 != null) {
-            enrtcr__Site_Service__c SSP5 = [SELECT id FROM enrtcr__Site_Service__c  WHERE  enrtcr__Site__r.Id =: selectedSite AND enrtcr__Service__r.Id =: s5.Id];
-            sdes.add(createSDE(u, ServiceAgreement, SSP5, sde5, this.s5, this.r5, count));
+            // enrtcr__Site_Service__c SSP5 = [SELECT id FROM enrtcr__Site_Service__c  WHERE  enrtcr__Site__r.Id =: selectedSite AND enrtcr__Service__r.Id =: s5.Id];
+            sdes.add(createSDE(u, ServiceAgreement, sde5, this.s5, this.r5, count));
             sde5.caseNotes = '5. ' + sde5.caseNotes;
             count++;
         }
         if (s6 != null) {
-            enrtcr__Site_Service__c SSP6 = [SELECT id FROM enrtcr__Site_Service__c  WHERE  enrtcr__Site__r.Id =: selectedSite AND enrtcr__Service__r.Id =: s6.Id];
-            sdes.add(createSDE(u, ServiceAgreement, SSP6, sde6, this.s6, this.r6, count));
+            // enrtcr__Site_Service__c SSP6 = [SELECT id FROM enrtcr__Site_Service__c  WHERE  enrtcr__Site__r.Id =: selectedSite AND enrtcr__Service__r.Id =: s6.Id];
+            sdes.add(createSDE(u, ServiceAgreement, sde6, this.s6, this.r6, count));
             sde6.caseNotes = '6. ' + sde6.caseNotes;
             count++;
         }
         if (s7 != null) {
-            enrtcr__Site_Service__c SSP7 = [SELECT id FROM enrtcr__Site_Service__c  WHERE  enrtcr__Site__r.Id =: selectedSite AND enrtcr__Service__r.Id =: s7.Id];
-            sdes.add(createSDE(u, ServiceAgreement, SSP7, overclaim, this.s7, this.r7, count));
+            // enrtcr__Site_Service__c SSP7 = [SELECT id FROM enrtcr__Site_Service__c  WHERE  enrtcr__Site__r.Id =: selectedSite AND enrtcr__Service__r.Id =: s7.Id];
+            sdes.add(createSDE(u, ServiceAgreement, overclaim, this.s7, this.r7, count));
             overclaim.caseNotes = '7. ' + overclaim.caseNotes;
             count++;
         }

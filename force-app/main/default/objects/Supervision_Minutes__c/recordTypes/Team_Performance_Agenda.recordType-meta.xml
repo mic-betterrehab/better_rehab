@@ -159,7 +159,7 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>Support is needed for better forecasting</fullName>
+            <fullName>Support is needed for better forecasting - see discussion</fullName>
             <default>false</default>
         </values>
     </picklistValues>
@@ -193,7 +193,7 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>Team are struggling</fullName>
+            <fullName>Team are struggling - see discussion</fullName>
             <default>false</default>
         </values>
     </picklistValues>

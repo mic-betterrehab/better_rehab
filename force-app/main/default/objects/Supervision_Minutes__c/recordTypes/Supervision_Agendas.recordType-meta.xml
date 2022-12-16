@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Supervision_Agenda</fullName>
+    <fullName>Supervision_Agendas</fullName>
     <active>true</active>
-    <label>Supervision Agenda</label>
+    <label>Supervision Agendas</label>
     <picklistValues>
         <picklist>Check_in_Team__c</picklist>
         <values>
