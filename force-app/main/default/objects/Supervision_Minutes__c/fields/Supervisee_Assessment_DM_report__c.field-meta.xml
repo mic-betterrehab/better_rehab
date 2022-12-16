@@ -27,9 +27,9 @@
                 <label>Some people are forecasting well</label>
             </value>
             <value>
-                <fullName>Support is needed for better forecasting</fullName>
+                <fullName>Support is needed for better forecasting - see discussion</fullName>
                 <default>false</default>
-                <label>Support is needed for better forecasting</label>
+                <label>Support is needed for better forecasting - see discussion</label>
             </value>
         </valueSetDefinition>
     </valueSet>

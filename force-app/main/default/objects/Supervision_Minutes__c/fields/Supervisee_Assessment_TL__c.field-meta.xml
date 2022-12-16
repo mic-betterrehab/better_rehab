@@ -27,9 +27,9 @@
                 <label>Team are not yet consistently achieving</label>
             </value>
             <value>
-                <fullName>Team are struggling</fullName>
+                <fullName>Team are struggling - see discussion</fullName>
                 <default>false</default>
-                <label>Team are struggling</label>
+                <label>Team are struggling - see discussion</label>
             </value>
         </valueSetDefinition>
     </valueSet>

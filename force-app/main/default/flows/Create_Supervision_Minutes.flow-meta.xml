@@ -4,7 +4,7 @@
         <name>Navigate_to_Supervision_Minutes_Detail_Page</name>
         <label>Navigate to Supervision Minutes Detail Page</label>
         <locationX>314</locationX>
-        <locationY>3386</locationY>
+        <locationY>3266</locationY>
         <actionName>c:DetailPageNavigation</actionName>
         <actionType>component</actionType>
         <flowTransactionModel>CurrentTransaction</flowTransactionModel>
@@ -21,7 +21,7 @@
         <name>Assign_Values</name>
         <label>Assign Values</label>
         <locationX>314</locationX>
-        <locationY>1526</locationY>
+        <locationY>1406</locationY>
         <assignmentItems>
             <assignToReference>Supervision.Supervisor__c</assignToReference>
             <operator>Assign</operator>
@@ -215,7 +215,7 @@
             <assignToReference>Supervision.RecordTypeId</assignToReference>
             <operator>Assign</operator>
             <value>
-                <elementReference>RecordTypeId</elementReference>
+                <stringValue>0128r000000EiSbAAK</stringValue>
             </value>
         </assignmentItems>
         <connector>
@@ -346,7 +346,7 @@
         <name>Check_Audit_Is_Empty</name>
         <label>Check Audit Is Empty</label>
         <locationX>314</locationX>
-        <locationY>518</locationY>
+        <locationY>398</locationY>
         <defaultConnector>
             <targetReference>Check_Last_Week_Is_Empty</targetReference>
         </defaultConnector>
@@ -385,7 +385,7 @@
         <name>Check_Last_Cycle_Is_Empty</name>
         <label>Check Last Cycle Is Empty</label>
         <locationX>314</locationX>
-        <locationY>1190</locationY>
+        <locationY>1070</locationY>
         <defaultConnector>
             <targetReference>Assign_Values</targetReference>
         </defaultConnector>
@@ -417,7 +417,7 @@
         <name>Check_Last_Week_Is_Empty</name>
         <label>Check Last Week Is Empty</label>
         <locationX>314</locationX>
-        <locationY>854</locationY>
+        <locationY>734</locationY>
         <defaultConnector>
             <targetReference>Check_Last_Cycle_Is_Empty</targetReference>
         </defaultConnector>
@@ -449,7 +449,7 @@
         <name>Task_1_Decision</name>
         <label>Task 1 Decision</label>
         <locationX>314</locationX>
-        <locationY>1766</locationY>
+        <locationY>1646</locationY>
         <defaultConnector>
             <targetReference>Task_2_Decision</targetReference>
         </defaultConnector>
@@ -481,7 +481,7 @@
         <name>Task_2_Decision</name>
         <label>Task 2 Decision</label>
         <locationX>314</locationX>
-        <locationY>2306</locationY>
+        <locationY>2186</locationY>
         <defaultConnector>
             <targetReference>Task_3_Decision</targetReference>
         </defaultConnector>
@@ -513,7 +513,7 @@
         <name>Task_3_Decision</name>
         <label>Task 3 Decision</label>
         <locationX>314</locationX>
-        <locationY>2846</locationY>
+        <locationY>2726</locationY>
         <defaultConnector>
             <targetReference>Navigate_to_Supervision_Minutes_Detail_Page</targetReference>
         </defaultConnector>
@@ -587,7 +587,7 @@
         <name>Add_Supervision_Minutes</name>
         <label>Add Supervision Minutes</label>
         <locationX>314</locationX>
-        <locationY>1646</locationY>
+        <locationY>1526</locationY>
         <connector>
             <targetReference>Task_1_Decision</targetReference>
         </connector>
@@ -597,7 +597,7 @@
         <name>Create_Task_After_Supervision_Minutes_Creation_0_0_0_0</name>
         <label>Create Task After Supervision Minutes Creation</label>
         <locationX>50</locationX>
-        <locationY>1886</locationY>
+        <locationY>1766</locationY>
         <connector>
             <targetReference>Task_2_Decision</targetReference>
         </connector>
@@ -647,7 +647,7 @@
         <name>Create_Task_After_Supervision_Minutes_Creation_0_0_0_0_0_0_0_0</name>
         <label>Create Task After Supervision Minutes Creation</label>
         <locationX>50</locationX>
-        <locationY>2426</locationY>
+        <locationY>2306</locationY>
         <connector>
             <targetReference>Task_3_Decision</targetReference>
         </connector>
@@ -697,7 +697,7 @@
         <name>Create_Task_After_Supervision_Minutes_Creation_0_0_0_0_0_0_0_0_0</name>
         <label>Create Task After Supervision Minutes Creation</label>
         <locationX>50</locationX>
-        <locationY>2966</locationY>
+        <locationY>2846</locationY>
         <connector>
             <targetReference>Navigate_to_Supervision_Minutes_Detail_Page</targetReference>
         </connector>
@@ -744,36 +744,13 @@
         <storeOutputAutomatically>true</storeOutputAutomatically>
     </recordCreates>
     <recordLookups>
-        <name>Get_RecordType</name>
-        <label>Get RecordType</label>
-        <locationX>314</locationX>
-        <locationY>278</locationY>
-        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
-        <connector>
-            <targetReference>Add_New_Supervision_Minutes</targetReference>
-        </connector>
-        <filterLogic>and</filterLogic>
-        <filters>
-            <field>DeveloperName</field>
-            <operator>EqualTo</operator>
-            <value>
-                <stringValue>Supervision_Agenda</stringValue>
-            </value>
-        </filters>
-        <object>RecordType</object>
-        <outputAssignments>
-            <assignToReference>RecordTypeId</assignToReference>
-            <field>Id</field>
-        </outputAssignments>
-    </recordLookups>
-    <recordLookups>
         <name>Logged_In_User</name>
         <label>Logged In User</label>
         <locationX>314</locationX>
         <locationY>158</locationY>
         <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
         <connector>
-            <targetReference>Get_RecordType</targetReference>
+            <targetReference>Add_New_Supervision_Minutes</targetReference>
         </connector>
         <filterLogic>and</filterLogic>
         <filters>
@@ -791,7 +768,7 @@
         <name>Add_New_Supervision_Minutes</name>
         <label>Add New Supervision Minutes</label>
         <locationX>314</locationX>
-        <locationY>398</locationY>
+        <locationY>278</locationY>
         <allowBack>true</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -2197,7 +2174,7 @@
         <name>PCH_Audit_Field_Error_Screen</name>
         <label>PCH Audit Field Error Screen</label>
         <locationX>182</locationX>
-        <locationY>638</locationY>
+        <locationY>518</locationY>
         <allowBack>true</allowBack>
         <allowFinish>false</allowFinish>
         <allowPause>false</allowPause>
@@ -2217,7 +2194,7 @@
         <name>PCH_Last_Cycle_Field_Error_Screen</name>
         <label>PCH Last Cycle Field Error Screen</label>
         <locationX>182</locationX>
-        <locationY>1310</locationY>
+        <locationY>1190</locationY>
         <allowBack>true</allowBack>
         <allowFinish>false</allowFinish>
         <allowPause>false</allowPause>
@@ -2237,7 +2214,7 @@
         <name>PCH_Last_Week_Field_Error_Screen</name>
         <label>PCH Last Week Field Error Screen</label>
         <locationX>182</locationX>
-        <locationY>974</locationY>
+        <locationY>854</locationY>
         <allowBack>true</allowBack>
         <allowFinish>false</allowFinish>
         <allowPause>false</allowPause>
@@ -2257,7 +2234,7 @@
         <name>Task_1_Error_Message_0</name>
         <label>Task 1 Error Message</label>
         <locationX>314</locationX>
-        <locationY>2006</locationY>
+        <locationY>1886</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -2279,7 +2256,7 @@
         <name>Task_2_Error_Message_0_0</name>
         <label>Task 2 Error Message</label>
         <locationX>314</locationX>
-        <locationY>2546</locationY>
+        <locationY>2426</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -2301,7 +2278,7 @@
         <name>Task_3_Error_Message_0_0</name>
         <label>Task 3 Error Message</label>
         <locationX>314</locationX>
-        <locationY>3086</locationY>
+        <locationY>2966</locationY>
         <allowBack>false</allowBack>
         <allowFinish>true</allowFinish>
         <allowPause>false</allowPause>
@@ -2369,13 +2346,6 @@
     </variables>
     <variables>
         <name>recordId</name>
-        <dataType>String</dataType>
-        <isCollection>false</isCollection>
-        <isInput>true</isInput>
-        <isOutput>false</isOutput>
-    </variables>
-    <variables>
-        <name>RecordTypeId</name>
         <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>true</isInput>
