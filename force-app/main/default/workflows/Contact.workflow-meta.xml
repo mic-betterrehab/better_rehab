@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Client_Deceased</fullName>
+        <description>Client Deceased</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>david.k@betterrehabilitation.com.au</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>heidi.g@betterrehab.com.au</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>nad@betterrehabilitation.com.au</recipient>
+            <type>user</type>
+        </recipients>
+        <senderAddress>it@betterrehab.com.au</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>unfiled$public/Client_Deceased</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Set_Lumary_ID</fullName>
+        <field>enrtcr__Client_ID__c</field>
+        <formula>Lumary_Auto_number__c</formula>
+        <name>Set Lumary ID</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Pendula CS-000000</fullName>
+        <actions>
+            <name>Execute_Pendula_Communication_a1q2v000006J331AAC</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <description>Auto-generated workflow to trigger communications for Pendula Communication CS-000000</description>
+        <formula>Send_Welcome_Pack__c==TRUE &amp;&amp; Opt_out_of_Communications__c = FALSE &amp;&amp; (NOT(ISPICKVAL(enrtcr__Client_Region__c, &apos;WA&apos;))) &amp;&amp; (ISPICKVAL(Client_Division__c, &apos;NDIS&apos;)) &amp;&amp; (enrtcr__Age__c &gt;16 || ISBLANK(enrtcr__Age__c))</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Pendula CS-000026</fullName>
+        <actions>
+            <name>Execute_Pendula_Communication_a1q2v00000ELwOiAAL</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <description>Auto-generated workflow to trigger communications for Pendula Communication CS-000026</description>
+        <formula>Send_Welcome_Pack__c==TRUE &amp;&amp; Opt_out_of_Communications__c = FALSE &amp;&amp; (ISPICKVAL(enrtcr__Client_Region__c, &apos;WA&apos;)) &amp;&amp; (ISPICKVAL(Client_Division__c, &apos;NDIS&apos;)) &amp;&amp; (enrtcr__Age__c &gt;16 || ISBLANK(enrtcr__Age__c))</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Pendula CS-000046</fullName>
+        <actions>
+            <name>Execute_Pendula_Communication_a1q2v00000EIcN5AAL</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <description>Auto-generated workflow to trigger communications for Pendula Communication CS-000046</description>
+        <formula>Send_Welcome_Pack__c==TRUE &amp;&amp; Opt_out_of_Communications__c = FALSE &amp;&amp; (ISPICKVAL(Client_Division__c, &apos;NDIS&apos;)) &amp;&amp; (ISPICKVAL(enrtcr__Client_Region__c, &apos;WA&apos;)) &amp;&amp; enrtcr__Age__c &lt;=16</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Pendula CS-000047</fullName>
+        <actions>
+            <name>Execute_Pendula_Communication_a1q2v00000EIcNAAA1</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <description>Auto-generated workflow to trigger communications for Pendula Communication CS-000047</description>
+        <formula>Send_Welcome_Pack__c==TRUE &amp;&amp; Opt_out_of_Communications__c = FALSE &amp;&amp; (NOT(ISPICKVAL(enrtcr__Client_Region__c, &apos;WA&apos;))) &amp;&amp; (ISPICKVAL(Client_Division__c, &apos;NDIS&apos;)) &amp;&amp; enrtcr__Age__c &lt;=16</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Pendula CS-000050</fullName>
+        <actions>
+            <name>Execute_Pendula_Communication_a1q2v00000EId4TAAT</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <description>Auto-generated workflow to trigger communications for Pendula Communication CS-000050</description>
+        <formula>Send_Welcome_Pack__c==TRUE &amp;&amp; Opt_out_of_Communications__c = FALSE &amp;&amp; (ISPICKVAL(Client_Division__c, &apos;HSTP&apos;))</formula>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Set Lumary ID</fullName>
+        <actions>
+            <name>Set_Lumary_ID</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>ISBLANK(enrtcr__Client_ID__c)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Task for Plan Review Report</fullName>
+        <actions>
+            <name>Plan_Review_Report</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Contact.Plan_Review_Report_Due__c</field>
+            <operation>greaterThan</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <tasks>
+        <fullName>Execute_Pendula_Communication_a1q2v000006J331AAC</fullName>
+        <assignedTo>pendula@br.prod</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>Communication Schedule Id: a1q2v000006J331AAC</description>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>[Pendula-Event-Communication] CS-000000</subject>
+    </tasks>
+    <tasks>
+        <fullName>Execute_Pendula_Communication_a1q2v00000EIcN5AAL</fullName>
+        <assignedTo>pendula@br.prod</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>Communication Schedule Id: a1q2v00000EIcN5AAL</description>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>[Pendula-Event-Communication] CS-000046</subject>
+    </tasks>
+    <tasks>
+        <fullName>Execute_Pendula_Communication_a1q2v00000EIcNAAA1</fullName>
+        <assignedTo>pendula@br.prod</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>Communication Schedule Id: a1q2v00000EIcNAAA1</description>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>[Pendula-Event-Communication] CS-000047</subject>
+    </tasks>
+    <tasks>
+        <fullName>Execute_Pendula_Communication_a1q2v00000EId4TAAT</fullName>
+        <assignedTo>pendula@br.prod</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>Communication Schedule Id: a1q2v00000EId4TAAT</description>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>[Pendula-Event-Communication] CS-000050</subject>
+    </tasks>
+    <tasks>
+        <fullName>Execute_Pendula_Communication_a1q2v00000ELwOiAAL</fullName>
+        <assignedTo>pendula@br.prod</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>Communication Schedule Id: a1q2v00000ELwOiAAL</description>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>[Pendula-Event-Communication] CS-000026</subject>
+    </tasks>
+    <tasks>
+        <fullName>Plan_Review_Report</fullName>
+        <assignedToType>creator</assignedToType>
+        <description>Ensure Plan Review Report is finalised prior to due date</description>
+        <dueDateOffset>-1</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <offsetFromField>Contact.Plan_Review_Report_Due__c</offsetFromField>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>Plan Review Report</subject>
+    </tasks>
+</Workflow>

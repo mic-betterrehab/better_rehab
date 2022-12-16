@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WA_New_starters</fullName>
+    <columns>Role_Title__c</columns>
+    <columns>NAME</columns>
+    <columns>Department__c</columns>
+    <columns>Internal_Banding__c</columns>
+    <columns>Office__c</columns>
+    <columns>Start_Date__c</columns>
+    <columns>Phone_Number__c</columns>
+    <columns>Email__c</columns>
+    <columns>User__c</columns>
+    <columns>Phone_IMEI__c</columns>
+    <columns>Laptop_Serial_Number__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Start_Date__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>TODAY</value>
+    </filters>
+    <filters>
+        <field>State__c</field>
+        <operation>equals</operation>
+        <value>WA</value>
+    </filters>
+    <label>WA New starters</label>
+    <sharedTo>
+        <group>HR</group>
+        <group>IT</group>
+        <group>NSW_Admin</group>
+        <group>QLD_Admin</group>
+        <group>VIC_Admin</group>
+        <group>WA_Admin</group>
+    </sharedTo>
+</ListView>

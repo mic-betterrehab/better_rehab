@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCategoryGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>false</active>
+    <dataCategory>
+        <dataCategory>
+            <label>Lumary</label>
+            <name>lumary</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Outlook</label>
+            <name>outlook</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Printer</label>
+            <name>printer</name>
+        </dataCategory>
+        <dataCategory>
+            <label>SharePoint/OneDrive</label>
+            <name>SharePoint_OneDrive</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Laptop</label>
+            <name>Laptop</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Docusign</label>
+            <name>Docusign</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Teams</label>
+            <name>Teams</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Mobile</label>
+            <name>Mobile</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Office 365</label>
+            <name>Office_365</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Network</label>
+            <name>Network</name>
+        </dataCategory>
+        <dataCategory>
+            <label>OT Draw</label>
+            <name>OT_Draw</name>
+        </dataCategory>
+        <dataCategory>
+            <label>PD Approval/Request</label>
+            <name>PD_Request</name>
+        </dataCategory>
+        <dataCategory>
+            <label>Other</label>
+            <name>Other</name>
+        </dataCategory>
+        <label>All</label>
+        <name>All</name>
+    </dataCategory>
+    <label>IT Help</label>
+    <objectUsage>
+        <object>KnowledgeArticleVersion</object>
+    </objectUsage>
+</DataCategoryGroup>

@@ -1,0 +1,35 @@
+<!--
+ - Created by Enrite Solutions on 23/12/2020.
+ -->
+
+<!-- Sendextracttoxero -->
+<template>
+
+    <div if:false={isLoaded}>
+        <lightning-spinner
+                alternative-text="Loading...">
+        </lightning-spinner>
+    </div>
+    <div if:true={isLoaded} class="slds-is-relative">
+        <div class="slds-is-relative">
+            <lightning-card  title="Send Extract To Xero">
+                <div class="sizeSelect">
+                    <div class="slds-grid slds-wrap">
+                        <lightning-button
+                                class="slds-p-around_small"
+                                label="Confirm"
+                                onclick={sendExtractToXero}
+                                variant="brand">
+                        </lightning-button>
+                    </div>
+                    <div if:true={isProccessing} class="">
+                        <lightning-spinner
+                                alternative-text="Loading...">
+                        </lightning-spinner>
+                    </div>
+                </div>
+            </lightning-card>
+        </div>
+    </div>
+
+</template>

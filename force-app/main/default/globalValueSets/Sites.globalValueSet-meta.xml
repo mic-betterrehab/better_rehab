@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Bankstown</fullName>
+        <default>false</default>
+        <label>Bankstown</label>
+    </customValue>
+    <customValue>
+        <fullName>Blacktown</fullName>
+        <default>false</default>
+        <label>Blacktown</label>
+    </customValue>
+    <customValue>
+        <fullName>Briar Hill</fullName>
+        <default>false</default>
+        <label>Briar Hill</label>
+    </customValue>
+    <customValue>
+        <fullName>Brookvale</fullName>
+        <default>false</default>
+        <label>Brookvale</label>
+    </customValue>
+    <customValue>
+        <fullName>Chermside</fullName>
+        <default>false</default>
+        <label>Chermside</label>
+    </customValue>
+    <customValue>
+        <fullName>Cockburn</fullName>
+        <default>false</default>
+        <label>Cockburn</label>
+    </customValue>
+    <customValue>
+        <fullName>Dickson</fullName>
+        <default>false</default>
+        <label>Canberra</label>
+    </customValue>
+    <customValue>
+        <fullName>Eastern Sydney</fullName>
+        <default>false</default>
+        <label>Eastern Sydney</label>
+    </customValue>
+    <customValue>
+        <fullName>Gippsland</fullName>
+        <default>false</default>
+        <label>Gippsland</label>
+    </customValue>
+    <customValue>
+        <fullName>Inglewood</fullName>
+        <default>false</default>
+        <label>Inglewood</label>
+    </customValue>
+    <customValue>
+        <fullName>Joondalup</fullName>
+        <default>false</default>
+        <label>Joondalup</label>
+    </customValue>
+    <customValue>
+        <fullName>Macquarie Park</fullName>
+        <default>false</default>
+        <label>Macquarie Park</label>
+    </customValue>
+    <customValue>
+        <fullName>Moonee Ponds</fullName>
+        <default>false</default>
+        <label>Moonee Ponds</label>
+    </customValue>
+    <customValue>
+        <fullName>Mornington</fullName>
+        <default>false</default>
+        <label>Mornington</label>
+    </customValue>
+    <customValue>
+        <fullName>Mulgrave</fullName>
+        <default>false</default>
+        <label>Mulgrave</label>
+    </customValue>
+    <customValue>
+        <fullName>Newcastle</fullName>
+        <default>false</default>
+        <label>Newcastle</label>
+    </customValue>
+    <customValue>
+        <fullName>North Lakes</fullName>
+        <default>false</default>
+        <label>North Lakes</label>
+    </customValue>
+    <customValue>
+        <fullName>Penrith</fullName>
+        <default>false</default>
+        <label>Penrith</label>
+    </customValue>
+    <customValue>
+        <fullName>Robina</fullName>
+        <default>false</default>
+        <label>Robina</label>
+    </customValue>
+    <customValue>
+        <fullName>Springwood</fullName>
+        <default>false</default>
+        <label>Springwood</label>
+    </customValue>
+    <customValue>
+        <fullName>Stones Corner</fullName>
+        <default>false</default>
+        <label>Stones Corner</label>
+    </customValue>
+    <customValue>
+        <fullName>Sunshine Coast</fullName>
+        <default>false</default>
+        <label>Sunshine Coast</label>
+    </customValue>
+    <customValue>
+        <fullName>Surrey Hills</fullName>
+        <default>false</default>
+        <label>Surrey Hills</label>
+    </customValue>
+    <customValue>
+        <fullName>Terrigal</fullName>
+        <default>false</default>
+        <label>Terrigal</label>
+    </customValue>
+    <customValue>
+        <fullName>Toowoomba</fullName>
+        <default>false</default>
+        <label>Toowoomba</label>
+    </customValue>
+    <customValue>
+        <fullName>Werribee</fullName>
+        <default>false</default>
+        <label>Werribee</label>
+    </customValue>
+    <customValue>
+        <fullName>Wollongong</fullName>
+        <default>false</default>
+        <label>Wollongong</label>
+    </customValue>
+    <customValue>
+        <fullName>Ipswich</fullName>
+        <default>false</default>
+        <label>Ipswich</label>
+    </customValue>
+    <customValue>
+        <fullName>Geelong</fullName>
+        <default>false</default>
+        <label>Geelong</label>
+    </customValue>
+    <masterLabel>Sites</masterLabel>
+    <sorted>true</sorted>
+</GlobalValueSet>

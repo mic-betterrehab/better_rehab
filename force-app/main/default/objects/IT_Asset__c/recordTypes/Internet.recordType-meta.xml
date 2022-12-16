@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Internet</fullName>
+    <active>false</active>
+    <label>Internet</label>
+    <picklistValues>
+        <picklist>Brand__c</picklist>
+        <values>
+            <fullName>Apple</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Dell</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>HP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lenovo</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Computer_Processor__c</picklist>
+        <values>
+            <fullName>AMD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>i5</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>i7</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Condition__c</picklist>
+        <values>
+            <fullName>Functional</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Not functional</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Equipment_Type__c</picklist>
+        <values>
+            <fullName>Camera</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Last_Updated_Status__c</picklist>
+        <values>
+            <fullName>Device In Use</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Received at Hub Office</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Received at Support Office</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Received by OM</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shipped to Hub Office</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Shipped to Support Office</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Model__c</picklist>
+        <values>
+            <fullName>Carbon X1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Personal Phone</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T14s</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>T480s</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yoga C740</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>iPhone 6</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>iPhone 6s</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>iPhone 7</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>iPhone 8</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>iPhone 8 Plus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>iPhone SE</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

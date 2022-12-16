@@ -1,0 +1,32 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" controller="CalendarController">
+    <aura:attribute name="data" type="List" default="[]"  />
+    <aura:attribute name="selectedRow" type="object" default="{}" />
+    <aura:attribute name="isLoaded" type="Boolean" default="false" />
+    <aura:attribute name="excludedClients" type="object[]" default="[]" />
+    <aura:attribute name="eventRecord" type="Event" default="{}" />
+    <aura:attribute name="toAdd" type="List" default="[]" />
+    <aura:attribute name="buttonId" type="String" />
+    
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }" />
+    
+    <aura:method name="createRelations" action="{!c.createERsAura}" />
+    <aura:method name="cancelRelation" action="{!c.cancelER}"/>
+    <aura:method name="bookRelation" action="{!c.bookER}" />
+    <aura:method name="cancelEvent" action="{!c.cancelEvent}"/>
+    <aura:method name="bookEvent" action="{!c.bookEvent}"/>
+    <aura:method name="deleteRelation" action="{!c.deleteERAura}" description = "only called when user clicks delete on a pending ER"/>
+    
+    <aura:handler name="paginationComponentEvent" event="c:paginationEvent"
+                  action="{!c.handlePaginationEvent}"/>
+    
+    <aura:if isTrue="{!v.isLoaded}">
+    	<c:TablePagination parent="{!this}" 
+                           allData="{!v.data}" 
+                           filteredData="{!v.data}" 
+                           lookupFilter="AND Record_Type_Name__c = 'Employee'"
+                           contacts="{!v.excludedClients}"
+                           parentRecord="{!v.eventRecord}"/>
+                           
+    </aura:if>
+    
+</aura:component>

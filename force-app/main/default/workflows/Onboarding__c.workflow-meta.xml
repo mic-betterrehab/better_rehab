@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>HR_New_Onboarder_Australia</fullName>
+        <ccEmails>hr@betterrehab.com.au</ccEmails>
+        <description>HR New Onboarder (Australia)</description>
+        <protected>false</protected>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Onboarding_Tasks_for_HR_Queue</template>
+    </alerts>
+    <alerts>
+        <fullName>HR_New_Onboarder_NZ</fullName>
+        <ccEmails>hr@betterrehab.com.au</ccEmails>
+        <description>HR New Onboarder (NZ)</description>
+        <protected>false</protected>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Onboarding_Tasks_for_HR_Queue_NZ</template>
+    </alerts>
+    <alerts>
+        <fullName>HR_New_Onboarder_Student</fullName>
+        <ccEmails>hr@betterrehab.com.au</ccEmails>
+        <description>HR New Onboarder (Student)</description>
+        <protected>false</protected>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Onboarding_Tasks_for_HR_Queue_Students</template>
+    </alerts>
+    <alerts>
+        <fullName>L_D_New_Onboarder</fullName>
+        <ccEmails>learning@betterrehab.com.au</ccEmails>
+        <description>L&amp;D New Onboarder</description>
+        <protected>false</protected>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Onboarding_Notif_for_LD_Queue</template>
+    </alerts>
+    <alerts>
+        <fullName>Talent_New_Onboarder_New</fullName>
+        <ccEmails>myfuture@betterrehab.com.au</ccEmails>
+        <description>Talent New Onboarder (New)</description>
+        <protected>false</protected>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Onboarding_Tasks_for_Talent_Queue</template>
+    </alerts>
+</Workflow>

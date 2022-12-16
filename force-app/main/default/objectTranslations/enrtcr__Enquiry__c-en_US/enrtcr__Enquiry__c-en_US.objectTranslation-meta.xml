@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layouts>
+        <layout>Referrals Layout</layout>
+        <sections>
+            <label></label>
+            <section>Client Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Enquirer Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Enquiry Outcomes</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>New Client Enquiries</section>
+        </sections>
+    </layouts>
+</CustomObjectTranslation>

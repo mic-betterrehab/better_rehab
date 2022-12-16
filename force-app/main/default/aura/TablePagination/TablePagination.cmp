@@ -1,0 +1,191 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" controller="CalendarController">
+    <aura:attribute name="parent" type="Aura.Component"/>
+    
+    <aura:attribute name="allData" type="List" />
+    <aura:attribute name="filteredData" type="List" />
+    <aura:attribute name="tableData" type="List" />
+    <aura:attribute name="columns" type="Object[]" />
+    <aura:attribute name="pageSize" type="Integer" default="15" />
+    <aura:attribute name="pageSizeOptions" type="Integer[]" default="10,15,20,25,50,100" />
+    <aura:attribute name="currentPageNumber" type="Integer" default="1" />
+    <aura:attribute name="totalPages" type="Integer" default="1" />
+    <aura:attribute name="searchPhrase" type="String" />
+    <aura:attribute name="actionRow" type="String" />
+    <aura:attribute name="currentEvent" type="Event" default="{ 'sobjectType': 'Event'}"/>
+    
+    <aura:attribute name="isLoading" type="Boolean" default="false" />
+    <aura:attribute name="contacts" type="sObject[]" default="[]" />
+    <aura:attribute name="isOpenModal" type="Boolean" default="false" />
+    <aura:attribute name="recurringModal" type="Boolean" default="false" />
+    <aura:attribute name="lookupFilter" type="String" />
+    <aura:attribute name="parentRecord" type="Event" />
+    
+    <aura:registerEvent name="paginationComponentEvent" type="c:paginationEvent"/>
+    
+    
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }" />
+ 
+    <aura:if isTrue="{! v.isLoading }">
+        <lightning:spinner alternativeText="Loading" />
+    </aura:if>
+ 
+    <lightning:card>
+        <div class="slds-p-around_small slds-grid slds-grid_align-spread slds-grid_vertical-align-start">
+            <div>
+                <lightning:select
+                    label="Number of records on page:"
+                    value="{! v.pageSize }"
+                    onchange="{! c.onPageSizeChange }">
+                    <aura:iteration items="{! v.pageSizeOptions }" var="opt">
+                        <option text="{! opt }"></option>
+                    </aura:iteration>
+                </lightning:select>
+            </div>
+            <div>
+                <lightning:button
+                    label="First"
+                    iconName="utility:left"
+                    iconPosition="left"
+                    onclick="{! c.onFirst }"
+                    disabled="{! v.currentPageNumber == 1 }" />
+                <lightning:button
+                    label="Previous"
+                    iconName="utility:chevronleft"
+                    iconPosition="left"
+                    onclick="{! c.onPrev }"
+                    disabled="{! v.currentPageNumber == 1 }" />
+                <span class="slds-var-p-horizontal_x-small">
+                    Page {! (v.currentPageNumber) } of {! (v.totalPages) }
+                </span>
+                <span class="slds-var-p-horizontal_x-small">
+                    Number of records: {! (v.filteredData.length) }
+                </span>
+                <lightning:button
+                    label="Next"
+                    iconName="utility:chevronright"
+                    iconPosition="right"
+                    onclick="{! c.onNext }"
+                    disabled="{! v.currentPageNumber == v.totalPages }" />
+                <lightning:button
+                    label="Last"
+                    iconName="utility:right"
+                    iconPosition="right"
+                    onclick="{! c.onLast }"        
+                    disabled="{! v.currentPageNumber == v.totalPages }" />
+            </div>
+            <div class="inline-container">
+                <span class="padding-right">
+                    <lightning:input
+                        variant="label-hidden"
+                        placeholder="Search Phrase"
+                        type="search"
+                        value="{! v.searchPhrase }"
+                        onchange="{! c.onChangeSearchPhrase }" />
+                </span>
+                <span>
+                    <lightning:button
+                        label="Search"
+                        variant="neutral"
+                        onclick="{! c.handleSearch }" />
+                    <lightning:button
+                        label="New"
+                        variant="success"
+                        onclick="{! c.openModal }" />
+                </span>
+            </div>
+        </div>
+        
+        <aura:if isTrue="{!v.isOpenModal}">
+            <!-- Modal/Popup Box starts here-->
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <!-- Modal/Popup Box Header Starts here-->
+                    <header class="slds-modal__header">
+                        <lightning:buttonIcon iconName="utility:close"
+                                              onclick="{! c.closeModal }"
+                                              alternativeText="close"
+                                              variant="bare-inverse"
+                                              class="slds-modal__close"/>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Add Contacts</h2>
+                    </header>
+                    <!--Modal/Popup Box Body Starts here-->
+                    <div class="slds-modal__content slds-p-around_medium" style="height:400px" id="modal-content-id-1">
+                        <c:reUsableMultiSelectLookup objectAPIName="contact"
+                                                     aura:id='lookup'
+                                                     filter="{!v.lookupFilter}"
+                                                     IconName="standard:contact"
+                                                     lstSelectedRecords="{!v.contacts}"
+                                                     parent="{!this}"
+                                                     label="Contacts"
+                                                     allowClear="false"
+                                                     />
+                    </div>
+                    <!--Modal/Popup Box Footer Starts here-->
+                    <footer class="slds-modal__footer">
+                        <lightning:button variant="neutral"
+                                          label="Cancel"
+                                          title="Cancel"
+                                          onclick="{! c.closeModal }"/>
+                        <lightning:button aura:id="saveOne" label="{!v.parentRecord.isRecurrence__c == true ? 'Save One' : 'Save'}" class="slds-button"
+                                          variant="brand" onclick="{!c.submitAdditions}"/>
+                        <aura:if isTrue="{!v.parentRecord.isRecurrence__c == true}">
+                            <lightning:button aura:id="saveAll" label="Save All" class="slds-button"
+                                              variant="brand" onclick="{!c.submitAdditions}"/>
+                        </aura:if>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </aura:if>
+        <lightning:datatable
+            aura:id="table"
+            columns="{! v.columns }"
+            data="{! v.tableData }"
+            hideCheckboxColumn="true"
+            onrowaction="{! c.handleEventRecurringRowAction }"
+            keyField="Id" />
+        
+        <aura:if isTrue="{!v.recurringModal}">
+            <!-- Modal/Popup Box starts here-->
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <!-- Modal/Popup Box Header Starts here-->
+                    <header class="slds-modal__header">
+                        <lightning:buttonIcon iconName="utility:close"
+                                              onclick="{! c.closeModal }"
+                                              alternativeText="close"
+                                              variant="bare-inverse"
+                                              class="slds-modal__close"/>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Add/Remove Invitees?</h2>
+                    </header>
+                    <!--Modal/Popup Box Body Starts here-->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        Would you like to save changes to <b>only this event</b> or <b>this and the following events in the series</b>?                        
+                    </div>
+                    
+                    <!--Modal/Popup Box Footer Starts here-->
+                    <footer class="slds-modal__footer">
+                        <lightning:button variant="brand-outline"
+                                          label="Not Now"
+                                          title="Not Now"
+                                          onclick="{! c.closeModal }"/>
+                        <lightning:button class = "success-text" variant="neutral"
+                                          aura:id="saveOne"
+                                          label="Save One"
+                                          title="SaveOne"
+                                          onclick= "{!c.handleRecurringSaveAction}"
+                                          />
+                        <lightning:button variant="success"
+                                          aura:id="saveAll"
+                                          label="Save All"
+                                          title="SaveAll"
+                                          onclick= "{!c.handleRecurringSaveAction}"
+                                          />
+                    </footer>
+                    
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </aura:if>
+    </lightning:card>
+</aura:component>

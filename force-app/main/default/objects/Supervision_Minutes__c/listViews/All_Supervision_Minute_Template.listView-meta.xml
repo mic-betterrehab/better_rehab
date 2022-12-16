@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Supervision_Minute_Template</fullName>
+    <columns>NAME</columns>
+    <columns>Supervisee__c</columns>
+    <columns>Supervisor__c</columns>
+    <columns>CREATEDBY_USER</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Supervisee__c</field>
+        <operation>equals</operation>
+        <value>Carmen Francis</value>
+    </filters>
+    <filters>
+        <field>Supervisor__c</field>
+        <operation>equals</operation>
+        <value>Hannah Young</value>
+    </filters>
+    <label>All Supervision Minute Template</label>
+</ListView>

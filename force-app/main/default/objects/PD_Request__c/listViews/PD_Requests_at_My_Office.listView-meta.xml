@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PD_Requests_at_My_Office</fullName>
+    <columns>CREATED_DATE</columns>
+    <columns>NAME</columns>
+    <columns>Employee_Name__c</columns>
+    <columns>Course_Name__c</columns>
+    <columns>Status__c</columns>
+    <columns>Subsidized_Cost__c</columns>
+    <columns>Total_Subsidised_Cost__c</columns>
+    <columns>Course_is_Paid__c</columns>
+    <columns>Course_Payment_Amount__c</columns>
+    <columns>Course_Payment_Date__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Current_Office_Manager__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>contains</operation>
+        <value>Pending,Approved,Denied</value>
+    </filters>
+    <label>PD Requests at My Office</label>
+    <sharedTo>
+        <roleAndSubordinates>Management_Finance</roleAndSubordinates>
+    </sharedTo>
+</ListView>

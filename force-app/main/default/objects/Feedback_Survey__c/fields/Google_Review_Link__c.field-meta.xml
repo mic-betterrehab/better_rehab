@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Google_Review_Link__c</fullName>
+    <externalId>false</externalId>
+    <formula>Worker_Site__r.Google_Review_Link__c</formula>
+    <inlineHelpText>Link is based on the worker site field</inlineHelpText>
+    <label>Google Review Link</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

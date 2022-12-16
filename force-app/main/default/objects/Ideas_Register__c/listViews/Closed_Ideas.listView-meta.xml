@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Closed_Ideas</fullName>
+    <columns>NAME</columns>
+    <columns>Date_Suggested__c</columns>
+    <columns>Suggested_BY__c</columns>
+    <columns>Category__c</columns>
+    <columns>Si__c</columns>
+    <columns>Improvement_Overview__c</columns>
+    <columns>Internal_Comments__c</columns>
+    <columns>Status__c</columns>
+    <columns>Action_Log__c</columns>
+    <columns>Assigned_To__c</columns>
+    <columns>LAST_ACTIVITY</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Closed</value>
+    </filters>
+    <label>Closed Ideas</label>
+</ListView>

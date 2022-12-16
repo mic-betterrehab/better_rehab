@@ -1,0 +1,23 @@
+<aura:component>
+    <aura:attribute name="parent" type="Aura.Component" description="Parent component"/>
+
+    <section role="dialog" tabindex="-1" aria-modal="true" aria-label="Meaningful description of the modal content" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <lightning:buttonIcon
+                iconName="utility:close"
+                onclick="{! c.closeModal }"
+                alternativeText="close"
+                variant="bare-inverse"
+                class="slds-modal__close"
+            />
+            <div class="slds-modal__content slds-p-around_medium slds-modal__content_headless" id="modal-content-id-1">
+                <h1>You've been inactive for quite a while, some data might have been edited/updated. Do you want to reload the calendar to get the latest data?</h1>
+            </div>
+            <div class="slds-modal__footer">
+                <button class="slds-button slds-button_neutral" aria-label="Cancel and close" onclick="{! c.closeModal }">Cancel</button>
+                <button class="slds-button slds-button_brand" onclick="{! c.updateWillReload }">Yes</button>
+            </div>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+</aura:component>

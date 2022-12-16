@@ -1,0 +1,964 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Email to be sent to offboarder with information about their IT assets</description>
+        <name>Offboarder_Email</name>
+        <label>Laptop1Phone1</label>
+        <locationX>542</locationX>
+        <locationY>1008</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>Laptop1Phone1EmailTemplate</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Direct_Supervisor__r.Email</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <stringValue>it@betterrehab.com.au</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>[IMPORTANT] Collect IT assets</stringValue>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <description>Email to be sent to offboarder with information about their IT assets</description>
+        <name>Offboarder_Email_0</name>
+        <label>Laptop1ONLY</label>
+        <locationX>834</locationX>
+        <locationY>1128</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>Laptop1ONLY</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Direct_Supervisor__r.Email</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <stringValue>it@betterrehab.com.au</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>[IMPORTANT] Collect IT assets</stringValue>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <description>Email to be sent to offboarder with information about their IT assets</description>
+        <name>Offboarder_Email_0_0</name>
+        <label>Laptop2Phone1</label>
+        <locationX>1107</locationX>
+        <locationY>1073</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>Laptop2Phone1EmailTemplate</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Direct_Supervisor__r.Email</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <stringValue>it@betterrehab.com.au</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>[IMPORTANT] Collect IT assets</stringValue>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <description>Email to be sent to offboarder with information about their IT assets</description>
+        <name>Offboarder_Email_0_0_0</name>
+        <label>Laptop3Phone1</label>
+        <locationX>1231</locationX>
+        <locationY>1055</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>Laptop3Phone1EmailTemplate</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Direct_Supervisor__r.Email</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <stringValue>it@betterrehab.com.au</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>[IMPORTANT] Collect IT assets</stringValue>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <description>Email to be sent to offboarder with information about their IT assets</description>
+        <name>Offboarder_Email_0_0_0_0</name>
+        <label>Laptop1Phone2</label>
+        <locationX>1356</locationX>
+        <locationY>1059</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>Laptop1Phone2EmailTemplate</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Direct_Supervisor__r.Email</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <stringValue>it@betterrehab.com.au</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>[IMPORTANT] Collect IT assets</stringValue>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <apiVersion>54.0</apiVersion>
+    <assignments>
+        <name>Assign_Laptop_Record_1</name>
+        <label>Assign Laptop Record 1</label>
+        <locationX>3100</locationX>
+        <locationY>761</locationY>
+        <assignmentItems>
+            <assignToReference>LaptopRecord1</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_through_Assets</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_through_Assets</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Laptop_Record_2</name>
+        <label>Assign Laptop Record 2</label>
+        <locationX>2414</locationX>
+        <locationY>1268</locationY>
+        <assignmentItems>
+            <assignToReference>LaptopRecord2</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_through_Assets</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_through_Assets</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Laptop_Record_2_0</name>
+        <label>Assign Laptop Record 3</label>
+        <locationX>2170</locationX>
+        <locationY>1145</locationY>
+        <assignmentItems>
+            <assignToReference>LaptopRecord3</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_through_Assets</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_through_Assets</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Laptop_Record_2_0_0</name>
+        <label>Assign Laptop Record 4</label>
+        <locationX>1957</locationX>
+        <locationY>1042</locationY>
+        <assignmentItems>
+            <assignToReference>LaptopRecord4</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_through_Assets</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_through_Assets</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Phone_Record_1_0</name>
+        <label>Assign Phone Record 1</label>
+        <locationX>3194</locationX>
+        <locationY>175</locationY>
+        <assignmentItems>
+            <assignToReference>PhoneRecord1</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_through_Assets</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_through_Assets</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Phone_Record_2</name>
+        <label>Assign Phone Record 2</label>
+        <locationX>3104</locationX>
+        <locationY>336</locationY>
+        <assignmentItems>
+            <assignToReference>PhoneRecord2</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_through_Assets</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_through_Assets</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Assign_Phone_Record_2_0</name>
+        <label>Assign Phone Record 3</label>
+        <locationX>3118</locationX>
+        <locationY>507</locationY>
+        <assignmentItems>
+            <assignToReference>PhoneRecord3</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>Loop_through_Assets</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Loop_through_Assets</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Increase_Asset_Count</name>
+        <label>Increase Asset Count</label>
+        <locationX>2109</locationX>
+        <locationY>598</locationY>
+        <assignmentItems>
+            <assignToReference>AssetCount</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>LaptopCount</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Store_each_IT_Asset_in_var</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>Increase_Asset_Count_0</name>
+        <label>Increase Asset Count</label>
+        <locationX>2106</locationX>
+        <locationY>188</locationY>
+        <assignmentItems>
+            <assignToReference>AssetCount</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <assignmentItems>
+            <assignToReference>PhoneCount</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Store_each_IT_Asset_in_var_0</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <name>Depending_on_Asset_Type</name>
+        <label>Depending on Asset Type</label>
+        <locationX>1646</locationX>
+        <locationY>375</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>If_Laptop</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Loop_through_Assets.RecordTypeId</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>0122v000001OJMjAAO</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Increase_Asset_Count</targetReference>
+            </connector>
+            <label>If Laptop</label>
+        </rules>
+        <rules>
+            <name>If_Phone</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Loop_through_Assets.RecordTypeId</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>0122v000001OJMeAAO</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Increase_Asset_Count_0</targetReference>
+            </connector>
+            <label>If Phone</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Depending_on_laptop_and_phone_counter</name>
+        <label>Depending on laptop and phone counter</label>
+        <locationX>971</locationX>
+        <locationY>684</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>If_1_Laptop_1_Phone</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>LaptopCount</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>1.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>PhoneCount</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>1.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Offboarder_Email</targetReference>
+            </connector>
+            <label>If 1 Laptop 1 Phone</label>
+        </rules>
+        <rules>
+            <name>If_2_Laptop_1_Phone</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>LaptopCount</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>2.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>PhoneCount</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>1.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Offboarder_Email_0_0</targetReference>
+            </connector>
+            <label>If 2 Laptop 1 Phone</label>
+        </rules>
+        <rules>
+            <name>If_3_Laptop_1_Phone</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>LaptopCount</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>3.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>PhoneCount</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>1.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Offboarder_Email_0_0_0</targetReference>
+            </connector>
+            <label>If 3 Laptop 1 Phone</label>
+        </rules>
+        <rules>
+            <name>If_1_Laptop_ONLY</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>LaptopCount</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>1.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>AssetCount</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>1.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Offboarder_Email_0</targetReference>
+            </connector>
+            <label>If 1 Laptop ONLY</label>
+        </rules>
+        <rules>
+            <name>X1_Laptop_2_Phone</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>LaptopCount</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>1.0</numberValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>PhoneCount</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>2.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Offboarder_Email_0_0_0_0</targetReference>
+            </connector>
+            <label>1 Laptop 2 Phone</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Store_each_IT_Asset_in_var</name>
+        <label>Store each IT Asset in var</label>
+        <locationX>2404</locationX>
+        <locationY>526</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>If_asset_count_equals_1</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>LaptopCount</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>1.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Laptop_record_1</targetReference>
+            </connector>
+            <label>If laptop count equals 1</label>
+        </rules>
+        <rules>
+            <name>If_asset_count_equals_2</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>LaptopCount</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>2.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Laptop_record_2</targetReference>
+            </connector>
+            <label>If laptop count equals 2</label>
+        </rules>
+        <rules>
+            <name>If_asset_count_equals_3</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>LaptopCount</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>3.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Laptop_record_2_0</targetReference>
+            </connector>
+            <label>If laptop count equals 3</label>
+        </rules>
+        <rules>
+            <name>If_asset_count_equals_4</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>LaptopCount</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>4.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Laptop_record_2_0_0</targetReference>
+            </connector>
+            <label>If laptop count equals 4</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <name>Store_each_IT_Asset_in_var_0</name>
+        <label>Store each IT Asset in var</label>
+        <locationX>2444</locationX>
+        <locationY>238</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>If_phone_count_equals_1_0</name>
+            <conditionLogic>or</conditionLogic>
+            <conditions>
+                <leftValueReference>PhoneCount</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>1.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Phone_record_1_0</targetReference>
+            </connector>
+            <label>If phone count equals 1</label>
+        </rules>
+        <rules>
+            <name>If_phone_count_equals_2_0</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>PhoneCount</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>2.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Phone_record_2</targetReference>
+            </connector>
+            <label>If phone count equals 2</label>
+        </rules>
+        <rules>
+            <name>If_phone_count_equals_3_0</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>PhoneCount</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <numberValue>3.0</numberValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Phone_record_2_0</targetReference>
+            </connector>
+            <label>If phone count equals 3</label>
+        </rules>
+    </decisions>
+    <description>When employee is offboarded, an email is sent to direct supervisor reminding them to collect their supervisee&apos;s IT Assets</description>
+    <interviewLabel>Offboarding Email to Direct Supervisor {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Offboarding Email to Direct Supervisor</label>
+    <loops>
+        <description>Process each IT asset and assign each asset to a variable</description>
+        <name>Loop_through_Assets</name>
+        <label>Loop through IT Assets</label>
+        <locationX>986</locationX>
+        <locationY>390</locationY>
+        <collectionReference>GetAssetInfo</collectionReference>
+        <iterationOrder>Asc</iterationOrder>
+        <nextValueConnector>
+            <targetReference>Depending_on_Asset_Type</targetReference>
+        </nextValueConnector>
+        <noMoreValuesConnector>
+            <targetReference>Depending_on_laptop_and_phone_counter</targetReference>
+        </noMoreValuesConnector>
+    </loops>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Laptop_record_1</name>
+        <label>Laptop record 1</label>
+        <locationX>2778</locationX>
+        <locationY>779</locationY>
+        <connector>
+            <targetReference>Assign_Laptop_Record_1</targetReference>
+        </connector>
+        <inputReference>LaptopRecord1</inputReference>
+    </recordCreates>
+    <recordCreates>
+        <name>Laptop_record_2</name>
+        <label>Laptop record 2</label>
+        <locationX>2416</locationX>
+        <locationY>1049</locationY>
+        <connector>
+            <targetReference>Assign_Laptop_Record_2</targetReference>
+        </connector>
+        <inputReference>LaptopRecord2</inputReference>
+    </recordCreates>
+    <recordCreates>
+        <name>Laptop_record_2_0</name>
+        <label>Laptop record 3</label>
+        <locationX>2243</locationX>
+        <locationY>938</locationY>
+        <connector>
+            <targetReference>Assign_Laptop_Record_2_0</targetReference>
+        </connector>
+        <inputReference>LaptopRecord3</inputReference>
+    </recordCreates>
+    <recordCreates>
+        <name>Laptop_record_2_0_0</name>
+        <label>Laptop record 4</label>
+        <locationX>1957</locationX>
+        <locationY>834</locationY>
+        <connector>
+            <targetReference>Assign_Laptop_Record_2_0_0</targetReference>
+        </connector>
+        <inputReference>LaptopRecord4</inputReference>
+    </recordCreates>
+    <recordCreates>
+        <name>Phone_record_1_0</name>
+        <label>Phone record 1</label>
+        <locationX>2854</locationX>
+        <locationY>172</locationY>
+        <connector>
+            <targetReference>Assign_Phone_Record_1_0</targetReference>
+        </connector>
+        <inputReference>PhoneRecord1</inputReference>
+    </recordCreates>
+    <recordCreates>
+        <name>Phone_record_2</name>
+        <label>Phone record 2</label>
+        <locationX>2866</locationX>
+        <locationY>322</locationY>
+        <connector>
+            <targetReference>Assign_Phone_Record_2</targetReference>
+        </connector>
+        <inputReference>PhoneRecord2</inputReference>
+    </recordCreates>
+    <recordCreates>
+        <name>Phone_record_2_0</name>
+        <label>Phone record 3</label>
+        <locationX>2870</locationX>
+        <locationY>518</locationY>
+        <connector>
+            <targetReference>Assign_Phone_Record_2_0</targetReference>
+        </connector>
+        <inputReference>PhoneRecord3</inputReference>
+    </recordCreates>
+    <recordLookups>
+        <name>GetITAssets</name>
+        <label>Get IT Assets</label>
+        <locationX>776</locationX>
+        <locationY>395</locationY>
+        <assignNullValuesIfNoRecordsFound>true</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Loop_through_Assets</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Assigned_To__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.User__r.Id</elementReference>
+            </value>
+        </filters>
+        <object>IT_Asset__c</object>
+        <outputReference>GetAssetInfo</outputReference>
+        <queriedFields>Id</queriedFields>
+        <queriedFields>Brand__c</queriedFields>
+        <queriedFields>Name</queriedFields>
+        <queriedFields>Model__c</queriedFields>
+        <queriedFields>Assigned_To__c</queriedFields>
+        <queriedFields>RecordTypeId</queriedFields>
+    </recordLookups>
+    <start>
+        <locationX>650</locationX>
+        <locationY>48</locationY>
+        <object>Offboarding__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <scheduledPaths>
+            <name>On_Exit_Date</name>
+            <connector>
+                <targetReference>GetITAssets</targetReference>
+            </connector>
+            <label>On Exit Date</label>
+            <offsetNumber>0</offsetNumber>
+            <offsetUnit>Days</offsetUnit>
+            <recordField>Exit_Date__c</recordField>
+            <timeSource>RecordField</timeSource>
+        </scheduledPaths>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Obsolete</status>
+    <textTemplates>
+        <name>Laptop1ONLY</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Hello {!$Record.Direct_Supervisor__r.FirstName}! 
+
+Please note that today is {!$Record.First_Name__c}&apos;s last working day, you are expected to collect the below IT assets. 
+
+Name: {!$Record.First_Name__c}
+Email address: {!$Record.Email__c}
+Exit date: {!$Record.Exit_Date__c}
+
+Number of Assets assigned: {!AssetCount}
+
+Laptop Serial No: {!LaptopRecord1.Name}
+Laptop Link: https://betterrehab.lightning.force.com/lightning/r/IT_Asset__c/{!LaptopRecord1.Id}/view
+
+Please contact IT immediately if the following assets are not handed over to the Office Manager or yourself. 
+
+Important notes : 
+1.	Please return these assets to the Support office on or before the last working Friday of every month. 
+2.	Let IT know immediately if you notice any physical damage to these devices.
+3.	Make sure the iPhone is signed out of the iCloud account and factory reset.  
+4.	Please do not write the passwords/PIN anywhere on the laptop/packaging.
+5.	Do not forget to collect the laptop charger. 
+
+If you need any further assistance, please contact it@betterrehab.com.au. 
+
+Regards,
+IT Team</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Laptop1Phone1EmailTemplate</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Hello {!$Record.Direct_Supervisor__r.FirstName}! 
+
+Please note that today is {!$Record.First_Name__c}&apos;s last working day, you are expected to collect the below IT assets. 
+
+Name: {!$Record.First_Name__c}
+Email address: {!$Record.Email__c}
+Exit date: {!$Record.Exit_Date__c}
+
+Number of Assets assigned: {!AssetCount}
+
+Laptop Serial No: {!LaptopRecord1.Name}
+Laptop Link: https://betterrehab.lightning.force.com/lightning/r/IT_Asset__c/{!LaptopRecord1.Id}/view
+
+Phone Serial No: {!PhoneRecord1.Name}
+Phone Link: https://betterrehab.lightning.force.com/lightning/r/IT_Asset__c/{!PhoneRecord1.Id}/view
+
+Please contact IT immediately if the following assets are not handed over to the Office Manager or yourself. 
+
+Important notes : 
+1.	Please return these assets to the Support office on or before the last working Friday of every month. 
+2.	Let IT know immediately if you notice any physical damage to these devices.
+3.	Make sure the iPhone is signed out of the iCloud account and factory reset.  
+4.	Please do not write the passwords/PIN anywhere on the laptop/packaging.
+5.	Do not forget to collect the laptop charger. 
+
+If you need any further assistance, please contact it@betterrehab.com.au. 
+
+Regards,
+IT Team</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Laptop1Phone2EmailTemplate</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Hello {!$Record.Direct_Supervisor__r.FirstName}!&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Please note that today is {!$Record.First_Name__c}&apos;s last working day, you are expected to collect the below IT assets.&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Name: {!$Record.First_Name__c}&lt;/p&gt;&lt;p&gt;Email address: {!$Record.Email__c}&lt;/p&gt;&lt;p&gt;Exit date: {!$Record.Exit_Date__c}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Number of Assets assigned: {!AssetCount}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Laptop Serial No: {!LaptopRecord1.Name}&lt;/p&gt;&lt;p&gt;Laptop Link: https://betterrehab.lightning.force.com/lightning/r/IT_Asset__c/{!LaptopRecord1.Id}/view&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Phone Serial No: {!PhoneRecord1.Name}&lt;/p&gt;&lt;p&gt;Phone Link: https://betterrehab.lightning.force.com/lightning/r/IT_Asset__c/{!PhoneRecord1.Id}/view&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Phone Serial No: {!PhoneRecord2.Name}&lt;/p&gt;&lt;p&gt;Phone Link: https://betterrehab.lightning.force.com/lightning/r/IT_Asset__c/{!PhoneRecord2.Id}/view&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Please contact IT immediately if the following assets are not handed over to the Office Manager or yourself.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Important notes :&amp;nbsp;&lt;/p&gt;&lt;p&gt;1.	Please return these assets to the Support office on or before the last working Friday of every month.&amp;nbsp;&lt;/p&gt;&lt;p&gt;2.	Let IT know immediately if you notice any physical damage to these devices.&lt;/p&gt;&lt;p&gt;3.	Make sure the iPhone is signed out of the iCloud account and factory reset.&amp;nbsp;&amp;nbsp;&lt;/p&gt;&lt;p&gt;4.	Please do not write the passwords/PIN anywhere on the laptop/packaging.&lt;/p&gt;&lt;p&gt;5.	Do not forget to collect the laptop charger.&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;If you need any further assistance, please contact it@betterrehab.com.au.&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Regards,&lt;/p&gt;&lt;p&gt;IT Team&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Laptop2Phone1EmailTemplate</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Hello {!$Record.Direct_Supervisor__r.FirstName}!&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Please note that today is {!$Record.First_Name__c}&apos;s last working day, you are expected to collect the below IT assets.&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Name: {!$Record.First_Name__c}&lt;/p&gt;&lt;p&gt;Email address: {!$Record.Email__c}&lt;/p&gt;&lt;p&gt;Exit date: {!$Record.Exit_Date__c}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Number of Assets assigned: {!AssetCount}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Laptop Serial No: {!LaptopRecord1.Name}&lt;/p&gt;&lt;p&gt;Laptop Link: https://betterrehab.lightning.force.com/lightning/r/IT_Asset__c/{!LaptopRecord1.Id}/view&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Laptop Serial No: {!LaptopRecord2.Name}&lt;/p&gt;&lt;p&gt;Laptop Link: https://betterrehab.lightning.force.com/lightning/r/IT_Asset__c/{!LaptopRecord2.Id}/view&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Phone Serial No: {!PhoneRecord1.Name}&lt;/p&gt;&lt;p&gt;Phone Link: https://betterrehab.lightning.force.com/lightning/r/IT_Asset__c/{!PhoneRecord1.Id}/view&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Please contact IT immediately if the following assets are not handed over to the Office Manager or yourself.&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Important notes :&amp;nbsp;&lt;/p&gt;&lt;p&gt;1.	Please return these assets to the Support office on or before the last working Friday of every month.&amp;nbsp;&lt;/p&gt;&lt;p&gt;2.	Let IT know immediately if you notice any physical damage to these devices.&lt;/p&gt;&lt;p&gt;3.	Make sure the iPhone is signed out of the iCloud account and factory reset.&amp;nbsp;&amp;nbsp;&lt;/p&gt;&lt;p&gt;4.	Please do not write the passwords/PIN anywhere on the laptop/packaging.&lt;/p&gt;&lt;p&gt;5.	Do not forget to collect the laptop charger.&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;If you need any further assistance, please contact it@betterrehab.com.au.&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Regards,&lt;/p&gt;&lt;p&gt;IT Team&lt;/p&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>Laptop3Phone1EmailTemplate</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;Hello {!$Record.Direct_Supervisor__r.FirstName}!&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Please note that today is {!$Record.First_Name__c}&apos;s last working day, you are expected to collect the below IT assets.&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Name: {!$Record.First_Name__c}&lt;/p&gt;&lt;p&gt;Email address: {!$Record.Email__c}&lt;/p&gt;&lt;p&gt;Exit date: {!$Record.Exit_Date__c}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Number of Assets assigned: {!AssetCount}&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Laptop Serial No: {!LaptopRecord1.Name}&lt;/p&gt;&lt;p&gt;Laptop Link: https://betterrehab.lightning.force.com/lightning/r/IT_Asset__c/{!LaptopRecord1.Id}/view&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Laptop Serial No: {!LaptopRecord2.Name}&lt;/p&gt;&lt;p&gt;Laptop Link: https://betterrehab.lightning.force.com/lightning/r/IT_Asset__c/{!LaptopRecord2.Id}/view&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Laptop Serial No: {!LaptopRecord3.Name}&lt;/p&gt;&lt;p&gt;Laptop Link: https://betterrehab.lightning.force.com/lightning/r/IT_Asset__c/{!LaptopRecord3.Id}/view&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Phone Serial No: {!PhoneRecord1.Name}&lt;/p&gt;&lt;p&gt;Phone Link: https://betterrehab.lightning.force.com/lightning/r/IT_Asset__c/{!PhoneRecord1.Id}/view&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Please contact IT immediately if the following assets are not handed over to the Office Manager or yourself.&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Important notes :&amp;nbsp;&lt;/p&gt;&lt;p&gt;1.	Please return these assets to the Support office on or before the last working Friday of every month.&amp;nbsp;&lt;/p&gt;&lt;p&gt;2.	Let IT know immediately if you notice any physical damage to these devices.&lt;/p&gt;&lt;p&gt;3.	Make sure the iPhone is signed out of the iCloud account and factory reset.&amp;nbsp;&amp;nbsp;&lt;/p&gt;&lt;p&gt;4.	Please do not write the passwords/PIN anywhere on the laptop/packaging.&lt;/p&gt;&lt;p&gt;5.	Do not forget to collect the laptop charger.&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;If you need any further assistance, please contact it@betterrehab.com.au.&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Regards,&lt;/p&gt;&lt;p&gt;IT Team&lt;/p&gt;</text>
+    </textTemplates>
+    <variables>
+        <name>AssetCount</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+        <value>
+            <numberValue>0.0</numberValue>
+        </value>
+    </variables>
+    <variables>
+        <name>AssetMake</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>IT_Asset__c</objectType>
+    </variables>
+    <variables>
+        <name>GetAssetInfo</name>
+        <dataType>SObject</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>IT_Asset__c</objectType>
+    </variables>
+    <variables>
+        <name>LaptopCount</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+    </variables>
+    <variables>
+        <name>LaptopRecord1</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>IT_Asset__c</objectType>
+    </variables>
+    <variables>
+        <name>LaptopRecord2</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>IT_Asset__c</objectType>
+    </variables>
+    <variables>
+        <name>LaptopRecord3</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>IT_Asset__c</objectType>
+    </variables>
+    <variables>
+        <name>LaptopRecord4</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>IT_Asset__c</objectType>
+    </variables>
+    <variables>
+        <name>PhoneCount</name>
+        <dataType>Number</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <scale>0</scale>
+    </variables>
+    <variables>
+        <name>PhoneRecord1</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>IT_Asset__c</objectType>
+    </variables>
+    <variables>
+        <name>PhoneRecord2</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>IT_Asset__c</objectType>
+    </variables>
+    <variables>
+        <name>PhoneRecord3</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+        <objectType>IT_Asset__c</objectType>
+    </variables>
+</Flow>

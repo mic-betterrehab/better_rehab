@@ -1,0 +1,40 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" controller="CalendarController">
+    <aura:attribute name="data" type="List" default="[]"  />
+    <aura:attribute name="selectedRow" type="object" default="{}" />
+    <aura:attribute name="isLoaded" type="Boolean" default="false" />
+    <aura:attribute name="excludedClients" type="object[]" default="[]" />
+    <aura:attribute name="eventRecord" type="Event" default="{}" />    
+    <aura:attribute name="toAdd" type="List" default="[]" />
+    <aura:attribute name="buttonId" type="String" />
+    
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }" />
+    
+    <aura:method name="createRelations" action="{!c.createCERsAura}" />
+    <aura:method name="cancelRelation" action="{!c.cancelCER}"/>
+    <aura:method name="bookRelation" action="{!c.bookCER}" />
+    <aura:method name="deleteRelation" action="{!c.deleteCERAura}" />
+    <aura:method name="cancelEvent" action="{!c.cancelEvent}"/>
+    <aura:method name="bookEvent" action="{!c.bookEvent}"/>
+    <aura:method name="checkPermission" action="{!checkPermission}" />
+    
+    <aura:handler name="paginationComponentEvent" event="c:paginationEvent"
+                  action="{!c.handlePaginationEvent}"/>
+    
+    <aura:attribute name="isLoading" type="Boolean" default="false"/>
+    <aura:if isTrue="{!v.isLoading}">
+        <div style="width:100%;height:100%">
+            <lightning:spinner alternativeText="Loading" size="large"/>
+        </div>
+    </aura:if>
+    
+    <aura:if isTrue="{!v.isLoaded}">
+        <c:TablePagination parent="{!this}" 
+                           allData="{!v.data}" 
+                           filteredData="{!v.data}" 
+                           lookupFilter="AND Record_Type_Name__c = 'Client'"
+                           contacts="{!v.excludedClients}"
+                           parentRecord="{!v.eventRecord}"
+                           />
+    </aura:if>
+    
+</aura:component>

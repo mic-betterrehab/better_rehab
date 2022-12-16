@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>VIC AHA Queue</name>
+    <queueMembers>
+        <users>
+            <user>alana.e@betterrehab.com.au</user>
+            <user>austria@betterrehab.com.au</user>
+            <user>callan@betterrehab.com.au</user>
+            <user>cara@betterrehab.com.au</user>
+            <user>cassandra.k@betterrehab.com.au</user>
+            <user>catelyn@betterrehab.com.au</user>
+            <user>celine@betterrehab.com.au</user>
+            <user>eleanor.c@betterrehab.com.au</user>
+            <user>emily.s@betterrehab.com.au</user>
+            <user>joanne@betterrehab.com.au</user>
+            <user>kiara@betterrehab.com.au</user>
+            <user>max@betterrehab.com.au</user>
+            <user>molly@betterrehab.com.au</user>
+            <user>rebeccaj@betterrehab.com.au</user>
+            <user>robbie@betterrehab.com.au</user>
+            <user>stephanie.m@betterrehabilitation.com.au</user>
+            <user>vincent@betterrehab.com.au</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Task</sobjectType>
+    </queueSobject>
+</Queue>

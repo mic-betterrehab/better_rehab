@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>new_grads</fullName>
+    <columns>NAME</columns>
+    <columns>Start_Date__c</columns>
+    <columns>First_Name__c</columns>
+    <columns>Last_Name__c</columns>
+    <columns>Department__c</columns>
+    <columns>Role_Title__c</columns>
+    <columns>Email__c</columns>
+    <columns>Phone_Number__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>Site__c</columns>
+    <columns>Phone_IMEI__c</columns>
+    <columns>User__c</columns>
+    <columns>Clinical_Supervisor__c</columns>
+    <columns>Direct_Supervisor__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Start_Date__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>1/1/2023</value>
+    </filters>
+    <filters>
+        <field>Internal_Banding__c</field>
+        <operation>equals</operation>
+        <value>Graduate Clinician</value>
+    </filters>
+    <label>new grads</label>
+    <sharedTo>
+        <group>IT</group>
+    </sharedTo>
+</ListView>

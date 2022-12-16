@@ -1,0 +1,268 @@
+.THIS .buttonView {
+    display : flex;
+    direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.THIS .buttonEdit {
+    display : flex;
+    direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.THIS .fullWidthCalendar {
+	width : 100%;
+}
+
+.THIS .smallerCalendar {
+	width : 67%;
+
+   }
+
+
+.THIS .fc-br-initialappointment {
+    background-color: rgba(15,94,163,0.3);
+    border-color: rgba(15,94,163,0.7);
+    color: rgb(0, 28, 54);
+}
+
+.THIS .fc-br-therapysession {
+    background-color: rgba(38,133,64,0.3);
+    border-color: rgba(38,133,64,0.7);
+    color: rgb(0, 54, 15);
+}
+
+.THIS .fc-br-otherpch {
+    background-color: rgba(116,43,108,0.3);
+    border-color: rgba(116,43,108,0.7);
+     color: rgb(56, 0, 51);
+}
+
+.THIS .fc-br-internal {
+    background-color: rgba(184,129,89,0.3);
+    border-color: rgba(184,129,89,0.7);
+    color: rgb(51, 22, 0);
+}
+
+.THIS .fc-br-outofoffice {
+    background-color: rgba(152,152,152,0.3);
+    border-color: rgba(152,152,152,0.7);
+     color: rgb(152,152,152);
+}
+
+/* bold pending */
+/*.THIS .fc-br-initialappointment.fc-br-pending {
+    background-color: rgba(15,94,163,0.7);
+    color: #b5cce1;
+    border-style: none;
+    padding-left: 7px;
+
+}
+
+.THIS .fc-br-therapysession.fc-br-pending{
+    background-color: rgba(38,133,64, 0.7);
+    color: #bddac5;
+    border-style: none;
+    padding-left: 7px;
+}
+
+
+*/
+
+.THIS .fc-br-initialappointment.fc-br-pending {
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(15,94,163,0.1),
+        rgba(15,94,163,0.1) 10px,
+        rgba(15,94,163,0.3) 10px,
+        rgba(15,94,163,0.3) 20px
+    );
+}
+
+.THIS .fc-br-therapysession.fc-br-pending{
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(38,133,64,0.1),
+        rgba(38,133,64,0.1) 10px,
+        rgba(38,133,64,0.3) 10px,
+        rgba(38,133,64,0.3) 20px
+    );
+
+}
+
+.THIS .fc-br-otherpch.fc-br-pending{
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(116,43,108,0.1),
+        rgba(116,43,108,0.1) 10px,
+        rgba(116,43,108,0.3) 10px,
+        rgba(116,43,108,0.3) 20px
+    );
+
+}
+
+.THIS .fc-br-therapysession.fc-br-pending, .THIS .fc-br-initialappointment.fc-br-pending {
+
+}
+
+
+
+.THIS .fc-br-initialappointment.fc-br-cancelled, .THIS .fc-br-therapysession.fc-br-cancelled {
+    /*background-color: rgba(153, 24, 46, 0.3);*/
+    color: rgb(153, 24, 46);
+    /* A lighter shade of red to reduce attention for cancelled events */
+    /* color: rgb(174, 72, 89); */
+    border-color: rgba(153, 24, 46, 0.7);
+
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(153, 24, 46, 0.1),
+        rgba(153, 24, 46, 0.1) 10px,
+        rgba(153, 24, 46, 0.3) 10px,
+        rgba(153, 24, 46, 0.3) 20px
+    );
+
+}
+
+
+
+.THIS .fc-event {
+    padding-left: 1px;
+    font-weight: 700;
+    border-style: solid;
+    border-width: 1px;
+    border-left-width: 7px;
+}
+
+.THIS .legend {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between
+}
+
+.THIS .legend-cards {
+    width:12%;
+    padding-left: 1px;
+    font-weight: 500;
+    border-style: solid;
+    border-width: 1px;
+    border-left-width: 14px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 12px;
+    text-align:center;
+    border-radius: 5px;
+}
+
+.THIS .legend-initial {background-color: rgba(15,94,163,0.3);
+    border-color: rgba(15,94,163,0.7);
+	color: rgb(0, 28, 54);}
+.THIS .legend-therapy {    background-color: rgba(38,133,64,0.3);
+    border-color: rgba(38,133,64,0.7);
+    color: rgb(0, 54, 15);}
+.THIS .legend-other {background-color: rgba(116,43,108,0.3);
+    border-color: rgba(116,43,108,0.7);
+    color: 56, 0, 51;}
+.THIS .legend-internal {background-color: rgba(184,129,89,0.3);
+    border-color: rgba(184,129,89,0.7);
+    color: rgb(51, 22, 0);}
+.THIS .legend-ooo {background-color: rgba(152,152,152,0.3);
+    border-color: rgba(152,152,152,0.7);
+    color: rgb(152,152,152);}
+.THIS .legend-initial-pending {background-color: rgba(15,94,163,0.7);
+    border-color: #b5cce1; color: #b5cce1}
+.THIS .legend-therapy-pending {    background-color: rgba(38,133,64,0.7);
+    border-color: #bddac5;
+    color: #bddac5}
+
+
+/* Now indicator purple */
+.THIS .fc-now-indicator {
+    border-color: purple;
+}
+
+.THIS .success-text {
+    color: green;
+}
+
+/* Media Queries / Reponsive Style */
+.THIS .calendar-event {
+    display: flex;
+    flex-direction: row;
+}
+
+.THIS .calendar-event .calendar-w-67 {
+    width: 67%;
+}
+
+.THIS .calendar-event .calendar-w-100 {
+    width: 100%;
+}
+
+.THIS .calendar-event .event-form {
+    width: 33%;
+    margin-left: 5px;
+}
+
+.THIS.scrollerSize {
+    height: 100px;
+    border-radius: 10px;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 768px) {
+    .THIS .calendar-event,    
+    .THIS .calendar-event .fc-header-toolbar {
+        flex-direction: column;
+    }
+    
+    .THIS .calendar-event .fc-header-toolbar {
+        flex-direction: row;
+        padding: 5px;
+        margin: auto;
+    }
+    
+    .THIS .eventForm-section {
+        font-weight: bold;
+    }
+
+    .THIS .calendar-event .legend-section {
+        display: none;
+    }
+
+    .THIS .calendar-event .fc-header-toolbar > div {
+        margin-block: 10px;
+    }
+
+    .THIS .calendar-event .fc-header-toolbar .fc-right .fc-button-group button:first-of-type,
+    .THIS .calendar-event .fc-header-toolbar .fc-right .fc-button-group button:nth-of-type(2)  {
+        display: none;
+    }
+    
+    .THIS .calendar-event .fc-header-toolbar .fc-center  {
+		font-size: 80%;
+    }    
+    
+    .THIS .calendar-event .fc-view-container  {
+		width: 90%;
+        margin: auto;
+        padding: 5px;
+    }     
+
+    .THIS .calendar-event .calendar-w-67, .THIS .calendar-event .event-form {
+        width: 100%;
+    }
+    
+    .THIS .modal {
+          width: 300px;
+           height: 300px;
+           position: absolute;
+           left: 50%;
+           top: 50%; 
+           margin-left:-150px;
+           margin-top: -150px;
+        
+    }
+}

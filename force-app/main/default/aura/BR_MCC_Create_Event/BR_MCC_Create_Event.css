@@ -1,0 +1,63 @@
+/* Header */
+.THIS .slds-modal__header .slds-section__title {
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 12px;
+}
+
+.THIS .slds-modal__header .slds-section__title .eventForm-section {
+  font-size: 1.5rem;
+}
+
+/**
+ * Might be used later
+.THIS .slds-modal__header .slds-section__title .slds-button {
+  background: unset;
+  color: rgb(186, 5, 23);
+}
+
+.THIS .slds-modal__header .slds-section__title .slds-button:hover,
+.THIS .slds-modal__header .slds-section__title .slds-button:active {
+  background: rgb(186, 5, 23);
+  color: white;
+}
+
+.THIS .preselect {
+  display: flex;
+  align-items: center;
+  padding-inline: 5px;
+}
+
+.THIS .preselect > label {
+  padding-right: 5px;
+}
+
+.THIS .slds-modal__footer .slds-button:first-of-type {
+  background: white;
+  color: rgb(1, 118, 211);
+  border-color: rgb(1, 118, 211);
+  padding-inline: 16px;
+}
+
+.THIS .slds-modal__footer .slds-button:first-of-type:hover,
+.THIS .slds-modal__footer .slds-button:first-of-type:active {
+  background: rgb(1, 118, 211);
+  color: white;
+}
+
+.THIS .slds-modal__footer .slds-button:nth-of-type(2):hover,
+.THIS .slds-modal__footer .slds-button:nth-of-type(2):active {
+  background: rgba(81, 21, 73, 1);
+  color: white;
+}
+.THIS .slds-modal__footer .slds-button:last-of-type {
+  background: white;
+  color: rgb(69, 198, 90);
+  border-color: rgb(69, 198, 90);
+}
+.THIS .slds-modal__footer .slds-button:last-of-type:hover,
+.THIS .slds-modal__footer .slds-button:last-of-type:active {
+  background: rgb(69, 198, 90);
+  color: white;
+}
+*/

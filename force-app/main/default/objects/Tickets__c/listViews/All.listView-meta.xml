@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>Summary__c</columns>
+    <columns>IssueType__c</columns>
+    <columns>Assigned_To__c</columns>
+    <columns>Priority__c</columns>
+    <columns>Status__c</columns>
+    <columns>On_Behalf__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>Close_Date_Time__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Open,Progress,Waiting</value>
+    </filters>
+    <label>All</label>
+    <sharedTo>
+        <group>IT</group>
+    </sharedTo>
+</ListView>

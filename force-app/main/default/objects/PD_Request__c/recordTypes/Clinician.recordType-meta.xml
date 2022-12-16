@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Clinician</fullName>
+    <active>true</active>
+    <description>For clinicians and team leaders only</description>
+    <label>Clinician</label>
+    <picklistValues>
+        <picklist>Course_Name__c</picklist>
+        <values>
+            <fullName>Accredited clinical courses</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Assistive Technology</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Diagnosis specific training</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>First Aid %2F CPR</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Home Modifications</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Leadership skills</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mental Health First Aid</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OT Driver Assessor Course</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Professional governing bodies</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Therapy interventions</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Approved</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Denied</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Pending</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+</RecordType>

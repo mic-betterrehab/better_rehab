@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>VIC Admin</name>
+    <queueMembers>
+        <users>
+            <user>fae@betterrehabilitation.com.au</user>
+            <user>jenna@betterrehabilitation.com.au</user>
+            <user>maria@betterrehab.com.au</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Task</sobjectType>
+    </queueSobject>
+</Queue>

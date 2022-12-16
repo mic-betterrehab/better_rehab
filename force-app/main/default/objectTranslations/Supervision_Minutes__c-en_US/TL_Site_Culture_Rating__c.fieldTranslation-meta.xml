@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label></label>
+    <name>TL_Site_Culture_Rating__c</name>
+    <picklistValues>
+        <masterLabel>The Site Culture is Excellent</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>The Site Culture is Good</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>The Site Culture is a concern</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>The Site Culture needs work</masterLabel>
+        <translation></translation>
+    </picklistValues>
+</CustomFieldTranslation>

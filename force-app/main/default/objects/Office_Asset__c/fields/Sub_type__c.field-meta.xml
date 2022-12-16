@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sub_type__c</fullName>
+    <externalId>false</externalId>
+    <label>Sub-type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Type__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Monitor</fullName>
+                <default>false</default>
+                <label>Monitor</label>
+            </value>
+            <value>
+                <fullName>Camera</fullName>
+                <default>false</default>
+                <label>Camera</label>
+            </value>
+            <value>
+                <fullName>Printer</fullName>
+                <default>false</default>
+                <label>Printer</label>
+            </value>
+            <value>
+                <fullName>Microwave</fullName>
+                <default>false</default>
+                <label>Microwave</label>
+            </value>
+            <value>
+                <fullName>TV</fullName>
+                <default>false</default>
+                <label>TV</label>
+            </value>
+            <value>
+                <fullName>Fridge</fullName>
+                <default>false</default>
+                <label>Fridge</label>
+            </value>
+            <value>
+                <fullName>Coffee machine</fullName>
+                <default>false</default>
+                <label>Coffee machine</label>
+            </value>
+            <value>
+                <fullName>Paper shredder</fullName>
+                <default>false</default>
+                <label>Paper shredder</label>
+            </value>
+            <value>
+                <fullName>Fax machine</fullName>
+                <default>false</default>
+                <label>Fax machine</label>
+            </value>
+            <value>
+                <fullName>Laminator</fullName>
+                <default>false</default>
+                <label>Laminator</label>
+            </value>
+            <value>
+                <fullName>Vacuum</fullName>
+                <default>false</default>
+                <label>Vacuum</label>
+            </value>
+            <value>
+                <fullName>Desk</fullName>
+                <default>false</default>
+                <label>Desk</label>
+            </value>
+            <value>
+                <fullName>Chair</fullName>
+                <default>false</default>
+                <label>Chair</label>
+            </value>
+            <value>
+                <fullName>Boardroom table</fullName>
+                <default>false</default>
+                <label>Boardroom table</label>
+            </value>
+            <value>
+                <fullName>Cabinet/locker</fullName>
+                <default>false</default>
+                <label>Cabinet/locker</label>
+            </value>
+            <value>
+                <fullName>Table</fullName>
+                <default>false</default>
+                <label>Table</label>
+            </value>
+            <value>
+                <fullName>Ottoman</fullName>
+                <default>false</default>
+                <label>Ottoman</label>
+            </value>
+            <value>
+                <fullName>Sofa</fullName>
+                <default>false</default>
+                <label>Sofa</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Furniture</controllingFieldValue>
+            <valueName>Desk</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Furniture</controllingFieldValue>
+            <valueName>Chair</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Furniture</controllingFieldValue>
+            <valueName>Boardroom table</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Furniture</controllingFieldValue>
+            <valueName>Cabinet/locker</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Furniture</controllingFieldValue>
+            <valueName>Table</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Furniture</controllingFieldValue>
+            <valueName>Ottoman</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Furniture</controllingFieldValue>
+            <valueName>Sofa</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Furniture</controllingFieldValue>
+            <controllingFieldValue>Electrical appliance</controllingFieldValue>
+            <valueName>Other</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Electrical appliance</controllingFieldValue>
+            <valueName>Monitor</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Electrical appliance</controllingFieldValue>
+            <valueName>Camera</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Electrical appliance</controllingFieldValue>
+            <valueName>Printer</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Electrical appliance</controllingFieldValue>
+            <valueName>Microwave</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Electrical appliance</controllingFieldValue>
+            <valueName>TV</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Electrical appliance</controllingFieldValue>
+            <valueName>Fridge</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Electrical appliance</controllingFieldValue>
+            <valueName>Coffee machine</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Electrical appliance</controllingFieldValue>
+            <valueName>Paper shredder</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Electrical appliance</controllingFieldValue>
+            <valueName>Fax machine</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Electrical appliance</controllingFieldValue>
+            <valueName>Laminator</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Electrical appliance</controllingFieldValue>
+            <valueName>Vacuum</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

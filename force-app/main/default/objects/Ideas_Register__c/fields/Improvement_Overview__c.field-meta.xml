@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Improvement_Overview__c</fullName>
+    <description>Overview of suggestion for improvement or idea</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Overview of suggestion for improvement or idea</inlineHelpText>
+    <label>Improvement Overview</label>
+    <length>32768</length>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>LongTextArea</type>
+    <visibleLines>4</visibleLines>
+</CustomField>

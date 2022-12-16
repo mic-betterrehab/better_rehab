@@ -1,0 +1,183 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome" controller="BR_MCCController" access="global">
+		<ltng:require styles="{!join(',',
+                           $Resource.FCSv4 + '/packages/core/main.css',
+                           $Resource.FCSv4 + '/packages-premium/timeline/main.css',
+                           $Resource.FCSv4 + '/packages-premium/resource-timeline/main.css'
+                          )}"
+                  afterScriptsLoaded="{!c.scriptsLoaded}"
+                  scripts="{!join(',',
+                           $Resource.enrtcr__jQuery,
+                           $Resource.enrtcr__momentjs,
+                           $Resource.Zipline__moment_timezone_js,
+                           $Resource.FCSv4 + '/packages/core/main.js',
+                           $Resource.FCSv4 + '/packages-premium/timeline/main.js',
+                           $Resource.FCSv4 + '/packages-premium/resource-common/main.js',
+                           $Resource.FCSv4 + '/packages-premium/resource-timeline/main.js'
+                          )}"
+	/>
+
+    <!-- ATTRIBUTES -->
+    <aura:attribute name='calendar' type="object" default="{}" />
+    <aura:attribute name="isLoading" type="Boolean" default="false"/>
+    <aura:attribute name="didClickFilter" type="Boolean" default="false"/>
+    <aura:attribute name="willReload" type="Boolean" default="false"/>
+    <aura:attribute name="workers" type="sObject[]" default="[]"/>
+    <aura:attribute name="clinicians" type="List" default="[]" description="All resources loaded into the calendar"/>
+    <aura:attribute name="totalEvents" type="List" default="[]" description="All events loaded for all resources"/>
+    <aura:attribute name="filteredClinicians" type="List" default="[]" description="Filtered resources loaded into the calendar"/>
+    <aura:attribute name="filteredEvents" type="List" default="[]" description="Filtered events loaded into the calendar"/>
+    <aura:attribute name="multiLookupClinicians" type="List" default="[]" description="Filtered resources loaded into the calendar"/>
+    <aura:attribute name="multiLookupEvents" type="List" default="[]" description="Filtered events loaded into the calendar"/>
+    <aura:attribute name="eventSelected" type="object" default="{}" description="The selected event on the calendar" />
+    <aura:attribute name="loggedInUser" type="Contact" default="{ 'sobjectType': 'Contact'}" description="Details of logged in user"/>
+    <aura:attribute name="site" type="sObject" default="{}"/>
+    <aura:attribute name="discipline" type="String" default=""/>
+    <aura:attribute name="clinicianId" type="String" default=""/>
+    <aura:attribute name="searchclinicianIds" type="sObject[]" default="[]"/>
+    <aura:attribute name="goToDate" type="String" default=""/>
+    <aura:attribute name="goToNextPrevDate" type="String" default=""/>
+    <aura:attribute name="isNetxPrev" type="Boolean" default="false"/>
+    <aura:attribute name="isWeeklyView" type="Boolean" default="false"/>
+    <aura:attribute name="viewEvent" type="String" default="" />
+
+    <!-- Modal view handlers -->
+    <aura:attribute name="createFormVisible" type="Boolean" default="false" description="Show the create modal" />
+    <aura:attribute name="editFormVisible" type="Boolean" default="false" description="Show the edit/view modal" />
+
+
+    <!-- METHODS -->
+    <aura:method name="closeModals" action="{!c.closeModals}" access="PUBLIC" />
+    <aura:method name="updateWillReload" action="{!c.willReloadHandler}" access="PUBLIC" />
+    <aura:method name="reloadAfterCreateEvent" action="{!c.receiveEventCalendarObject}" access="PUBLIC" />
+    <aura:method name="multiLookupFilter" action="{!c.handleMultiLookup}" access="public">
+        <aura:attribute name="clinicians" type="sObject[]" default="[]" />
+        <aura:attribute name="clinicianId" type="String" default="" />
+    </aura:method>
+
+    <!-- HANDLERS -->
+    <aura:handler name="createResourceSlot" event="c:createResourceSlot" action="{!c.handleCreate}"/>
+    <aura:handler name="createToast" event="c:createToast" action="{!c.handleShowToast}"/>
+    <aura:handler name="updateSlot" event="c:updateSlot" action="{!c.handleUpdateSlot}"/>
+    <aura:handler name="deleteResourceSlot" event="c:deleteResourceSlot" action="{!c.handleDeleteSlot}"/>
+    <aura:handler name="createComponentEvent" event="c:updateEvent" action="{!c.receiveEventCalendarObject}" />
+
+    <!-- Events -->
+    <!-- <aura:registerEvent name="eventChange" type="c:eventSelect"/> -->
+
+    <!-- Loading spinner (keep) -->
+    <aura:renderIf isTrue="{!v.isLoading}">
+        <div style="width:100%;height:100%">
+            <lightning:spinner alternativeText="Loading" size="large"/>
+        </div>
+        <aura:set attribute="else">
+            <div class="slds-grid slds-gutters filters">
+                <div class="slds-col">
+                    <!-- <lightning:input name="input1" label="Site" onchange="{! c.site }"/> -->
+                    <c:customLookup
+                        aura:id='siteLookup'
+                        objectAPIName="enrtcr__Site__c"
+                        IconName="standard:setup"
+                        selectedRecord="{!v.site}"
+                        label="Site"
+                        queryFields=",enrtcr__Business_Address_1__c"
+                        placeholder="Search sites..."
+                    />
+                </div>
+                <div class="slds-col">
+                    <lightning:select aura:id="discipline" class="height-36-px" label="Discipline" name="Discipline" value="{!v.discipline}">
+                        <option value=""></option>
+                        <option value="Occupational Therapy">Occupational Therapy</option>
+                        <option value="Speech Pathology">Speech Pathology</option>
+                        <option value="Physiotherapy">Physiotherapy</option>
+                        <option value="Exercise Physiology">Exercise Physiology</option>
+                        <option value="Social Work">Social Work</option>
+                        <option value="Allied Health Assistant">Allied Health Assistant</option>
+                        <option value="PBS">PBS</option>
+                        <option value="Human Resources">Human Resources</option>
+                        <option value="Administration">Administration</option>
+                        <option value="Information Technology">Information Technology</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Business Development">Business Development</option>
+                        <option value="Learning &amp; Development">Learning &amp; Development</option>
+                        <option value="Talent">Talent</option>
+                    </lightning:select>
+                </div>
+                <div class="slds-col" style="max-width: 627px;">
+                        <c:reUsableMultiSelectLookup
+                            objectAPIName="contact"
+                            aura:id='multiWorkerLookup'
+                            filter="AND Record_Type_Name__c = 'Employee' AND enrtcr__Status__c = 'Current'"
+                            IconName="standard:contact"
+                            lstSelectedRecords="[]"
+                            label="Add additional workers"
+                            parent="{!this}"
+                            isFromMCC="true"
+                            placeholder="Search workers..."
+                        />
+                </div>
+                <div class="slds-col slds-size_1-of-12 load-button" aura:id="loadButton">
+                    <lightning:button
+                        label="Load"
+                        aura:id="actualButton"
+                        iconName="utility:search"
+                        iconPosition="left"
+                        variant="brand"
+                        onclick="{!c.handleFilter}"
+                    />
+                </div>
+            </div>
+        </aura:set>
+    </aura:renderIf>
+
+    <!-- header -->
+
+    <!-- body -->
+    <aura:if isTrue="{!v.createFormVisible}">
+        <c:BR_MCC_Create_Event
+            aura:id="mcc-create-event"
+            events="{!v.filteredEvents}"
+            parent="{!this}"
+            workers="{!v.filteredClinicians}"
+            loggedInUser="{!v.loggedInUser}"
+        >
+            <c:BR_CalendarCreate />
+        </c:BR_MCC_Create_Event>
+    </aura:if>
+    <aura:if isTrue="{!v.editFormVisible}">
+        <c:BR_MCC_Edit_Event
+            aura:id="eventModal"
+            parent="{!this}"
+            recordId="{!v.viewEvent}"
+            events="{!v.filteredEvents}"
+        />
+    </aura:if>
+    <aura:if isTrue="{!v.willReload}">
+        <div>Do you want to reload?</div>
+        <c:BR_InActiveAlert parent="{!this}"/>
+    </aura:if>
+
+    <div class="{!if(v.isLoading,'d-none','d-block')}">
+        <div class="slds-grid slds-gutters" style="padding-bottom: 1.5rem">
+            <div class="slds-col slds-size_2-of-12">
+                <lightning:input type="date" name="gotodate" placeholder="Go to date" value="{!v.goToDate}" onchange="{!c.handleGoToDate}"/>
+            </div>
+            <div class="slds-col slds-size_1-of-12" style="padding-inline: unset; padding-top: 1.5rem">
+                <aura:if isTrue="{!v.goToDate != ''}">
+                    <lightning:buttonIcon
+                        iconName="utility:clear"
+                        variant="bare"
+                        alternativeText="Clear date"
+                        title="Clear date"
+                        onclick="{!c.clearDate}"
+                    />
+                </aura:if>
+            </div>
+            <div class="slds-col slds-size_1-of-12 slds-col_bump-left">
+                <aura:if isTrue="{!v.isLoading == false}">
+                    <lightning:button class="w-100" variant="destructive" label="Clear filter" title="Destructive action" onclick="{! c.clearFilter }"/>
+                </aura:if>
+            </div>
+        </div>
+        <div aura:id='calendar'></div>
+    </div>
+</aura:component>

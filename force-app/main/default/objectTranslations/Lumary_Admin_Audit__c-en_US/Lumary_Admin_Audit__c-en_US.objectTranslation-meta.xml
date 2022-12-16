@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Lumary Admin Audit</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Lumary Admin Audits</value>
+    </caseValues>
+    <layouts>
+        <layout>Lumary Admin Audit Layout</layout>
+        <sections>
+            <label></label>
+            <section>Audit Scoring</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Initial_Report_Value</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Risk_Ax_Values</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>SA_Values</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Value_Notes</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Value_Tasks</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Values</name>
+    </validationRules>
+</CustomObjectTranslation>

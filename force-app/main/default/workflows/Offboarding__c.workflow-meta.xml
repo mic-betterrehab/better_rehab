@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>HR_New_Offboarder</fullName>
+        <ccEmails>hr@betterrehab.com.au</ccEmails>
+        <description>HR New Offboarder</description>
+        <protected>false</protected>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Offboarding_Tasks_for_HR</template>
+    </alerts>
+    <alerts>
+        <fullName>IT_Offboarding_Notification</fullName>
+        <description>IT Offboarding Notification</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>michaelz@betterrehabilitation.com.au</recipient>
+            <type>user</type>
+        </recipients>
+        <recipients>
+            <recipient>rafella@betterrehab.com.au</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/SUPPORTNewassignmentnotificationSAMPLE</template>
+    </alerts>
+    <alerts>
+        <fullName>L_D_New_Offboarder</fullName>
+        <ccEmails>learning@betterrehab.com.au</ccEmails>
+        <description>L&amp;D New Offboarder</description>
+        <protected>false</protected>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Offboarding_Tasks_for_L_D</template>
+    </alerts>
+    <alerts>
+        <fullName>Offboarding_IT_Asset</fullName>
+        <description>Offboarding IT Asset</description>
+        <protected>false</protected>
+        <recipients>
+            <field>User__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>unfiled$public/Offboarding_Email_Template</template>
+    </alerts>
+</Workflow>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Upcoming_MP_new_starters</fullName>
+    <columns>NAME</columns>
+    <columns>Department__c</columns>
+    <columns>Internal_Banding__c</columns>
+    <columns>Email__c</columns>
+    <columns>Phone_Number__c</columns>
+    <columns>Role_Title__c</columns>
+    <columns>Start_Date__c</columns>
+    <columns>Site__c</columns>
+    <columns>Office__c</columns>
+    <columns>User__c</columns>
+    <columns>Phone_IMEI__c</columns>
+    <columns>Laptop_Serial_Number__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Office__c</field>
+        <operation>equals</operation>
+        <value>Mornington,Gippsland,Surrey Hills,Moonee Ponds,Geelong,Werribee,Mulgrave,Briar Hill,Adelaide,Tasmania</value>
+    </filters>
+    <filters>
+        <field>Start_Date__c</field>
+        <operation>greaterThan</operation>
+        <value>TODAY</value>
+    </filters>
+    <label>Upcoming VIC/SA New Starters</label>
+</ListView>

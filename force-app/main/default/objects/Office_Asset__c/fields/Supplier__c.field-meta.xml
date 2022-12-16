@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Supplier__c</fullName>
+    <externalId>false</externalId>
+    <label>Supplier</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Sub_type__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Lenovo</fullName>
+                <default>false</default>
+                <label>Lenovo</label>
+            </value>
+            <value>
+                <fullName>HP</fullName>
+                <default>false</default>
+                <label>HP</label>
+            </value>
+            <value>
+                <fullName>LG</fullName>
+                <default>false</default>
+                <label>LG</label>
+            </value>
+            <value>
+                <fullName>Dell</fullName>
+                <default>false</default>
+                <label>Dell</label>
+            </value>
+            <value>
+                <fullName>Ricoh</fullName>
+                <default>false</default>
+                <label>Ricoh</label>
+            </value>
+            <value>
+                <fullName>Kogan</fullName>
+                <default>false</default>
+                <label>Kogan</label>
+            </value>
+            <value>
+                <fullName>Kmart</fullName>
+                <default>false</default>
+                <label>Kmart</label>
+            </value>
+            <value>
+                <fullName>APEX Furniture</fullName>
+                <default>false</default>
+                <label>APEX Furniture</label>
+            </value>
+            <value>
+                <fullName>Temple and Webster</fullName>
+                <default>false</default>
+                <label>Temple and Webster</label>
+            </value>
+            <value>
+                <fullName>Officeworks</fullName>
+                <default>false</default>
+                <label>Officeworks</label>
+            </value>
+            <value>
+                <fullName>IKEA</fullName>
+                <default>false</default>
+                <label>IKEA</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+                <label>Unknown</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Chair</controllingFieldValue>
+            <controllingFieldValue>Boardroom table</controllingFieldValue>
+            <controllingFieldValue>Cabinet/locker</controllingFieldValue>
+            <controllingFieldValue>Table</controllingFieldValue>
+            <controllingFieldValue>Ottoman</controllingFieldValue>
+            <controllingFieldValue>Sofa</controllingFieldValue>
+            <controllingFieldValue>Camera</controllingFieldValue>
+            <controllingFieldValue>Microwave</controllingFieldValue>
+            <controllingFieldValue>Printer</controllingFieldValue>
+            <controllingFieldValue>TV</controllingFieldValue>
+            <controllingFieldValue>Fridge</controllingFieldValue>
+            <controllingFieldValue>Coffee machine</controllingFieldValue>
+            <controllingFieldValue>Paper shredder</controllingFieldValue>
+            <controllingFieldValue>Fax machine</controllingFieldValue>
+            <controllingFieldValue>Laminator</controllingFieldValue>
+            <controllingFieldValue>Vacuum</controllingFieldValue>
+            <controllingFieldValue>Desk</controllingFieldValue>
+            <valueName>Kogan</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Chair</controllingFieldValue>
+            <controllingFieldValue>Boardroom table</controllingFieldValue>
+            <controllingFieldValue>Cabinet/locker</controllingFieldValue>
+            <controllingFieldValue>Table</controllingFieldValue>
+            <controllingFieldValue>Ottoman</controllingFieldValue>
+            <controllingFieldValue>Sofa</controllingFieldValue>
+            <controllingFieldValue>Camera</controllingFieldValue>
+            <controllingFieldValue>Microwave</controllingFieldValue>
+            <controllingFieldValue>Printer</controllingFieldValue>
+            <controllingFieldValue>TV</controllingFieldValue>
+            <controllingFieldValue>Fridge</controllingFieldValue>
+            <controllingFieldValue>Coffee machine</controllingFieldValue>
+            <controllingFieldValue>Paper shredder</controllingFieldValue>
+            <controllingFieldValue>Fax machine</controllingFieldValue>
+            <controllingFieldValue>Laminator</controllingFieldValue>
+            <controllingFieldValue>Vacuum</controllingFieldValue>
+            <controllingFieldValue>Desk</controllingFieldValue>
+            <valueName>Kmart</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Chair</controllingFieldValue>
+            <controllingFieldValue>Boardroom table</controllingFieldValue>
+            <controllingFieldValue>Cabinet/locker</controllingFieldValue>
+            <controllingFieldValue>Table</controllingFieldValue>
+            <controllingFieldValue>Ottoman</controllingFieldValue>
+            <controllingFieldValue>Sofa</controllingFieldValue>
+            <controllingFieldValue>Camera</controllingFieldValue>
+            <controllingFieldValue>Printer</controllingFieldValue>
+            <controllingFieldValue>TV</controllingFieldValue>
+            <controllingFieldValue>Fridge</controllingFieldValue>
+            <controllingFieldValue>Coffee machine</controllingFieldValue>
+            <controllingFieldValue>Paper shredder</controllingFieldValue>
+            <controllingFieldValue>Fax machine</controllingFieldValue>
+            <controllingFieldValue>Laminator</controllingFieldValue>
+            <controllingFieldValue>Vacuum</controllingFieldValue>
+            <controllingFieldValue>Desk</controllingFieldValue>
+            <valueName>APEX Furniture</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Chair</controllingFieldValue>
+            <controllingFieldValue>Boardroom table</controllingFieldValue>
+            <controllingFieldValue>Cabinet/locker</controllingFieldValue>
+            <controllingFieldValue>Table</controllingFieldValue>
+            <controllingFieldValue>Ottoman</controllingFieldValue>
+            <controllingFieldValue>Sofa</controllingFieldValue>
+            <controllingFieldValue>Camera</controllingFieldValue>
+            <controllingFieldValue>Printer</controllingFieldValue>
+            <controllingFieldValue>TV</controllingFieldValue>
+            <controllingFieldValue>Fridge</controllingFieldValue>
+            <controllingFieldValue>Coffee machine</controllingFieldValue>
+            <controllingFieldValue>Paper shredder</controllingFieldValue>
+            <controllingFieldValue>Fax machine</controllingFieldValue>
+            <controllingFieldValue>Laminator</controllingFieldValue>
+            <controllingFieldValue>Vacuum</controllingFieldValue>
+            <controllingFieldValue>Desk</controllingFieldValue>
+            <valueName>Temple and Webster</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Chair</controllingFieldValue>
+            <controllingFieldValue>Boardroom table</controllingFieldValue>
+            <controllingFieldValue>Cabinet/locker</controllingFieldValue>
+            <controllingFieldValue>Table</controllingFieldValue>
+            <controllingFieldValue>Ottoman</controllingFieldValue>
+            <controllingFieldValue>Sofa</controllingFieldValue>
+            <controllingFieldValue>Camera</controllingFieldValue>
+            <controllingFieldValue>Printer</controllingFieldValue>
+            <controllingFieldValue>TV</controllingFieldValue>
+            <controllingFieldValue>Fridge</controllingFieldValue>
+            <controllingFieldValue>Coffee machine</controllingFieldValue>
+            <controllingFieldValue>Paper shredder</controllingFieldValue>
+            <controllingFieldValue>Fax machine</controllingFieldValue>
+            <controllingFieldValue>Laminator</controllingFieldValue>
+            <controllingFieldValue>Vacuum</controllingFieldValue>
+            <controllingFieldValue>Desk</controllingFieldValue>
+            <valueName>Officeworks</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Chair</controllingFieldValue>
+            <controllingFieldValue>Boardroom table</controllingFieldValue>
+            <controllingFieldValue>Cabinet/locker</controllingFieldValue>
+            <controllingFieldValue>Table</controllingFieldValue>
+            <controllingFieldValue>Ottoman</controllingFieldValue>
+            <controllingFieldValue>Sofa</controllingFieldValue>
+            <controllingFieldValue>Camera</controllingFieldValue>
+            <controllingFieldValue>Printer</controllingFieldValue>
+            <controllingFieldValue>TV</controllingFieldValue>
+            <controllingFieldValue>Fridge</controllingFieldValue>
+            <controllingFieldValue>Coffee machine</controllingFieldValue>
+            <controllingFieldValue>Paper shredder</controllingFieldValue>
+            <controllingFieldValue>Fax machine</controllingFieldValue>
+            <controllingFieldValue>Laminator</controllingFieldValue>
+            <controllingFieldValue>Vacuum</controllingFieldValue>
+            <controllingFieldValue>Desk</controllingFieldValue>
+            <valueName>IKEA</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Chair</controllingFieldValue>
+            <controllingFieldValue>Boardroom table</controllingFieldValue>
+            <controllingFieldValue>Cabinet/locker</controllingFieldValue>
+            <controllingFieldValue>Table</controllingFieldValue>
+            <controllingFieldValue>Ottoman</controllingFieldValue>
+            <controllingFieldValue>Sofa</controllingFieldValue>
+            <controllingFieldValue>Camera</controllingFieldValue>
+            <controllingFieldValue>Microwave</controllingFieldValue>
+            <controllingFieldValue>Monitor</controllingFieldValue>
+            <controllingFieldValue>Printer</controllingFieldValue>
+            <controllingFieldValue>TV</controllingFieldValue>
+            <controllingFieldValue>Fridge</controllingFieldValue>
+            <controllingFieldValue>Coffee machine</controllingFieldValue>
+            <controllingFieldValue>Paper shredder</controllingFieldValue>
+            <controllingFieldValue>Fax machine</controllingFieldValue>
+            <controllingFieldValue>Laminator</controllingFieldValue>
+            <controllingFieldValue>Vacuum</controllingFieldValue>
+            <controllingFieldValue>Desk</controllingFieldValue>
+            <valueName>Other</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Chair</controllingFieldValue>
+            <controllingFieldValue>Boardroom table</controllingFieldValue>
+            <controllingFieldValue>Cabinet/locker</controllingFieldValue>
+            <controllingFieldValue>Table</controllingFieldValue>
+            <controllingFieldValue>Ottoman</controllingFieldValue>
+            <controllingFieldValue>Sofa</controllingFieldValue>
+            <controllingFieldValue>Camera</controllingFieldValue>
+            <controllingFieldValue>Microwave</controllingFieldValue>
+            <controllingFieldValue>Monitor</controllingFieldValue>
+            <controllingFieldValue>Printer</controllingFieldValue>
+            <controllingFieldValue>TV</controllingFieldValue>
+            <controllingFieldValue>Fridge</controllingFieldValue>
+            <controllingFieldValue>Coffee machine</controllingFieldValue>
+            <controllingFieldValue>Paper shredder</controllingFieldValue>
+            <controllingFieldValue>Fax machine</controllingFieldValue>
+            <controllingFieldValue>Laminator</controllingFieldValue>
+            <controllingFieldValue>Vacuum</controllingFieldValue>
+            <controllingFieldValue>Desk</controllingFieldValue>
+            <valueName>Unknown</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Camera</controllingFieldValue>
+            <controllingFieldValue>Printer</controllingFieldValue>
+            <controllingFieldValue>TV</controllingFieldValue>
+            <controllingFieldValue>Fridge</controllingFieldValue>
+            <controllingFieldValue>Coffee machine</controllingFieldValue>
+            <controllingFieldValue>Paper shredder</controllingFieldValue>
+            <controllingFieldValue>Fax machine</controllingFieldValue>
+            <controllingFieldValue>Laminator</controllingFieldValue>
+            <controllingFieldValue>Vacuum</controllingFieldValue>
+            <valueName>HP</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Camera</controllingFieldValue>
+            <controllingFieldValue>Microwave</controllingFieldValue>
+            <controllingFieldValue>Printer</controllingFieldValue>
+            <controllingFieldValue>TV</controllingFieldValue>
+            <controllingFieldValue>Fridge</controllingFieldValue>
+            <controllingFieldValue>Coffee machine</controllingFieldValue>
+            <controllingFieldValue>Paper shredder</controllingFieldValue>
+            <controllingFieldValue>Fax machine</controllingFieldValue>
+            <controllingFieldValue>Laminator</controllingFieldValue>
+            <controllingFieldValue>Vacuum</controllingFieldValue>
+            <valueName>LG</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Camera</controllingFieldValue>
+            <controllingFieldValue>Monitor</controllingFieldValue>
+            <controllingFieldValue>Printer</controllingFieldValue>
+            <controllingFieldValue>TV</controllingFieldValue>
+            <controllingFieldValue>Fridge</controllingFieldValue>
+            <controllingFieldValue>Coffee machine</controllingFieldValue>
+            <controllingFieldValue>Paper shredder</controllingFieldValue>
+            <controllingFieldValue>Fax machine</controllingFieldValue>
+            <controllingFieldValue>Laminator</controllingFieldValue>
+            <controllingFieldValue>Vacuum</controllingFieldValue>
+            <valueName>Dell</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Camera</controllingFieldValue>
+            <controllingFieldValue>Printer</controllingFieldValue>
+            <controllingFieldValue>TV</controllingFieldValue>
+            <controllingFieldValue>Fridge</controllingFieldValue>
+            <controllingFieldValue>Coffee machine</controllingFieldValue>
+            <controllingFieldValue>Paper shredder</controllingFieldValue>
+            <controllingFieldValue>Fax machine</controllingFieldValue>
+            <controllingFieldValue>Laminator</controllingFieldValue>
+            <controllingFieldValue>Vacuum</controllingFieldValue>
+            <valueName>Ricoh</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Monitor</controllingFieldValue>
+            <valueName>Lenovo</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

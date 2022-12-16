@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Intervention_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Intervention Type</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Lower Limb Botox- Unilateral</fullName>
+                <default>false</default>
+                <label>Lower Limb Botox- Unilateral</label>
+            </value>
+            <value>
+                <fullName>Lower Limb Botox- Bilateral</fullName>
+                <default>false</default>
+                <label>Lower Limb Botox- Bilateral</label>
+            </value>
+            <value>
+                <fullName>Upper Limb Botox- Unilateral</fullName>
+                <default>false</default>
+                <label>Upper Limb Botox- Unilateral</label>
+            </value>
+            <value>
+                <fullName>Upper Limb Botox- Bilateral</fullName>
+                <default>false</default>
+                <label>Upper Limb Botox- Bilateral</label>
+            </value>
+            <value>
+                <fullName>Orthopaedic Surgery- Single Level</fullName>
+                <default>false</default>
+                <label>Orthopaedic Surgery- Single Level</label>
+            </value>
+            <value>
+                <fullName>Orthopaedic Surgery- SEMLS</fullName>
+                <default>false</default>
+                <label>Orthopaedic Surgery- SEMLS</label>
+            </value>
+            <value>
+                <fullName>UL Plastic Surgery</fullName>
+                <default>false</default>
+                <label>UL Plastic Surgery</label>
+            </value>
+            <value>
+                <fullName>Intrathecal Baclofen Pump</fullName>
+                <default>false</default>
+                <label>Intrathecal Baclofen Pump</label>
+            </value>
+            <value>
+                <fullName>Selective Dorsal Root Rhizotomy</fullName>
+                <default>false</default>
+                <label>Selective Dorsal Root Rhizotomy</label>
+            </value>
+            <value>
+                <fullName>iREHAB- Low</fullName>
+                <default>false</default>
+                <label>iREHAB- Low</label>
+            </value>
+            <value>
+                <fullName>iREHAB- Medium</fullName>
+                <default>false</default>
+                <label>iREHAB- Medium</label>
+            </value>
+            <value>
+                <fullName>iREHAB- High</fullName>
+                <default>false</default>
+                <label>iREHAB- High</label>
+            </value>
+            <value>
+                <fullName>iREHAB-Communication Device</fullName>
+                <default>false</default>
+                <label>iREHAB-Communication Device</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

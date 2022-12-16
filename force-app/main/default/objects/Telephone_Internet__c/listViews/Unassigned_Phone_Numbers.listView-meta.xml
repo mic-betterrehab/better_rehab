@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unassigned_Phone_Numbers</fullName>
+    <columns>NAME</columns>
+    <columns>User__c</columns>
+    <columns>Aircall__c</columns>
+    <columns>Plan_Name__c</columns>
+    <columns>Plan_Details__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Telephone_Internet__c.Phone</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Active</value>
+    </filters>
+    <label>All (Phone) Unassigned</label>
+    <sharedTo>
+        <group>IT</group>
+    </sharedTo>
+</ListView>

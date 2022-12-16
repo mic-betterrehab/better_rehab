@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Automatically_check_Survey_is_Complete</fullName>
+        <description>Action to automatically check Survey is Completed checkbox on a Pendula - Customer Feedback Survey</description>
+        <field>Survey_is_Completed__c</field>
+        <literalValue>1</literalValue>
+        <name>Automatically check Survey is Complete</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Check_Survey_is_Completed</fullName>
+        <description>Check Survey is completed checkbox on Pendula - Customer Feedback Survey</description>
+        <field>Survey_is_Completed__c</field>
+        <literalValue>1</literalValue>
+        <name>Check Survey is Completed</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Auto complete Customer Feedback Survey</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Customer_Feedback_Survey__c.Survey_is_Completed__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Customer_Feedback_Survey__c.Send_First_Question__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <description>Will automatically place a Pendula - Customer Feedback Survey in &apos;Complete&apos; status after 3 days</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Check_Survey_is_Completed</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Customer_Feedback_Survey__c.CreatedDate</offsetFromField>
+            <timeLength>3</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Pendula CS-000029</fullName>
+        <actions>
+            <name>Execute_Pendula_Communication_a1q2v00000ELwo9AAD</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <description>Auto-generated workflow to trigger communications for Pendula Communication CS-000029</description>
+        <formula>ISCHANGED(Unrecognised_Response__c)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Pendula CS-000036</fullName>
+        <actions>
+            <name>Execute_Pendula_Communication_a1q2v00000ELwteAAD</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <booleanFilter>1 AND 2 AND 3 AND 4</booleanFilter>
+        <criteriaItems>
+            <field>Customer_Feedback_Survey__c.Send_First_Question__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Customer_Feedback_Survey__c.Opt_out__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.Pendula_Survey_Opt_Out__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Contact.Client_Division__c</field>
+            <operation>equals</operation>
+            <value>NDIS</value>
+        </criteriaItems>
+        <description>Auto-generated workflow to trigger communications for Pendula Communication CS-000036</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <tasks>
+        <fullName>Execute_Pendula_Communication_a1q2v00000ELwnLAAT</fullName>
+        <assignedTo>pendula@br.prod</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>Communication Schedule Id: a1q2v00000ELwnLAAT</description>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>[Pendula-Event-Communication] CS-000028</subject>
+    </tasks>
+    <tasks>
+        <fullName>Execute_Pendula_Communication_a1q2v00000ELwo9AAD</fullName>
+        <assignedTo>pendula@br.prod</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>Communication Schedule Id: a1q2v00000ELwo9AAD</description>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>[Pendula-Event-Communication] CS-000029</subject>
+    </tasks>
+    <tasks>
+        <fullName>Execute_Pendula_Communication_a1q2v00000ELwoEAAT</fullName>
+        <assignedTo>pendula@br.prod</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>Communication Schedule Id: a1q2v00000ELwoEAAT</description>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>[Pendula-Event-Communication] CS-000030</subject>
+    </tasks>
+    <tasks>
+        <fullName>Execute_Pendula_Communication_a1q2v00000ELwteAAD</fullName>
+        <assignedTo>pendula@br.prod</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>Communication Schedule Id: a1q2v00000ELwteAAD</description>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>[Pendula-Event-Communication] CS-000036</subject>
+    </tasks>
+    <tasks>
+        <fullName>Execute_Pendula_Communication_a1q2v00000ELwu3AAD</fullName>
+        <assignedTo>pendula@br.prod</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>Communication Schedule Id: a1q2v00000ELwu3AAD</description>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>[Pendula-Event-Communication] CS-000037</subject>
+    </tasks>
+</Workflow>

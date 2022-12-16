@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>View_Edit_Settings</fullName>
+    <availability>online</availability>
+    <displayType>button</displayType>
+    <height>600</height>
+    <linkType>page</linkType>
+    <masterLabel>View/Edit Settings</masterLabel>
+    <openType>sidebar</openType>
+    <page>BR_Settings</page>
+    <protected>false</protected>
+</WebLink>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Days_of_Leave</fullName>
+    <active>true</active>
+    <description>Maximum days of leave that can be requested is 4 days.</description>
+    <errorConditionFormula>Days_of_Leave_Required__c &gt; 4</errorConditionFormula>
+    <errorDisplayField>Days_of_Leave_Required__c</errorDisplayField>
+    <errorMessage>You cannot enter more than 4 days of leave.</errorMessage>
+</ValidationRule>

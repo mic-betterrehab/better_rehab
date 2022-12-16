@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Complaint_Notes_Validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ Complaints__c = TRUE,
+ISBLANK( Complaint_Notes__c )
+)</errorConditionFormula>
+    <errorDisplayField>Complaint_Notes__c</errorDisplayField>
+    <errorMessage>Please enter complaint notes</errorMessage>
+</ValidationRule>

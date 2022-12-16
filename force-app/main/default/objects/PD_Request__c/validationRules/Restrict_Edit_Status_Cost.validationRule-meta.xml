@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrict_Edit_Status_Cost</fullName>
+    <active>true</active>
+    <description>Restrict editing status and cost once the request has been approved or denied for everyone</description>
+    <errorConditionFormula>AND(Date_bypass__c = FALSE,
+ ISPICKVAL(PRIORVALUE(Status__c ), &apos;Approved&apos;) || ISPICKVAL(PRIORVALUE(Status__c ), &apos;Denied&apos;),
+OR ( ISCHANGED( Status__c ) ||  ISCHANGED( Subsidized_Cost__c ) ||  ISCHANGED( Cost_of_Course__c ) || ISCHANGED(  Days_of_Leave_Required__c ) )
+)</errorConditionFormula>
+    <errorMessage>You cannot change the request status, cost or leave once it has been approved/denied.</errorMessage>
+</ValidationRule>

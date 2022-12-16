@@ -1,0 +1,107 @@
+<aura:component controller="BR_ResourceSlotController">
+    <aura:attribute name="user" type="object" default="{}" description="details of logged in user"/>
+    <aura:attribute name="slotId" type="string" default="" description="The selected slot"/>
+    <aura:attribute name="slot__c" type="sObject" default="{}" description="The selected slot"/>
+    <aura:attribute name="localTimes" type="object" default="{}" description="The local start and end times of the slot__c (above)"/>
+    <aura:attribute name="parent" type="Aura.Component" description="Parent component"/>
+    <aura:attribute name="updateDetails" type="Map" default="{}" description="Map to hold any info about update" />
+    <aura:attribute name="isViewMode" type="Boolean" default="true" description="Indicates whether in view or edit mode" />
+    <aura:attribute name="isLoading" type="Boolean" default="false" description="Component loading indicator"/>
+    
+    <aura:registerEvent name="createToast" type="c:createToast" />
+    <aura:registerEvent name="updateSlot" type="c:updateSlot" />
+    <aura:registerEvent name="deleteResourceSlot" type="c:deleteResourceSlot" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:if isTrue="{!v.isLoading}"> 
+        <lightning:spinner alternativeText="Loading" size="large"/>
+        <aura:set attribute="else">
+            <!-- Modal/Popup Box starts here-->
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <!-- Modal/Popup Box Header Starts here-->
+                    <header class="slds-modal__header">
+                        <lightning:buttonIcon iconName="utility:close"
+                                              onclick="{! c.closeModal }"
+                                              alternativeText="close"
+                                              variant="bare-inverse"
+                                              class="slds-modal__close"/>
+                        <aura:if isTrue="{!v.isViewMode}">
+                            <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Slot Information</h2>
+                            <div style="align-items:center;justify-content:center">
+                                <lightning:button variant="destructive"
+                                                  label="Delete"
+                                                  title="Delete"
+                                                  onclick="{! c.handleDelete }"/>
+                            </div>
+                            
+                           
+                            
+                        	<aura:set attribute="else">
+                                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Edit Slot</h2>
+                            </aura:set>
+                        </aura:if>
+                    </header>
+                    
+                    <!--Modal/Popup Box Body Starts here-->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <aura:if isTrue="{!v.isViewMode}">
+                            
+                            <div style="display:flex;direction:row;padding-top:1px;padding-bottom;10px" class="slds-grow">
+                                <div style="padding-left:2px;padding-right:2px">
+                                    <p style="padding:5px" class="slds-form-element__static"><b>Slot Id</b>: {!v.slot__c.Id}</p>
+                                    <p style="padding:5px" class="slds-form-element__static"><b>User</b>: {!v.slot__c.Owner.Name}</p>
+                                    <p style="padding:5px" class="slds-form-element__static"><b>Client</b>: {!v.slot__c.Client__r.Name}</p>
+                                    <p style="padding:5px" class="slds-form-element__static"><b>Resource</b>: {!v.slot__c.Resource__r.Name}</p>
+                                    <p style="padding:5px" class="slds-form-element__static"><b>Left at</b>: {!v.slot__c.Destination_Site__r.Name}</p>
+                                    <p style="padding:5px" class="slds-form-element__static"><b>Start</b>: {!v.localTimes.localStartTime}</p>
+                                    <p style="padding:5px" class="slds-form-element__static"><b>End</b>: {!v.localTimes.localEndTime}</p>                      
+                                </div>
+                            </div>
+                            <aura:set attribute="else">
+                                <div>
+                                    <lightning:input aura:id="startTime" 
+                                                     type="datetime" 
+                                                     label="Start Time" 
+                                                     name="start" 
+                                                     value="{!v.updateDetails.startTime}" 
+                                                     required="true"/>
+                                    <lightning:input aura:id="endTime" 
+                                                     type="datetime" 
+                                                     label="End Time" 
+                                                     name="end" 
+                                                     value="{!v.updateDetails.endTime}"
+                                                     required="true"/>
+                                    <c:customLookup aura:id='siteLookup' objectAPIName="enrtcr__Site__c" IconName="standard:account" selectedRecord="{!v.updateDetails.site}" label="Destination Site" queryFields=""/>
+                                </div>
+                            </aura:set>
+                        </aura:if>
+                    </div>
+                    
+                    <!--Modal/Popup Box Footer Starts here-->
+                    <footer class="slds-modal__footer">
+                        <aura:if isTrue="{!v.isViewMode}">
+                            <lightning:button variant="brand-outline"
+                                              label="Edit"
+                                              title="Edit"
+                                              onclick="{!c.handleEdit}"/>
+                             <aura:set attribute="else">
+                                 <lightning:button variant="brand-outline"
+                                              label="Cancel"
+                                              title="Cancel"
+                                              onclick="{! c.handleCancelEdit }"/>
+                                <lightning:button variant="success"
+                                                  label="Save"
+                                                  title="Save"
+                                                  onclick="{!c.handleUpdateSlot}"/>
+                            </aura:set>
+                        </aura:if>
+                        
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </aura:set>
+    </aura:if>
+</aura:component>

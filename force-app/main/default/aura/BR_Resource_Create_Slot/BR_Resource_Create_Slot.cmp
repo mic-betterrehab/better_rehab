@@ -1,0 +1,71 @@
+<aura:component controller="BR_ResourceSlotController">
+    <aura:attribute name="resource" type="sObject" default="{}" description="The selected resource"/>
+    <aura:attribute name="user" type="sObject" default="{}" description="The selected user"/>
+    <aura:attribute name="site" type="sObject" default="{}" description="The selected site"/>
+    <aura:attribute name="client" type="sObject" default="{}" description="The selected client"/>
+    <aura:attribute name="startTime" type="string" default="" description="The selected start time"/>
+    <aura:attribute name="endTime" type="string" default="" description="The selected end time"/>
+    <aura:attribute name="queries" type="Map" default="{}" description="List of dynamic queries loaded on component init" />
+    <aura:attribute name="parent" type="Aura.Component" description="Parent component"/>
+   	
+    <aura:registerEvent name="createResourceSlot" type="c:createResourceSlot" />
+    <aura:registerEvent name="createToast" type="c:createToast" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+	<!-- Modal/Popup Box starts here-->
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <!-- Modal/Popup Box Header Starts here-->
+            <header class="slds-modal__header">
+                <lightning:buttonIcon iconName="utility:close"
+                                      onclick="{! c.closeModal }"
+                                      alternativeText="close"
+                                      variant="bare-inverse"
+                                      class="slds-modal__close"/>
+                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Reserve a Resource</h2>
+            </header>
+            
+            <!--Modal/Popup Box Body Starts here-->
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                <lightning:input aura:id="startTime" 
+                                 type="datetime" 
+                                 label="Start Time" 
+                                 name="start" 
+                                 value="{!v.startTime}" 
+                                 required="true"/>
+                <lightning:input aura:id="endTime" 
+                                 type="datetime" 
+                                 label="End Time" 
+                                 name="end" 
+                                 value="{!v.endTime}"
+                                 required="true"/>
+                <c:customLookup
+                    aura:id='resourceLookup'
+                    objectAPIName="Resource__c"
+                    IconName="standard:resource_preference"
+                    selectedRecord="{!v.resource}"
+                    label="Resource"
+                    filter="{!v.queries.resource}"
+                    queryFields=", Site__r.enrtcr__Business_State__c"
+                />
+                <c:customLookup aura:id='userLookup' objectAPIName="User" IconName="standard:user" selectedRecord="{!v.user}" label="User" queryFields=""/>
+                <c:customLookup aura:id='contactLookup' objectAPIName="Contact" IconName="standard:contact" selectedRecord="{!v.client}" label="Client" filter="AND Record_Type_Name__c = 'Client'"/>
+                <c:customLookup aura:id='siteLookuo' objectAPIName="enrtcr__Site__c" IconName="standard:account" selectedRecord="{!v.site}" label="Destination Site" queryFields=""/>
+            </div>
+            
+            <!--Modal/Popup Box Footer Starts here-->
+            <footer class="slds-modal__footer">
+                <lightning:button variant="brand-outline"
+                                  label="Cancel"
+                                  title="Cancel"
+                                  onclick="{! c.closeModal }"/>
+                <lightning:button variant="success"
+                                  label="Create"
+                                  title="Create"
+                                  onclick="{!c.createSlot}"/>
+            </footer>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</aura:component>

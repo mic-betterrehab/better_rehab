@@ -1,0 +1,12 @@
+<apex:page standardController="Offboarding__c" extensions="UserInactive" action="{!autoRun}">
+    <apex:sectionHeader title="Auto Inactive Offboarder"/>    
+    
+    <apex:outputPanel style="font-size:15px;">
+        The button you clicked was meant to offboard the worker. Since you are seeing this page, something has gone wrong. 
+        Please check the error message below or contact your Salesforce Developer.  
+        <p>
+            <apex:outputText value="{!IF(isblank(message), noIssue, message)}" style="color:red;font-size:15px;">            
+            </apex:outputText>
+        </p>                
+    </apex:outputPanel>
+</apex:page>

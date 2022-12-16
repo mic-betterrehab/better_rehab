@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>WA AHA Queue</name>
+    <queueMembers>
+        <users>
+            <user>augusta@betterrehab.com.au</user>
+            <user>emma.hampel@betterrehab.com.au</user>
+            <user>georgia.b@betterrehab.com.au</user>
+            <user>jamison@betterrehab.com.au</user>
+            <user>mackenzie-anne@betterrehab.com.au</user>
+            <user>mary.r@betterrehab.com.au</user>
+            <user>nathan.m@betterrehab.com.au</user>
+            <user>shaan@betterrehab.com.au</user>
+            <user>sheriden@betterrehab.com.au</user>
+            <user>shilo@betterrehab.com.au</user>
+            <user>tegan@betterrehab.com.au</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Task</sobjectType>
+    </queueSobject>
+</Queue>

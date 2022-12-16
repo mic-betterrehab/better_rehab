@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Days_of_Leave_Required__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>Please detail the anticipated days of leave required between 0 and 4 days of leave within 0.5 increment.</inlineHelpText>
+    <label>Days of Leave Required</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>1</scale>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

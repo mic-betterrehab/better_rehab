@@ -1,0 +1,29 @@
+.THIS {
+}
+
+/**
+ * hack to remove the padding in the quick action
+ */
+.THIS.message-header{
+    margin: -16px 0 0 -32px;
+    width: 120%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(84,105,141);/*rgb(194, 57, 52);*/
+    height: 4em;
+
+
+    /*background: repeating-linear-gradient(45deg, rgb(84,105,141), rgb(84,105,141) 20px, rgba(84,105,141,.97) 20px, rgba(84,105,141,.97) 40px);*/
+
+}
+.THIS.message-header h2{
+    padding-top:0.7em!important;
+    margin-left:-35px!important;
+}
+
+.THIS.message-content {
+    padding:2em;
+}
+
+.THIS.progress-cursor {
+    cursor: progress;
+}

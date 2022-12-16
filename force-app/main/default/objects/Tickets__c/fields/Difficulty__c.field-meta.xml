@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Difficulty__c</fullName>
+    <externalId>false</externalId>
+    <label>Difficulty</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Sand (L1)</fullName>
+                <default>true</default>
+                <label>Sand (L1)</label>
+            </value>
+            <value>
+                <fullName>Rock (L2)</fullName>
+                <default>false</default>
+                <label>Rock (L2)</label>
+            </value>
+            <value>
+                <fullName>Boulder (L3)</fullName>
+                <default>false</default>
+                <label>Boulder (L3)</label>
+            </value>
+            <value>
+                <fullName>Mountain (L4)</fullName>
+                <default>false</default>
+                <label>Mountain (L4)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

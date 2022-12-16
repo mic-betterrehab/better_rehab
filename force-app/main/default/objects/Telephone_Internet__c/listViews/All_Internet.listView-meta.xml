@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Internet</fullName>
+    <columns>NAME</columns>
+    <columns>Site__c</columns>
+    <columns>Inter__c</columns>
+    <columns>LAST_UPDATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Telephone_Internet__c.Internet</value>
+    </filters>
+    <filters>
+        <field>Service_Provider__c</field>
+        <operation>equals</operation>
+        <value>Telstra</value>
+    </filters>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Active</value>
+    </filters>
+    <label>All (Internet)</label>
+</ListView>

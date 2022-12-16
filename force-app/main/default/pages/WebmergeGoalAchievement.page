@@ -1,0 +1,3 @@
+<apex:page id="WebmergeGoalAchievement" standardController="enrtcr__Plan__c" docType="html-5.0" >
+<webm:WebmergeWizard record="{!enrtcr__Plan__c}" />
+</apex:page>

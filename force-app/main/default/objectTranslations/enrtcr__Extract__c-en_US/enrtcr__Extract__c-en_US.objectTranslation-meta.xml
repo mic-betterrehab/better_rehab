@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <quickActions>
+        <label></label>
+        <name>Clear_Overclaimed_Item_Totals</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>Remove_Extract_Items</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>Remove_Overclaimed</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>Remove_Unapproved</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>Send_To_Xero</name>
+    </quickActions>
+</CustomObjectTranslation>

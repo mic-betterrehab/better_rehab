@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IssueType__c</fullName>
+    <externalId>false</externalId>
+    <label>Category</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Lumary</fullName>
+                <default>false</default>
+                <label>Lumary</label>
+            </value>
+            <value>
+                <fullName>Better Calendar</fullName>
+                <default>false</default>
+                <label>Better Calendar</label>
+            </value>
+            <value>
+                <fullName>Sharepoint</fullName>
+                <default>false</default>
+                <label>Sharepoint/OneDrive</label>
+            </value>
+            <value>
+                <fullName>Docusign</fullName>
+                <default>false</default>
+                <label>Docusign</label>
+            </value>
+            <value>
+                <fullName>Better Rewards</fullName>
+                <default>false</default>
+                <label>Better Rewards</label>
+            </value>
+            <value>
+                <fullName>Laptop</fullName>
+                <default>false</default>
+                <label>Laptop</label>
+            </value>
+            <value>
+                <fullName>Outlook</fullName>
+                <default>false</default>
+                <label>Outlook</label>
+            </value>
+            <value>
+                <fullName>Teams</fullName>
+                <default>false</default>
+                <label>Teams</label>
+            </value>
+            <value>
+                <fullName>Mobile</fullName>
+                <default>false</default>
+                <label>Mobile</label>
+            </value>
+            <value>
+                <fullName>Office 365</fullName>
+                <default>false</default>
+                <label>Office 365</label>
+            </value>
+            <value>
+                <fullName>Network</fullName>
+                <default>false</default>
+                <label>Network</label>
+            </value>
+            <value>
+                <fullName>Printer</fullName>
+                <default>false</default>
+                <label>Printer</label>
+            </value>
+            <value>
+                <fullName>OT Draw</fullName>
+                <default>false</default>
+                <label>OT Draw</label>
+            </value>
+            <value>
+                <fullName>Software Installation</fullName>
+                <default>false</default>
+                <label>Software Installation</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Microsoft Enterprise Update</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Microsoft Enterprise Update</label>
+            </value>
+            <value>
+                <fullName>VPN</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>VPN</label>
+            </value>
+            <value>
+                <fullName>Zoom</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Zoom</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

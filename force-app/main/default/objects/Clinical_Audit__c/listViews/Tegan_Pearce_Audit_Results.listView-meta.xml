@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tegan_Pearce_Audit_Results</fullName>
+    <columns>NAME</columns>
+    <columns>Auditor__c</columns>
+    <columns>Clinician__c</columns>
+    <columns>Status__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>Time_Taken__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Clinician__c</field>
+        <operation>equals</operation>
+        <value>Penny Smith</value>
+    </filters>
+    <label>Tegan Pearce Audit Results</label>
+    <sharedTo>
+        <group>Clinical_Audit_RM_and_SM</group>
+    </sharedTo>
+</ListView>

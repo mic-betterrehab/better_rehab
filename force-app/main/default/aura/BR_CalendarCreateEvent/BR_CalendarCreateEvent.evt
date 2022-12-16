@@ -1,0 +1,5 @@
+<aura:event type="COMPONENT" description="Event template" >
+    
+    <aura:attribute name='events' type="List" />
+    
+</aura:event>

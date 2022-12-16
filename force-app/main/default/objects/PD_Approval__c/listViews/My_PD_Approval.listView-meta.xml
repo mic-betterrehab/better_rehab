@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_PD_Approval</fullName>
+    <columns>NAME</columns>
+    <columns>Approver_Contact__c</columns>
+    <columns>Course_Name__c</columns>
+    <columns>Requested_by__c</columns>
+    <columns>Status__c</columns>
+    <columns>Subsidized_Cost__c</columns>
+    <columns>Comment__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Approver_s_Internal_Banding__c</field>
+        <operation>equals</operation>
+        <value>Principal Clinician</value>
+    </filters>
+    <label>PC Approvals</label>
+    <sharedTo>
+        <group>Team_Leaders</group>
+        <role>Clinicians</role>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Supervision Minute</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Supervision Minutes</value>
+    </caseValues>
+    <layouts>
+        <layout>Supervision Minute Layout</layout>
+        <sections>
+            <label></label>
+            <section>Audit</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Capacity Management Discussion</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Check In and Values Reflection</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Clinical Work</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Diary Management Discussion</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Get Sh*t Done and People People</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Participant Care Hours</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Team Performance Agenda</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Leadership Development &amp; Support</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Other Support Needs</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Pulse Check</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Site Culture Management</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Team Clinical Service</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Team Performance</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label></label>
+        <name>Supervision_Agenda</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>Team_Performance_Agenda</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,33 @@
+<template>
+    
+    <div style="height:40px; width:1050px;">
+    <lightning-card title='Diary Management Report - Next 4 Weeks'>
+        <div slot="actions">
+          <p class="slds-p-horizontal_small">Date range: {firstdayString} - {lastdayString}</p>
+        </div>   
+
+        <template if:true={chartjsInitialized}>      
+          <div class="chart slds-var-m-around_medium" lwc:dom="manual"></div>  
+          <canvas data-id="chartOne" class="slds-p-left_large" width="1000" height="400"></canvas>
+            
+          <div class="chart slds-var-m-around_medium" lwc:dom="manual"></div> 
+          <canvas data-id="chartTwo" class="slds-p-left_large" width="1000" height="400"></canvas>
+        </template>        
+
+        <template if:true={error}>
+          <p>Error message: {error}</p>
+        </template> 
+      
+        <div if:true={emptyChart}>
+          <p class="slds-p-horizontal_small slds-text-color_error">Your filter does not produce any data. Please choose another filter.</p>
+        </div>  
+
+        <div class="exampleHolder">
+          <template if:false={loaded}>
+              <lightning-spinner alternative-text="Loading"></lightning-spinner>
+          </template>
+        </div>
+    </lightning-card>
+  </div>
+</div>
+</template>

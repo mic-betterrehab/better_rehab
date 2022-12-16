@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Initial_Report_Value</fullName>
+    <active>true</active>
+    <description>Please select either 0 or 2</description>
+    <errorConditionFormula>NOT( Initial_Report_Upload__c  =   0  ||Initial_Report_Upload__c   = 2 )</errorConditionFormula>
+    <errorDisplayField>Initial_Report_Upload__c</errorDisplayField>
+    <errorMessage>Please select either 0 or 2</errorMessage>
+</ValidationRule>

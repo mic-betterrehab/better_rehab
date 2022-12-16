@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Onboarding</fullName>
+    <columns>NAME</columns>
+    <columns>Email__c</columns>
+    <columns>Internal_Banding__c</columns>
+    <columns>Direct_Supervisor__c</columns>
+    <columns>Direct_Supervisor_s_Email__c</columns>
+    <columns>Clinical_Supervisor__c</columns>
+    <columns>Start_Date__c</columns>
+    <columns>Role_Title__c</columns>
+    <columns>Department__c</columns>
+    <columns>Office__c</columns>
+    <columns>Telephone_Internet__c</columns>
+    <columns>Phone_Number__c</columns>
+    <columns>User__c</columns>
+    <columns>State__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Start_Date__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>7/25/2022</value>
+    </filters>
+    <label>All Onboarding</label>
+    <sharedTo>
+        <group>Onboarders</group>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Send Service Agreement</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Send Service Agreements</value>
+    </caseValues>
+    <layouts>
+        <layout>Send Service Agreement Basic Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Hours</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Recipient Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Service Agreement Summary</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Send Service Agreement Layout</layout>
+        <sections>
+            <label></label>
+            <section>Admin</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Hours</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Recipient Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Service Agreement Summary</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label></label>
+        <name>Docusign</name>
+    </quickActions>
+    <recordTypes>
+        <label></label>
+        <name>Service_Agreement_NSW_VIC_ACT</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label></label>
+        <name>Deca3f2v000001m07dAAA</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>Deca3f2v000001m07iAAA</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>SendWithDocuSign</name>
+    </webLinks>
+</CustomObjectTranslation>

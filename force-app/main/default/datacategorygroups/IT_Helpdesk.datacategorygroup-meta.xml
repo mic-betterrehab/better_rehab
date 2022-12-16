@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCategoryGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>KPI Recalibration</label>
+                <name>KPI_Recalibration</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Offboarding</label>
+                <name>Offboarding</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Asset Management</label>
+                <name>Asset_Management</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Onboarding</label>
+                <name>Onboarding</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Refurbishing hardware</label>
+                <name>Refurbishing_hardware</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Repair/Warranty</label>
+                <name>Repair_Warranty</name>
+            </dataCategory>
+            <label>Operational Manuals</label>
+            <name>Operational_Manuals</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>Laptop</label>
+                <name>Laptop</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Printer</label>
+                <name>Printer</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Phone</label>
+                <name>Phone</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Network</label>
+                <name>Network</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Phone Number</label>
+                <name>Phone_Number</name>
+            </dataCategory>
+            <label>Hardware</label>
+            <name>Hardware</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>Clinical Audit</label>
+                <name>Clinical_Audit</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Docusign</label>
+                <name>Docusign</name>
+            </dataCategory>
+            <dataCategory>
+                <dataCategory>
+                    <label>IT Asset</label>
+                    <name>IT_Asset</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Telephone &amp; Internet</label>
+                    <name>Telephone_Internet</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Invoice</label>
+                    <name>Invoice</name>
+                </dataCategory>
+                <dataCategory>
+                    <label>Office Asset</label>
+                    <name>Office_Asset</name>
+                </dataCategory>
+                <label>IT Asset Register</label>
+                <name>IT_Asset_Register</name>
+            </dataCategory>
+            <dataCategory>
+                <label>IT Help</label>
+                <name>IT_Help</name>
+            </dataCategory>
+            <dataCategory>
+                <label>PD Request/Approval</label>
+                <name>PD_Request_Approval</name>
+            </dataCategory>
+            <dataCategory>
+                <label>SDE</label>
+                <name>SDE</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Service Agreement</label>
+                <name>Service_Agreement</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Services &amp; Rates</label>
+                <name>Services_Rates</name>
+            </dataCategory>
+            <label>Lumary</label>
+            <name>lumary</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>Exchange</label>
+                <name>Exchange</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Intune/MDM</label>
+                <name>Intune_MDM</name>
+            </dataCategory>
+            <dataCategory>
+                <label>MS Information Security</label>
+                <name>MS_Information_Security</name>
+            </dataCategory>
+            <dataCategory>
+                <label>SharePoint/OneDrive</label>
+                <name>Sharepoint_Onedrive</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Teams</label>
+                <name>Teams</name>
+            </dataCategory>
+            <label>Microsoft</label>
+            <name>Microsoft</name>
+        </dataCategory>
+        <dataCategory>
+            <dataCategory>
+                <label>OT Draw</label>
+                <name>OT_Draw</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Aircall</label>
+                <name>Aircall</name>
+            </dataCategory>
+            <dataCategory>
+                <label>Better Rewards</label>
+                <name>Better_Rewards</name>
+            </dataCategory>
+            <label>Other</label>
+            <name>Other</name>
+        </dataCategory>
+        <label>All</label>
+        <name>All</name>
+    </dataCategory>
+    <description>For internal use</description>
+    <label>IT Help Knowledge</label>
+    <objectUsage>
+        <object>KnowledgeArticleVersion</object>
+    </objectUsage>
+</DataCategoryGroup>

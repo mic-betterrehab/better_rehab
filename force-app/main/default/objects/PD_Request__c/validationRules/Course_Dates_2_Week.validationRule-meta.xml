@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Course_Dates_2_Week</fullName>
+    <active>false</active>
+    <description>Course dates have to be at least 2 weeks from today, if date bypass is not true</description>
+    <errorConditionFormula>AND( Date_bypass__c = FALSE,
+Course_Date_1__c - TODAY() &lt; 14 )</errorConditionFormula>
+    <errorDisplayField>Course_Date_1__c</errorDisplayField>
+    <errorMessage>Course date has to be at least 2 weeks from today</errorMessage>
+</ValidationRule>

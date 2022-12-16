@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Supervisee_Flexi_Budget_Picklist__c</fullName>
+    <externalId>false</externalId>
+    <label>Supervisee Flexi Budget Picklist</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Onboarding</fullName>
+                <default>false</default>
+                <label>Onboarding</label>
+            </value>
+            <value>
+                <fullName>Offboarding</fullName>
+                <default>false</default>
+                <label>Offboarding</label>
+            </value>
+            <value>
+                <fullName>PIP</fullName>
+                <default>false</default>
+                <label>PIP</label>
+            </value>
+            <value>
+                <fullName>Support Plan</fullName>
+                <default>false</default>
+                <label>Support Plan</label>
+            </value>
+            <value>
+                <fullName>Mid Prob Review</fullName>
+                <default>false</default>
+                <label>Mid Prob Review</label>
+            </value>
+            <value>
+                <fullName>Probation review</fullName>
+                <default>false</default>
+                <label>Probation review</label>
+            </value>
+            <value>
+                <fullName>Business Dev</fullName>
+                <default>false</default>
+                <label>Business Dev</label>
+            </value>
+            <value>
+                <fullName>Performance Review</fullName>
+                <default>false</default>
+                <label>Performance Review</label>
+            </value>
+            <value>
+                <fullName>Supervisor Add Travel</fullName>
+                <default>false</default>
+                <label>Supervisor Add Travel</label>
+            </value>
+            <value>
+                <fullName>RM Spec Task</fullName>
+                <default>false</default>
+                <label>RM Spec Task</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>5</visibleLines>
+</CustomField>

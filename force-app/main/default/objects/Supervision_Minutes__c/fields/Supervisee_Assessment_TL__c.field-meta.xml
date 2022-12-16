@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Supervisee_Assessment_TL__c</fullName>
+    <externalId>false</externalId>
+    <label>Supervisee Assessment TL</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Team are all achieving</fullName>
+                <default>false</default>
+                <label>Team are all achieving</label>
+            </value>
+            <value>
+                <fullName>Team are mostly achieving</fullName>
+                <default>false</default>
+                <label>Team are mostly achieving</label>
+            </value>
+            <value>
+                <fullName>Team are not yet consistently achieving</fullName>
+                <default>false</default>
+                <label>Team are not yet consistently achieving</label>
+            </value>
+            <value>
+                <fullName>Team are struggling</fullName>
+                <default>false</default>
+                <label>Team are struggling</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

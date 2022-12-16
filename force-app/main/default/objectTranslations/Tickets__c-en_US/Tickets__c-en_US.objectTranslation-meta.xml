@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>IT Help</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>IT Help</value>
+    </caseValues>
+    <layouts>
+        <layout>Client Issue Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Internal Tasks</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>IT Internal</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Issue Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>IT Internal</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Ticket Data</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Query Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>IT Internal</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Task Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>IT Internal</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label></label>
+        <name>Internal</name>
+    </recordTypes>
+    <recordTypes>
+        <description></description>
+        <label></label>
+        <name>Issue</name>
+    </recordTypes>
+    <recordTypes>
+        <description></description>
+        <label></label>
+        <name>Query</name>
+    </recordTypes>
+    <recordTypes>
+        <description></description>
+        <label></label>
+        <name>Task</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label></label>
+        <name>Provide_Feedback</name>
+    </webLinks>
+</CustomObjectTranslation>

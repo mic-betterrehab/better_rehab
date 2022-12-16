@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>enrtcr__Extract__c</entityName>
+    <fieldName>enrtcr__Status__c</fieldName>
+    <masterLabel>Financial Extract</masterLabel>
+    <recordTypeName>Financial_Extract</recordTypeName>
+</PathAssistant>

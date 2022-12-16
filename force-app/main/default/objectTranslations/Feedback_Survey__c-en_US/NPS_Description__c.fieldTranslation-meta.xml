@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label></label>
+    <name>NPS_Description__c</name>
+    <picklistValues>
+        <masterLabel>Detractor 1-6</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Passive 7-8</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Promoters 9-10</masterLabel>
+        <translation></translation>
+    </picklistValues>
+</CustomFieldTranslation>

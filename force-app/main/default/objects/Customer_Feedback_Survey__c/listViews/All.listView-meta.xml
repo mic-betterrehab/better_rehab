@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>Survey_Type__c</columns>
+    <columns>Session_End_Datetime__c</columns>
+    <columns>First_Question_Sent__c</columns>
+    <columns>Session__c</columns>
+    <columns>Recipient__c</columns>
+    <columns>Survey_Response__c</columns>
+    <columns>Survey_is_Completed__c</columns>
+    <columns>NPS_Description__c</columns>
+    <columns>Worker__c</columns>
+    <columns>Worker_Site__c</columns>
+    <columns>Profession__c</columns>
+    <columns>Detractor_1_6_Score__c</columns>
+    <columns>Passive_7_8_Score__c</columns>
+    <columns>Promoters_9_10_Score__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Survey_is_Completed__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <label>All</label>
+</ListView>

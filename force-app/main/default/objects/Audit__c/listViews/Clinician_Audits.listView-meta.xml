@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Clinician_Audits</fullName>
+    <columns>NAME</columns>
+    <columns>Client__c</columns>
+    <columns>Worker__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>Error_Message__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Audit__c.Audits</value>
+    </filters>
+    <label>Clinician Audits</label>
+</ListView>

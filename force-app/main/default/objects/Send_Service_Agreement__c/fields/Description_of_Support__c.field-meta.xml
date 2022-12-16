@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Description_of_Support__c</fullName>
+    <externalId>false</externalId>
+    <label>Description of Support</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Assessment</fullName>
+                <default>false</default>
+                <label>Assessment</label>
+            </value>
+            <value>
+                <fullName>Report</fullName>
+                <default>false</default>
+                <label>Report</label>
+            </value>
+            <value>
+                <fullName>Intervention</fullName>
+                <default>false</default>
+                <label>Intervention</label>
+            </value>
+            <value>
+                <fullName>Care Coordination</fullName>
+                <default>false</default>
+                <label>Care Coordination</label>
+            </value>
+            <value>
+                <fullName>Notes and Documentation</fullName>
+                <default>false</default>
+                <label>Notes and Documentation</label>
+            </value>
+            <value>
+                <fullName>Research</fullName>
+                <default>false</default>
+                <label>Research</label>
+            </value>
+            <value>
+                <fullName>Preparation of Resources</fullName>
+                <default>false</default>
+                <label>Preparation of Resources</label>
+            </value>
+            <value>
+                <fullName>Travel: minimum of 15minutes and capped at 30minutes (60mins for rural travel) each way</fullName>
+                <default>false</default>
+                <label>Travel: minimum of 15minutes and capped at 30minutes (60mins for rural travel) each way</label>
+            </value>
+            <value>
+                <fullName>Full Travel (Regional Support)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Full Travel (Regional Support)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

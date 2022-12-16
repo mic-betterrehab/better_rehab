@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layouts>
+        <layout>AHA Therapy Plan</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Session 1</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Session 2</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Session 3</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Session 4</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Session 5</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Session 6</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Mealtime Management Plan</layout>
+        <sections>
+            <label></label>
+            <section>Development and Approval Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Mealtime Management Plan Information</section>
+        </sections>
+    </layouts>
+</CustomObjectTranslation>

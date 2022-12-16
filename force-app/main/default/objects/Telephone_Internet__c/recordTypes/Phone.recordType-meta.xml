@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Phone</fullName>
+    <active>true</active>
+    <label>Phone</label>
+    <picklistValues>
+        <picklist>Cost_Centre__c</picklist>
+        <values>
+            <fullName>BETTER REHABILITATION PTY%2E LTD%2E</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BR NSW%2FACT SERVICES PTY LTD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BR QLD%2FNT SERVICES PTY LTD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BR SA%2FWA SERVICES PTY LTD</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>BR VIC%2FTAS SERVICES PTY LTD</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Inter__c</picklist>
+        <values>
+            <fullName>4G</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ADSL</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>NBN</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Plan_Type__c</picklist>
+        <values>
+            <fullName>Data and Voice</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Data only</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Voice only</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Service_Provider__c</picklist>
+        <values>
+            <fullName>Optus</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Telstra</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Vodafone</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Active</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Inactive</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Suspended</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

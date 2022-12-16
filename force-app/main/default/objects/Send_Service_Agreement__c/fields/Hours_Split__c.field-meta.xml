@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hours_Split__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF ( OR(State__c = &quot;WA&quot;, State__c = &quot;SA&quot;, State__c = &quot;TAS&quot;), 
+
+(IF ( INCLUDES ( Therapy_Support_WA__c , &quot;Occupational Therapy $193.99&quot; ), &quot;Occupational Therapy $193.99: &quot; &amp; TEXT(OT_hours__c) &amp; &quot;hrs&quot; &amp; &quot;, &quot;,null ) &amp;
+IF ( INCLUDES ( Therapy_Support_WA__c , &quot;Speech Pathology $193.99&quot; ), &quot;Speech Pathology $193.99: &quot; &amp; TEXT(Speech_Pathology_Hours__c) &amp; &quot;hrs&quot; &amp; &quot;, &quot;,null ) &amp;
+IF ( INCLUDES ( Therapy_Support_WA__c , &quot;Physiotherapy $224.62&quot; ), &quot;Physiotherapy $224.62: &quot; &amp; TEXT(Physiotherapy_Hours__c) &amp; &quot;hrs&quot; &amp; &quot;, &quot;,null ) &amp;
+IF ( INCLUDES ( Therapy_Support_WA__c , &quot;Exercise Physiology $166.99&quot; ), &quot;Exercise Physiology $166.99: &quot; &amp; TEXT(Exercise_Physiology__c) &amp; &quot;hrs&quot; &amp; &quot;, &quot;,null ) &amp;
+IF ( INCLUDES ( Therapy_Support_WA__c , &quot;Behavioral Support Standard $193.99&quot; ), &quot;Behavioral Support $193.99: &quot; &amp; TEXT(Behavioral_Support_Hours__c) &amp; &quot;hrs&quot; &amp; &quot;, &quot;,null ) &amp;
+IF ( INCLUDES ( Therapy_Support_WA__c , &quot;Behavioral Support Specialist $234.83&quot; ), &quot;Behavioral Support Specialist $234.83: &quot; &amp; TEXT(Behavioral_Support_Specialist_Hours__c) &amp; &quot;hrs&quot; &amp; &quot;, &quot;,null ) &amp;
+IF ( INCLUDES ( Therapy_Support_WA__c , &quot;Psychology $234.83&quot; ), &quot;Psychology $234.83: &quot; &amp; TEXT(Psychology_Hours__c) &amp; &quot;hrs&quot; &amp; &quot;, &quot;,null ) &amp;
+IF ( INCLUDES ( Therapy_Support_WA__c , &quot;Allied Health Assistant Level 1 $56.16&quot; ), &quot;Allied Health Assistant Level 1 $56.16: &quot; &amp; TEXT(AHA_Level_1_Hours__c) &amp; &quot;hrs&quot; &amp; &quot;, &quot;,null ) &amp;
+IF ( INCLUDES ( Therapy_Support_WA__c , &quot;Allied Health Assistant Level 2 $86.79&quot; ), &quot;Allied Health Assistant Level 2 $86.79: &quot; &amp; TEXT(AHA_Level_2_Hours__c) &amp; &quot;hrs&quot; &amp; &quot;, &quot;,null ) &amp;
+IF ( INCLUDES ( Therapy_Support_WA__c , &quot;Other Therapy $193.99&quot; ), &quot;Other Therapy $193.99: &quot; &amp; TEXT(Other_Therapy_Hours__c) &amp; &quot;hrs&quot; ,null )),
+
+
+(IF ( INCLUDES ( Therapy_Support__c , &quot;Occupational Therapy&quot; ), &quot;Occupational Therapy $193.99: &quot; &amp; TEXT(OT_hours__c) &amp; &quot;hrs&quot; &amp; &quot;, &quot;,null ) &amp;
+IF ( INCLUDES ( Therapy_Support__c , &quot;Speech Pathology&quot; ), &quot;Speech Pathology $193.99: &quot; &amp; TEXT(Speech_Pathology_Hours__c) &amp; &quot;hrs&quot; &amp; &quot;, &quot;,null ) &amp;
+IF ( INCLUDES ( Therapy_Support__c , &quot;Physiotherapy&quot; ), &quot;Physiotherapy $193.99: &quot; &amp; TEXT(Physiotherapy_Hours__c) &amp; &quot;hrs&quot; &amp; &quot;, &quot;,null ) &amp;
+IF ( INCLUDES ( Therapy_Support__c , &quot;Exercise Physiology&quot; ), &quot;Exercise Physiology  $166.99: &quot; &amp; TEXT(Exercise_Physiology__c) &amp; &quot;hrs&quot; &amp; &quot;, &quot;,null ) &amp;
+IF ( INCLUDES ( Therapy_Support__c , &quot;Behavioral Support Standard&quot; ), &quot;Behavioral Support Standard $193.99: &quot; &amp; TEXT(Behavioral_Support_Hours__c) &amp; &quot;hrs&quot; &amp; &quot;, &quot;,null ) &amp;
+IF ( INCLUDES ( Therapy_Support__c , &quot;Behavioral Support Specialist&quot; ), &quot;Behavioral Support Specialist $214.41: &quot; &amp; TEXT(Behavioral_Support_Specialist_Hours__c) &amp; &quot;hrs&quot; &amp; &quot;, &quot;,null ) &amp;
+IF ( INCLUDES ( Therapy_Support__c , &quot;Psychology&quot; ), &quot;Psychology $214.41: &quot; &amp; TEXT(Psychology_Hours__c) &amp; &quot;hrs&quot; &amp; &quot;, &quot;,null ) &amp;
+IF ( INCLUDES ( Therapy_Support__c , &quot;Allied Health Assistant Level 1&quot; ), &quot;Allied Health Assistant Level 1  $56.16: &quot; &amp; TEXT(AHA_Level_1_Hours__c) &amp; &quot;hrs&quot; &amp; &quot;, &quot;,null ) &amp;
+IF ( INCLUDES ( Therapy_Support__c , &quot;Allied Health Assistant Level 2&quot; ), &quot;Allied Health Assistant Level 2  $86.79: &quot; &amp; TEXT(AHA_Level_2_Hours__c) &amp; &quot;hrs&quot; &amp; &quot;, &quot; ,null ) &amp;
+IF ( INCLUDES ( Therapy_Support__c , &quot;Other Therapy $193.99&quot; ), &quot;Other Therapy $193.99: &quot; &amp; TEXT(Other_Therapy_Hours__c) &amp; &quot;hrs&quot; ,null ))
+)</formula>
+    <label>Hours Split</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

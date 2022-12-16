@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RAPT_Score_Validation</fullName>
+    <active>true</active>
+    <description>Enter between 0 and 12</description>
+    <errorConditionFormula>OR(RAPT_Score__c &lt; 0, RAPT_Score__c &gt; 12)</errorConditionFormula>
+    <errorDisplayField>RAPT_Score__c</errorDisplayField>
+    <errorMessage>RAPT score cannot exceed 12</errorMessage>
+</ValidationRule>

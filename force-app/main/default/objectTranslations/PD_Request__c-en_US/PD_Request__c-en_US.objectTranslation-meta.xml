@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>PD Request</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>PD Requests</value>
+    </caseValues>
+    <layouts>
+        <layout>PD Request - AHA</layout>
+        <sections>
+            <label></label>
+            <section>Course Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Course Schedule</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Office Manager Use Only</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Result</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Supervisor</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>PD Request - Leadership</layout>
+        <sections>
+            <label></label>
+            <section>Course Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Course Schedule</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Office Manager Use Only</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Result</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Supervisor</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>PD Request - Principal Clinician</layout>
+        <sections>
+            <label></label>
+            <section>Course Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Course Schedule</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Office Manager Use Only</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Result</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Supervisor</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>PD Request Layout</layout>
+        <sections>
+            <label></label>
+            <section>Course Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Course Schedule</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Office Manager Use Only</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Result</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Supervisor</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>PD Request Layout - Operational</layout>
+        <sections>
+            <label></label>
+            <section>Course Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Course Schedule</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Office Manager Use Only</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Result</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Supervisor</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <description></description>
+        <label></label>
+        <name>Allied_Health_Assistant</name>
+    </recordTypes>
+    <recordTypes>
+        <description></description>
+        <label></label>
+        <name>Clinician</name>
+    </recordTypes>
+    <recordTypes>
+        <description></description>
+        <label></label>
+        <name>Leadership</name>
+    </recordTypes>
+    <recordTypes>
+        <description></description>
+        <label></label>
+        <name>Operational</name>
+    </recordTypes>
+    <recordTypes>
+        <description></description>
+        <label></label>
+        <name>Principal_Clinician</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Approved_by_CS_and_DS</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Course_Dates</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Course_Dates_2_Week</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Days_of_Leave</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Other_course_name</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Restrict_Edit_Status_Cost</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Restrict_Non_Supervisor_Status_Cost</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Restrict_Record_Edit</name>
+    </validationRules>
+</CustomObjectTranslation>

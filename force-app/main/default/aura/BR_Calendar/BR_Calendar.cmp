@@ -1,0 +1,216 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" controller="CalendarController" access="global">
+     <ltng:require styles="{!join(',',
+                           $Resource.FullCalendarV4 + '/packages/core/main.min.css',
+                           $Resource.FullCalendarV4 + '/packages/daygrid/main.min.css',
+                           $Resource.FullCalendarV4 + '/packages/timegrid/main.min.css',
+                           $Resource.FullCalendarV4 + '/packages/list/main.min.css',
+                           $Resource.FullCalendarV4 + '/packages/bootstrap/main.min.css'
+                          )}"
+                  afterScriptsLoaded="{!c.scriptsLoaded}"
+                  scripts="{!join(',',
+                           $Resource.enrtcr__jQuery,
+                           $Resource.enrtcr__momentjs,
+                           $Resource.Zipline__moment_timezone_js,
+                           $Resource.FullCalendarV4 + '/packages/core/main.js',
+                           $Resource.FullCalendarV4 + '/packages/daygrid/main.js',
+                           $Resource.FullCalendarV4 + '/packages/interaction/main.js',
+                           $Resource.FullCalendarV4 + '/packages/timegrid/main.js',
+                           $Resource.FullCalendarV4 + '/packages/list/main.js',
+                           $Resource.FullCalendarV4 + '/packages/bootstrap/main.min.js'
+                           )}"
+	/>
+
+    <!--Attributes-->
+    <aura:attribute name="selectedRecordTypeName" type="String" description="the calendar's owner's Contact record type name"/>
+    <aura:attribute name="eventChangeConfirmation" type="Boolean" default="false" description="boolean to show the event change confirmation modal" />
+    <aura:attribute name="changedEvent" type="object" default="{}" description="to indicate the event that is changed through drop/resize"/>
+    <aura:attribute name="deviceType" type="String" />
+    <aura:attribute name="calendarType" type="String" description="to indicate what type of calendar is being loaded; My Calendar, Worker Calendar, Client Calendar"/>
+
+    <aura:attribute name='events' type="List" default="[]" description="list of full calendar event object that will be loaded to the calendar" />
+    <aura:attribute name='filteredEvents' type="List" default="[]" description="list of full calendar event object that have been filtered"/>
+    <aura:attribute name='cal' type="object" default="{}" description="the full calendar object"/>
+    <aura:attribute name='event' type="object" default="{}" description="a single of full calendar event object"/>
+    <aura:attribute name="isLoading" type="Boolean" default="false"  description="for loading spinner"/>
+    <aura:attribute name="viewEvent" type="String" default="" description="for the selected event ID, will be null when creation form is displayed"/>
+    <aura:attribute name="loggedInUser" type="Contact" default="{ 'sobjectType': 'Contact'}" description="salesforce contact record of the currently logged in user"/>
+    <aura:attribute name="colors" type="Map" default="{'green' : '38,133,64', 'blue' : '15,94,163', 'red' : '176,14,14', 'grey' : '152,152,152' , 'aqua' : '226,243,246', 'orange' : '184,129,89', 'purple' : '116,43,108'}" />
+
+    <aura:attribute name="filterModalVisible" type="Boolean" default="false" />
+    <aura:attribute name="showForm" type="Boolean" default="false" description="true if we want to have some space on the right side for edit/create/view cmp. currently set to true for My Calendar and Worker Calendar"/>
+    <aura:attribute name="statusSelection" type="List" default="['Pending', 'Booked']" description="default status selection on filter cmp"/>
+    <aura:attribute name="serviceSelection" type="List" default="['Initial Appointment', 'Therapy Session', 'Other PCH', 'Internal', 'Out of Office']" description="default service selection on filter cmp"/>
+
+	<!-- aura handler declarations (use aura:handler and component event to communicate from child to parent) -->
+    <aura:handler name="createComponentEvent" event="c:updateEvent"
+                  action="{!c.receiveEventCalendarObject}" description="to receive updated list of events object from child components (create, detail forms)"
+                  />
+
+    <!-- aura method declarations (use aura:method to communicate from parent to child AND to make a parent's function useable by its child)-->
+	<aura:method name="filter" action="{!c.filterEvents}" access="PUBLIC" />
+    <aura:method name="clickEdit" action="{!c.toggleEdit}" access="PUBLIC" />
+
+    <!-- register events -->
+
+    <!-- HTML starts here-->
+    <div style="width:100%">
+        <div class="calendar-event">
+            <!-- Markup for full calendar UI -->
+            <div class="{!if(v.showForm,'calendar-w-67','calendar-w-100')}">
+                <div aura:id='calendar' ></div>
+                <div class="legend-section">
+                    <div style="margin-top:10px;margin-bottom:10px">
+                        <div style="margin-bottom:5px">
+                            <p style="font-size:20px;margin-left:2px">Legend</p>
+                            <p style="font-size:14px;margin-left:2px">Event Type</p>
+                        </div>
+                        <div class="legend">
+                            <div class="legend-cards legend-therapy">
+                                <p style="text-align:center">Therapy Session</p>
+                            </div>
+                            <div class="legend-cards legend-initial" >
+                                <p style="text-align:center">Initial Appointment</p>
+                            </div>
+                            <div class="legend-cards legend-other">
+                                <p style="text-align:center">Other PCH</p>
+                            </div>
+                            <div class="legend-cards legend-internal">
+                                <p style="text-align:center">Internal</p>
+                            </div>
+                            <div class="legend-cards legend-ooo">
+                                <p style="text-align:center">Out of Office</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- easily add new components using aura:if and get the flag to show it -->
+            <!-- aura:if isTrue={myCalendar == true} c:BR_CalendarStatistics show the KPI/PCH component card-->
+            <!-- aura:if isTrue={myCalendar == true} c:BR_CalendarBilling to use the billing feature -->
+
+
+            <!-- Display components for BOTH my calendar and worker calendar (mobile and desktop)-->
+            <aura:if isTrue="{!or(v.calendarType == 'My Calendar', v.calendarType == 'Worker Calendar')}" >
+
+                <!-- 1. Event creation form -->
+                <aura:if isTrue="{!v.viewEvent == ''}" >
+                    <div class="event-form">
+                        <c:BR_CalendarCreate
+                                             aura:id="calendarCreateCmp"
+                                             parent="{!this}"
+                                             loggedInUser="{!v.loggedInUser}"
+                                             />
+                    </div>
+                </aura:if>
+
+                <!-- 2. Event detail -->
+                <aura:if isTrue="{!v.viewEvent != ''}">
+                    <div class="event-form">
+                        <c:BR_EventDetail
+                                          aura:id="eventDetailView"
+                                          parent="{!this}"
+                                          recordId="{!v.viewEvent}"
+                                          />
+                    </div>
+                </aura:if>
+
+            </aura:if>
+
+            <!-- Display components for mobile CLIENT calendar -->
+            <aura:if isTrue="{!and(v.calendarType == 'Client Calendar', v.deviceType != 'DESKTOP')}" >
+                <!-- 1. Event detail -->
+                <aura:if isTrue="{!v.viewEvent != ''}">
+                    <div class="event-form">
+                        <c:BR_EventDetail
+                                          aura:id="eventDetailView"
+                                          parent="{!this}"
+                                          recordId="{!v.viewEvent}"
+                                          />
+                    </div>
+                </aura:if>
+            </aura:if>
+
+
+            <!-- Display components for ALL types of calendar -->
+
+            <!-- 1. Calendar filter component -->
+            <aura:if isTrue="{!v.filterModalVisible}">
+                <c:BR_CalendarFilter
+                                     parent="{!this}"
+                                     statusSelection="{!v.statusSelection}"
+                                     serviceSelection="{!v.serviceSelection}"
+                                     />
+            </aura:if>
+
+            <!-- 2. Loading spinner -->
+            <aura:if isTrue="{!v.isLoading}">
+                <div style="width:100%;height:100%">
+                    <lightning:spinner alternativeText="Loading" size="large"/>
+                </div>
+            </aura:if>
+
+            <!-- 3. Time change modals -->
+            <aura:if isTrue="{!v.eventChangeConfirmation}">
+                <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                    <div class="slds-modal__container">
+                        <header class="slds-modal__header">
+                            <lightning:buttonIcon iconName="utility:close"
+                                                  onclick="{! c.closeModal }"
+                                                  alternativeText="close"
+                                                  variant="bare-inverse"
+                                                  class="slds-modal__close"/>
+                            <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Change Event/Series Timing?</h2>
+                        </header>
+                        <aura:if isTrue="{!v.changedEvent.extendedProps.recurrence == false}">
+                            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                                This action will change the time of this event. Any previously booked event will be changed to pending.
+                            </div>
+
+
+                            <footer class="slds-modal__footer">
+                                <lightning:button variant="brand-outline"
+                                                  label="Cancel"
+                                                  title="Cancel"
+                                                  onclick="{! c.closeModal }"/>
+                                <lightning:button variant="success"
+                                                  label="Yes"
+                                                  title="Yes"
+                                                  value="saveOne"
+                                                  onclick="{!c.saveDropResizeEvent}"/>
+                            </footer>
+                        </aura:if>
+                        <aura:if isTrue="{!v.changedEvent.extendedProps.recurrence == true}">
+                            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                                Would you like to save changes to <b>just this event</b> or <b>this and the following events in the series</b>?
+                            </div>
+
+                            <footer class="slds-modal__footer">
+                                <lightning:button variant="brand-outline"
+                                                  label="Not Now"
+                                                  title="Not Now"
+                                                  onclick="{! c.closeModal }"/>
+                                <lightning:button class = "success-text" variant="neutral"
+                                                  aura:id="saveOne"
+                                                  label="Save One"
+                                                  title="SaveOne"
+                                                  value="saveOne"
+                                                  onclick="{!c.saveDropResizeEvent}"
+                                                  />
+                                <lightning:button variant="success"
+                                                  aura:id="saveAll"
+                                                  label="Save All"
+                                                  title="SaveAll"
+                                                  value="saveAll"
+                                                  onclick="{!c.saveDropResizeEvent}"
+                                                  />
+                            </footer>
+                        </aura:if>
+                    </div>
+                </section>
+                <div class="slds-backdrop slds-backdrop_open"></div>
+            </aura:if>
+        </div>
+    </div>
+</aura:component>

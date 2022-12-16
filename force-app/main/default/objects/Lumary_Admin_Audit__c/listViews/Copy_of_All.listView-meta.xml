@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Copy_of_All</fullName>
+    <columns>NAME</columns>
+    <columns>Clinician__c</columns>
+    <columns>Office__c</columns>
+    <columns>Total_Score__c</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Office__c</field>
+        <operation>equals</operation>
+        <value>Briar Hill,Gippsland,Moonee Ponds,Mornington,Mulgrave,Surrey Hills</value>
+    </filters>
+    <label>VIC</label>
+</ListView>

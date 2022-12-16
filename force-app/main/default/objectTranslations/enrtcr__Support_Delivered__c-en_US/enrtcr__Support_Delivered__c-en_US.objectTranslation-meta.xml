@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layouts>
+        <layout>Copy of Support Delivered v2 Layout standard</layout>
+        <sections>
+            <label></label>
+            <section>Cancellation Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Extracts</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Internal</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Rate and Travel Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Service Delivered Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Service Delivered and Travel</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Total Cost and Payment Details</section>
+        </sections>
+    </layouts>
+</CustomObjectTranslation>

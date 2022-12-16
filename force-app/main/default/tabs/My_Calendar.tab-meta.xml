@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Created by Lightning App Builder</description>
+    <flexiPage>My_Calendar</flexiPage>
+    <icon>Zipline__All/Better_Calendar_Icon.png</icon>
+    <label>My Calendar</label>
+    <motif>Custom253: TV Widescreen</motif>
+</CustomTab>

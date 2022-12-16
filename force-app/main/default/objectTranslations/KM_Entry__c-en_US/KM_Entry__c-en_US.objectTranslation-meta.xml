@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>KM Entry</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>KM Entry</value>
+    </caseValues>
+    <layouts>
+        <layout>KM Entry Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Details</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>KM_check</name>
+    </validationRules>
+</CustomObjectTranslation>

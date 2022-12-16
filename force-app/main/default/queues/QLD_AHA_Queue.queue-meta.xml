@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>QLD AHA Queue</name>
+    <queueMembers>
+        <users>
+            <user>brooke.c@betterrehab.com.au</user>
+            <user>casey@betterrehab.com.au</user>
+            <user>colin@betterrehab.com.au</user>
+            <user>jessica.b@betterrehab.com.au</user>
+            <user>maino@betterrehab.com.au</user>
+            <user>michelle.w@betterrehab.com.au</user>
+            <user>peter@betterrehab.com.au</user>
+            <user>shania@betterrehab.com.au</user>
+            <user>tara.w@betterrehab.com.au</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Task</sobjectType>
+    </queueSobject>
+</Queue>

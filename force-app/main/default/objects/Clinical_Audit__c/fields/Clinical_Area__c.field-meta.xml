@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Clinical_Area__c</fullName>
+    <externalId>false</externalId>
+    <label>Clinical Area</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>OT – AT</fullName>
+                <default>false</default>
+                <label>OT – AT</label>
+            </value>
+            <value>
+                <fullName>OT – Home Modifications</fullName>
+                <default>false</default>
+                <label>OT – Home Modifications</label>
+            </value>
+            <value>
+                <fullName>OT –  Therapy</fullName>
+                <default>false</default>
+                <label>OT –  Therapy</label>
+            </value>
+            <value>
+                <fullName>OT –  SIL/SDA</fullName>
+                <default>false</default>
+                <label>OT –  SIL/SDA</label>
+            </value>
+            <value>
+                <fullName>PT – AT</fullName>
+                <default>false</default>
+                <label>PT – AT</label>
+            </value>
+            <value>
+                <fullName>SP – Voice</fullName>
+                <default>false</default>
+                <label>SP – Voice</label>
+            </value>
+            <value>
+                <fullName>SP – Social Skills</fullName>
+                <default>false</default>
+                <label>SP – Social Skills</label>
+            </value>
+            <value>
+                <fullName>SP – Language</fullName>
+                <default>false</default>
+                <label>SP – Language</label>
+            </value>
+            <value>
+                <fullName>SP – Speech</fullName>
+                <default>false</default>
+                <label>SP – Speech</label>
+            </value>
+            <value>
+                <fullName>SP – AAC</fullName>
+                <default>false</default>
+                <label>SP – AAC</label>
+            </value>
+            <value>
+                <fullName>SP – Dysphagia</fullName>
+                <default>false</default>
+                <label>SP – Dysphagia</label>
+            </value>
+            <value>
+                <fullName>SP – Fluency</fullName>
+                <default>false</default>
+                <label>SP – Fluency</label>
+            </value>
+            <value>
+                <fullName>PBS – Assessment and implementation</fullName>
+                <default>false</default>
+                <label>PBS – Assessment and implementation</label>
+            </value>
+            <value>
+                <fullName>PBS – Psychology assessment and therapy</fullName>
+                <default>false</default>
+                <label>PBS – Psychology assessment and therapy</label>
+            </value>
+            <value>
+                <fullName>OT – Intervention planning</fullName>
+                <default>false</default>
+                <label>OT – Intervention planning</label>
+            </value>
+            <value>
+                <fullName>PT – Ortho</fullName>
+                <default>false</default>
+                <label>PT – Ortho</label>
+            </value>
+            <value>
+                <fullName>PT/EP – Assessment</fullName>
+                <default>false</default>
+                <label>PT/EP – Assessment</label>
+            </value>
+            <value>
+                <fullName>PT/EP – Intervention</fullName>
+                <default>false</default>
+                <label>PT/EP – Intervention</label>
+            </value>
+            <value>
+                <fullName>N/A</fullName>
+                <default>false</default>
+                <label>N/A</label>
+            </value>
+            <value>
+                <fullName>PBS – Restrictive Practices</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>PBS – Restrictive Practices</label>
+            </value>
+            <value>
+                <fullName>PT – Hydrotherapy</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>PT – Hydrotherapy</label>
+            </value>
+            <value>
+                <fullName>PT – Neuro</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>PT – Neuro</label>
+            </value>
+            <value>
+                <fullName>PT – Paediatrics</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>PT – Paediatrics</label>
+            </value>
+            <value>
+                <fullName>PT – Respiratory</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>PT – Respiratory</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

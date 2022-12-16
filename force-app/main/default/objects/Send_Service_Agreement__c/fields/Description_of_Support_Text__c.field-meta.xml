@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Description_of_Support_Text__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF ( INCLUDES ( Description_of_Support__c, &quot;Assessment&quot; ), &quot;Assessment&quot; &amp; &quot;, &quot;,null ) &amp;
+IF ( INCLUDES ( Description_of_Support__c, &quot;Report&quot; ), &quot;Report&quot; &amp; &quot;, &quot;,null ) &amp;
+IF ( INCLUDES ( Description_of_Support__c, &quot;Intervention&quot; ), &quot;Intervention&quot; &amp; &quot;, &quot;,null ) &amp;
+IF ( INCLUDES ( Description_of_Support__c, &quot;Care Coordination&quot; ), &quot;Care Coordination&quot; &amp; &quot;, &quot;,null ) &amp;
+IF ( INCLUDES ( Description_of_Support__c, &quot;Notes and Documentation&quot; ), &quot;Notes and Documentation&quot; &amp; &quot;, &quot;,null ) &amp;
+IF ( INCLUDES ( Description_of_Support__c, &quot;Preparation of Resources&quot; ), &quot;Preparation of Resources&quot; &amp; &quot;, &quot;,null ) &amp;
+IF ( INCLUDES ( Description_of_Support__c, &quot;Travel: minimum of 15minutes and capped at 30minutes (60mins for rural travel) each way&quot; ), &quot;Travel: minimum of 15minutes and capped at 30minutes (60mins for rural travel) each way&quot;,null )</formula>
+    <label>Description of Support Text</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

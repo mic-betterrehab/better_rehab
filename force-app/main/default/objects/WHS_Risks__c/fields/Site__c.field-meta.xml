@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Site__c</fullName>
+    <externalId>false</externalId>
+    <label>Site</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Adelaide</fullName>
+                <default>false</default>
+                <label>Adelaide</label>
+            </value>
+            <value>
+                <fullName>Bankstown</fullName>
+                <default>false</default>
+                <label>Bankstown</label>
+            </value>
+            <value>
+                <fullName>Blacktown</fullName>
+                <default>false</default>
+                <label>Blacktown</label>
+            </value>
+            <value>
+                <fullName>Brendale</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Brendale</label>
+            </value>
+            <value>
+                <fullName>Briar Hill</fullName>
+                <default>false</default>
+                <label>Briar Hill</label>
+            </value>
+            <value>
+                <fullName>Canberra - Bruce</fullName>
+                <default>false</default>
+                <label>Canberra - Bruce</label>
+            </value>
+            <value>
+                <fullName>Central Coast</fullName>
+                <default>false</default>
+                <label>Central Coast</label>
+            </value>
+            <value>
+                <fullName>Chermside</fullName>
+                <default>false</default>
+                <label>Chermside</label>
+            </value>
+            <value>
+                <fullName>Cockburn</fullName>
+                <default>false</default>
+                <label>Cockburn</label>
+            </value>
+            <value>
+                <fullName>Dee Why</fullName>
+                <default>false</default>
+                <label>Dee Why</label>
+            </value>
+            <value>
+                <fullName>Eastern Sydney</fullName>
+                <default>false</default>
+                <label>Eastern Sydney</label>
+            </value>
+            <value>
+                <fullName>Geelong</fullName>
+                <default>false</default>
+                <label>Geelong</label>
+            </value>
+            <value>
+                <fullName>Inglewood</fullName>
+                <default>false</default>
+                <label>Inglewood</label>
+            </value>
+            <value>
+                <fullName>Ipswich</fullName>
+                <default>false</default>
+                <label>Ipswich</label>
+            </value>
+            <value>
+                <fullName>Joondalup</fullName>
+                <default>false</default>
+                <label>Joondalup</label>
+            </value>
+            <value>
+                <fullName>Macquarie Park</fullName>
+                <default>false</default>
+                <label>Macquarie Park</label>
+            </value>
+            <value>
+                <fullName>Moonee Ponds</fullName>
+                <default>false</default>
+                <label>Moonee Ponds</label>
+            </value>
+            <value>
+                <fullName>Mornington</fullName>
+                <default>false</default>
+                <label>Mornington</label>
+            </value>
+            <value>
+                <fullName>Mulgrave</fullName>
+                <default>false</default>
+                <label>Mulgrave</label>
+            </value>
+            <value>
+                <fullName>Newcastle</fullName>
+                <default>false</default>
+                <label>Newcastle</label>
+            </value>
+            <value>
+                <fullName>North Lakes</fullName>
+                <default>false</default>
+                <label>North Lakes</label>
+            </value>
+            <value>
+                <fullName>Osborne Park</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Osborne Park</label>
+            </value>
+            <value>
+                <fullName>Penrith</fullName>
+                <default>false</default>
+                <label>Penrith</label>
+            </value>
+            <value>
+                <fullName>Robina</fullName>
+                <default>false</default>
+                <label>Robina</label>
+            </value>
+            <value>
+                <fullName>Springwood</fullName>
+                <default>false</default>
+                <label>Springwood</label>
+            </value>
+            <value>
+                <fullName>Stones Corner</fullName>
+                <default>false</default>
+                <label>Stones Corner</label>
+            </value>
+            <value>
+                <fullName>Sunshine Coast</fullName>
+                <default>false</default>
+                <label>Sunshine Coast</label>
+            </value>
+            <value>
+                <fullName>Surrey Hills</fullName>
+                <default>false</default>
+                <label>Surrey Hills</label>
+            </value>
+            <value>
+                <fullName>Toowoomba</fullName>
+                <default>false</default>
+                <label>Toowoomba</label>
+            </value>
+            <value>
+                <fullName>Werribee</fullName>
+                <default>false</default>
+                <label>Werribee</label>
+            </value>
+            <value>
+                <fullName>Wollongong</fullName>
+                <default>false</default>
+                <label>Wollongong</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

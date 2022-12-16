@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hazard_Sub_type__c</fullName>
+    <externalId>false</externalId>
+    <label>Hazard Sub-type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Hazard__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Animal related</fullName>
+                <default>false</default>
+                <label>Animal related</label>
+            </value>
+            <value>
+                <fullName>Bacteria</fullName>
+                <default>false</default>
+                <label>Bacteria</label>
+            </value>
+            <value>
+                <fullName>Electrical</fullName>
+                <default>false</default>
+                <label>Electrical</label>
+            </value>
+            <value>
+                <fullName>Electricity</fullName>
+                <default>false</default>
+                <label>Electricity</label>
+            </value>
+            <value>
+                <fullName>Extreme weather</fullName>
+                <default>false</default>
+                <label>Extreme weather</label>
+            </value>
+            <value>
+                <fullName>Falling object</fullName>
+                <default>false</default>
+                <label>Falling object</label>
+            </value>
+            <value>
+                <fullName>Flammable liquid</fullName>
+                <default>false</default>
+                <label>Flammable liquid</label>
+            </value>
+            <value>
+                <fullName>Fungus</fullName>
+                <default>false</default>
+                <label>Fungus</label>
+            </value>
+            <value>
+                <fullName>General combustibles</fullName>
+                <default>false</default>
+                <label>General combustibles</label>
+            </value>
+            <value>
+                <fullName>Hazardous substances</fullName>
+                <default>false</default>
+                <label>Hazardous substances</label>
+            </value>
+            <value>
+                <fullName>Insects</fullName>
+                <default>false</default>
+                <label>Insects</label>
+            </value>
+            <value>
+                <fullName>Loud noise</fullName>
+                <default>false</default>
+                <label>Loud noise</label>
+            </value>
+            <value>
+                <fullName>Manual handling</fullName>
+                <default>false</default>
+                <label>Manual handling</label>
+            </value>
+            <value>
+                <fullName>Oils</fullName>
+                <default>false</default>
+                <label>Oils</label>
+            </value>
+            <value>
+                <fullName>Poor posture</fullName>
+                <default>false</default>
+                <label>Poor posture</label>
+            </value>
+            <value>
+                <fullName>Slips, trips and falls</fullName>
+                <default>false</default>
+                <label>Slips, trips and falls</label>
+            </value>
+            <value>
+                <fullName>Vibration</fullName>
+                <default>false</default>
+                <label>Vibration</label>
+            </value>
+            <value>
+                <fullName>Virus</fullName>
+                <default>false</default>
+                <label>Virus</label>
+            </value>
+            <value>
+                <fullName>Working at height</fullName>
+                <default>false</default>
+                <label>Working at height</label>
+            </value>
+            <value>
+                <fullName>Workstation design</fullName>
+                <default>false</default>
+                <label>Workstation design</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Ergonomic Hazard</controllingFieldValue>
+            <valueName>Manual handling</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Ergonomic Hazard</controllingFieldValue>
+            <valueName>Poor posture</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Ergonomic Hazard</controllingFieldValue>
+            <valueName>Workstation design</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fire Hazard</controllingFieldValue>
+            <valueName>Electrical</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fire Hazard</controllingFieldValue>
+            <valueName>Flammable liquid</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fire Hazard</controllingFieldValue>
+            <valueName>General combustibles</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Fire Hazard</controllingFieldValue>
+            <valueName>Oils</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Safety</controllingFieldValue>
+            <valueName>Falling object</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Safety</controllingFieldValue>
+            <valueName>Slips, trips and falls</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Safety</controllingFieldValue>
+            <valueName>Working at height</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Chemical</controllingFieldValue>
+            <valueName>Hazardous substances</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Physical</controllingFieldValue>
+            <valueName>Electricity</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Physical</controllingFieldValue>
+            <valueName>Extreme weather</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Physical</controllingFieldValue>
+            <valueName>Loud noise</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Physical</controllingFieldValue>
+            <valueName>Vibration</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Biological</controllingFieldValue>
+            <valueName>Animal related</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Biological</controllingFieldValue>
+            <valueName>Bacteria</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Biological</controllingFieldValue>
+            <valueName>Fungus</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Biological</controllingFieldValue>
+            <valueName>Insects</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Biological</controllingFieldValue>
+            <valueName>Virus</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

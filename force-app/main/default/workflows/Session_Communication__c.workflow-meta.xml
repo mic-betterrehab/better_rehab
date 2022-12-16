@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <rules>
+        <fullName>Pendula CS-000001</fullName>
+        <actions>
+            <name>Execute_Pendula_Communication_a1q2v000006J336AAC</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <criteriaItems>
+            <field>Session_Communication__c.CreatedDate</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Session_Communication__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Appointment Booked</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Session_Communication__c.Future_Session__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <description>Auto-generated workflow to trigger communications for Pendula Communication CS-000001</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Pendula CS-000002</fullName>
+        <actions>
+            <name>Execute_Pendula_Communication_a1q2v000006J33BAAS</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <criteriaItems>
+            <field>Session_Communication__c.CreatedDate</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Session_Communication__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Recurrence Confirmation</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Session_Communication__c.Future_Session__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <description>Auto-generated workflow to trigger communications for Pendula Communication CS-000002</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Pendula CS-000003</fullName>
+        <actions>
+            <name>Execute_Pendula_Communication_a1q2v000006J33GAAS</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <criteriaItems>
+            <field>Session_Communication__c.CreatedDate</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Session_Communication__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Appointment Time Changed</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Session_Communication__c.Future_Session__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <description>Auto-generated workflow to trigger communications for Pendula Communication CS-000003</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Pendula CS-000004</fullName>
+        <actions>
+            <name>Execute_Pendula_Communication_a1q2v000006J33LAAS</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <criteriaItems>
+            <field>Session_Communication__c.CreatedDate</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Session_Communication__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Recurrence Changed</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Session_Communication__c.Future_Session__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <description>Auto-generated workflow to trigger communications for Pendula Communication CS-000004</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Pendula CS-000006</fullName>
+        <actions>
+            <name>Execute_Pendula_Communication_a1q2v000006J33VAAS</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <criteriaItems>
+            <field>Session_Communication__c.CreatedDate</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Session_Communication__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Appointment Cancelled</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Session_Communication__c.Future_Session__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <description>Auto-generated workflow to trigger communications for Pendula Communication CS-000006</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Pendula CS-000009</fullName>
+        <actions>
+            <name>Execute_Pendula_Communication_a1q2v000006J33kAAC</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <booleanFilter>1 AND 2</booleanFilter>
+        <criteriaItems>
+            <field>Session_Communication__c.CreatedDate</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Session_Communication__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Late Checkout</value>
+        </criteriaItems>
+        <description>Auto-generated workflow to trigger communications for Pendula Communication CS-000009</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Pendula CS-000010</fullName>
+        <actions>
+            <name>Execute_Pendula_Communication_a1q2v000006J33pAAC</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <criteriaItems>
+            <field>Session_Communication__c.CreatedDate</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Session_Communication__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Late Checkin</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Session_Communication__c.CreatedDate</field>
+            <operation>notEqual</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <description>Auto-generated workflow to trigger communications for Pendula Communication CS-000010</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Pendula CS-000011</fullName>
+        <actions>
+            <name>Execute_Pendula_Communication_a1q2v000006J4cwAAC</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <criteriaItems>
+            <field>Session_Communication__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Late Checkin</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Session_Communication__c.CreatedDate</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Session_Communication__c.Session_Region__c</field>
+            <operation>equals</operation>
+            <value>NSW</value>
+        </criteriaItems>
+        <description>Auto-generated workflow to trigger communications for Pendula Communication CS-000011</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Pendula CS-000012</fullName>
+        <actions>
+            <name>Execute_Pendula_Communication_a1q2v000006J4i3AAC</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <criteriaItems>
+            <field>Session_Communication__c.CreatedDate</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Session_Communication__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Late Checkout</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Session_Communication__c.Session_Region__c</field>
+            <operation>equals</operation>
+            <value>NSW</value>
+        </criteriaItems>
+        <description>Auto-generated workflow to trigger communications for Pendula Communication CS-000012</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Pendula CS-000013</fullName>
+        <actions>
+            <name>Execute_Pendula_Communication_a1q2v000006J4i8AAC</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <criteriaItems>
+            <field>Session_Communication__c.CreatedDate</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Session_Communication__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Late Checkin</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Session_Communication__c.Session_Region__c</field>
+            <operation>equals</operation>
+            <value>VIC</value>
+        </criteriaItems>
+        <description>Auto-generated workflow to trigger communications for Pendula Communication CS-000013</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Pendula CS-000014</fullName>
+        <actions>
+            <name>Execute_Pendula_Communication_a1q2v000006J4iDAAS</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <criteriaItems>
+            <field>Session_Communication__c.CreatedDate</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Session_Communication__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Late Checkout</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Session_Communication__c.Session_Region__c</field>
+            <operation>equals</operation>
+            <value>VIC</value>
+        </criteriaItems>
+        <description>Auto-generated workflow to trigger communications for Pendula Communication CS-000014</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Pendula CS-000015</fullName>
+        <actions>
+            <name>Execute_Pendula_Communication_a1q2v000006J4iIAAS</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <criteriaItems>
+            <field>Session_Communication__c.CreatedDate</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Session_Communication__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Late Checkin</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Session_Communication__c.Session_Region__c</field>
+            <operation>equals</operation>
+            <value>QLD</value>
+        </criteriaItems>
+        <description>Auto-generated workflow to trigger communications for Pendula Communication CS-000015</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Pendula CS-000016</fullName>
+        <actions>
+            <name>Execute_Pendula_Communication_a1q2v000006J4iNAAS</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <criteriaItems>
+            <field>Session_Communication__c.CreatedDate</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Session_Communication__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Late Checkout</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Session_Communication__c.Session_Region__c</field>
+            <operation>equals</operation>
+            <value>QLD</value>
+        </criteriaItems>
+        <description>Auto-generated workflow to trigger communications for Pendula Communication CS-000016</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <tasks>
+        <fullName>Execute_Pendula_Communication_a1q2v000006J336AAC</fullName>
+        <assignedTo>pendula@br.prod</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>Communication Schedule Id: a1q2v000006J336AAC</description>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>[Pendula-Event-Communication] CS-000001</subject>
+    </tasks>
+    <tasks>
+        <fullName>Execute_Pendula_Communication_a1q2v000006J33BAAS</fullName>
+        <assignedTo>pendula@br.prod</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>Communication Schedule Id: a1q2v000006J33BAAS</description>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>[Pendula-Event-Communication] CS-000002</subject>
+    </tasks>
+    <tasks>
+        <fullName>Execute_Pendula_Communication_a1q2v000006J33GAAS</fullName>
+        <assignedTo>pendula@br.prod</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>Communication Schedule Id: a1q2v000006J33GAAS</description>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>[Pendula-Event-Communication] CS-000003</subject>
+    </tasks>
+    <tasks>
+        <fullName>Execute_Pendula_Communication_a1q2v000006J33LAAS</fullName>
+        <assignedTo>pendula@br.prod</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>Communication Schedule Id: a1q2v000006J33LAAS</description>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>[Pendula-Event-Communication] CS-000004</subject>
+    </tasks>
+    <tasks>
+        <fullName>Execute_Pendula_Communication_a1q2v000006J33VAAS</fullName>
+        <assignedTo>pendula@br.prod</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>Communication Schedule Id: a1q2v000006J33VAAS</description>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>[Pendula-Event-Communication] CS-000006</subject>
+    </tasks>
+    <tasks>
+        <fullName>Execute_Pendula_Communication_a1q2v000006J33kAAC</fullName>
+        <assignedTo>pendula@br.prod</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>Communication Schedule Id: a1q2v000006J33kAAC</description>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>[Pendula-Event-Communication] CS-000009</subject>
+    </tasks>
+    <tasks>
+        <fullName>Execute_Pendula_Communication_a1q2v000006J33pAAC</fullName>
+        <assignedTo>pendula@br.prod</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>Communication Schedule Id: a1q2v000006J33pAAC</description>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>[Pendula-Event-Communication] CS-000010</subject>
+    </tasks>
+    <tasks>
+        <fullName>Execute_Pendula_Communication_a1q2v000006J4cwAAC</fullName>
+        <assignedTo>pendula@br.prod</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>Communication Schedule Id: a1q2v000006J4cwAAC</description>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>[Pendula-Event-Communication] CS-000011</subject>
+    </tasks>
+    <tasks>
+        <fullName>Execute_Pendula_Communication_a1q2v000006J4i3AAC</fullName>
+        <assignedTo>pendula@br.prod</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>Communication Schedule Id: a1q2v000006J4i3AAC</description>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>[Pendula-Event-Communication] CS-000012</subject>
+    </tasks>
+    <tasks>
+        <fullName>Execute_Pendula_Communication_a1q2v000006J4i8AAC</fullName>
+        <assignedTo>pendula@br.prod</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>Communication Schedule Id: a1q2v000006J4i8AAC</description>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>[Pendula-Event-Communication] CS-000013</subject>
+    </tasks>
+    <tasks>
+        <fullName>Execute_Pendula_Communication_a1q2v000006J4iDAAS</fullName>
+        <assignedTo>pendula@br.prod</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>Communication Schedule Id: a1q2v000006J4iDAAS</description>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>[Pendula-Event-Communication] CS-000014</subject>
+    </tasks>
+    <tasks>
+        <fullName>Execute_Pendula_Communication_a1q2v000006J4iIAAS</fullName>
+        <assignedTo>pendula@br.prod</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>Communication Schedule Id: a1q2v000006J4iIAAS</description>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>[Pendula-Event-Communication] CS-000015</subject>
+    </tasks>
+    <tasks>
+        <fullName>Execute_Pendula_Communication_a1q2v000006J4iNAAS</fullName>
+        <assignedTo>pendula@br.prod</assignedTo>
+        <assignedToType>user</assignedToType>
+        <description>Communication Schedule Id: a1q2v000006J4iNAAS</description>
+        <dueDateOffset>0</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>[Pendula-Event-Communication] CS-000016</subject>
+    </tasks>
+</Workflow>

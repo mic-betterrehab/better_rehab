@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NSW_New_starters</fullName>
+    <columns>NAME</columns>
+    <columns>Department__c</columns>
+    <columns>Email__c</columns>
+    <columns>Phone_Number__c</columns>
+    <columns>Role_Title__c</columns>
+    <columns>Start_Date__c</columns>
+    <columns>Site__c</columns>
+    <columns>Phone_IMEI__c</columns>
+    <columns>Laptop_Serial_Number__c</columns>
+    <columns>User__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>State__c</field>
+        <operation>contains</operation>
+        <value>NSW,ACT</value>
+    </filters>
+    <filters>
+        <field>Start_Date__c</field>
+        <operation>greaterThan</operation>
+        <value>5/26/2022</value>
+    </filters>
+    <label>NSW New starters</label>
+    <sharedTo>
+        <group>HR</group>
+        <group>IT</group>
+        <group>NSW_Admin</group>
+        <group>QLD_Admin</group>
+        <group>VIC_Admin</group>
+        <group>WA_Admin</group>
+    </sharedTo>
+</ListView>

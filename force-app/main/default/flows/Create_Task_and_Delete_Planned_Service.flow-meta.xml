@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <description>Sends an email to the creator of the Planned Service</description>
+        <name>Send_email_to_creator</name>
+        <label>Send email to creator</label>
+        <locationX>176</locationX>
+        <locationY>253</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>Delete_Planned_Service</targetReference>
+        </connector>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>PlannedServiceDeletedemail</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$User.Email</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <elementReference>$Setup.enrtcr__Settings__c.enrtcr__Company_Email__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Planned Service was deleted</stringValue>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <apiVersion>50.0</apiVersion>
+    <description>When a Planned Service is created, send an email to the creator and then delete the Planned Service</description>
+    <interviewLabel>Create Task and Delete Planned Service {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Send Email and Delete Planned Service</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordDeletes>
+        <name>Delete_Planned_Service</name>
+        <label>Delete Planned Service</label>
+        <locationX>176</locationX>
+        <locationY>373</locationY>
+        <inputReference>$Record</inputReference>
+    </recordDeletes>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Send_email_to_creator</targetReference>
+        </connector>
+        <object>enrtcr__Appointment_Service__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Draft</status>
+    <textTemplates>
+        <name>PlannedServiceDeletedemail</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>Hi {!$User.FirstName},
+
+It appears you have attempted to create a service delivery (SD) while creating/editing Session &quot;{!$Record.enrtcr__Client_Appointment__r.enrtcr__Session__r.Name}&quot;.
+Please note this has not saved the SD and you will need to re-enter your SD through the service delivery entry (SDE) page.
+Please do not continue to create SDs through the session set up.
+
+Thank you</text>
+    </textTemplates>
+</Flow>

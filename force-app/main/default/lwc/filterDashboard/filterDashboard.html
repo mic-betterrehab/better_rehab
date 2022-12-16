@@ -1,0 +1,47 @@
+<template>
+    <!--Only show this if the logged in user is a TL-->    
+    <!--<lightning-card title='Filter' if:false={isTeamLeader}>
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col slds-m-left_large">
+                <lightning-dual-listbox name="region"
+                    label="Select Region"
+                    source-label="Available"
+                    selected-label="Selected"
+                    options={regionOptions}
+                    onchange={handleRegionChange}></lightning-dual-listbox>                    
+            </div>
+            
+            <div class="slds-col slds-m-right_large">
+                <lightning-dual-listbox name="region"
+                    label="Select Site"
+                    source-label="Available"
+                    selected-label="Selected"
+                    options={siteOptions}
+                    onchange={handleSiteChange}></lightning-dual-listbox>
+            </div>
+        </div>
+
+        <div slot="actions">
+            <button class="slds-button slds-button_brand" onclick={handleConfirmFilter}>Confirm Filter</button>
+        </div>
+
+        <div slot="footer">
+            <p class="slds-p-horizontal_small slds-text-color_error">To see all data, please remove all filter values and click the Confirm Filter button.</p>
+        </div>
+    </lightning-card>
+
+    <div class="slds-align_absolute-center" if:false={isTeamLeader}>
+        <c-team-leader-dashboard
+            istl={isTeamLeader}
+            currentusername={currentUserFullName}
+        ></c-team-leader-dashboard>
+    </div>-->
+
+    <div class="slds-align_absolute-center" if:true={isTeamLeader}>
+        <c-diary-report-team-leader istl={isTeamLeader}
+        currentusername={currentUserFullName}></c-diary-report-team-leader>
+    </div>
+
+
+    
+</template>

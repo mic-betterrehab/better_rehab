@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Write_Comment_for_Denied_Request</fullName>
+    <active>true</active>
+    <description>Compulsory for denied approval to be provided with an explanation</description>
+    <errorConditionFormula>AND(
+TEXT(  Status__c ) = &quot;Denied&quot;,
+ISBLANK(  Comment__c )
+)</errorConditionFormula>
+    <errorDisplayField>Comment__c</errorDisplayField>
+    <errorMessage>Please write a comment</errorMessage>
+</ValidationRule>

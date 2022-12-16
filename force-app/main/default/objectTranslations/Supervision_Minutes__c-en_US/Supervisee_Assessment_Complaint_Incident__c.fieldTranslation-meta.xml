@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label></label>
+    <name>Supervisee_Assessment_Complaint_Incident__c</name>
+    <picklistValues>
+        <masterLabel>Action required</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>All incidents and complaints reviewed and managed</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>No incidents and complaints to review</masterLabel>
+        <translation></translation>
+    </picklistValues>
+</CustomFieldTranslation>

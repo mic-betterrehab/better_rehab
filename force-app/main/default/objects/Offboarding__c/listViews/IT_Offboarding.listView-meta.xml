@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IT_Offboarding</fullName>
+    <columns>NAME</columns>
+    <columns>User_Email__c</columns>
+    <columns>Supervisor_Email__c</columns>
+    <columns>Offboarding_Name__c</columns>
+    <columns>Exit_Date__c</columns>
+    <columns>Email__c</columns>
+    <columns>First_Name__c</columns>
+    <columns>Last_Name__c</columns>
+    <columns>User_Inactive_Run__c</columns>
+    <columns>Direct_Supervisor__c</columns>
+    <columns>Direct_Supervisor_Email__c</columns>
+    <columns>Site__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>User_Inactive_Run__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <label>IT Offboarding</label>
+</ListView>

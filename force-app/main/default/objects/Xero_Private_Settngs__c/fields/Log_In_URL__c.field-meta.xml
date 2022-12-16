@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Log_In_URL__c</fullName>
+    <defaultValue>&quot;https://login.xero.com/identity/connect/authorize?response_type=code&amp;client_id=%7B0%7D&amp;redirect_uri=%7B1%7D&amp;scope=openid%20profile%20email%20accounting.transactions%20accounting.contacts%20offline_access&amp;&quot;</defaultValue>
+    <externalId>false</externalId>
+    <label>Log In URL</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Url</type>
+</CustomField>

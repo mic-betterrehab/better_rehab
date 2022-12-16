@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Onboarded</fullName>
+    <columns>NAME</columns>
+    <columns>Department__c</columns>
+    <columns>Status__c</columns>
+    <columns>Email__c</columns>
+    <columns>Phone_Number__c</columns>
+    <columns>Start_Date__c</columns>
+    <columns>Role_Title__c</columns>
+    <columns>First_Name__c</columns>
+    <columns>Last_Name__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Fully Onboarded</value>
+    </filters>
+    <label>Onboarded</label>
+    <sharedTo>
+        <group>HR</group>
+        <group>IT</group>
+        <group>NSW_Admin</group>
+        <group>QLD_Admin</group>
+        <group>VIC_Admin</group>
+        <group>WA_Admin</group>
+    </sharedTo>
+</ListView>

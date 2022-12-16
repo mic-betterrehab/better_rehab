@@ -1,0 +1,12 @@
+/* Header */
+.THIS .edit-modal-header {
+  border-bottom: unset !important;
+  padding: 5px !important;
+}
+
+/* Footer */
+.THIS .edit-modal-footer {
+  border-top: unset !important;
+  padding: 5px !important;
+  background: white !important;
+}

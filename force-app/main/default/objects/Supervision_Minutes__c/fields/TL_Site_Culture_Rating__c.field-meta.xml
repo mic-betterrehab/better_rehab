@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TL_Site_Culture_Rating__c</fullName>
+    <externalId>false</externalId>
+    <label>TL Site Culture Rating</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>The Site Culture is Excellent</fullName>
+                <default>false</default>
+                <label>The Site Culture is Excellent</label>
+            </value>
+            <value>
+                <fullName>The Site Culture is Good</fullName>
+                <default>false</default>
+                <label>The Site Culture is Good</label>
+            </value>
+            <value>
+                <fullName>The Site Culture needs work</fullName>
+                <default>false</default>
+                <label>The Site Culture needs work</label>
+            </value>
+            <value>
+                <fullName>The Site Culture is a concern</fullName>
+                <default>false</default>
+                <label>The Site Culture is a concern</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

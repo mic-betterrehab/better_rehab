@@ -1,0 +1,3 @@
+<apex:page id="WebmergeServiceAgreement" standardController="enrtcr__Support_Contract__c" docType="html-5.0" >
+<webm:WebmergeWizard record="{!enrtcr__Support_Contract__c}" />
+</apex:page>

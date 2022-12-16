@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Incident/Complaint Management</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Incidents/Complaints Management</value>
+    </caseValues>
+    <layouts>
+        <layout>Better Rehab Complaint Form</layout>
+        <sections>
+            <label></label>
+            <section>Complaint Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Contact Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Escalation Details - RM to Complete</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Investigator Section - SM/CM to Complete</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Resolved Details - To Be Completed Once Resolved</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Better Rehab Incident Form</layout>
+        <sections>
+            <label></label>
+            <section>Actions - RM or Delegate to Complete</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Details of Witness</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Employee Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Impacted Person</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Incident Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Incident Follow Up - RM or Delegate to Complete</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Incident Review - RM or Delegate to Complete</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Investigator Section - SM/CM to Complete if Reportable/Serious Incident</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Investigator to Complete  - SM/CM to Complete if Reportable/Serious Incident</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>COVID Incident</layout>
+        <sections>
+            <label></label>
+            <section>COVID - Direct Supervisor</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>COVID Contacts</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>COVID Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Escalated Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Internal</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Compliments</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Internal</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Feedback</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Escalated Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Internal</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Incidents/Complaints ID</nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

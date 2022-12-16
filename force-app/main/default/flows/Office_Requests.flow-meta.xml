@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>49.0</apiVersion>
+    <decisions>
+        <processMetadataValues>
+            <name>index</name>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </processMetadataValues>
+        <name>myDecision</name>
+        <label>myDecision</label>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>default</defaultConnectorLabel>
+        <rules>
+            <name>myRule_1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formula_myRule_1</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myRule_1_A1</targetReference>
+            </connector>
+            <label>New or Edited Request</label>
+        </rules>
+    </decisions>
+    <description>Assign Request to office manager</description>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>CASE([Office_Requests__c].Office__c ,
+&quot;Bankstown&quot;, &quot;0052v00000a7izHAAQ&quot;,
+&quot;Brendale&quot;, &quot;0052v00000bRmKEAA0&quot;,
+&quot;Osborne Park&quot;, &quot;0052v00000bRmKEAA0&quot;,
+&quot;Castle Hill&quot;, &quot;0052v00000fP7FqAAK&quot;,
+&quot;Penrith&quot;, &quot;0052v00000fP7FqAAK&quot;,
+&quot;Gold Coast&quot;, &quot;0052v00000fbmJnAAI&quot;,
+&quot;Greensborough&quot;, &quot;0052v00000a7iynAAA&quot;,
+&quot;Mulgrave&quot;, &quot;0052v00000a7iynAAA&quot;,
+&quot;Maroubra&quot;, &quot;0052v00000h1toVAAQ&quot;,
+&quot;Moonee Ponds&quot;, &quot;0052v00000e2DZlAAM&quot;,
+&quot;Stones Corner&quot;, &quot;0052v00000fbfYYAAY&quot;,
+&quot;Surrey Hills&quot;, &quot;0052v00000h0K4IAAU&quot;,
+&quot;Wollongong&quot;, &quot;0052v00000h1ppmAAA&quot;,
+&quot;Briar Hill&quot;, &quot;0052v00000a7iynAAA&quot;,
+&quot;0052v00000YFBqhAAH&quot;
+)</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_2_myRule_1_A1_3208573719</name>
+        <dataType>String</dataType>
+        <expression>CASE({!myVariable_current.Office__c} ,
+&quot;Bankstown&quot;, &quot;0052v00000a7izHAAQ&quot;,
+&quot;Brendale&quot;, &quot;0052v00000bRmKEAA0&quot;,
+&quot;Osborne Park&quot;, &quot;0052v00000bRmKEAA0&quot;,
+&quot;Castle Hill&quot;, &quot;0052v00000fP7FqAAK&quot;,
+&quot;Penrith&quot;, &quot;0052v00000fP7FqAAK&quot;,
+&quot;Gold Coast&quot;, &quot;0052v00000fbmJnAAI&quot;,
+&quot;Greensborough&quot;, &quot;0052v00000a7iynAAA&quot;,
+&quot;Mulgrave&quot;, &quot;0052v00000a7iynAAA&quot;,
+&quot;Maroubra&quot;, &quot;0052v00000h1toVAAQ&quot;,
+&quot;Moonee Ponds&quot;, &quot;0052v00000e2DZlAAM&quot;,
+&quot;Stones Corner&quot;, &quot;0052v00000fbfYYAAY&quot;,
+&quot;Surrey Hills&quot;, &quot;0052v00000h0K4IAAU&quot;,
+&quot;Wollongong&quot;, &quot;0052v00000h1ppmAAA&quot;,
+&quot;Briar Hill&quot;, &quot;0052v00000a7iynAAA&quot;,
+&quot;0052v00000YFBqhAAH&quot;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>formula_myRule_1</name>
+        <dataType>Boolean</dataType>
+        <expression>true</expression>
+    </formulas>
+    <interviewLabel>Office_Requests-3_InterviewLabel</interviewLabel>
+    <label>Office Requests</label>
+    <processMetadataValues>
+        <name>ObjectType</name>
+        <value>
+            <stringValue>Office_Requests__c</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>ObjectVariable</name>
+        <value>
+            <elementReference>myVariable_current</elementReference>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OldObjectVariable</name>
+        <value>
+            <elementReference>myVariable_old</elementReference>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>TriggerType</name>
+        <value>
+            <stringValue>onAllChanges</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Workflow</processType>
+    <recordUpdates>
+        <processMetadataValues>
+            <name>evaluationType</name>
+            <value>
+                <stringValue>always</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>extraTypeInfo</name>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>isChildRelationship</name>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>reference</name>
+            <value>
+                <stringValue>[Office_Requests__c]</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>referenceTargetField</name>
+        </processMetadataValues>
+        <name>myRule_1_A1</name>
+        <label>Update Assigned to ID</label>
+        <locationX>100</locationX>
+        <locationY>200</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <processMetadataValues>
+                <name>implicit</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </processMetadataValues>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>ID</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>false</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>Assigned To</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideReferenceTo</name>
+                <value>
+                    <stringValue>User</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>Formula</stringValue>
+                </value>
+            </processMetadataValues>
+            <field>Assigned_To__c</field>
+            <value>
+                <elementReference>formula_2_myRule_1_A1_3208573719</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Office_Requests__c</object>
+    </recordUpdates>
+    <startElementReference>myDecision</startElementReference>
+    <status>Active</status>
+    <variables>
+        <name>myVariable_current</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Office_Requests__c</objectType>
+    </variables>
+    <variables>
+        <name>myVariable_old</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Office_Requests__c</objectType>
+    </variables>
+</Flow>

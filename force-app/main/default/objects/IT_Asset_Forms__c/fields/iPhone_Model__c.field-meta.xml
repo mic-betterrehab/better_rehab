@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>iPhone_Model__c</fullName>
+    <externalId>false</externalId>
+    <label>iPhone Model</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>iPhone 6</fullName>
+                <default>false</default>
+                <label>iPhone 6</label>
+            </value>
+            <value>
+                <fullName>iPhone 6s</fullName>
+                <default>false</default>
+                <label>iPhone 6s</label>
+            </value>
+            <value>
+                <fullName>iPhone 7</fullName>
+                <default>false</default>
+                <label>iPhone 7</label>
+            </value>
+            <value>
+                <fullName>iPhone SE</fullName>
+                <default>false</default>
+                <label>iPhone SE</label>
+            </value>
+            <value>
+                <fullName>iPhone 8</fullName>
+                <default>false</default>
+                <label>iPhone 8</label>
+            </value>
+            <value>
+                <fullName>iPhone 8 Plus</fullName>
+                <default>false</default>
+                <label>iPhone 8 Plus</label>
+            </value>
+            <value>
+                <fullName>Personal Phone</fullName>
+                <default>false</default>
+                <label>Personal Phone</label>
+            </value>
+            <value>
+                <fullName>iPhone 6 Plus</fullName>
+                <default>false</default>
+                <label>iPhone 6 Plus</label>
+            </value>
+            <value>
+                <fullName>iPhone 6s Plus</fullName>
+                <default>false</default>
+                <label>iPhone 6s Plus</label>
+            </value>
+            <value>
+                <fullName>iPhone 5</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>iPhone 5</label>
+            </value>
+            <value>
+                <fullName>iPhone 5c</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>iPhone 5c</label>
+            </value>
+            <value>
+                <fullName>iPhone 5s</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>iPhone 5s</label>
+            </value>
+            <value>
+                <fullName>iPhone 7 Plus</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>iPhone 7 Plus</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

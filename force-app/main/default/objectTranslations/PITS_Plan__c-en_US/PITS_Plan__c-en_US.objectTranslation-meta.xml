@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>PITS Plan</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>PITS Plans</value>
+    </caseValues>
+    <layouts>
+        <layout>PITS Plan Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Mandatory_reason</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Sessions_completed_between_range</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Sessions_requested_between_range</name>
+    </validationRules>
+</CustomObjectTranslation>

@@ -1,0 +1,6 @@
+<aura:event type="COMPONENT" description="to assist in passing list of events between BR_Calendar and its childs" >
+    
+    <!-- think it should be map of event object - string. because we use this in event detail, event create--> 
+    <aura:attribute name='eventMapFromChild' type="Map" description="a list of map of event ID - change type. Change type can be deleted, cancelled, booked, created"/> 
+    
+</aura:event>

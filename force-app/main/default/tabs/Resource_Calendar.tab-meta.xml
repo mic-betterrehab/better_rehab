@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <auraComponent>BR_Resource_Component</auraComponent>
+    <label>Resource Calendar</label>
+    <motif>Custom3: Sun</motif>
+</CustomTab>

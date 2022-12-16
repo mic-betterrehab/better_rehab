@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label></label>
+    <name>Supervisee_Assessment_DM_report__c</name>
+    <picklistValues>
+        <masterLabel>Everyone is forecasting well</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Most people are foreasting well</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Some people are forecasting well</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Support is needed for better forecasting</masterLabel>
+        <translation></translation>
+    </picklistValues>
+</CustomFieldTranslation>

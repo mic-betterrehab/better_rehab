@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>55.0</apiVersion>
+    <assignments>
+        <name>Add_the_new_type_to_the_variable</name>
+        <label>Add the new type to the variable</label>
+        <locationX>176</locationX>
+        <locationY>455</locationY>
+        <assignmentItems>
+            <assignToReference>newRelationshipType</assignToReference>
+            <operator>Assign</operator>
+            <value>
+                <elementReference>$Record.enrtcr__Type__c</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>Update_related_contact_with_the_corresponding_relationship_type</targetReference>
+        </connector>
+    </assignments>
+    <description>To update relationships type on the contact object</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>UpdateRelationshipType</name>
+        <dataType>String</dataType>
+        <expression>IF(ISBLANK({!prevRelationshipType}), {!newRelationshipType},
+IF(NOT(CONTAINS({!prevRelationshipType},{!newRelationshipType})),
+SUBSTITUTE(SUBSTITUTE({!prevRelationshipType}, &apos;[&apos;,&apos;&apos; ),&apos;]&apos;, &apos;;&apos; + {!newRelationshipType}),
+SUBSTITUTE(SUBSTITUTE({!prevRelationshipType}, &apos;[&apos; , &apos;&apos;),&apos;]&apos;,&apos;&apos;)
+))</expression>
+    </formulas>
+    <interviewLabel>Client-Contact - After Creation {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Client-Contact - After Creation</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordLookups>
+        <name>Get_existing_relationship_type</name>
+        <label>Get existing relationship type</label>
+        <locationX>176</locationX>
+        <locationY>335</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Add_the_new_type_to_the_variable</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.enrtcr__RelatedContact__c</elementReference>
+            </value>
+        </filters>
+        <object>Contact</object>
+        <outputAssignments>
+            <assignToReference>prevRelationshipType</assignToReference>
+            <field>Relationship_with_Clients__c</field>
+        </outputAssignments>
+    </recordLookups>
+    <recordUpdates>
+        <name>Update_related_contact_with_the_corresponding_relationship_type</name>
+        <label>Update related contact with the corresponding relationship type</label>
+        <locationX>176</locationX>
+        <locationY>575</locationY>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>$Record.enrtcr__RelatedContact__c</elementReference>
+            </value>
+        </filters>
+        <inputAssignments>
+            <field>Relationship_with_Clients__c</field>
+            <value>
+                <elementReference>UpdateRelationshipType</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Contact</object>
+    </recordUpdates>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_existing_relationship_type</targetReference>
+        </connector>
+        <object>enrtcr__Client_Contact__c</object>
+        <recordTriggerType>Create</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <variables>
+        <description>New addition to the previous relationship type</description>
+        <name>newRelationshipType</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <description>Previous relationship type in the related contact&apos;s record</description>
+        <name>prevRelationshipType</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

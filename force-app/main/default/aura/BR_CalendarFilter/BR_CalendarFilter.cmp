@@ -1,0 +1,56 @@
+<aura:component >
+    <aura:attribute name="statusOptions" type="List" default="[{'label' : 'Pending', 'value' : 'Pending'}, 
+                                                              {'label' : 'Booked', 'value' : 'Booked'}, 
+                                                              {'label' : 'Cancelled', 'value' : 'Cancelled'}]"/>
+    
+    <aura:attribute name="serviceOptions" type="List" default="[{'label' : 'Initial Appointment', 'value' : 'Initial Appointment'}, 
+                                                               {'label' : 'Therapy Session', 'value' : 'Therapy Session'}, 
+                                                               {'label' : 'Other PCH', 'value' : 'Other PCH'}, 
+                                                               {'label' : 'Internal', 'value' : 'Internal'}, 
+                                                               {'label' : 'Out of Office', 'value' : 'Out of Office'}]"/>
+    <aura:attribute name="statusSelection" type="List" />
+    <aura:attribute name="serviceSelection" type="List" />
+    <aura:attribute name="parent" type="Aura.Component" />
+    
+    <div>
+    	<!-- Modal/Popup Box starts here-->
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- Modal/Popup Box Header Starts here-->
+                <header class="slds-modal__header">
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Filter Events</h2>
+                </header>
+               
+ 
+                <!--Modal/Popup Box Body Starts here-->
+                <div class="slds-modal__content slds-p-around_medium" style="display:flex;direction:row" id="modal-content-id-1">
+                    <div style="padding:10px">
+                    	<lightning:checkboxGroup 
+                             name="Status Group"
+                             label="Event Status"
+                             options="{! v.statusOptions }"
+                             value="{! v.statusSelection }"
+                    	/>
+                    </div>
+                    <div style="padding:10px">
+                   		<lightning:checkboxGroup 
+                             name="Service Group"
+                             label="Event Type"
+                             options="{! v.serviceOptions }"
+                             value="{! v.serviceSelection }"
+                   		/>
+                    </div>
+                </div>
+                <!--Modal/Popup Box Footer Starts here-->
+                <footer class="slds-modal__footer">
+                    <lightning:button variant="brand"
+                                      label="Filter"
+                                      title="Filter"
+                                      onclick="{!c.clickFilter}"/>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </div>
+    
+</aura:component>

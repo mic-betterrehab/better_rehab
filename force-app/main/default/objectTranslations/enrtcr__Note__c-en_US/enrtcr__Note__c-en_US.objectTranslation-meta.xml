@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layouts>
+        <layout>BR Activity Note Layout</layout>
+        <sections>
+            <label></label>
+            <section>Case Notes</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>BR Clinical Note Layout</layout>
+        <sections>
+            <label></label>
+            <section>Case Notes</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>SOTP</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>BR Handover Note Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+</CustomObjectTranslation>

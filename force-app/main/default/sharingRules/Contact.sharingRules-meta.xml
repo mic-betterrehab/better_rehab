@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>HSTP_Clients</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Australian employees (those who do not have TL - NZ role) can see HSTP clients (EXCLUDING students)</description>
+        <label>HSTP Clients</label>
+        <sharedTo>
+            <role>Clinicians</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Client</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Client_Division__c</field>
+            <operation>equals</operation>
+            <value>HSTP</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>HSTP_Clients_NZ</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>People with TL - NZ role cannot see HSTP clients</description>
+        <label>HSTP Clients - NZ</label>
+        <sharedTo>
+            <role>Team_Leader_Standard_NZ</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Client</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Client_Division__c</field>
+            <operation>equals</operation>
+            <value>Aged Care,NDIS,NSW Schools Program,Private,Early Childhood Approach</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Non_HSTP_Clients_AU</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Everyone with roles outside of TL - NZ AND student can see non-hstp clients</description>
+        <label>Non-HSTP Clients (AU)</label>
+        <sharedTo>
+            <role>Student</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Client</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Client_Division__c</field>
+            <operation>equals</operation>
+            <value>Aged Care,NDIS,NSW Schools Program,Private,Early Childhood Approach</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Non_clients_access</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Everyone can access other types of Contacts beside Clients</description>
+        <label>Non-clients access</label>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>General,Worker,Intake,Participant,Provider</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+</SharingRules>

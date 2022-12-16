@@ -1,0 +1,8 @@
+<!--
+ - Created by Enrite Solutions on 14/12/2020.
+ -->
+
+<aura:component description="SendContactToXeroContainer"
+                implements="flexipage:availableForRecordHome,flexipage:availableForAllPageTypes,force:hasRecordId,lightning:actionOverride,lightning:isUrlAddressable,force:lightningQuickActionWithoutHeader">
+    <c:sendcontacttoxero recordId="{!v.recordId}" onclose="{!c.closeQuickAction}"/>
+</aura:component>

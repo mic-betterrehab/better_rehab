@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Referral_Reasons_Validation</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+ Referred_for_Further_Physio__c = TRUE,
+ISBLANK( Referral_Reasons__c )
+)</errorConditionFormula>
+    <errorDisplayField>Referral_Reasons__c</errorDisplayField>
+    <errorMessage>Please enter referral reasons</errorMessage>
+</ValidationRule>

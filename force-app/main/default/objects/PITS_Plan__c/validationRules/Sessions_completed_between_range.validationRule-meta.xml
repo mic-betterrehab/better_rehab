@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sessions_completed_between_range</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND( ISBLANK(Sessions_Completed__c ) = false, 
+
+OR(Sessions_Completed__c &lt; 2,Sessions_Completed__c &gt; 50)
+
+)</errorConditionFormula>
+    <errorDisplayField>Sessions_Completed__c</errorDisplayField>
+    <errorMessage>Sessions completed can only be between 2-50</errorMessage>
+</ValidationRule>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Overdue_Tasks__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>0 overdue = 4 bonus points
+&lt;10 overdues = 2 points
+&gt;10 overdues = 0 points</inlineHelpText>
+    <label>Overdue Tasks</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Scoring</valueSetName>
+    </valueSet>
+</CustomField>

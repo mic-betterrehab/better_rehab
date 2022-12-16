@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Value_Notes</fullName>
+    <active>true</active>
+    <description>Please select either 0 or 2</description>
+    <errorConditionFormula>NOT( Note_within_24_hour_of_Initial_Ax__c    =   0  ||Note_within_24_hour_of_Initial_Ax__c   = 2)</errorConditionFormula>
+    <errorDisplayField>Note_within_24_hour_of_Initial_Ax__c</errorDisplayField>
+    <errorMessage>Please select either 0 or 2</errorMessage>
+</ValidationRule>

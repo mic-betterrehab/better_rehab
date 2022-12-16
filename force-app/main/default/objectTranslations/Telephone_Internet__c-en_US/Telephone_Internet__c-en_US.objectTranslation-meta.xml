@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Telephone &amp; Internet</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Telephone &amp; Internet</value>
+    </caseValues>
+    <layouts>
+        <layout>Internet Layout</layout>
+        <sections>
+            <label></label>
+            <section>Contract Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Internet Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Phone Layout</layout>
+        <sections>
+            <label></label>
+            <section>Contract Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>User Details</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label></label>
+        <name>Internet</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>Phone</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

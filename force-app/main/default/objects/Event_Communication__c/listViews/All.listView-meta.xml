@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>RECORDTYPE</columns>
+    <columns>Client_Event_Relation__c</columns>
+    <columns>Client_Contact__c</columns>
+    <columns>Event_Subject__c</columns>
+    <columns>Event_Recurrences__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>LAST_UPDATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Is_Booked__c</field>
+        <operation>equals</operation>
+        <value>0</value>
+    </filters>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Event_Communication__c.X24_Hour_Reminder</value>
+    </filters>
+    <filters>
+        <field>Client_Contact__c</field>
+        <operation>notContain</operation>
+        <value>test,room</value>
+    </filters>
+    <filters>
+        <field>Client_Event_Relation__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <label>All</label>
+</ListView>

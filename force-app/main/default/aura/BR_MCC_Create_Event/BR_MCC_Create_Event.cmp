@@ -1,0 +1,129 @@
+<aura:component controller="CalendarController">
+    <aura:attribute name="isPreselected" type="Boolean" default="false"/>
+    <aura:attribute name="workers" type="sObject[]" default="[]"/>
+    <aura:attribute name="initialWorkers" type="sObject[]" default="[]"/>
+    <aura:attribute name="parent" type="Aura.Component" description="Parent component"/>
+
+    <!--RAF ADDS THIS-->
+    <aura:attribute name="checkClash" type="Boolean" default="false"/>
+    <aura:attribute name="selectedRecordTypeName" type="String" />
+    <aura:attribute name="eventChangeConfirmation" type="Boolean" default="false" />
+    <aura:attribute name="eventChangeType" type="String"/>
+    <aura:attribute name="changedEvent" type="object" default="{}"/>
+    <aura:attribute name="comments" type="String"/>
+    <aura:attribute name="meetingLink" type="String"/>
+    <aura:attribute name="recurringTimeChange" type="Boolean" default="false" />
+    <aura:attribute name="deviceType" type="String" />
+    <aura:attribute name="eventStatus" type="String"/>
+    <aura:attribute name="eventDetailsJSON" type="object"/>
+    <aura:attribute name="repeatDetailsJSON" type="object"/>
+    <aura:attribute name="clickCreateBookClicked" type="Boolean" default="false"/>
+    <aura:attribute name="clickCreateClicked" type="Boolean" default="false"/>
+    <aura:attribute name="eventClashModalVisible" type="Boolean" default="false" />
+    <aura:attribute name='events' type="List" default="[]" />
+    <aura:attribute name='filteredEvents' type="List" default="[]" />
+    <aura:attribute name='cal' type="object" default="{}" />
+    <aura:attribute name='event' type="object" default="{}" />
+    <aura:attribute name="isLoading" type="Boolean" default="false"/>
+    <aura:attribute name="newEvent" type="Event" default="{ 'sobjectType': 'Event'}"/>
+    <aura:attribute name="clients" type="sObject[]" default="[]"/>
+    <aura:attribute name="service" type="sObject" default="{}"/>
+    <aura:attribute name="site" type="sObject" default="{}"/>
+    <aura:attribute name="eventLocation" type="String" default="Home"/>
+    <aura:attribute name="allDay" type="Boolean" default="false"/>
+    <aura:attribute name="reengagement" type="Boolean" default="false"/>
+    <aura:attribute name="repeat" type="Boolean" default="false"/>
+    <aura:attribute name="repeatBtnOpts" type="List" default="[{'label': 'On', 'value': 'On'}, {'label': 'After', 'value': 'After'}]"/>
+    <aura:attribute name="repeatBtn" type="String" default="After"/>
+    <aura:attribute name="maxDateRepeat" type="String"/>
+    <aura:attribute name="viewEvent" type="String" default="" />
+    <aura:attribute name="createMode" type="Boolean" default="true" />
+    <aura:attribute name="viewMode" type="Boolean" default="true" />
+    <aura:attribute name="loggedInUser" type="Contact" default="{ 'sobjectType': 'Contact'}" description="Details of logged in user"/>
+    <aura:attribute name="colors" type="Map" default="{'green' : '38,133,64', 'blue' : '15,94,163', 'red' : '176,14,14', 'grey' : '152,152,152' , 'aqua' : '226,243,246', 'orange' : '184,129,89', 'purple' : '116,43,108'}" />
+    <aura:attribute name="deleteModalVisible" type="Boolean" default="false" />
+    <aura:attribute name="bookModalVisible" type="Boolean" default="false" />
+    <aura:attribute name="filterModalVisible" type="Boolean" default="false" />
+    <aura:attribute name="eventRelationship" type="String" default="" />
+    <aura:attribute name="showForm" type="Boolean" default="false" />
+    <aura:attribute name="statusSelection" type="List" default="['Pending', 'Booked']" />
+    <aura:attribute name="serviceSelection" type="List" default="['Initial Appointment', 'Therapy Session', 'Other PCH', 'Internal', 'Out of Office']"/>
+
+    <aura:handler name="clashComponentEvent" event="c:clashEvent" action="{!c.handleComponentClashEvent}"/>
+    <aura:handler name="change" value="{!v.clients}" action="{!c.handleClientChange}"/>
+    <aura:handler name="change" value="{!v.site}" action="{!c.handleSiteChange}"/>
+    <aura:handler name="change" value="{!v.eventLocation}" action="{!c.handleLocChange}" />
+    <aura:handler name="onSaveSuccess" event="force:recordSaveSuccess" action="{!c.saveEventSuccess}"/>
+
+    <!-- Methods -->
+    <aura:method name="filter" action="{!c.filterEvents}" access="PUBLIC" />
+    <aura:method name="clickEdit" action="{!c.toggleEdit}" access="PUBLIC" />
+    <aura:method name="popout" action="{!c.clickPopOut}" access="PUBLIC" />
+    <aura:method name="deselect" action="{!c.clickDeselect}" access="PUBLIC" />
+    <aura:method name="delete" action="{!c.clickDelete}" access="PUBLIC" />
+    <aura:method name="book" action="{!c.clickBook}" access="PUBLIC" />
+    <aura:method name="updateFromParent" action="{!c.updateFromParent}" access="PUBLIC" />
+    <aura:method name="updateEventsList" action="{!c.updateEventInArray}" access="PUBLIC">
+        <aura:attribute name="eventMap" type="object" />
+    </aura:method>
+    <!-- <aura:method name="close" action="{!c.closeModal}" access="PUBLIC" description="to allow clash child component to insert event using its parent's function"/> -->
+
+    <!-- Events -->
+    <aura:registerEvent name="eventChange" type="c:eventSelect"/>
+
+    <!-- Modal/Popup Box starts here-->
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <!-- Modal/Popup Box Header Starts here-->
+            <header class="slds-modal__header">
+                <lightning:buttonIcon iconName="utility:close"
+                                      onclick="{! c.closeModal }"
+                                      alternativeText="close"
+                                      variant="bare-inverse"
+                                      class="slds-modal__close"/>
+
+                <div class="slds-section__title">
+                    <div>
+                        <h2 class="eventForm-section slds-section__title">
+                            <span class="slds-truncate" title="New Event">New Event</span>
+                        </h2>
+                    </div>
+
+                    <div>
+                        <lightning:button label="Reset Form" class="slds-button"
+                                        variant="destructive" onclick="{!c.clickReset}"/>
+                    </div>
+                </div>
+            </header>
+
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                <c:BR_CalendarCreate
+                    aura:id="calendarCreateCmp"
+                    parent="{!this}"
+                    preSelectedWorkers="{!v.workers}"
+                    events="{!v.events}"
+                    loggedInUser="{!v.loggedInUser}"
+                    isParentMCC="true"
+                />
+            </div>
+            <!--Modal/Popup Box Footer Starts here-->
+            <footer class="slds-modal__footer">
+                <lightning:button
+                    variant="brand-outline"
+                    label="Create"
+                    title="Create"
+                    value="Pending"
+                    onclick="{! c.clickCreate }"
+                />
+                <lightning:button
+                    variant="success"
+                    label="Create and Book"
+                    title="Create and Book"
+                    value="Booked"
+                    onclick="{!c.clickCreate}"
+                />
+            </footer>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</aura:component>

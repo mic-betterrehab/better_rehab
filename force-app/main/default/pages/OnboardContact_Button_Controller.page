@@ -1,0 +1,11 @@
+<apex:page standardController="Onboarding__c" extensions="OnboardingContactController" action="{!autoRun}">
+    <apex:sectionHeader title="Auto onboarding new-starter"/>
+    <apex:outputPanel style="font-size:15px;">
+        The button you clicked was meant to onboard the worker. Since you are seeing this page, something has gone wrong. 
+        Please check the error message below or contact your Salesforce Developer.  
+        <p>
+            <apex:outputText value="{!IF(isblank(message), noIssue, message)}" style="color:red;font-size:15px;">            
+            </apex:outputText>
+        </p>                
+    </apex:outputPanel>
+</apex:page>

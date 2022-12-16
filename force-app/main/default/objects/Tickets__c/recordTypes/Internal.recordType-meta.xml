@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Internal</fullName>
+    <active>false</active>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <label>Internal</label>
+    <picklistValues>
+        <picklist>Difficulty__c</picklist>
+        <values>
+            <fullName>Sand %28L1%29</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>I__c</picklist>
+        <values>
+            <fullName>Laptop</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Laptop Battery Issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Laptop Camera Issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Laptop Login Issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lumary</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lumary Access Issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lumary Login Issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Microsoft Enrolment Issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Microsoft Enterprise Update</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mobile</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mobile Login Issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mobile Reception Issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Network</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Network Connection Issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Network Modem Issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OT Draw</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OT Draw License Taken Issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OT Draw Login Issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Office 365</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Office 365 Login Issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outlook</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outlook Login Issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outlook Mail Issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outlook Signature Issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Printer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Printer Connection Issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Scanner Issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sharepoint</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sharepoint Access Issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sharepoint Sync Issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Teams</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Teams Login Issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zoom</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zoom Login Issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Zoom Meeting Issue</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>IssueType__c</picklist>
+        <values>
+            <fullName>Laptop</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Lumary</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mobile</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Network</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>OT Draw</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Other</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Outlook</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Printer</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Sharepoint</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Priority__c</picklist>
+        <values>
+            <fullName>High</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Low</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Medium</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Urgent</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Status__c</picklist>
+        <values>
+            <fullName>Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Open</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Progress</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Waiting</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>TicketType__c</picklist>
+        <values>
+            <fullName>Issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Request</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Type_of_IT_Help__c</picklist>
+        <values>
+            <fullName>Issue</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Query</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Request</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

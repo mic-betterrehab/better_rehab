@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VIC_Customer_Feedback</fullName>
+    <columns>NAME</columns>
+    <columns>Session_End_Datetime__c</columns>
+    <columns>Session__c</columns>
+    <columns>Recipient__c</columns>
+    <columns>Workers_and_Professions__c</columns>
+    <columns>Session_Site__c</columns>
+    <columns>Session_Region__c</columns>
+    <columns>Survey_Response__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Session_Region__c</field>
+        <operation>equals</operation>
+        <value>VIC</value>
+    </filters>
+    <filters>
+        <field>Survey_Response__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <label>VIC Customer Feedback</label>
+</ListView>

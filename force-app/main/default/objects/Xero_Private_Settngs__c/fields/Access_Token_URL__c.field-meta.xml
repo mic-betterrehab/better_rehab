@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Access_Token_URL__c</fullName>
+    <defaultValue>&quot;https://tutorssa--enritedev1.my.salesforce.com/servlet/servlet.ExternalRedirect?url=https%3A%2F%2Fidentity.xero.com%2Fconnect%2Ftoken&amp;&quot;</defaultValue>
+    <externalId>false</externalId>
+    <label>Access Token URL</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Url</type>
+</CustomField>

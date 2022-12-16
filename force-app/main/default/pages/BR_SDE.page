@@ -1,0 +1,421 @@
+<apex:page controller="serviceDeliveryPageController" lightningStylesheets="true" docType="html-5.0" applyBodyTag="false">
+    <apex:slds /> 
+    <html>
+        <head>
+            <title>Service Delivery Entry</title>    
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+        </head>
+        <apex:form >
+            
+        <style>
+            .sample {
+                font-weight: bold;
+                text-decoration: underline;
+                font-size: 25px;
+            }
+            .overviewHeadersbad{
+                font-weight: bold;
+                text-decoration: underline;
+                font-size: 15px;
+                color: red;
+            }
+            .overviewHeadersgood{
+                font-weight: bold;
+                text-decoration: underline;
+                font-size: 15px;
+                color: green;
+            }
+            .overviewHeadersOC{
+                font-weight: bold;
+                text-decoration: underline;
+                font-size: 15px;
+                color: orange;
+            }
+            body .bPageBlock .pbBody .red .pbSubheader{
+                background-color:#c00000;
+            }
+            body .bPageBlock .pbBody .grey .pbSubheader{
+                background-color:#c0c0c0;
+            }
+            body .bPageBlock .pbBody .BR .pbSubheader{
+                background-color:#78006c;
+            }
+            body .bPageBlock .pbBody .grey .pbSubheader h3{
+                color:#000;
+            }
+            body .bPageBlock .pbBody .BR .pbSubheader h3{
+                color:#ffffff;
+            }
+            body .bPageBlock .pbBody .mainHeaders .pbSubheader{
+                background-color:#000000;
+            }
+            body .bPageBlock .pbBody .mainHeaders .pbSubheader h3{
+                color:#ffffff;
+            }
+            .custPopup{
+                background-color: white;
+                border-width: 2px;
+                border-style: solid;
+                z-index: 9999;
+                left: 50%;
+                padding:10px;
+                position: fixed;
+                /* These are the 3 css properties you will need to change so the popup
+                displays in the center of the screen. First set the width. Then set
+                margin-left to negative half of what the width is. You can add
+                the height property for a fixed size pop up if you want.*/
+                width: 500px;
+                margin-left: -250px;
+                top:100px;
+            }
+            .popupBackground{
+                background-color:black;
+                opacity: 0.20;
+                filter: alpha(opacity = 20);
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                z-index: 9998;
+            }
+        </style>
+            
+        <div align="center" draggable="false" style="padding:20px;background-color:#78006c">
+        
+        <apex:pageBlock id="block1">
+            
+            <div><apex:outputPanel styleClass="sample"><apex:outputText >Better Rehab Service Delivery Entry</apex:outputText></apex:outputPanel></div>
+            <apex:outputPanel styleClass="mainHeaders" layout="block">
+                <apex:pageBlockSection columns="3" title="General Details" collapsible="false">
+                    <apex:selectList id="workerList" size="5"  value="{!selectedWorker}" title="Select Worker" label="Select Worker">
+                        <apex:selectOptions value="{!workers}"/>
+                        <apex:actionSupport event="onchange" rerender="clientList,submitButton,serviceList1,serviceList2,serviceList3,serviceList4,serviceList5,serviceList6,rateList1,rateList2,rateList3,rateList4,rateList5,rateList6,SAIList" action="{!workerListAction}"/>
+                    </apex:selectList>
+                    <apex:selectList id="clientList" size="5" value="{!selectedClient}" title="Select Client" label="Select Client">
+                        <apex:selectOptions value="{!clients}"/>
+                        <apex:actionSupport event="onchange" rerender="SAIList,submitButton,serviceList1,serviceList2,serviceList3,serviceList4,serviceList5,serviceList6,rateList1,rateList2,rateList3,rateList4,rateList5,rateList6" action="{!clientListAction}"/>
+                    </apex:selectList>                    
+                    <apex:selectList id="SAIList" size="5"  value="{!selectedSAI}" title="Select Service Agreement Item" label="Select Service Agreement Item">
+                        <apex:selectOptions value="{!SAIs}"/>
+                        <apex:actionSupport event="onchange" reRender="submitButton,serviceList1,serviceList2,serviceList3,serviceList4,serviceList5,serviceList6,rateList1,rateList2,rateList3,rateList4,rateList5,rateList6" action="{!SAIListAction}"/>
+                    </apex:selectList>
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+            
+            <apex:pageBlockSection id="section1" columns="2" title="Service Entry">
+            
+                <apex:outputPanel styleClass="BR" layout="block">
+                    <apex:pageBlockSection id="subsection1" title="Service Delivery 1" columns="1">
+                        <apex:selectList id="serviceList1" size="10"  value="{!sde1.service}" title="Select Service 1" label="Select Service 1">
+                            <apex:selectOptions value="{!services}"/>
+                            <apex:actionSupport event="onchange" rerender="rateList1,submitButton" action="{!serviceListAction1}"/>
+                        </apex:selectList>
+                        <!--<apex:selectList id="rateList1" size="5"  value="{!sde1.rate}" title="Select Rate 1" label="Select Rate 1">
+                            <apex:selectOptions value="{!sde1.rates}"/>
+                        </apex:selectList>-->
+                        <apex:input type="number" label="Hours" value="{!sde1.hours}" />
+                        <apex:input type="number" label="Minutes" value="{!sde1.minutes}" />
+                        <apex:inputCheckbox label="Last Client?" title="Last Client?" value="{!sde1.lastClient}"/>
+                        <apex:input type="date" label="Date" value="{!sde1.sdeDate}" />
+                        <apex:inputTextarea label="Comments" value="{!sde1.comments}"/>
+                        <apex:inputTextarea label="Case Notes" value="{!sde1.caseNotes}"/>
+                        <apex:commandButton styleClass="slds-vf-button_brand" value="Reset SDE1 Selection" title="Reset SDE1 Selection" action="{!resetSDE1}" reRender="OverviewSection,submitButton,error0,error,numErrors,subsection1" style="background-color:red"/>
+                    </apex:pageBlockSection>
+                </apex:outputPanel>
+                
+                <apex:outputPanel styleClass="BR" layout="block">
+                    <apex:pageBlockSection id="subsection2" title="Service Delivery 2" columns="1">
+                        <apex:selectList id="serviceList2" size="10"  value="{!sde2.service}" title="Select Service 2" label="Select Service 2">
+                            <apex:selectOptions value="{!services}"/>
+                            <apex:actionSupport event="onchange" rerender="rateList2,submitButton" action="{!serviceListAction2}"/>
+                        </apex:selectList>
+                        <!--<apex:selectList id="rateList2" size="5"  value="{!sde2.rate}" title="Select Rate 2" label="Select Rate 2">
+                            <apex:selectOptions value="{!sde2.rates}"/>
+                        </apex:selectList>-->
+                        <apex:input type="number" label="Hours" value="{!sde2.hours}" />
+                        <apex:input type="number" label="Minutes" value="{!sde2.minutes}" />
+                        <apex:inputCheckbox label="Last Client?" title="Last Client?" value="{!sde2.lastClient}"/>
+                        <apex:input type="date" label="Date" value="{!sde2.sdeDate}" />
+                        <apex:inputTextarea label="Comments" value="{!sde2.comments}"/>
+                        <apex:inputTextarea label="Case Notes" value="{!sde2.caseNotes}"/>
+                        <apex:commandButton styleClass="slds-vf-button_brand" value="Reset SDE2 Selection" title="Reset SDE2 Selection" action="{!resetSDE2}" reRender="OverviewSection,submitButton,error0,error,numErrors,subsection2"  style="background-color:red"/>
+                    </apex:pageBlockSection>
+                </apex:outputPanel>
+                
+                <apex:outputPanel styleClass="BR" layout="block">
+                    <apex:pageBlockSection id="subsection3" title="Service Delivery 3" columns="1">
+                        <apex:selectList id="serviceList3" size="10"  value="{!sde3.service}" title="Select Service 3" label="Select Service 3">
+                            <apex:selectOptions value="{!services}"/>
+                            <apex:actionSupport event="onchange" rerender="rateList3,submitButton" action="{!serviceListAction3}"/>
+                        </apex:selectList>
+                        <!--<apex:selectList id="rateList3" size="5"  value="{!sde3.rate}" title="Select Rate 3" label="Select Rate 3">
+                            <apex:selectOptions value="{!sde3.rates}"/>
+                        </apex:selectList>-->
+                        <apex:input type="number" label="Hours" value="{!sde3.hours}" />
+                        <apex:input type="number" label="Minutes" value="{!sde3.minutes}" />
+                        <apex:inputCheckbox label="Last Client?" title="Last Client?" value="{!sde3.lastClient}"/>
+                        <apex:input type="date" label="Date" value="{!sde3.sdeDate}" />
+                        <apex:inputTextarea label="Comments" value="{!sde3.comments}"/>
+                        <apex:inputTextarea label="Case Notes" value="{!sde3.caseNotes}"/>
+                        <apex:commandButton styleClass="slds-vf-button_brand" value="Reset SDE3 Selection" title="Reset SDE3 Selection" action="{!resetSDE3}" reRender="OverviewSection,submitButton,error0,error,numErrors,subsection3"  style="background-color:red"/>
+                    </apex:pageBlockSection>
+                </apex:outputPanel>
+                
+                <apex:outputPanel styleClass="BR" layout="block">
+                    <apex:pageBlockSection id="subsection4" title="Service Delivery 4" columns="1">
+                        <apex:selectList id="serviceList4" size="10"  value="{!sde4.service}" title="Select Service 4" label="Select Service 4">
+                            <apex:selectOptions value="{!services}"/>
+                            <apex:actionSupport event="onchange" rerender="rateList4,submitButton" action="{!serviceListAction4}"/>
+                        </apex:selectList>
+                        <!--<apex:selectList id="rateList4" size="5"  value="{!sde4.rate}" title="Select Rate 4" label="Select Rate 4">
+                            <apex:selectOptions value="{!sde4.rates}"/>
+                        </apex:selectList>-->
+                        <apex:input type="number" label="Hours" value="{!sde4.hours}" />
+                        <apex:input type="number" label="Minutes" value="{!sde4.minutes}" />
+                        <apex:inputCheckbox label="Last Client?" title="Last Client?" value="{!sde4.lastClient}"/>
+                        <apex:input type="date" label="Date" value="{!sde4.sdeDate}" />
+                        <apex:inputTextarea label="Comments" value="{!sde4.comments}"/>
+                        <apex:inputTextarea label="Case Notes" value="{!sde4.caseNotes}"/>
+                        <apex:commandButton styleClass="slds-vf-button_brand" value="Reset SDE4 Selection" title="Reset SDE4 Selection" action="{!resetSDE4}" reRender="OverviewSection,submitButton,error0,error,numErrors,subsection4" style="background-color:red"/>
+                    </apex:pageBlockSection>
+                </apex:outputPanel>
+                
+                <apex:outputPanel styleClass="BR" layout="block">
+                    <apex:pageBlockSection id="subsection5" title="Service Delivery 5" columns="1">
+                        <apex:selectList id="serviceList5" size="10"  value="{!sde5.service}" title="Select Service 5" label="Select Service 5">
+                            <apex:selectOptions value="{!services}"/>
+                            <apex:actionSupport event="onchange" rerender="rateList5,submitButton" action="{!serviceListAction5}"/>
+                        </apex:selectList>
+                        <!--<apex:selectList id="rateList5" size="5"  value="{!sde5.rate}" title="Select Rate 5" label="Select Rate 5">
+                            <apex:selectOptions value="{!sde5.rates}"/>
+                        </apex:selectList>-->
+                        <apex:input type="number" label="Hours" value="{!sde5.hours}" />
+                        <apex:input type="number" label="Minutes" value="{!sde5.minutes}" />
+                        <apex:inputCheckbox label="Last Client?" title="Last Client?" value="{!sde5.lastClient}"/>
+                        <apex:input type="date" label="Date" value="{!sde5.sdeDate}" />
+                        <apex:inputTextarea label="Comments" value="{!sde5.comments}"/>
+                        <apex:inputTextarea label="Case Notes" value="{!sde5.caseNotes}"/>
+                        <apex:commandButton styleClass="slds-vf-button_brand" value="Reset SDE5 Selection" title="Reset SDE5 Selection" action="{!resetSDE5}" reRender="OverviewSection,submitButton,error0,error,numErrors,subsection5"  style="background-color:red"/>
+                    </apex:pageBlockSection>
+                </apex:outputPanel>
+                
+                <apex:outputPanel styleClass="BR" layout="block">   
+                    <apex:pageBlockSection id="subsection6" title="Service Delivery 6" columns="1">
+                        <apex:selectList id="serviceList6" size="10"  value="{!sde6.service}" title="Select Service 6" label="Select Service 6">
+                            <apex:selectOptions value="{!services}"/>
+                            <apex:actionSupport event="onchange" rerender="rateList6,submitButton" action="{!serviceListAction6}"/>
+                        </apex:selectList>
+                        <!--<apex:selectList id="rateList6" size="5"  value="{!sde6.rate}" title="Select Rate 6" label="Select Rate 6">
+                            <apex:selectOptions value="{!sde6.rates}"/>
+                        </apex:selectList>-->
+                        <apex:input type="number" label="Hours" value="{!sde6.hours}" />
+                        <apex:input type="number" label="Minutes" value="{!sde6.minutes}" />
+                        <apex:inputCheckbox label="Last Client?" title="Last Client?" value="{!sde6.lastClient}"/>
+                        <apex:input type="date" label="Date" value="{!sde6.sdeDate}" />
+                        <apex:inputTextarea label="Comments" value="{!sde6.comments}"/>
+                        <apex:inputTextarea label="Case Notes" value="{!sde6.caseNotes}"/>
+                        <apex:commandButton styleClass="slds-vf-button_brand" value="Reset SDE6 Selection" title="Reset SDE6 Selection" action="{!resetSDE6}" reRender="OverviewSection,submitButton,error0,error,numErrors,subsection6"  style="background-color:red"/>
+                    </apex:pageBlockSection>
+                </apex:outputPanel>
+            </apex:pageBlockSection>
+            
+            <div align="center" draggable="false" style="padding:20px;background-color:#f3f2f2">
+                <apex:commandButton styleClass="slds-vf-button_brand" value="Generate Overview" title="Save" action="{!saveAction}" reRender="OverviewSection,submitButton,error0,error1,error,numErrors,tstpopup" style="width:50%;height:50%"/>
+                
+            </div>
+            <div id="error" align="center" draggable="false" style="padding:20px;background-color:#f3f2f2">
+                If there are errors, they will appear in the next line once you hit "Generate Overview"<br/>
+               
+                <apex:OutputText id="error0" value="{!errors}" ></apex:OutputText><br/>
+                <apex:OutputText id="error1" style="color:red" value="{!messages}" ></apex:OutputText>
+            </div>
+            
+            <apex:outputPanel id="tstpopup">
+                <apex:outputPanel styleClass="popupBackground" layout="block" rendered="{!displayPopUp}"/>
+                    <apex:outputPanel styleClass="custPopup" layout="block" rendered="{!displayPopUp}">
+                        <div align="center">
+                            <h3 style="color:orange;">
+                                ATTENTION!
+                            </h3>
+                        </div>
+                        <div align="left">
+                            <div style="font-size:14px">
+                                The entered SDs are exceeding the current service agreement by <b>${!ocAmountDisplay}</b>.
+                            </div>
+                            <br/><br/>
+                            If you are expecting an SA amendment you can either:<br/>
+                            <ul>
+                                <li>Click on the 'Yes' button below and continue lodging these SDs. You will have to use the 'Convert for Approval' button on the overclaimed SDs when a signed SA amendment comes through in the future.</li>
+                            </ul>
+                            If you are NOT expecting an SA amendment OR you are expecting a Core Amendment for your participant:<br/>
+                            <ul>
+                                <li>Please click on 'No' below. No further action is required.</li>
+                            </ul><br/>
+                            
+                        </div>
+                        <div align="center" >
+                            <div>
+                                Are you expecting an SA amendment?
+                            </div><br/>
+                            <div style="display:flex;align-items:center;justify-content:center">
+                                <apex:commandButton style="color:red" value="No" action="{!closePopup}" rerender="tstpopup"/>
+                                <apex:commandButton style="color:green" value="Yes" action="{!falseOverclaimActions}" rerender="tstpopup"/>
+                            </div>
+                        </div>
+                </apex:outputPanel>
+            </apex:outputPanel>
+            
+            <apex:outputPanel styleClass="mainHeaders" layout="block" >
+                <apex:pageBlockSection id="OverviewSection" columns="1" title="Overview" collapsible="false">
+                    <apex:pageBlockSection columns="3">
+                        <apex:outputText >Worker: {!worker.enrtcr__Display_Full_Name__c}</apex:outputText>
+                        <apex:outputText >Client: {!client.enrtcr__Display_Full_Name__c}</apex:outputText>
+                        <apex:outputText >Support Category: {!SC.Name}</apex:outputText>
+                        <apex:outputText >Site: {!site.Name}</apex:outputText>
+                        <apex:outputText >Service Agreement: {!serviceAgreementItem.enrtcr__Support_Contract__r.Name}</apex:outputText>
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection columns="1" collapsible="true">
+                        <apex:outputText style="text-decoration:underline">Legend:</apex:outputText>
+                        <apex:outputPanel style="color:green">
+                            <apex:outputText >Green: Will be 100% delivered</apex:outputText>
+                        </apex:outputPanel>
+                        <apex:outputPanel style="color:orange">
+                            <apex:outputText >Orange: Will exceed SA (Partially OR Fully)</apex:outputText>
+                        </apex:outputPanel>
+                        <apex:outputPanel style="color:red">
+                            <apex:outputText >Red: Empty Selection</apex:outputText>
+                        </apex:outputPanel>
+                    </apex:pageBlockSection>
+                    
+                    <apex:pageBlockSection columns="3">
+                    
+                        <apex:pageBlockSection columns="1" collapsible="true">
+                            <apex:outputPanel styleClass="{!IF(s1 != null,IF(sde1.deliver == false || sde1.split == true , 'overviewHeadersOC' , 'overviewHeadersgood'),'overviewHeadersbad')}">
+                                <apex:outputText >Service Delivery 1</apex:outputText>
+                            </apex:outputPanel>
+                            <apex:outputText >Service Name: {!IF(s1 != Null,s1.Name,"No service selected")}</apex:outputText>
+                            <apex:outputText >Rate Name: {!IF(r1 != null,r1.Name,"No rate selected")}</apex:outputText>
+                            <apex:outputText value="{0,date,dd/MM/yy}" >Date: <apex:param value="{!sde1.sdeDate}" /></apex:outputText><br/>
+                            <apex:outputText >Quantity you indicated: {!IF(sde1.inputtedTravel != null,sde1.inputtedTravel,"No quantity indicated")}</apex:outputText>
+                            <apex:outputText >Quantity that will be delivered: {!IF(sde1.quantity != null,IF(sde1.deliver == true, ROUND(sde1.quantity,2) , 0 ),"No quantity indicated")}</apex:outputText>
+                            <!--<apex:outputText >Quantity that will be exceed SA: {!IF(sde1.quantity != null,IF(sde1.deliver == true, IF(sde1.split == true, ROUND((1/KPIFactor)*overclaim.quantity,2),0) , ROUND((1/KPIFactor)*sde1.quantity,2)),"No quantity indicated")}</apex:outputText-->
+                            <apex:outputText >Total quantity to your KPI: {!IF(sde1.quantity != null, IF(sde1.split == true, ROUND(overclaim.quantity+sde1.quantity, 2), ROUND(sde1.quantity,2)) ,"No quantity indicated")}</apex:outputText><br/>
+                            <apex:outputText >Comments: {!sde1.comments}</apex:outputText>
+                            <apex:outputText >Case Notes: {!sde1.caseNotes}</apex:outputText>
+                        </apex:pageBlockSection>
+                        
+                        <apex:pageBlockSection columns="1" collapsible="true">
+                            <apex:outputPanel styleClass="{!IF(s2 != null,IF(sde2.deliver == false || sde2.split == true , 'overviewHeadersOC' , 'overviewHeadersgood'),'overviewHeadersbad')}">
+                                <apex:outputText >Service Delivery 2</apex:outputText>
+                            </apex:outputPanel>
+                            <apex:outputText >Service Name: {!IF(s2 != Null,s2.Name,"No service selected")}</apex:outputText>
+                            <apex:outputText >Rate Name: {!IF(r2 != null,r2.Name,"No rate selected")}</apex:outputText>
+                            <apex:outputText value="{0,date,dd/MM/yy}" >Date: <apex:param value="{!sde2.sdeDate}" /></apex:outputText><br/>
+                            <apex:outputText >Quantity you indicated: {!IF(sde2.inputtedTravel != null,sde2.inputtedTravel,"No quantity indicated")}</apex:outputText>
+                            <apex:outputText >Quantity that will be delivered: {!IF(sde2.quantity != null,IF(sde2.deliver == true, ROUND(sde2.quantity,2) , 0 ),"No quantity indicated")}</apex:outputText>
+                            <!--<apex:outputText >Quantity that will be exceed SA: {!IF(sde2.quantity != null,IF(sde2.deliver == true, IF(sde2.split == true, ROUND((1/KPIFactor)*overclaim.quantity,2),0) , ROUND((1/KPIFactor)*sde2.quantity,2)),"No quantity indicated")}</apex:outputText>-->
+                            <apex:outputText >Total quantity to your KPI: {!IF(sde2.quantity != null, IF(sde2.split == true, ROUND(overclaim.quantity+sde2.quantity, 2), ROUND(sde2.quantity,2)) ,"No quantity indicated")}</apex:outputText><br/>
+                            <apex:outputText >Comments: {!sde2.comments}</apex:outputText>
+                            <apex:outputText >Case Notes: {!sde2.caseNotes}</apex:outputText>
+                        </apex:pageBlockSection>
+                        
+                        <apex:pageBlockSection columns="1" collapsible="true">
+                            <apex:outputPanel styleClass="{!IF(s3 != null,IF(sde3.deliver == false || sde3.split == true , 'overviewHeadersOC' , 'overviewHeadersgood'),'overviewHeadersbad')}">
+                                <apex:outputText >Service Delivery 3</apex:outputText>
+                            </apex:outputPanel>
+                            <apex:outputText >Service Name: {!IF(s3 != Null,s3.Name,"No service selected")}</apex:outputText>
+                            <apex:outputText >Rate Name: {!IF(r3 != null,r3.Name,"No rate selected")}</apex:outputText>
+                            <apex:outputText value="{0,date,dd/MM/yy}" >Date: <apex:param value="{!sde3.sdeDate}" /></apex:outputText><br/>
+                            <apex:outputText >Quantity you indicated: {!IF(sde3.inputtedTravel != null,sde3.inputtedTravel,"No quantity indicated")}</apex:outputText>
+                            <apex:outputText >Quantity that will be delivered: {!IF(sde3.quantity != null,IF(sde3.deliver == true, ROUND(sde3.quantity,2) , 0 ),"No quantity indicated")}</apex:outputText>
+                            <!--<apex:outputText >Quantity that will be exceed SA: {!IF(sde3.quantity != null,IF(sde3.deliver == true, IF(sde3.split == true, ROUND((1/KPIFactor)*overclaim.quantity,2),0) , ROUND((1/KPIFactor)*sde3.quantity,2)),"No quantity indicated")}</apex:outputText>-->
+                            <apex:outputText >Total quantity to your KPI: {!IF(sde3.quantity != null, IF(sde3.split == true, ROUND(overclaim.quantity+sde3.quantity, 2), ROUND(sde3.quantity,2)) ,"No quantity indicated")}</apex:outputText><br/>       
+                            <apex:outputText >Comments: {!sde3.comments}</apex:outputText>
+                            <apex:outputText >Case Notes: {!sde3.caseNotes}</apex:outputText>
+                        </apex:pageBlockSection>
+                        
+                        <apex:pageBlockSection columns="1" collapsible="true">
+                            <apex:outputPanel styleClass="{!IF(s4 != null,IF(sde4.deliver == false || sde4.split == true , 'overviewHeadersOC' , 'overviewHeadersgood'),'overviewHeadersbad')}">
+                                <apex:outputText >Service Delivery 4</apex:outputText>
+                            </apex:outputPanel>
+                            <apex:outputText >Service Name: {!IF(s4 != Null,s4.Name,"No service selected")}</apex:outputText>
+                            <apex:outputText >Rate Name: {!IF(r4 != null,r4.Name,"No rate selected")}</apex:outputText>
+                            <apex:outputText value="{0,date,dd/MM/yy}" >Date: <apex:param value="{!sde4.sdeDate}" /></apex:outputText><br/>
+                            <apex:outputText >Quantity you indicated: {!IF(sde4.inputtedTravel != null,sde4.inputtedTravel,"No quantity indicated")}</apex:outputText>
+                            <apex:outputText >Quantity that will be delivered: {!IF(sde4.quantity != null,IF(sde4.deliver == true, ROUND(sde4.quantity,2) , 0 ),"No quantity indicated")}</apex:outputText>
+                            <!--<apex:outputText >Quantity that will be exceed SA: {!IF(sde4.quantity != null,IF(sde4.deliver == true, IF(sde4.split == true, ROUND((1/KPIFactor)*overclaim.quantity,2),0) , ROUND((1/KPIFactor)*sde4.quantity,2)),"No quantity indicated")}</apex:outputText>-->
+                            <apex:outputText >Total quantity to your KPI: {!IF(sde4.quantity != null, IF(sde4.split == true, ROUND(overclaim.quantity+sde4.quantity, 2), ROUND(sde4.quantity,2)) ,"No quantity indicated")}</apex:outputText><br/>               
+                            <apex:outputText >Comments: {!sde4.comments}</apex:outputText>
+                            <apex:outputText >Case Notes: {!sde4.caseNotes}</apex:outputText>
+                        </apex:pageBlockSection>
+                        
+                        <apex:pageBlockSection columns="1" collapsible="true">
+                            <apex:outputPanel styleClass="{!IF(s5 != null,IF(sde5.deliver == false || sde5.split == true , 'overviewHeadersOC' , 'overviewHeadersgood'),'overviewHeadersbad')}">
+                                <apex:outputText >Service Delivery 5</apex:outputText>
+                            </apex:outputPanel>
+                            <apex:outputText >Service Name: {!IF(s5 != Null,s5.Name,"No service selected")}</apex:outputText>
+                            <apex:outputText >Rate Name: {!IF(r5 != null,r5.Name,"No rate selected")}</apex:outputText>
+                            <apex:outputText value="{0,date,dd/MM/yy}" >Date: <apex:param value="{!sde5.sdeDate}" /></apex:outputText><br/>
+                            <apex:outputText >Quantity you indicated: {!IF(sde5.inputtedTravel != null,sde5.inputtedTravel,"No quantity indicated")}</apex:outputText>
+                            <apex:outputText >Quantity that will be delivered: {!IF(sde5.quantity != null,IF(sde5.deliver == true, ROUND(sde5.quantity,2) , 0 ),"No quantity indicated")}</apex:outputText>
+                            <!--<apex:outputText >Quantity that will be exceed SA: {!IF(sde5.quantity != null,IF(sde5.deliver == true, IF(sde5.split == true, ROUND((1/KPIFactor)*overclaim.quantity,2),0) , ROUND((1/KPIFactor)*sde5.quantity,2)),"No quantity indicated")}</apex:outputText>-->
+                            <apex:outputText >Total quantity to your KPI: {!IF(sde5.quantity != null, IF(sde5.split == true, ROUND(overclaim.quantity+sde5.quantity, 2), ROUND(sde5.quantity,2)) ,"No quantity indicated")}</apex:outputText><br/>
+                            <apex:outputText >Comments: {!sde5.comments}</apex:outputText>
+                            <apex:outputText >Case Notes: {!sde5.caseNotes}</apex:outputText>
+                        </apex:pageBlockSection>
+                        
+                        <apex:pageBlockSection columns="1" collapsible="true">
+                            <apex:outputPanel styleClass="{!IF(s6 != null,IF(sde6.deliver == false || sde6.split == true , 'overviewHeadersOC' , 'overviewHeadersgood'),'overviewHeadersbad')}">
+                                <apex:outputText >Service Delivery 6</apex:outputText>
+                            </apex:outputPanel>
+                            <apex:outputText >Service Name: {!IF(s6 != Null,s6.Name,"No service selected")}</apex:outputText>
+                            <apex:outputText >Rate Name: {!IF(r6 != null,r6.Name,"No rate selected")}</apex:outputText>
+                            <apex:outputText value="{0,date,dd/MM/yy}" >Date: <apex:param value="{!sde6.sdeDate}" /></apex:outputText><br/>
+                            <apex:outputText >Quantity you indicated: {!IF(sde6.inputtedTravel != null,sde6.inputtedTravel,"No quantity indicated")}</apex:outputText>
+                            <apex:outputText >Quantity that will be delivered: {!IF(sde6.quantity != null,IF(sde6.deliver == true, ROUND(sde6.quantity,2) , 0 ),"No quantity indicated")}</apex:outputText>
+                            <!--<apex:outputText >Quantity that will exceed SA: {!IF(sde6.quantity != null,IF(sde6.deliver == true, IF(sde6.split == true, ROUND((1/KPIFactor)*overclaim.quantity,2),0) , ROUND((1/KPIFactor)*sde6.quantity,2)),"No quantity indicated")}</apex:outputText>-->
+                            <apex:outputText >Total quantity to your KPI: {!IF(sde6.quantity != null, IF(sde6.split == true, ROUND(overclaim.quantity+sde6.quantity, 2), ROUND(sde6.quantity,2)) ,"No quantity indicated")}</apex:outputText><br/>
+                            <apex:outputText >Comments: {!sde6.comments}</apex:outputText>
+                            <apex:outputText >Case Notes: {!sde6.caseNotes}</apex:outputText>
+                        </apex:pageBlockSection>
+                        
+                    </apex:pageBlockSection>
+                
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+            
+            <div id="submission" align="center" draggable="false" style="padding:20px;background-color:#f3f2f2">
+                <apex:actionStatus id="AddStatus">
+                    <apex:facet name="start">
+                        <apex:outputText >Working.... Please do not close the page!</apex:outputText>
+                    </apex:facet>
+                    <apex:facet name="stop">
+                        <apex:commandButton status="AddStatus" styleClass="slds-vf-button_brand" id="submitButton" value="{!IF(submitDisabled,"Please complete all required fields","Submit")}" title="Submit" action="{!submitAction}" reRender="submission,panel1" disabled="{!submitDisabled}" style="width:50%;height:50%"/>
+                    </apex:facet>
+                </apex:actionStatus>
+            </div>
+            <apex:outputPanel id="panel1">
+                <apex:outputPanel rendered="{!submissionError}">
+                    An error occurred delivering your services. Please try again in a few moments...
+                </apex:outputPanel>
+            </apex:outputPanel>
+            
+
+         <script> twistSection(document.getElementById('{!$Component.block1.section1.subsection1}').getElementsByTagName('img')[0]) </script>
+         <script> twistSection(document.getElementById('{!$Component.block1.section1.subsection2}').getElementsByTagName('img')[0]) </script>
+         <script> twistSection(document.getElementById('{!$Component.block1.section1.subsection3}').getElementsByTagName('img')[0]) </script>
+         <script> twistSection(document.getElementById('{!$Component.block1.section1.subsection4}').getElementsByTagName('img')[0]) </script>
+         <script> twistSection(document.getElementById('{!$Component.block1.section1.subsection5}').getElementsByTagName('img')[0]) </script>
+         <script> twistSection(document.getElementById('{!$Component.block1.section1.subsection6}').getElementsByTagName('img')[0]) </script>
+         <script>
+            $Lightning.use("c:TestApp", function() {
+             $Lightning.createComponent("c:ContactExample",{},"lightning:input", function(cmp) {});
+        
+            });
+        </script>
+        </apex:pageBlock>
+        </div>
+        </apex:form>
+    </html>
+</apex:page>

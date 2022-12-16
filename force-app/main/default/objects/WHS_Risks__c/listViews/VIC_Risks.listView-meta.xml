@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>VIC_Risks</fullName>
+    <columns>NAME</columns>
+    <columns>Task_Scenario__c</columns>
+    <columns>Site__c</columns>
+    <columns>Risk_Status__c</columns>
+    <columns>Associated_Harm__c</columns>
+    <columns>Risk_Rating__c</columns>
+    <columns>Risk_Rating_after_New_Controls__c</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Site__c</field>
+        <operation>equals</operation>
+        <value>Adelaide,Briar Hill,Geelong,Moonee Ponds,Mornington,Mulgrave,Surrey Hills,Werribee</value>
+    </filters>
+    <filters>
+        <field>Risk_Status__c</field>
+        <operation>equals</operation>
+        <value>Open,On-going</value>
+    </filters>
+    <label>VIC/SA Risks</label>
+</ListView>

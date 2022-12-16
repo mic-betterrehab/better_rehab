@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Missed_Referrals</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+Missed_Referrals__c = TRUE,
+ISBLANK( Missed_Referrals_Reason__c )
+)</errorConditionFormula>
+    <errorDisplayField>Missed_Referrals_Reason__c</errorDisplayField>
+    <errorMessage>Please enter missed referrals reasons</errorMessage>
+</ValidationRule>

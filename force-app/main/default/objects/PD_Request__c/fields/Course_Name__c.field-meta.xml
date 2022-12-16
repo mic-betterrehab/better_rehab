@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Course_Name__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>If your course is not listed, choose &apos;Other&apos; and write your course name in the below box</inlineHelpText>
+    <label>Course Name</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>First Aid / CPR</fullName>
+                <default>false</default>
+                <label>First Aid / CPR</label>
+            </value>
+            <value>
+                <fullName>Mental Health First Aid</fullName>
+                <default>false</default>
+                <label>Mental Health First Aid</label>
+            </value>
+            <value>
+                <fullName>Home Modifications</fullName>
+                <default>false</default>
+                <label>Home Modifications</label>
+            </value>
+            <value>
+                <fullName>OT Driver Assessor Course</fullName>
+                <default>false</default>
+                <label>OT Driver Assessor Course</label>
+            </value>
+            <value>
+                <fullName>Assistive Technology</fullName>
+                <default>false</default>
+                <label>Assistive Technology</label>
+            </value>
+            <value>
+                <fullName>Diagnosis specific training</fullName>
+                <default>false</default>
+                <label>Diagnosis specific training</label>
+            </value>
+            <value>
+                <fullName>Therapy interventions</fullName>
+                <default>false</default>
+                <label>Therapy interventions</label>
+            </value>
+            <value>
+                <fullName>Accredited clinical courses</fullName>
+                <default>false</default>
+                <label>Accredited clinical courses</label>
+            </value>
+            <value>
+                <fullName>Leadership skills</fullName>
+                <default>false</default>
+                <label>Leadership skills</label>
+            </value>
+            <value>
+                <fullName>Professional governing bodies</fullName>
+                <default>false</default>
+                <label>Professional governing bodies</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other (Please specify)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>ACT_AHA_Task_Creation_Alert</fullName>
+        <ccEmails>actaha@betterrehab.com.au</ccEmails>
+        <description>ACT AHA Task Creation Alert</description>
+        <protected>false</protected>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/AHA_Task_Creation_Update</template>
+    </alerts>
+    <alerts>
+        <fullName>AHA_Task_Alert</fullName>
+        <description>AHA Task Alert</description>
+        <protected>false</protected>
+        <recipients>
+            <recipient>kirstyd@betterrehabilitation.com.au</recipient>
+            <type>user</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/ContactFollowUpSAMPLE</template>
+    </alerts>
+    <alerts>
+        <fullName>AHA_Task_Status_Update</fullName>
+        <description>AHA Task Status Update</description>
+        <protected>false</protected>
+        <recipients>
+            <type>creator</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/AHA_Task_Status_Update</template>
+    </alerts>
+    <alerts>
+        <fullName>Email_Alert_for_Initial_Appointment_Tasks</fullName>
+        <description>Email Alert for Initial Appointment Tasks</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/Initial_Appointment_Tasks_Notification</template>
+    </alerts>
+    <alerts>
+        <fullName>NSW_AHA_Task_Creation_Alert</fullName>
+        <ccEmails>nswaha@betterrehab.com.au</ccEmails>
+        <description>NSW AHA Task Creation Alert</description>
+        <protected>false</protected>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/AHA_Task_Creation_Update</template>
+    </alerts>
+    <alerts>
+        <fullName>New_Task_Assignment</fullName>
+        <description>New Task Assignment</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/New_Task_Assignment</template>
+    </alerts>
+    <alerts>
+        <fullName>QLD_AHA_Task_Creation_Alert</fullName>
+        <ccEmails>qldaha@betterrehab.com.au</ccEmails>
+        <description>QLD AHA Task Creation Alert</description>
+        <protected>false</protected>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/AHA_Task_Creation_Update</template>
+    </alerts>
+    <alerts>
+        <fullName>SA_AHA_Task_Creation_Alert</fullName>
+        <ccEmails>saaha@betterrehab.com.au</ccEmails>
+        <description>SA AHA Task Creation Alert</description>
+        <protected>false</protected>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/AHA_Task_Creation_Update</template>
+    </alerts>
+    <alerts>
+        <fullName>VIC_AHA_Task_Creation_Alert</fullName>
+        <ccEmails>vicaha@betterrehab.com.au</ccEmails>
+        <description>VIC AHA Task Creation Alert</description>
+        <protected>false</protected>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/AHA_Task_Creation_Update</template>
+    </alerts>
+    <alerts>
+        <fullName>WA_AHA_Task_Creation_Alert</fullName>
+        <ccEmails>waaha@betterrehab.com.au</ccEmails>
+        <description>WA AHA Task Creation Alert</description>
+        <protected>false</protected>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/AHA_Task_Creation_Update</template>
+    </alerts>
+    <rules>
+        <fullName>New Starters</fullName>
+        <actions>
+            <name>Set_Up_Laptop</name>
+            <type>Task</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Task.Subject</field>
+            <operation>contains</operation>
+            <value>New Starter</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <tasks>
+        <fullName>Set_Up_Laptop</fullName>
+        <assignedTo>aravind@betterrehab.com.au</assignedTo>
+        <assignedToType>user</assignedToType>
+        <dueDateOffset>-14</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <offsetFromField>Task.ActivityDate</offsetFromField>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>Set Up Laptop</subject>
+    </tasks>
+    <tasks>
+        <fullName>Test</fullName>
+        <assignedTo>aravind@betterrehab.com.au</assignedTo>
+        <assignedToType>user</assignedToType>
+        <dueDateOffset>-14</dueDateOffset>
+        <notifyAssignee>false</notifyAssignee>
+        <offsetFromField>Task.ActivityDate</offsetFromField>
+        <priority>Normal</priority>
+        <protected>false</protected>
+        <status>Not Started</status>
+        <subject>Test</subject>
+    </tasks>
+</Workflow>

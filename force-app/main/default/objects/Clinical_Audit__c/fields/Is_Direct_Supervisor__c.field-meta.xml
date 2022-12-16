@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Direct_Supervisor__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF( Clinician__r.Direct_Supervisor__r.enrtcr__User__c = $User.Id , TRUE, FALSE)</formula>
+    <inlineHelpText>TRUE if the currently logged in user is the clinician&apos;s direct supervisor</inlineHelpText>
+    <label>Is Direct Supervisor?</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

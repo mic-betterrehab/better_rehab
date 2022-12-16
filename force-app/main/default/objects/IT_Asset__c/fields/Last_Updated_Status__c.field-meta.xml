@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Last_Updated_Status__c</fullName>
+    <externalId>false</externalId>
+    <label>Last Updated Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Device In Use</fullName>
+                <default>false</default>
+                <label>Device In Use</label>
+            </value>
+            <value>
+                <fullName>Received by OM</fullName>
+                <default>false</default>
+                <label>Received by OM</label>
+            </value>
+            <value>
+                <fullName>Shipped to Hub Office</fullName>
+                <default>false</default>
+                <label>Shipped to Hub Office</label>
+            </value>
+            <value>
+                <fullName>Received at Hub Office</fullName>
+                <default>false</default>
+                <label>Received at Hub Office</label>
+            </value>
+            <value>
+                <fullName>Shipped to Support Office</fullName>
+                <default>false</default>
+                <label>Shipped to Support Office</label>
+            </value>
+            <value>
+                <fullName>Received at Support Office</fullName>
+                <default>false</default>
+                <label>Received at Support Office</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

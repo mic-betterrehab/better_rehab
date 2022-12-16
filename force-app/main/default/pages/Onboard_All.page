@@ -1,0 +1,6 @@
+<apex:page standardController="Onboarding__c" extensions="OnboardingListUserController" action="{!autoRun}" recordSetVar="onboarders">
+    <apex:sectionHeader title="Auto onboarding new-starter"/>
+    <apex:outputPanel >
+        The button you clicked was meant to onboard the worker to Salesforce and create their worker and supervision contacts. Since you are seeing this page, something has gone wrong. Please try again later. If this issue persists, please contact your Salesforce Developer.
+    </apex:outputPanel>
+</apex:page>

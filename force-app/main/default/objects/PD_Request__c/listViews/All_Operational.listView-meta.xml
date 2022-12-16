@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All_Operational</fullName>
+    <columns>NAME</columns>
+    <columns>Employee_Name__c</columns>
+    <columns>Job_Title__c</columns>
+    <columns>Internal_Banding__c</columns>
+    <columns>Course_Name__c</columns>
+    <columns>Other_Course_Name__c</columns>
+    <columns>Status__c</columns>
+    <columns>Subsidized_Cost__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>PD_Request__c.Operational</value>
+    </filters>
+    <label>All (Operational)</label>
+    <sharedTo>
+        <group>L_D</group>
+    </sharedTo>
+</ListView>

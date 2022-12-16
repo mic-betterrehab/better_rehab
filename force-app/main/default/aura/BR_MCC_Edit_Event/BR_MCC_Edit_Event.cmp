@@ -1,0 +1,45 @@
+<aura:component controller="BR_EventDetailController">
+    <aura:attribute name="parent" type="Aura.Component" />
+    <aura:attribute name="recordId" type="String" default="" description="Record Id of the event"/>
+    <aura:attribute name="eventMap" type="Map" default="{}" description="Currently selected event object details" />
+    <aura:attribute name='events' type="List" default="[]" description="list of events to be displayed in the calendar ui" />
+    <aura:attribute name="isLoading" type="Boolean" default="true" description="Flag for checking if data is fetching"/>
+    <aura:handler name="init" value="{!this}" action="{!c.onInit}"/>
+
+    <!-- Events -->
+    <aura:registerEvent name="eventChange" type="c:eventSelect"/>
+
+    <!-- Methods -->
+    <aura:method name="closeModals" action="{!c.closeModal}" access="PUBLIC" />
+    <aura:method name="reloadCalendar" action="{!c.reload}" access="PUBLIC" />
+
+    <!-- Modal/Popup Box starts here-->
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <!-- Modal/Popup Box Header Starts here -->
+            <header class="slds-modal__header edit-modal-header">
+                <lightning:buttonIcon
+                    iconName="utility:close"
+                    onclick="{! c.closeModal }"
+                    alternativeText="close"
+                    variant="bare-inverse"
+                    class="slds-modal__close"
+                />
+            </header>
+
+            <!--Modal/Popup Box Body Starts here-->
+            <div class="slds-modal__content slds-var-p-around_medium" id="view-modal-1">
+                <aura:if isTrue="{!v.isLoading == false}">
+                    <c:BR_EventDetail
+                        aura:id="eventDetailView"
+                        parent="{!this}"
+                        recordId="{!v.recordId}"
+                        events="{!v.events}"
+                        isParentMCC="true"
+                    />
+                </aura:if>
+            </div>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</aura:component>

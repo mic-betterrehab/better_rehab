@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Site__c</fullName>
+    <deleteConstraint>Restrict</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Site</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>enrtcr__Site__c.enrtcr__Inactive__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>enrtcr__Site__c</referenceTo>
+    <relationshipLabel>Duress Alarm Testing</relationshipLabel>
+    <relationshipName>Duress_Alarm_Testing</relationshipName>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

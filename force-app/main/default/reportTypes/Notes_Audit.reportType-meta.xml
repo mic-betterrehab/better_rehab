@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <baseObject>enrtcr__Note_Audit__c</baseObject>
+    <category>admin</category>
+    <deployed>true</deployed>
+    <description>Notes Audit</description>
+    <label>Notes Audit</label>
+    <sections>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>Id</field>
+            <table>enrtcr__Note_Audit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>true</checkedByDefault>
+            <field>Name</field>
+            <table>enrtcr__Note_Audit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CreatedDate</field>
+            <table>enrtcr__Note_Audit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>CreatedBy</field>
+            <table>enrtcr__Note_Audit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LastModifiedDate</field>
+            <table>enrtcr__Note_Audit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>LastModifiedBy</field>
+            <table>enrtcr__Note_Audit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>enrtcr__Note_and_Attachment__c</field>
+            <table>enrtcr__Note_Audit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>enrtcr__Description__c</field>
+            <table>enrtcr__Note_Audit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>enrtcr__No_Longer_Valid__c</field>
+            <table>enrtcr__Note_Audit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>enrtcr__Title__c</field>
+            <table>enrtcr__Note_Audit__c</table>
+        </columns>
+        <columns>
+            <checkedByDefault>false</checkedByDefault>
+            <field>enrtcr__Type__c</field>
+            <table>enrtcr__Note_Audit__c</table>
+        </columns>
+        <masterLabel>Notes Audit</masterLabel>
+    </sections>
+</ReportType>

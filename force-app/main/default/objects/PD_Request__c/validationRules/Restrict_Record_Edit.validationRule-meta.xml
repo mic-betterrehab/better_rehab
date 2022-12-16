@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrict_Record_Edit</fullName>
+    <active>false</active>
+    <description>Restricting record edit to only supervisors</description>
+    <errorConditionFormula>AND(
+    Record_Locked__c = TRUE,
+    $User.Id = Employee_Name__r.enrtcr__User__r.Id 
+)</errorConditionFormula>
+    <errorMessage>You cannot change this record after creation. Please create a new PD Request.</errorMessage>
+</ValidationRule>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>WA</fullName>
+    <columns>NAME</columns>
+    <columns>Clinician__c</columns>
+    <columns>Client__c</columns>
+    <columns>Office__c</columns>
+    <columns>Total_Score__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Office__c</field>
+        <operation>equals</operation>
+        <value>Cockburn,Inglewood</value>
+    </filters>
+    <label>WA</label>
+</ListView>

@@ -1,0 +1,8 @@
+<apex:page standardController="HSTP_Plan__c" docType="html-5.0" title="Webmerge Certificate: {!HSTP_Plan__c.Name}">
+    <apex:sectionHeader title="HSTP Webmerge"/>
+    <apex:outputPanel >
+        The button you clicked was meant to produce a document. Since you are seeing this page, something has gone wrong. Please try again later. If this issue persists, please contact your Salesforce Developer.
+    </apex:outputPanel>
+    
+    <webm:WebmergeWizard record="{!HSTP_Plan__c}" />
+</apex:page>

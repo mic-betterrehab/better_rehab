@@ -1,0 +1,8 @@
+<!--
+ - Created by Enrite Solutions on 5/01/2021.
+ -->
+
+<aura:component description="SendExtractToXeroContainer"
+                implements="flexipage:availableForRecordHome,flexipage:availableForAllPageTypes,force:hasRecordId,lightning:actionOverride,lightning:isUrlAddressable,force:lightningQuickActionWithoutHeader">
+    <c:sendextracttoxero recordId="{!v.recordId}" onclose="{!c.closeQuickAction}"/>
+</aura:component>

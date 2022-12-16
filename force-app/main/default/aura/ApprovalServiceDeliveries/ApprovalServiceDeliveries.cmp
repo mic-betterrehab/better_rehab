@@ -1,0 +1,82 @@
+<!--
+ - Created by georgehalteh on 2019-07-19.
+ -->
+
+<aura:component description="ApprovalServiceDeliveries" implements="flexipage:availableForAllPageTypes" controller="ApproveServiceDeliveryController" access="global">
+    <aura:attribute name="title" type="String" default="Services Delivered Approval" access="global" />
+    <aura:attribute name="startDateLabel" type="String" default="Start Date" access="global" />
+    <aura:attribute name="endDateLabel" type="String" default="End Date" access="global" />
+
+    <aura:attribute name="sites" type="List" default="[]" />
+    <aura:attribute name="searchResults" type="List" default="[]"/>
+    <aura:attribute name="selectedSearchResults" type="List" default="[]"/>
+    <aura:attribute name="columns" type="List" default="[]"/>
+
+    <aura:attribute name="showSpinner" type="boolean" default="false" />
+    <aura:attribute name="showSearchResults" type="boolean" default="false" />
+    <aura:attribute name="numberOfResults" type="Integer" default="0" />
+    <aura:attribute name="startDate" type="Date" />
+    <aura:attribute name="endDate" type="Date" />
+    <aura:attribute name="workerId" type="String" />
+    <aura:attribute name="sortedBy" type="String" />
+    <aura:attribute name="sortedDirection" type="String" default="asc" />
+
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
+    <aura:handler event="force:showToast" action="{!c.search}" />
+
+    <aura:if isTrue="{!v.showSpinner}">
+        <lightning:spinner size="large"  variant="brand"/>
+    </aura:if>
+
+    <lightning:card title="{!v.title}">
+        <div class="slds-p-around_small">
+            <div class="row">
+                <lightning:combobox name="progress" label="Site" aura:id="selectedSite" placeholder="Select Site..." options="{! v.sites }" value=""/>
+                <c:strike_lookup
+                        label="Worker"
+                        object="User"
+                        searchField="Name"
+                        placeholder="Select a worker"
+                        iconName="standard:user"
+                        subtitleField="Email"
+                        order="Name"
+                        limit="5"
+                        loadingMessage="Loading..."
+                        errorMessage="Invalid input"
+                        value="{!v.workerId}"
+                        aura:id="workerId"
+                />
+                <lightning:input type="date" value="{!v.startDate}" aura:id="startDate" label="{!v.startDateLabel}" required="true" />
+                <lightning:input type="date" value="{!v.endDate}" aura:id="endDate" label="{!v.endDateLabel}" required="true"/>
+            </div>
+        </div>
+        <div class="row slds-p-around_small">
+            <lightning:button variant="brand" label="Search" title="Search" onclick="{! c.search }" />
+            <aura:if isTrue="{!and(v.showSearchResults, v.numberOfResults > 0)}">
+                <lightning:button label="Approve" onclick="{!c.approve}"/>
+            </aura:if>
+        </div>
+
+        <aura:if isTrue="{!v.showSearchResults}">
+
+            <aura:if isTrue="{!v.numberOfResults > 0}">
+                <div class="row slds-p-around_small">
+                    <lightning:datatable
+                        columns="{! v.columns }"
+                        data="{! v.searchResults }"
+                        keyField="id"
+                        onrowaction="{! c.handleRowAction }"
+                        hideCheckboxColumn="false"
+                        onrowselection="{! c.updateSelectedRows }"
+                        sortedBy="{!v.sortedBy}"
+                        sortedDirection="{!v.sortedDirection}"
+                        onsort="{!c.sortTable}"
+                    />
+                </div>
+                <aura:set attribute="else">
+                    <div class="row slds-p-around_small">No records found</div>
+                </aura:set>
+            </aura:if>
+        </aura:if>
+    </lightning:card>
+</aura:component>

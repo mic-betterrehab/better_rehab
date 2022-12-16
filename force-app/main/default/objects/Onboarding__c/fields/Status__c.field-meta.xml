@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Status__c</fullName>
+    <defaultValue>&quot;Pre-Comm&quot;</defaultValue>
+    <externalId>false</externalId>
+    <label>Status</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Pre-Comm</fullName>
+                <default>false</default>
+                <label>Pre-Comm</label>
+            </value>
+            <value>
+                <fullName>Post-Comm</fullName>
+                <default>false</default>
+                <label>Post-Comm</label>
+            </value>
+            <value>
+                <fullName>Fully Onboarded</fullName>
+                <default>false</default>
+                <label>Fully Onboarded</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

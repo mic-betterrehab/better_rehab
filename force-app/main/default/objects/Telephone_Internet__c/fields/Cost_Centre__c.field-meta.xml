@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cost_Centre__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>If known</inlineHelpText>
+    <label>Cost Centre</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Service_Provider__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>BR QLD/NT SERVICES PTY LTD</fullName>
+                <default>false</default>
+                <label>BR QLD/NT SERVICES PTY LTD</label>
+            </value>
+            <value>
+                <fullName>BR VIC/TAS SERVICES PTY LTD</fullName>
+                <default>false</default>
+                <label>BR VIC/TAS SERVICES PTY LTD</label>
+            </value>
+            <value>
+                <fullName>BR NSW/ACT SERVICES PTY LTD</fullName>
+                <default>false</default>
+                <label>BR NSW/ACT SERVICES PTY LTD</label>
+            </value>
+            <value>
+                <fullName>BR SA/WA SERVICES PTY LTD</fullName>
+                <default>false</default>
+                <label>BR SA/WA SERVICES PTY LTD</label>
+            </value>
+            <value>
+                <fullName>BETTER REHABILITATION PTY. LTD.</fullName>
+                <default>false</default>
+                <label>BETTER REHABILITATION PTY. LTD.</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Vodafone</controllingFieldValue>
+            <valueName>BR QLD/NT SERVICES PTY LTD</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vodafone</controllingFieldValue>
+            <valueName>BR VIC/TAS SERVICES PTY LTD</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vodafone</controllingFieldValue>
+            <valueName>BR NSW/ACT SERVICES PTY LTD</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vodafone</controllingFieldValue>
+            <valueName>BR SA/WA SERVICES PTY LTD</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vodafone</controllingFieldValue>
+            <valueName>BETTER REHABILITATION PTY. LTD.</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

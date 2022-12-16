@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Check_in_Team__c</fullName>
+    <externalId>false</externalId>
+    <label>Check-in Team</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Things are going great</fullName>
+                <default>false</default>
+                <label>Things are going great</label>
+            </value>
+            <value>
+                <fullName>Things are going well</fullName>
+                <default>false</default>
+                <label>Things are going well</label>
+            </value>
+            <value>
+                <fullName>Things are going steady</fullName>
+                <default>false</default>
+                <label>Things are going steady</label>
+            </value>
+            <value>
+                <fullName>Things are going poorly</fullName>
+                <default>false</default>
+                <label>Things are going poorly</label>
+            </value>
+            <value>
+                <fullName>Things are going terribly</fullName>
+                <default>false</default>
+                <label>Things are going terribly</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

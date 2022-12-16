@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layouts>
+        <layout>BR Provider Layout</layout>
+        <sections>
+            <label></label>
+            <section>Provider Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Better Rehab Client Layout</layout>
+        <sections>
+            <label></label>
+            <section>Behaviour Issues</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Client Account</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Client Contact Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Client Demographics</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Client Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Client Status</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Exit Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Medical Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>NDIS Plan</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Personal Identification Numbers</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Risk Assessment</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Welcome Packs</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Xero Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Better Rehab General Layout</layout>
+        <sections>
+            <label></label>
+            <section>Communication</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Contact Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>General Contact Information</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label></label>
+        <name>Add_Supervision_Minutes</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>Add_Team_Performance_Agenda</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>Docusign</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>New_Handover_Note</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>Send_To_Xero</name>
+    </quickActions>
+    <workflowTasks>
+        <description></description>
+        <name>Execute_Pendula_Communication_a1q2v000006J331AAC</name>
+        <subject></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description></description>
+        <name>Execute_Pendula_Communication_a1q2v00000EIcN5AAL</name>
+        <subject></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description></description>
+        <name>Execute_Pendula_Communication_a1q2v00000EIcNAAA1</name>
+        <subject></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description></description>
+        <name>Execute_Pendula_Communication_a1q2v00000EId4TAAT</name>
+        <subject></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description></description>
+        <name>Execute_Pendula_Communication_a1q2v00000ELwOiAAL</name>
+        <subject></subject>
+    </workflowTasks>
+    <workflowTasks>
+        <description></description>
+        <name>Plan_Review_Report</name>
+        <subject></subject>
+    </workflowTasks>
+</CustomObjectTranslation>

@@ -1,0 +1,113 @@
+.THIS .fc-header-toolbar .fc-left .fc-newEvent-button,
+.THIS .fc-header-toolbar .fc-left .fc-selectDate-button {
+  background-color: #992E8B;
+  border-color: unset;
+}
+
+.THIS .fc-br-initialappointment {
+  background-color: rgba(15,94,163,0.3);
+  border-color: rgba(15,94,163,0.7);
+  color: rgb(0, 28, 54);
+}
+
+.THIS .fc-br-therapysession {
+  background-color: rgba(38,133,64,0.3);
+  border-color: rgba(38,133,64,0.7);
+  color: rgb(0, 54, 15);
+}
+
+.THIS .fc-br-otherpch {
+  background-color: rgba(116,43,108,0.3);
+  border-color: rgba(116,43,108,0.7);
+  color: rgb(56, 0, 51);
+}
+
+.THIS .fc-br-internal,
+.THIS .fc-br-internal.fc-br-pending {
+  background-color: rgba(184,129,89,0.3);
+  border-color: rgba(184,129,89,0.7);
+  color: rgb(51, 22, 0);
+}
+
+.THIS .fc-br-outofoffice,
+.THIS .fc-br-outofoffice.fc-br-pending {
+  background-color: rgba(152,152,152,0.3);
+  border-color: rgba(152,152,152,0.7);
+  color: rgb(152,152,152);
+}
+
+.THIS .fc-br-initialappointment.fc-br-pending {
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(15,94,163,0.1),
+    rgba(15,94,163,0.1) 10px,
+    rgba(15,94,163,0.3) 10px,
+    rgba(15,94,163,0.3) 20px
+  );
+}
+
+.THIS .fc-br-therapysession.fc-br-pending {
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(38,133,64,0.1),
+    rgba(38,133,64,0.1) 10px,
+    rgba(38,133,64,0.3) 10px,
+    rgba(38,133,64,0.3) 20px
+  );
+}
+
+.THIS .fc-br-otherpch.fc-br-pending {
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(116,43,108,0.1),
+    rgba(116,43,108,0.1) 10px,
+    rgba(116,43,108,0.3) 10px,
+    rgba(116,43,108,0.3) 20px
+  );
+}
+
+.THIS .fc-br-initialappointment.fc-br-cancelled,
+.THIS .fc-br-therapysession.fc-br-cancelled {
+  color: rgb(153, 24, 46);
+  border-color: rgba(153, 24, 46, 0.7);
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(153, 24, 46, 0.1),
+    rgba(153, 24, 46, 0.1) 10px,
+    rgba(153, 24, 46, 0.3) 10px,
+    rgba(153, 24, 46, 0.3) 20px
+  );
+}
+
+.THIS .fc-title-wrap {
+  font-weight: bold;
+}
+
+.THIS .filters {
+  padding-block: 1rem !important;
+}
+
+.THIS .height-36-px .slds-grow .slds-select_container .slds-select,
+.THIS .height-36-px .slds-grow .slds-input {
+  height: 36px !important;
+}
+
+.THIS .d-none {
+  display: none !important;
+}
+.THIS .d-block {
+  display: block !important;
+}
+
+.THIS .load-button {
+  margin-top: 1.5rem;
+}
+
+.THIS .load-button .slds-button_brand {
+  width: 100%;
+  margin-top: 2px;
+}
+
+.THIS .w-100 {
+  width: 100%;
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingOwnerRules>
+        <fullName>SM_RM_Access</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Giving READ only access to RM and SM for ALL clinical audit records</description>
+        <label>SM RM Access</label>
+        <sharedTo>
+            <group>Clinical_Audit_RM_and_SM</group>
+        </sharedTo>
+        <sharedFrom>
+            <allInternalUsers></allInternalUsers>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>Employee_Name__c</columns>
+    <columns>Job_Title__c</columns>
+    <columns>Internal_Banding__c</columns>
+    <columns>Course_Name__c</columns>
+    <columns>Other_Course_Name__c</columns>
+    <columns>Status__c</columns>
+    <columns>Principal_Clinician__c</columns>
+    <columns>Regional_Manager__c</columns>
+    <columns>State_Manager__c</columns>
+    <columns>Course_Date_1__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>Cost_of_Course__c</columns>
+    <columns>Days_of_Leave_Required__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>PD_Request__c.Clinician,PD_Request__c.Leadership,PD_Request__c.Operational,PD_Request__c.Principal_Clinician</value>
+    </filters>
+    <filters>
+        <field>Employee_Name__c</field>
+        <operation>contains</operation>
+        <value>amelia grayston</value>
+    </filters>
+    <label>All (Clinician)</label>
+    <sharedTo>
+        <group>L_D</group>
+    </sharedTo>
+</ListView>

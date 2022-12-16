@@ -1,0 +1,218 @@
+<apex:page extensions="br_AuditController" standardController="Contact" docType="html-5.0">
+    <html>
+    	<head>
+            <title>Clinical Audit</title>    
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+        </head>   
+    
+        <apex:messages />
+        
+        <div style="padding:20px;background-color:#78006c">
+            <apex:form id="theForm">
+                 <style>
+                     .sample {
+                         font-weight: bold;
+                         text-decoration: underline;
+                         font-size: 25px;
+                     }
+                     body .bPageBlock .pbBody .BR .pbSubheader{
+                     	background-color:#78006c;
+                     }
+                     body .bPageBlock .pbBody .BR .pbSubheader h3{
+                     	color:#ffffff;
+                     }
+                     .custPopup{
+                        background-color: white;
+                        border-width: 2px;
+                        border-style: solid;
+                        z-index: 9999;
+                        left: 50%;
+                        padding:10px;
+                        position: fixed;
+                        /* These are the 3 css properties you will need to change so the popup
+                        displays in the center of the screen. First set the width. Then set
+                        margin-left to negative half of what the width is. You can add
+                        the height property for a fixed size pop up if you want.*/
+                        width: 500px;
+                        margin-left: -250px;
+                        top:100px;
+                    }
+                    .popupBackground{
+                        background-color:black;
+                        opacity: 0.20;
+                        filter: alpha(opacity = 20);
+                        position: fixed;
+                        width: 100%;
+                        height: 100%;
+                        top: 0;
+                        left: 0;
+                        z-index: 9998;
+                    }
+                </style>
+                
+                <apex:pageBlock id="main">
+                    <div style="align-items:center">
+                        <apex:selectList id="type" size="1"  value="{!auditType}" label="Audit Type">
+                            <apex:selectOptions value="{!auditTypeAll}"/>
+                        </apex:selectList>
+                        <apex:commandButton value="Load" action="{!clickLoad}" rerender="main"/>
+                    </div>
+                    <div align="center" draggable="false"><apex:outputPanel styleClass="sample"><apex:outputText >Better Rehab {!auditType}</apex:outputText></apex:outputPanel></div>
+                    <apex:pageBlockSection collapsible="false" columns="1">
+                        <div style="font-size:14px;">
+                            <text style="font-size:16px;">
+                                Please read the following dot points before completing the audit:
+                            </text>
+                            <ul>
+                                <li>The participant has been randomly selected for this audit. Please check the participant’s case notes to see whether this clinician has had this participant audited in the last 3 months. If so, please refresh this page to randomly select another participant.</li>
+                                <li>Please read the instructions under each section heading to determine whether you need to complete that section. Some sections are compulsory.</li>
+                                <li>Please refer to the scoring guidelines for how to score each question. Each scoring criteria is worth 1 point (e.g if 3 of the 4 criteria are met for the question, please select “3” as the score)</li>
+                            	<li>Any input in the 'Section Task' field will be used as an indicator to create a task for that section. Please leave this field blank if you do not want a task to be created.</li>
+                            	<li>Please do not score anything older than 12 months.</li>
+                            </ul>
+                        </div>
+                    </apex:pageBlockSection>
+					
+                    
+                    <div style="display:flex;direction:row">
+                         <div style="width:50%;padding-right:1px">
+                            <apex:pageBlockSection id="header" collapsible="false" columns="1" showHeader="true" title="Audit Details" >
+                                <apex:outputText label="Auditor" value="{!finalAuditor.Name}"/>
+                                <apex:outputText label="Clinician" value="{!clin.Name}"/>
+                                <!--<apex:pageBlockSection id="options" columns="2">
+                                    <apex:selectList id="clientList" size="1"  value="{!Participant}" label="Participant">
+                                        <apex:selectOptions value="{!clients}"/>
+                                    </apex:selectList>
+                                </apex:pageBlockSection>-->
+                                <apex:selectList id="area" size="1"  value="{!finalClinArea}" label="Clinical Area">
+                                    <apex:selectOptions value="{!clinicalArea}"/>
+                                </apex:selectList>
+                                <apex:selectList id="reports" size="1"  value="{!finalReportReview}" label="Is the clinician having their reports reviewed?">
+                                     <apex:selectOptions value="{!YesNo}"/>
+                                </apex:selectList>
+                            </apex:pageBlockSection>
+                        </div>
+                        
+                        <div style="width:50%;padding-left:1px">
+                            <apex:pageBlockSection id="clientDetails" collapsible="false" columns="1" showHeader="true" title="Client Details" >                                    
+                                    <apex:outputText id="clientSelected" label="Participant" value="{!finalClient.Name}"/>
+                                    <apex:commandButton value="Reload Client" action="{!clickRefreshClient}" rerender="clientSelected"/>
+                            </apex:pageBlockSection>
+                        </div>
+                    </div>
+            
+                    
+                    
+                    <apex:pageBlockSection Id="repeat1" columns="1">
+                    	<apex:repeat id="parentRepeat" value="{!sections}" var="s">
+                        
+                            <apex:pageBlockSection id="sectionBlock" columns="1" showHeader="true" title="{!s.sectionTitle}">
+                                <div style="font-size:14px;background-color:white;">
+                                    <text style="font-size:14px;font-style:italic;">Section Details - {!s.sectionSubTitle}</text>
+                                    <!--<apex:pageBlockSection columns="1">
+                                    	<apex:outputText style="color:green;">Section Details - {!s.sectionSubTitle}</apex:outputText>
+                                	</apex:pageBlockSection>-->
+                                </div>
+                                <!--<div align="center" draggable="false" style="padding:20px;background-color:#f3f2f2">-->
+                                    <apex:pageBlockSection id="questionList" columns="3">
+                                        <apex:repeat value="{!s.questions}" var="a">
+                                            <apex:pageBlockSection id="questionBlock" columns="1">
+                                                <apex:outputLink disabled="true" style="text-decoration:none;font-size:14px" title="help text">{!a.questionNumber}. {!a.question}</apex:outputLink>
+                                            </apex:pageBlockSection>
+                                            <apex:pageBlockSection id="score" columns="1">
+                                                <apex:selectList size="1" value="{!a.score}" label="Score">
+                                                <apex:selectOptions value="{!a.scores}"/>         
+                                                </apex:selectList>
+                                                <!--<apex:outputText label="" value="{!IF(a.autoFailQuestion == TRUE, 'AUTO-FAIL', '')}" />-->
+                                            </apex:pageBlockSection>
+                                            <apex:outputPanel style="BR" layout="block">
+                                                <apex:pageBlockSection id="guidelineBlock" collapsible="true" columns="1" showHeader="true" title="Guidelines">
+                                                    <apex:repeat value="{!a.guidelines}" var="g">
+                                                        <apex:outputText style="font-size:13px">- {!g}</apex:outputText>
+                                                    </apex:repeat>
+                                                </apex:pageBlockSection>
+                                            </apex:outputPanel>
+                                            
+                                        </apex:repeat>      
+                                    </apex:pageBlockSection>
+                                <!--</div>-->
+                                <apex:pageBlockSection columns="2">
+                                    <apex:inputTextArea rows="3" label="Section Comments" title="Section Comments" value="{!s.comments}"  />
+                                	<apex:inputTextArea rows="3" label="Section Task" title="Section Task" value="{!s.taskName}"  />
+                                </apex:pageBlockSection>
+                            </apex:pageBlockSection>
+                        </apex:repeat>
+                    </apex:pageBlockSection>
+                    
+                    <apex:pageBlockSection collapsible="false" columns="2" showHeader="true" title="Summary">
+                         <apex:inputTextarea rows="3" label="File Strengths" title="File Strengths" cols="50" value="{!strengths}" />
+                         <apex:inputTextarea rows="3" label="Areas for Improvement" title="Areas for Improvement" cols="50" value="{!improvements}" /> 
+                    </apex:pageBlockSection>
+                    
+                    <apex:pageBlockSection id="extras" columns="2" title="Extras">
+                        
+                        <apex:outputPanel layout="block">
+                            <apex:pageBlockSection id="subsection1" title="Clinician Task" columns="1">
+                                <apex:inputTextarea rows="3" label="Task Name" title="Task Name" cols="50" value="{!taskCreateName}" />
+                                <apex:commandButton value="Reset Task Selection" title="Reset Task Selection" action="{!resetTaskSection}" reRender="subsection1" style="background-color:red"/>
+                            </apex:pageBlockSection>
+                        </apex:outputPanel>
+                    </apex:pageBlockSection>
+                    
+                    <apex:outputPanel id="tstpopup">
+                        <apex:outputPanel styleClass="popupBackground" layout="block" rendered="{!displayPopUp}"/>
+                            <apex:outputPanel styleClass="custPopup" layout="block" rendered="{!displayPopUp}">
+                                <div align="center">
+                                    <h3 style="color:orange;">
+                                        ATTENTION!
+                                    </h3>
+                                </div>
+                                <div align="left">
+                                    Some errors were found with the clinical audit. They are listed below<br/><br/>
+                                    <apex:repeat value="{!status}" var="key">
+                                    	{!key}: {!status[key]}
+                                    </apex:repeat>
+                                    If you are NOT expecting new funding:<br/>
+                                </div><br/>
+                            <apex:commandButton value="No New Funding Expected" action="{!closePopup}" rerender="tstpopup"/>
+                        </apex:outputPanel>
+                    </apex:outputPanel>
+                    
+                    <!--<div align="center" draggable="false" style="padding:20px;background-color:#f3f2f2">
+                        <apex:commandButton value="Submit" title="Submit" action="{!submit}" style="width:50%;height:50%"/>     
+                    </div>-->
+                    <div id="submission" align="center" draggable="false" style="padding:20px;background-color:#f3f2f2">
+                        <apex:actionStatus id="AddStatus">
+                            <apex:facet name="start">
+                                <apex:outputText >Working.... Please do not close the page!</apex:outputText>
+                            </apex:facet>
+                            <apex:facet name="stop">
+                                <apex:commandButton status="AddStatus" styleClass="slds-vf-button_brand" id="submitButton" value="{!IF(submitDisabled,"Missing information in Audit Details","Submit")}" disabled="{!submitDisabled}" title="Submit" action="{!submit}" reRender="submission,panel1" style="width:50%;height:50%"/>
+                            </apex:facet>
+                        </apex:actionStatus>
+                    </div>
+				<script> twistSection(document.getElementById('{!$Component.main.extras}').getElementsByTagName('img')[0]) </script>
+                <script>
+                    var twistQuery = [];
+                    
+                    <apex:repeat value="{!sections}" var="section">
+                        //change twistQuery.push(1) to twistQuery.push(0) if you want to default uncollapse the sections. 
+                    	twistQuery.push(1);
+                    	<apex:repeat value="{!section.questions}" var="question">
+                    		twistQuery.push(twistQuery.length);
+                        </apex:repeat>
+                    </apex:repeat>
+                    
+                    
+                    for ( let i = 0; i < twistQuery.length ; i++ ) {
+                        if (twistQuery[i] != 0) {
+                            twistSection(document.getElementById('{!$Component.main}').getElementsByTagName('img')[i]);
+                        }
+                    }
+                </script>
+                </apex:pageBlock>
+            </apex:form>
+        </div>
+    </html>
+    
+</apex:page>

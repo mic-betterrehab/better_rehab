@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QLD</fullName>
+    <columns>NAME</columns>
+    <columns>Clinician__c</columns>
+    <columns>Office__c</columns>
+    <columns>Total_Score__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Office__c</field>
+        <operation>equals</operation>
+        <value>Brendale,Gold Coast,North Lakes,Springwood,Stones Corner</value>
+    </filters>
+    <label>QLD</label>
+</ListView>

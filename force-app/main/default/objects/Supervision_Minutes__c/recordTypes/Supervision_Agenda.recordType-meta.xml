@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Supervision_Agenda</fullName>
+    <active>true</active>
+    <label>Supervision Agenda</label>
+    <picklistValues>
+        <picklist>Check_in_Team__c</picklist>
+        <values>
+            <fullName>Things are going great</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Things are going poorly</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Things are going steady</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Things are going terribly</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Things are going well</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Check_in__c</picklist>
+        <values>
+            <fullName>I really need some support</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>I%27m starting to struggle</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Things are going amazing</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Things are going ok</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Things are going really well</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>PCH_Last_Cycle__c</picklist>
+        <values>
+            <fullName>100%25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Less than 100%25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>More than 100%25</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>PCH_Last_Week__c</picklist>
+        <values>
+            <fullName>100%25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Less than 100%25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>More than 100%25</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Supervisee_Assessment_Audit__c</picklist>
+        <values>
+            <fullName>All Team Members conform</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Most Team Members conform</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Support Required - See Action Items</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Supervisee_Assessment_Capacity_per_DS__c</picklist>
+        <values>
+            <fullName>All capacity is up to date - See BD Needs</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>All capacity is up to date - no BD needs</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Capacity is not yet fully updated - Actions required</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Supervisee_Assessment_Complaint_Incident__c</picklist>
+        <values>
+            <fullName>Action required</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>All incidents and complaints reviewed and managed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No incidents and complaints to review</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Supervisee_Assessment_DM_report__c</picklist>
+        <values>
+            <fullName>Everyone is forecasting well</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Most people are foreasting well</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Some people are forecasting well</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Support is needed for better forecasting</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Supervisee_Assessment_Survey_Feedback__c</picklist>
+        <values>
+            <fullName>No Survey Scores Recorded</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Survey Scores are above 70%25</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Survey Scores are below 70%25</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Supervisee_Assessment_TL__c</picklist>
+        <values>
+            <fullName>Team are all achieving</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Team are mostly achieving</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Team are not yet consistently achieving</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Team are struggling</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Supervisee_Flexi_Budget_Picklist__c</picklist>
+        <values>
+            <fullName>Business Dev</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Mid Prob Review</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Offboarding</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Onboarding</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>PIP</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Performance Review</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Probation review</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>RM Spec Task</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Supervisor Add Travel</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Support Plan</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Supervisor_Review_Flexi_Budget__c</picklist>
+        <values>
+            <fullName>Flexi budget hours exceeded requested amount</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Flexi budget hours match with requested amount</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Flexi budget hours were less than requested amount</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>TL_Site_Culture_Rating__c</picklist>
+        <values>
+            <fullName>The Site Culture is Excellent</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>The Site Culture is Good</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>The Site Culture is a concern</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>The Site Culture needs work</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Values__c</picklist>
+        <values>
+            <fullName>Being People People</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Frankly Giving a Damn</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Getting Sh*t Done</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Loving What I Do</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

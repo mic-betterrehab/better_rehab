@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Supervisor_Review_Flexi_Budget__c</fullName>
+    <externalId>false</externalId>
+    <label>Supervisor Review Flexi Budget</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Flexi budget hours match with requested amount</fullName>
+                <default>false</default>
+                <label>Flexi budget hours match with requested amount</label>
+            </value>
+            <value>
+                <fullName>Flexi budget hours exceeded requested amount</fullName>
+                <default>false</default>
+                <label>Flexi budget hours exceeded requested amount</label>
+            </value>
+            <value>
+                <fullName>Flexi budget hours were less than requested amount</fullName>
+                <default>false</default>
+                <label>Flexi budget hours were less than requested amount</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,476 @@
+<aura:component controller="CalendarController" >
+    <!--Attributes-->
+    <aura:attribute name="parent" type="Aura.Component" />
+    <aura:attribute name="numberOfClients" type="Integer" default="0" description="Number of clients fetched from Salesforce"/>
+    <aura:attribute name="numberOfWorkers" type="Integer" default="0" description="Number of workers fetched from Salesforce"/>
+    <aura:attribute name="showTextClient" type="String" default="Show more" description="Shows see more/less text"/>
+    <aura:attribute name="showTextWorker" type="String" default="Show more" description="Shows see more/less text"/>
+    <aura:attribute name="recordId" type="String" default="" description="Record Id of the event"/>
+    <aura:attribute name="eventMap" type="Map" default="{}" description="Currently selected event object details" />
+    <aura:attribute name="isErrorView" type="Boolean" default="false" description="true if an error reading the event occurs" />
+    <aura:attribute name="isLoadingView" type="Boolean" default="false" description="true if an error reading the event occurs" />
+    <aura:attribute name="tz" type="String" default="" description="TZ the user wants to view" />
+    <aura:attribute name="allTzs" type="List" default="[]" description="All timezones available" />
+    <aura:attribute name="viewMode" type="Boolean" default="true" />
+    <aura:attribute name="detailModalVisible" type="Boolean" default="false"/>
+    <aura:attribute name="bookModalVisible" type="Boolean" default="false"/>
+    <aura:attribute name="deleteModalVisible" type="Boolean" default="false"/>
+    <aura:attribute name='events' type="List" default="[]" description="list of events to be displayed in the calendar ui" />
+    <aura:attribute name="deviceType" type="String" />
+    <aura:attribute name="cancellationReason" type="String" />
+    <aura:attribute name="cancellationExtended" type="String" />
+
+    <!-- aura method declarations (use aura:method to communicate from parent to child)-->
+
+    <!-- aura handler declarations (use aura:handler and component event to communicate from child to parent) -->
+    <aura:handler name="change" value="{!v.recordId}" action="{!c.handleSelection}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.initRun}"/>
+	<!-- name here must be the same as the registerEvent name in the child cmp -->
+    <aura:handler name="modalCmpEvent" event="c:modalEvent"
+                  action="{!c.handleModalEvent}"
+                  />
+    <!-- MCC Related handlers/methods/events/attributes -->
+    <aura:attribute name="isParentMCC" type="Boolean" default="false" description="Flag for checking if parent is from MCC page" />
+
+    <!-- register events -->
+    <aura:registerEvent name="createComponentEvent" type="c:updateEvent" description="to pass the newly updated events calendar list, using this in calendarcreate too"/>
+
+    <!-- Body HTML starts here -->
+    <div>
+        <lightning:overlayLibrary aura:id="overlayLib"/>
+        <aura:if isTrue="{!v.isErrorView == false}">
+            <aura:if isTrue="{!v.deviceType == 'DESKTOP'}">
+                <aura:if isTrue="{!v.viewMode == false}">
+                    <c:BR_CalendarEditForm eventMap="{!v.eventMap}" />
+                    <aura:set attribute="else">
+                            <div class="{!if(v.isParentMCC,'buttonView content-space-between','buttonView')}" style="padding-bottom:5px">
+                                <div style="display:flex;direction:row;align-items:center">
+                                    <lightning:button
+                                        label="Pop out"
+                                        class="slds-button"
+                                        variant="brand"
+                                        onclick="{!c.clickPopOut}"
+                                        disabled="{!v.isLoadingView}"
+                                    />
+                                    <aura:if isTrue="{!v.isParentMCC == false}">
+                                        <lightning:button
+                                            label="Deselect"
+                                            class="slds-button"
+                                            variant="brand"
+                                            onclick="{!c.clickDeselect}"
+                                            disabled="{!v.isLoadingView}"
+                                        />
+                                    </aura:if>
+                                </div>
+                                <div style="display:flex;direction:row;align-items:center">
+                                   <lightning:button
+                                        label="Cancel Event"
+                                        class="slds-button"
+                                        variant="destructive"
+                                        onclick="{!c.showDeleteModal}"
+                                        value="cancel"
+                                        disabled="{!v.isLoadingView}"
+                                    />
+                                    <lightning:button
+                                        label="Book Event"
+                                        class="slds-button"
+                                        variant="success"
+                                        onclick="{!c.showBookModal}"
+                                        value="book"
+                                        disabled="{!v.isLoadingView}"
+                                    />
+                                </div>
+                            </div>
+
+
+                            <div class="slds-section slds-is-open">
+                                <div class="slds-section__title slds-theme_shade" style="display:flex;direction:row;">
+                                    <div style="width:50%;padding-left:2px">
+                                        <h2 class="slds-section__title slds-theme_shade">
+                                            <span class="slds-truncate slds-p-horizontal_small" title="Details">Details</span>
+                                        </h2>
+                                    </div>
+
+                                    <div style="width:50%;padding-right:2px">
+                                        <lightning:select class="slds-text-body_regular" aura:id="tz" name="select" value="{!v.tz}" onchange="{! c.onChangeTZ }">
+                                            <option value="apple">{!v.tz}</option>
+                                            <aura:iteration items="{!v.allTzs}" var="tz">
+                                                <option value="{!tz}">{!tz}</option>
+                                            </aura:iteration>
+                                        </lightning:select>
+                                    </div>
+                                </div>
+
+                                <div style="display:flex;direction:row;padding-top:1px;padding-bottom;10px" class="slds-grow">
+                                    <div style="width:50%;padding-left:2px">
+                                        <p style="padding:5px" class="slds-form-element__static"><b>Subject</b>: {!v.eventMap.subject}</p>
+                                        <p style="padding:5px" class="slds-form-element__static"><b>Event Type</b>: {!v.eventMap.eventType}</p>
+                                        <p style="padding:5px" class="slds-form-element__static"><b>Organiser</b>: <a href="{!v.eventMap.ownerLink}">{!v.eventMap.ownerName}</a></p>
+                                        <aura:if isTrue="{!v.eventMap.mode == 'Telehealth'}">
+
+                                            <p style="padding:5px" class="slds-form-element__static"><b>Meeting Link</b>:
+                                                <lightning:formattedUrl
+                                                                        value="{!v.eventMap.link}"
+                                                                        label="Start meeting here"
+                                                                        target="_blank" /></p>
+                                            <aura:set attribute="else">
+                                                <p style="padding:5px" class="slds-form-element__static"><b>Address</b>: {!v.eventMap.address}</p>
+                                            </aura:set>
+                                        </aura:if>
+
+                                    </div>
+                                    <div style="width:50%;padding-right:2px">
+                                        <p style="padding:5px" class="slds-form-element__static"><b>All Day</b>: {!v.eventMap.allDay ? 'Yes' : 'No'}</p>
+                                        <p style="padding:5px" class="slds-form-element__static"><b>Start</b>: {!v.eventMap.tzStart}</p>
+                                        <p style="padding:5px" class="slds-form-element__static"><b>End</b>: {!v.eventMap.tzEnd}</p>
+                                        <p style="padding:5px" class="slds-form-element__static"><b>Status</b>: {!v.eventMap.eventStatus}</p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="slds-section slds-is-open">
+                                <h2 class="slds-section__title slds-theme_shade">
+                                    <span class="slds-truncate slds-p-horizontal_small" title="Attendees (showing max. 10)">Attendees (showing max. 10)</span>
+                                </h2>
+
+                                <div style="display:flex;direction:row">
+                                    <div style="width:50%;padding-left:2px">
+                                        <p style="padding:3px" class="slds-form-element__static"><b>Clients ({!v.eventMap.numClients})</b></p>
+                                        <aura:iteration items="{!v.eventMap.clients}" var="client" start="0" end="{!v.numberOfClients}">
+                                            <p style="padding:3px" class="slds-form-element__static">- <a href="{!client.contactLink}">{!client.name}</a> <b class="{!client.status}"> ({!client.status})</b></p>
+                                        </aura:iteration>
+                                        <aura:if isTrue="{!v.eventMap.numClients > 10}">
+                                            <p class="slds-form-element__static justify-content-end">
+                                                <a onclick="{!c.showMoreClients}">{!v.showTextClient}....</a>
+                                            </p>
+                                        </aura:if>
+                                    </div>
+                                    <div style="width:50%;padding-right:2px">
+                                        <p style="padding:3px" class="slds-form-element__static"><b>Workers ({!v.eventMap.numWorkers})</b></p>
+                                        <aura:iteration items="{!v.eventMap.workers}" var="worker" start="0" end="{!v.numberOfWorkers}">
+                                            <p style="padding:3px" class="slds-form-element__static">- <a href="{!worker.contactLink}">{!worker.name}</a> <b class="{!worker.status}"> ({!worker.status})</b></p>
+                                        </aura:iteration>
+                                        <aura:if isTrue="{!v.eventMap.numWorkers > 10}">
+                                            <p class="slds-form-element__static justify-content-end">
+                                                <a onclick="{!c.showMoreWorkers}">{!v.showTextWorker}....</a>
+                                            </p>
+                                        </aura:if>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="slds-section slds-is-open">
+                                <h2 class="slds-section__title slds-theme_shade">
+                                    <span class="slds-truncate slds-p-horizontal_small" title="Other Information">Other Information</span>
+                                </h2>
+
+                                <div style="display:flex;direction:row" class="slds-grow">
+                                    <div style="width:50%;padding-left:2px">
+                                        <p style="padding:5px" class="slds-form-element__static"><b>Is Recurrence</b>: {!v.eventMap.isRecurrence ? 'Yes' : 'No'}</p>
+                                        <p style="padding:5px" class="slds-form-element__static"><b>Event Recurrence</b>: <a href="{!v.eventMap.recurrenceLink}">{!v.eventMap.isRecurrence ? 'Link' : ''}</a></p>
+                                        <aura:if isTrue="{!not(empty(v.eventMap.mode))}">
+                                            <p style="padding:5px" class="slds-form-element__static"><b>Mode of Delivery</b>: {!v.eventMap.mode}</p>
+                                        </aura:if>
+
+                                    </div>
+                                    <div style="width:50%;padding-right:2px">
+                                        <p style="padding:5px" class="slds-form-element__static"><b>Is Re-engagement</b>: {!v.eventMap.isReengagement ? 'Yes' : 'No'}</p>
+                                        <p style="padding:5px" class="slds-form-element__static"><b>Cancellation Reason</b>: {!v.eventMap.cancellationReason}</p>
+                                    </div>
+                                </div>
+
+                                <p style="padding:6px" class="slds-form-element__static"><b>Comments</b>: {!v.eventMap.comments}</p>
+
+                            </div>
+
+                            <div class="slds-section slds-is-open">
+                                <h2 class="slds-section__title slds-theme_shade">
+                                    <span class="slds-truncate slds-p-horizontal_small" title="Internal">Internal</span>
+                                </h2>
+                                <div style="display:flex;direction:row">
+                                    <div style="width:50%;padding-left:2px">
+                                        <p style="padding:5px" class="slds-form-element__static"><b>Created By</b>: <a href="{!v.eventMap.createByLink}">{!v.eventMap.createByName}</a></p>
+                                    </div>
+                                    <div style="width:50%;padding-right:2px">
+                                        <p style="padding:5px" class="slds-form-element__static"><b>Last Modified By</b>: <a href="{!v.eventMap.modifiedLink}">{!v.eventMap.modifiedName}</a></p>
+                                    </div>
+                                </div>
+                                <div style="display:flex;direction:row">
+                                    <div style="width:50%;padding-left:2px">
+                                        <p style="padding:5px" class="slds-form-element__static"><b>Created Date</b>: {!v.eventMap.tzCreated}</p>
+                                    </div>
+                                    <div style="width:50%;padding-right:2px">
+                                        <p style="padding:5px" class="slds-form-element__static"><b>Last Modified Date</b>: {!v.eventMap.tzLastModified}</p>
+                                    </div>
+                                </div>
+                                <div style="display:flex;direction:row">
+                                    <div style="width:50%;padding-left:2px">
+                                        <p style="padding:5px" class="slds-form-element__static"><b>Event ID</b>: {!v.eventMap.id}</p>
+                                    </div>
+                                </div>
+                            </div>
+                    </aura:set>
+                </aura:if>
+
+                <div class="slds-p-top_small" style="display:flex;direction:row;align-items:center;justify-content:flex-end;margin-top:4px">
+                    <lightning:button label="{!v.viewMode == true ? 'Edit' : 'Cancel'}" class="slds-button"
+                                      variant="brand" onclick="{!c.toggleEdit}"/>
+                    <aura:if isTrue="{!v.viewMode == false}">
+                        <lightning:button aura:id="saveOne" label="{!v.eventMap.isRecurrence == true ? 'Save One' : 'Save'}" class="slds-button"
+                                          variant="success" onclick="{!c.saveEvent}"/>
+                        <aura:if isTrue="{!v.eventMap.isRecurrence == true}">
+                            <lightning:button aura:id="saveAll" label="Save All" class="slds-button"
+                                              variant="success" onclick="{!c.saveEvent}"/>
+                            <lightning:helptext content="Save All will save changes for this and future events in the series."/>
+                        </aura:if>
+                    </aura:if>
+                </div>
+            </aura:if>
+
+            <aura:if isTrue="{!v.deviceType == 'PHONE'}">
+                <aura:if isTrue="{!v.viewMode == false}">
+                    <c:BR_CalendarEditForm eventMap="{!v.eventMap}" />
+                    <aura:set attribute="else">
+                        <aura:if isTrue="{!v.detailModalVisible}">
+                            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open event-detail-modal">
+                                <div class="slds-modal__container">
+                                    <lightning:buttonIcon iconName="utility:close"
+                                                              onclick="{! c.closeModal }"
+                                                              alternativeText="close"
+                                                              variant="bare-inverse"
+                                                              class="slds-modal__close"/>
+                                    <div class="slds-modal__content slds-p-around_medium slds-modal__content_headless" id="modal-content-id-1">
+                                            <div style="display:flex;direction:row;padding-top:1px;padding-bottom;10px" class="slds-grow">
+                                                <div style="width:50%;padding-left:2px">
+                                                    <p style="padding:5px" class="slds-form-element__static"><b>Subject</b>: {!v.eventMap.subject}</p>
+                                                    <p style="padding:5px" class="slds-form-element__static"><b>Event Type</b>: {!v.eventMap.eventType}</p>
+                                                    <aura:if isTrue="{!v.eventMap.mode == 'Telehealth'}">
+
+                                                        <p style="padding:5px" class="slds-form-element__static"><b>Meeting Link</b>:
+                                                            <lightning:formattedUrl
+                                                                                    value="{!v.eventMap.link}"
+                                                                                    label="Start meeting here"
+                                                                                    target="_blank" /></p>
+                                                        <aura:set attribute="else">
+                                                            <p style="padding:5px" class="slds-form-element__static">
+                                                                <b>Address</b>:
+                                                                <a href="{!'https://maps.google.com/?q=' + v.eventMap.address}" target="_blank">
+                                                                    {!v.eventMap.address}
+                                                                </a>
+                                                            </p>
+                                                        </aura:set>
+                                                    </aura:if>
+                                                    <aura:if isTrue="{!v.eventMap.isRecurrence}">
+                                                         <p style="padding:5px" class="slds-form-element__static"><b>Event Recurrence</b>: <a href="{!v.eventMap.recurrenceLink}">{!v.eventMap.isRecurrence ? 'Link' : ''}</a></p>
+                                                    </aura:if>
+                                                </div>
+                                                <div style="width:50%;padding-right:2px">
+                                                    <p style="padding:5px" class="slds-form-element__static"><b>Start</b>: {!v.eventMap.tzStart}</p>
+                                                    <p style="padding:5px" class="slds-form-element__static"><b>End</b>: {!v.eventMap.tzEnd}</p>
+                                                    <p style="padding:5px" class="slds-form-element__static"><b>Status</b>: {!v.eventMap.eventStatus}</p>
+                                                </div>
+                                            </div>
+
+                                        <p style="padding:6px" class="slds-form-element__static"><b>Comments</b>: {!v.eventMap.comments}</p>
+
+                                        <div style="display:flex;direction:row;" class="slds-grow">
+                                            <div style="width:50%;padding-left:2px">
+                                                <p style="padding:5px" class="slds-form-element__static"><b>Clients ({!v.eventMap.numClients})</b></p>
+                                                <aura:iteration items="{!v.eventMap.clients}" var="client" start="0" end="10">
+                                                    <p style="padding:3px" class="slds-form-element__static">
+                                                        - <a href="{!client.contactLink}">{!client.name}</a>
+                                                        <b class="{!client.status}"> ({!client.status})</b>
+                                                    </p>
+                                                </aura:iteration>
+                                            </div>
+
+                                            <div style="width:50%;padding-right:2px">
+                                                <p style="padding:5px" class="slds-form-element__static"><b>Workers ({!v.eventMap.numWorkers})</b></p>
+                                                <aura:iteration items="{!v.eventMap.workers}" var="worker" start="0" end="10">
+                                                    <p style="padding:3px" class="slds-form-element__static">
+                                                        - <a href="{!worker.contactLink}">{!worker.name}</a>
+                                                        <b class="{!worker.status}"> ({!worker.status})</b>
+                                                    </p>
+                                                </aura:iteration>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-modal__footer slds-modal__footer_directional">
+                                        <lightning:button label="Cancel Event" class="slds-button_small" variant="destructive" onclick="{!c.showDeleteModal}" value="cancel"/>
+                                        <lightning:button label="Book Event" class="slds-button_small" variant="success" onclick="{!c.showBookModal}" value="book"/>
+                                    </div>
+                                </div>
+
+                            </section>
+                            <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+                        </aura:if>
+                    </aura:set>
+                </aura:if>
+
+                <div class="slds-align_absolute-center" style="padding-top:4px;" >
+                    <lightning:button label="{!v.viewMode == true ? 'Edit Event' : 'Cancel'}" class="slds-button"
+                                      variant="brand" onclick="{!c.toggleEdit}"/>
+                    <aura:if isTrue="{!v.viewMode == false}">
+                        <lightning:button aura:id="saveOne" label="{!v.eventMap.isRecurrence == true ? 'Save One' : 'Save'}" class="slds-button"
+                                          variant="success" onclick="{!c.saveEvent}"/>
+                        <aura:if isTrue="{!v.eventMap.isRecurrence == true}">
+                            <lightning:button aura:id="saveAll" label="Save All" class="slds-button"
+                                              variant="success" onclick="{!c.saveEvent}"/>
+                            <lightning:helptext content="Save All will save changes for this and future events in the series."/>
+                        </aura:if>
+                    </aura:if>
+                </div>
+            </aura:if>
+        </aura:if>
+    </div>
+
+    <aura:if isTrue="{!v.isLoadingView}">
+        <div style="width:100%;height:100%">
+            <lightning:spinner alternativeText="Loading" size="small"/>
+        </div>
+    </aura:if>
+    <aura:if isTrue="{!v.isErrorView}">
+        <div>
+            An error occurred. You either do not have permission to view this event or this event has been deleted.
+        </div>
+    </aura:if>
+
+    <!-- Modal for booking recurring and non-recurring events (move to br_eventdetail?)-->
+    <aura:if isTrue="{!v.bookModalVisible}">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <lightning:buttonIcon iconName="utility:close"
+                                          onclick="{! c.closeModal }"
+                                          alternativeText="close"
+                                          variant="bare-inverse"
+                                          class="slds-modal__close"/>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Book Event?</h2>
+                </header>
+                <aura:if isTrue="{!v.eventMap.isRecurrence == true}">
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        This event is part of a series. Would you like to book <b>this one occurrence</b> or <b>this and the following occurrences in the series</b>?
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <lightning:button variant="brand-outline"
+                                          label="Not Now"
+                                          title="NotNow"
+                                          onclick="{! c.closeModal }"/>
+                        <lightning:button class = "success-text" variant="neutral"
+                                          label="Book One"
+                                          title="Book One"
+                                          onclick="{!c.clickBookOne}"/>
+                        <lightning:button variant="success"
+                                          label="Book All"
+                                          title="Book All"
+                                          onclick="{!c.clickBookRecurrence}"/>
+                    </footer>
+                </aura:if>
+
+                <aura:if isTrue="{!v.eventMap.isRecurrence == false}">
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        Are you sure you want to book in this event?
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <lightning:button variant="brand-outline"
+                                          label="Not Now"
+                                          title="NotNow"
+                                          onclick="{! c.closeModal }"/>
+                        <lightning:button variant="success"
+                                          label="Book"
+                                          title="Book"
+                                          onclick="{!c.clickBookOne}"/>
+                    </footer>
+                </aura:if>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+
+    <!-- Modal for cancelling recurring and non-recurring events (move to br_eventdetail?)-->
+    <aura:if isTrue="{!v.deleteModalVisible}">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="{!if(v.isParentMCC,'slds-modal__container p-inline-1','slds-modal__container')}">
+                <header class="slds-modal__header">
+                    <lightning:buttonIcon iconName="utility:close"
+                                          onclick="{! c.closeModal }"
+                                          alternativeText="close"
+                                          variant="bare-inverse"
+                                          class="slds-modal__close"/>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Are you sure you want to cancel?</h2>
+                </header>
+                <!-- REVISIT THIS DUPLICATE CODE WHEN YOU HAVE TIME AT THE END -->
+                <aura:if isTrue="{!v.eventMap.isRecurrence == true}">
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        This event is part of a series. Would you like to cancel <b>this one occurrence</b> or <b>this and the following occurrences in the series</b>?
+                        <aura:if isTrue="{!and(or(v.eventMap.eventType == 'Initial Appointment', v.eventMap.eventType == 'Therapy Session'), v.eventMap.eventStatus == 'Booked')}">
+                            <lightning:select aura:id="eventForm" label="Cancellation Reason" name="Cancellation Reason" value="{!v.cancellationReason}">
+                                <option value="Rescheduled">Rescheduled</option>
+                                <option value="Insufficient Funding">Insufficient Funding</option>
+                                <option value="Clinician off Work">Clinician off Work</option>
+                                <option value="Client Unwell">Client Unwell</option>
+                                <option value="Time-frame of Appt">Time-frame of Appt</option>
+                                <option value="COVID">COVID</option>
+                                <option value="Other">Other</option>
+                            </lightning:select>
+                            <lightning:input aura:id="eventForm"
+                                             label="Extra Comments"
+                                             name="Extra Comments"
+                                             value="{!v.cancellationExtended}"
+                                             />
+                        </aura:if>
+                    </div>
+
+                    <footer class="slds-modal__footer">
+                        <lightning:button variant="brand-outline"
+                                          label="Keep Event(s)"
+                                          title="KeepEvents"
+                                          onclick="{! c.closeModal }"/>
+                        <lightning:button variant="destructive-text"
+                                          label="Cancel One"
+                                          title="CancelOne"
+                                          onclick="{!c.clickDeleteOne}"/>
+                        <lightning:button variant="destructive"
+                                          label="Cancel All"
+                                          title="CancelAll"
+                                          onclick="{!c.clickDeleteRecurrence}"/>
+                    </footer>
+                </aura:if>
+                <aura:if isTrue="{!v.eventMap.isRecurrence == false}">
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        This action will cancel all worker and client invites associated with the event.
+                        <aura:if isTrue="{!and(or(v.eventMap.eventType == 'Initial Appointment', v.eventMap.eventType == 'Therapy Session'), v.eventMap.eventStatus == 'Booked')}">
+                            <lightning:select aura:id="eventForm" label="Cancellation Reason" name="Cancellation Reason" value="{!v.cancellationReason}">
+                                <option value="Rescheduled">Rescheduled</option>
+                                <option value="Insufficient Funding">Insufficient Funding</option>
+                                <option value="Clinician off Work">Clinician off Work</option>
+                                <option value="Client Unwell">Client Unwell</option>
+                                <option value="Time-frame of Appt">Time-frame of Appt</option>
+                                <option value="COVID">COVID</option>
+                                <option value="Other">Other</option>
+                            </lightning:select>
+                            <lightning:input aura:id="eventForm"
+                                             label="Extra Comments"
+                                             name="Extra Comments"
+                                             value="{!v.cancellationExtended}"
+                                             />
+                        </aura:if>
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <lightning:button variant="neutral"
+                                          label="Keep Event"
+                                          title="KeepEvent"
+                                          onclick="{! c.closeModal }"/>
+                        <lightning:button variant="destructive"
+                                          label="Cancel Event"
+                                          title="CancelEvent"
+                                          onclick="{!c.clickDeleteOne}"/>
+                    </footer>
+                </aura:if>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+
+</aura:component>

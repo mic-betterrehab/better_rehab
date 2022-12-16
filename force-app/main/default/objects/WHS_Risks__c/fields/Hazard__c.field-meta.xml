@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hazard__c</fullName>
+    <description>Hazards associated with each task</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Hazards associated with each task</inlineHelpText>
+    <label>Hazard</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Trip Hazard</fullName>
+                <default>false</default>
+                <label>Trip Hazard</label>
+            </value>
+            <value>
+                <fullName>Distraction</fullName>
+                <default>false</default>
+                <label>Distraction</label>
+            </value>
+            <value>
+                <fullName>Ergonomic Hazard</fullName>
+                <default>false</default>
+                <label>Ergonomic Hazard</label>
+            </value>
+            <value>
+                <fullName>Fire Hazard</fullName>
+                <default>false</default>
+                <label>Fire Hazard</label>
+            </value>
+            <value>
+                <fullName>Safety</fullName>
+                <default>false</default>
+                <label>Safety</label>
+            </value>
+            <value>
+                <fullName>Chemical</fullName>
+                <default>false</default>
+                <label>Chemical</label>
+            </value>
+            <value>
+                <fullName>Physical</fullName>
+                <default>false</default>
+                <label>Physical</label>
+            </value>
+            <value>
+                <fullName>Biological</fullName>
+                <default>false</default>
+                <label>Biological</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

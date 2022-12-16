@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Address__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+	ISPICKVAL( App__c, &quot;HOME&quot;),
+	Client__r.enrtcr__Other_Address__c,
+	IF(ISPICKVAL(App__c, &quot;In-Clinic&quot;),  
+		Client__r.enrtcr__Site__r.enrtcr__Business_Address_1__c + &quot; &quot; +
+		Client__r.enrtcr__Site__r.enrtcr__Business_Address_2__c + &quot; &quot; +
+		Client__r.enrtcr__Site__r.enrtcr__Mailing_Suburb__c + &quot; &quot; +
+		Client__r.enrtcr__Site__r.enrtcr__Mailing_State__c + &quot; &quot; +
+		Client__r.enrtcr__Site__r.enrtcr__Mailing_Postcode__c,
+		&quot;&quot;
+	)
+)</formula>
+    <label>Address</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

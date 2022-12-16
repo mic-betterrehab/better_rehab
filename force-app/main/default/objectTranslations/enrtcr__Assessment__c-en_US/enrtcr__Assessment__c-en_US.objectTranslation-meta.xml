@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Assessment/Review</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Assessments/Reviews</value>
+    </caseValues>
+    <layouts>
+        <layout>BR Health Screening</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Do you or anyone in your household have any cold or flu like symptoms?</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Have you been close contact of someone who had COVID-19 in the past 7 days?</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Have you/your household tested positive for COVID-19 in the past 7 days?</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Other</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>BR In Clinic Risk Assessment</layout>
+        <sections>
+            <label></label>
+            <section>Behavioural</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Covid Screening</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Culture</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Environment</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Other</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>BR Migrated Assessments/Plans</layout>
+        <sections>
+            <label></label>
+            <section>Assessment/Review Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>BR PITS Discharge Form</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>BR Parental Prescreener Questionnaire</layout>
+        <sections>
+            <label></label>
+            <section>Birth History</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Child Interests</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Developmental History</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Medical History</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Other</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Social History</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Therapy Expectations</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>BR Placeholder Assessment Exercise Physiology</layout>
+        <sections>
+            <label></label>
+            <section>Action</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Assessment/Review Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Supervisor Review</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>BR Placeholder Assessment OT</layout>
+        <sections>
+            <label></label>
+            <section>Action</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Assessment/Review Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Submission Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Supervisor Review</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>BR Placeholder Assessment PBSP</layout>
+        <sections>
+            <label></label>
+            <section>Action</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Assessment/Review Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Submission Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Supervisor Review</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>BR Placeholder Assessment Physio</layout>
+        <sections>
+            <label></label>
+            <section>Action</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Assessment/Review Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Submission Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Supervisor Review</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>BR Placeholder Assessment Psych</layout>
+        <sections>
+            <label></label>
+            <section>Action</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Assessment/Review Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Submission Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Supervisor Review</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>BR Placeholder Assessment Speech</layout>
+        <sections>
+            <label></label>
+            <section>Action</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Assessment/Review Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Submission Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Supervisor Review</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>BR Placeholder MDT Plan Review</layout>
+        <sections>
+            <label></label>
+            <section>Action</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Amount Requested</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Assessment/Review Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Clinicians</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Supervisor Review</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>BR Placeholder Plan Review</layout>
+        <sections>
+            <label></label>
+            <section>Action</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Amount Requested</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Assessment/Review Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Clinician</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Supervisor Review</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>BR Risk Assessement</layout>
+        <sections>
+            <label></label>
+            <section>Behavioural</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Culture</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Environment</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Other</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>BR Telehealth Risk Assessment</layout>
+        <sections>
+            <label></label>
+            <section>Behavioural</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Culture</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Environment</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Other</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Exercise Physio Screening</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>EP Screening Questions</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Fields</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Feedback</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Internal</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>HSTP Discharge</layout>
+        <sections>
+            <label></label>
+            <section>Comments</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Common</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Extras</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>HOOS/KOOS Scores</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Quality of Life Scores</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Range of Motion: Hip Scores</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Range of Motion: Knee Scores</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Scores</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>System Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Hydro Medical Screening</layout>
+        <sections>
+            <label></label>
+            <section>Ability</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Condition</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Overall Assessment</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Hydro Private Pool Risk Assessment</layout>
+        <sections>
+            <label></label>
+            <section>Checklist</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Fields</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Occ Ther Screening</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Occ Ther Screening Questions</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>PBS Risk Assessment</layout>
+        <sections>
+            <label></label>
+            <section>Behaviours</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Funding</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Restrictive Practices</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Physio Screening</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Physiotherapy Screening Questions</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Speech Pathology Screening</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Speech Pathology Screening Questions</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Assessment/Review Name</nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

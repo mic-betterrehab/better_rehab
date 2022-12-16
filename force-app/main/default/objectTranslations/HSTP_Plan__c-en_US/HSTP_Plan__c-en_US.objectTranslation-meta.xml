@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>HSTP Plan</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>HSTP Plans</value>
+    </caseValues>
+    <layouts>
+        <layout>HSTP Plan Layout</layout>
+        <sections>
+            <label></label>
+            <section>Claim Form</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>HOOS/KOOS Scores</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Quality of Life Scores</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Referral Details</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label></label>
+        <name>SendEmailConfirmation</name>
+    </quickActions>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Complaint_Notes_Validation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Missed_Referrals</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>RAPT_Score_Validation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Referral_Reasons_Validation</name>
+    </validationRules>
+    <webLinks>
+        <label></label>
+        <name>Generate_Webmerge</name>
+    </webLinks>
+</CustomObjectTranslation>

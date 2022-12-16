@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hub_Office__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(
+State__c = &apos;NSW&apos;, $CustomMetadata.IT_Asset_Hub_Office__mdt.NSW_Hub_Office.Hub_Office__c,
+
+IF(
+State__c = &apos;QLD&apos;, $CustomMetadata.IT_Asset_Hub_Office__mdt.QLD_Hub_Office.Hub_Office__c,
+
+IF(
+State__c = &apos;VIC&apos;, $CustomMetadata.IT_Asset_Hub_Office__mdt.VIC_Hub_Office.Hub_Office__c,
+
+IF(
+State__c = &apos;WA&apos;, $CustomMetadata.IT_Asset_Hub_Office__mdt.WA_Hub_Office.Hub_Office__c,
+
+IF(
+State__c = &apos;SA&apos;, $CustomMetadata.IT_Asset_Hub_Office__mdt.SA_Hub_Office.Hub_Office__c,
+
+IF(
+State__c = &apos;ACT&apos;, $CustomMetadata.IT_Asset_Hub_Office__mdt.ACT_Hub_Office.Hub_Office__c,
+
+IF(
+State__c = &apos;TAS&apos;, $CustomMetadata.IT_Asset_Hub_Office__mdt.TAS_Hub_Office.Hub_Office__c,
+
+&quot;Support Office&quot; )))))))</formula>
+    <label>Hub Office</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

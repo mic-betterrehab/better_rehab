@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>Hazard__c</columns>
+    <columns>Task_Scenario__c</columns>
+    <columns>Site__c</columns>
+    <columns>Risk_Status__c</columns>
+    <columns>Associated_Harm__c</columns>
+    <columns>Risk_Rating__c</columns>
+    <columns>Risk_Rating_after_New_Controls__c</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>LAST_UPDATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Site__c</field>
+        <operation>equals</operation>
+        <value>Canberra - Bruce,Wollongong</value>
+    </filters>
+    <label>All</label>
+</ListView>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Event_Subject__c</fullName>
+    <externalId>false</externalId>
+    <inlineHelpText>If the event subject has been updated since the creation of this survey, this will not be reflected</inlineHelpText>
+    <label>Event Subject</label>
+    <length>255</length>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

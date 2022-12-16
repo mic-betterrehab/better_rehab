@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IT_Asset_del__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <inlineHelpText>If a hardware needs to be replaced, please enter the broken hardware ID related to this ticket</inlineHelpText>
+    <label>Device Serial Number</label>
+    <referenceTo>IT_Asset__c</referenceTo>
+    <relationshipLabel>IT Help</relationshipLabel>
+    <relationshipName>IT_Help_del</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

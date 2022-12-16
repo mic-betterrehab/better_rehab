@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Current_Offices</fullName>
+    <columns>NAME</columns>
+    <columns>Site__c</columns>
+    <columns>Property_Address__c</columns>
+    <columns>Landlord__c</columns>
+    <columns>Property_Manager__c</columns>
+    <columns>Strata_Manager__c</columns>
+    <columns>Building_Manager__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Active</value>
+    </filters>
+    <label>Current Offices</label>
+</ListView>

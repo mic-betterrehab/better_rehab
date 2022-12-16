@@ -1,0 +1,97 @@
+<aura:component implements="flexipage:availableForAllPageTypes" controller="AnalyticsController" access="global" >
+    
+    <aura:attribute name="resultsToShow" type="String" default=""/>
+    
+    <aura:attribute name="auditDiscPerspData" type="Map" default="{}"/>
+    <aura:attribute name="auditClinPerspData" type="Map" default="{}"/>
+    
+    <aura:attribute name="auditSummaryList" type="List" default="[]"/>
+    <aura:attribute name="clinicianSummaryObj" type="Map" default="{}"/>
+    <aura:attribute name="clinResMessage" type="String" default=""/>
+    
+    <aura:attribute name="options" type="List" default="[
+   	{'label': 'None', 'value': 'None'},
+    {'label': 'Clinical Audit', 'value': 'Clinical Audit'},
+    {'label': 'Procedural Audit', 'value': 'Procedural Audit'}
+    ]"/>
+    <aura:attribute name="reportOn" type="String" default="None"/>
+    <aura:attribute name="userInputs" type="Map" default="{}"/>
+    
+   	<div class="c-container">
+        <lightning:layout multipleRows="true">
+            <lightning:layoutItem padding="around-small" size="12">
+                <div class="page-section page-header">
+                    <h2>Restricted Page.</h2>
+                </div>
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small" size="12">
+                <lightning:layout>
+                    <lightning:layoutItem padding="around-small" size="3">
+                        <div class="page-section page-right">
+                            <h2>Options</h2>
+                            
+                            <lightning:radioGroup name="selectType"
+                                                  label="Select Type"
+                                                  options="{! v.options }"
+                                                  value="{! v.reportOn }"
+                                                  type="radio"/>
+                            <div style="display:flex;justify-content:space-between;flex-direction:row">
+                            	<lightning:input type="date" name="input2" label="Start" value="{!v.userInputs.start}"/>
+                                <lightning:input type="date" name="input2" label="End" value="{!v.userInputs.end}"/>
+                            </div>
+                            <div class="button"> 
+                            	<lightning:button  variant="success" label="Run" onclick="{!c.runAnalytics}" />
+                            </div>
+                            
+                        </div>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small" size="6">
+                        <div class="page-section page-main">
+                            <aura:if isTrue="{!or(v.resultsToShow == 'Clinical Audit', v.resultsToShow == 'Procedural Audit')}">
+                            	<div>
+                                    <div>
+                                        <h3 style="text-decoration: underline;font-weight: bold;">Audit Breakdown</h3>
+                                        <div style="padding-left:5px">
+                                            
+                                            <aura:iteration items="{!v.auditSummaryList}" var="disc">
+                                                <div class="page-section" style="display:flex;flex-direction:row;justify-content:space-between">
+                                                    <p>Discipline: {!disc.key}</p>
+                                                    <p>Total Audits: {!disc.totalAudits}</p>
+                                                    <p>Conformed:  {!disc.conformedAudits}</p>
+                                                </div>
+                                                <div style="padding:10px">
+                                                    <aura:iteration items="{!disc.GEN}" var="section">
+                                                        <div class="section" style="display:flex;justify-content:space-between">
+                                                            <div style="display:flex;width:33%"><p>{!section.key}</p></div>
+                                                            <div style="display:flex;width:33%;justify-content:center"><p>Lost Points = {!section.lostPoints}</p></div>
+                                                        </div>
+                                                    </aura:iteration>
+                                                </div>
+                                                
+                                            </aura:iteration>
+                                        </div>
+                                    </div>
+                                </div>
+                            </aura:if>
+                            
+                        </div>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem padding="around-small" size="3">
+                        <div class="page-section page-right">
+                            <h2>Links</h2>
+                            <ul>
+                                <li><a href="https://betterrehab.lightning.force.com/lightning/o/Clinical_Audit__c/list?filterName=00B2v00000RGJN4EAP">Clinical Audits</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </lightning:layoutItem>
+                </lightning:layout>
+            </lightning:layoutItem>
+            <lightning:layoutItem flexibility="auto" padding="around-small" size="12">
+                <div class="page-footer page-section">
+                    <h2>Support? - Please contact IT (it@betterrehab.com.au)</h2>
+                </div>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </div>
+</aura:component>

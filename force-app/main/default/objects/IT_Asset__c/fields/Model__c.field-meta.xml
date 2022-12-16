@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Model__c</fullName>
+    <externalId>false</externalId>
+    <label>Model</label>
+    <required>false</required>
+    <trackFeedHistory>true</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Brand__c</controllingField>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Personal Phone</fullName>
+                <default>false</default>
+                <label>Personal Phone</label>
+            </value>
+            <value>
+                <fullName>T14s</fullName>
+                <default>false</default>
+                <label>T14s</label>
+            </value>
+            <value>
+                <fullName>T480s</fullName>
+                <default>false</default>
+                <label>T480s</label>
+            </value>
+            <value>
+                <fullName>Yoga C740</fullName>
+                <default>false</default>
+                <label>Yoga C740</label>
+            </value>
+            <value>
+                <fullName>Carbon X1</fullName>
+                <default>false</default>
+                <label>Carbon X1</label>
+            </value>
+            <value>
+                <fullName>iPhone 6</fullName>
+                <default>false</default>
+                <label>iPhone 6</label>
+            </value>
+            <value>
+                <fullName>iPhone 6s</fullName>
+                <default>false</default>
+                <label>iPhone 6s</label>
+            </value>
+            <value>
+                <fullName>iPhone 7</fullName>
+                <default>false</default>
+                <label>iPhone 7</label>
+            </value>
+            <value>
+                <fullName>iPhone 8</fullName>
+                <default>false</default>
+                <label>iPhone 8</label>
+            </value>
+            <value>
+                <fullName>iPhone 8 Plus</fullName>
+                <default>false</default>
+                <label>iPhone 8 Plus</label>
+            </value>
+            <value>
+                <fullName>iPhone SE</fullName>
+                <default>false</default>
+                <label>iPhone SE</label>
+            </value>
+            <value>
+                <fullName>X1 Yoga</fullName>
+                <default>false</default>
+                <label>X1 Yoga</label>
+            </value>
+            <value>
+                <fullName>Ideapad</fullName>
+                <default>false</default>
+                <label>Ideapad</label>
+            </value>
+            <value>
+                <fullName>iPhone 11</fullName>
+                <default>false</default>
+                <label>iPhone 11</label>
+            </value>
+            <value>
+                <fullName>iPad (6th Gen)</fullName>
+                <default>false</default>
+                <label>iPad (6th Gen)</label>
+            </value>
+            <value>
+                <fullName>iPad (7th Gen)</fullName>
+                <default>false</default>
+                <label>iPad (7th Gen)</label>
+            </value>
+            <value>
+                <fullName>iPad (8th Gen)</fullName>
+                <default>false</default>
+                <label>iPad (8th Gen)</label>
+            </value>
+            <value>
+                <fullName>iPad (9th Gen)</fullName>
+                <default>false</default>
+                <label>iPad (9th Gen)</label>
+            </value>
+            <value>
+                <fullName>X395</fullName>
+                <default>false</default>
+                <label>X395</label>
+            </value>
+            <value>
+                <fullName>Legion</fullName>
+                <default>false</default>
+                <label>Legion</label>
+            </value>
+            <value>
+                <fullName>E14</fullName>
+                <default>false</default>
+                <label>E14</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Lenovo</controllingFieldValue>
+            <valueName>T14s</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Lenovo</controllingFieldValue>
+            <valueName>T480s</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Lenovo</controllingFieldValue>
+            <valueName>Yoga C740</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Lenovo</controllingFieldValue>
+            <valueName>Carbon X1</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Lenovo</controllingFieldValue>
+            <valueName>X1 Yoga</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Lenovo</controllingFieldValue>
+            <valueName>Ideapad</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Lenovo</controllingFieldValue>
+            <valueName>X395</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Lenovo</controllingFieldValue>
+            <valueName>Legion</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Lenovo</controllingFieldValue>
+            <valueName>E14</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Apple</controllingFieldValue>
+            <valueName>Personal Phone</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Apple</controllingFieldValue>
+            <valueName>iPhone 6</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Apple</controllingFieldValue>
+            <valueName>iPhone 6s</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Apple</controllingFieldValue>
+            <valueName>iPhone 7</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Apple</controllingFieldValue>
+            <valueName>iPhone 8</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Apple</controllingFieldValue>
+            <valueName>iPhone 8 Plus</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Apple</controllingFieldValue>
+            <valueName>iPhone SE</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Apple</controllingFieldValue>
+            <valueName>iPhone 11</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Apple</controllingFieldValue>
+            <valueName>iPad (6th Gen)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Apple</controllingFieldValue>
+            <valueName>iPad (7th Gen)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Apple</controllingFieldValue>
+            <valueName>iPad (8th Gen)</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Apple</controllingFieldValue>
+            <valueName>iPad (9th Gen)</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

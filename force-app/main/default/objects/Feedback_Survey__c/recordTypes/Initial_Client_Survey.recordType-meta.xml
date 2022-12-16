@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Initial_Client_Survey</fullName>
+    <active>true</active>
+    <description>Survey for events where event type is Initial Appointment</description>
+    <label>Initial Client Survey</label>
+    <picklistValues>
+        <picklist>NPS_Description__c</picklist>
+        <values>
+            <fullName>Detractor 1-6</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Passive 7-8</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Promoters 9-10</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

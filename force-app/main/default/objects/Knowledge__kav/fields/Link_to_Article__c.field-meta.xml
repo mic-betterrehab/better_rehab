@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Link_to_Article__c</fullName>
+    <externalId>false</externalId>
+    <formula>&quot;https://betterrehab.lightning.force.com/lightning/articles/Knowledge/&quot; &amp; UrlName</formula>
+    <inlineHelpText>Use this as a link to the article instead of the URL on your browser</inlineHelpText>
+    <label>Link to Article</label>
+    <required>false</required>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

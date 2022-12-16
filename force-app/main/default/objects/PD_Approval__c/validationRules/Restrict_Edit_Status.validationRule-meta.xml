@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Restrict_Edit_Status</fullName>
+    <active>true</active>
+    <description>Restrict changing approval&apos;s status after it has been approved or denied</description>
+    <errorConditionFormula>AND(
+ISPICKVAL(PRIORVALUE(Status__c ), &apos;Approved&apos;) || ISPICKVAL(PRIORVALUE(Status__c ), &apos;Denied&apos;),
+OR ( ISCHANGED( Status__c ) || ISCHANGED(  Subsidized_Cost__c ))
+)</errorConditionFormula>
+    <errorMessage>You cannot change the approval status/cost after it has been approved/denied</errorMessage>
+</ValidationRule>

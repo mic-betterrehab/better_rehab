@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SamlSsoConfig xmlns="http://soap.sforce.com/2006/04/metadata">
+    <identityLocation>SubjectNameId</identityLocation>
+    <identityMapping>FederationId</identityMapping>
+    <issuer>https://sts.windows.net/27bbd4f0-da5b-4721-867c-25bb9998685b/</issuer>
+    <loginUrl>https://login.microsoftonline.com/27bbd4f0-da5b-4721-867c-25bb9998685b/saml2</loginUrl>
+    <name>Better Rehab Microsoft Login</name>
+    <oauthTokenEndpoint>https://betterrehab.my.salesforce.com/services/oauth2/token?so=00D2v000000RJnJ</oauthTokenEndpoint>
+    <redirectBinding>true</redirectBinding>
+    <requestSignatureMethod>1</requestSignatureMethod>
+    <requestSigningCertId>0P12v000009ZTju</requestSigningCertId>
+    <salesforceLoginUrl>https://betterrehab.my.salesforce.com?so=00D2v000000RJnJ</salesforceLoginUrl>
+    <samlEntityId>https://betterrehab.my.salesforce.com</samlEntityId>
+    <samlVersion>SAML2_0</samlVersion>
+    <singleLogoutBinding>RedirectBinding</singleLogoutBinding>
+    <singleLogoutUrl>https://login.microsoftonline.com/27bbd4f0-da5b-4721-867c-25bb9998685b/saml2</singleLogoutUrl>
+    <useConfigRequestMethod>false</useConfigRequestMethod>
+    <useSameDigestAlgoForSigning>false</useSameDigestAlgoForSigning>
+    <userProvisioning>false</userProvisioning>
+    <validationCert>MIIC8DCCAdigAwIBAgIQOmIbqhoAVL5Em+kzqbf2OzANBgkqhkiG9w0BAQsFADA0MTIwMAYDVQQDEylNaWNyb3NvZnQgQXp1cmUgRmVkZXJhdGVkIFNTTyBDZXJ0aWZpY2F0ZTAeFw0yMDExMjMwMjAxMzdaFw0yMzExMjMwMjAxMzdaMDQxMjAwBgNVBAMTKU1pY3Jvc29mdCBBenVyZSBGZWRlcmF0ZWQgU1NPIENlcnRpZmljYXRlMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAu9hs41kyqEV7+s6stV9zPI5Ol3TTO0E2WJGtqRGWcXaJBXd5iSGxQZTxyHCH+19dM9hky6d2eRcOuOQRgl6rZUD5zAg4k/SnSTO2YrR2lPnmAzLCCsMWfBYV0j+MHc0rXB/B02XSzoRzaw/a/+54Gjw2npePVqHt8UpzEGGo5JjGby/LXHNt1H5O7IfIczdO2rul6+cYOhU6G/9SlqLozpghjqRA2OOJdXVi7rZh2VIOwAr7FJzqsuNWNJ7onUg5IN547t2O2bLEs8/0r7VZQ8nx6BJOnbA08ku9kz7XXmbDvDNT9x1G6gHiPISbzz1YkzfXMDiDcBq/GBKQbftVwQIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQCSwBcwH58RtU0YWCbdVFgNPs7Pn0OcMmucFjs8Edsmi5QVgqjaQ0wttkxrB5P11zlS7ppF6Of3a9vWJeMY9NL5ZuWrviawRwtoHkkXsFnoNEvN1cIMqCGX5sBf6HynsPGoma4e1KNjv70ay9smy21Bko5dTqkx/fdLwTN2a62VTgpK/5d/uxUritOwE8xkGk/ktf8a7IIK/vKY/sXZPIZ+KOyPjx89P3fvJWJKt8YZM3RJZ8AzY1BYNsksIs+gh6Qn6nZXHL1iIRtlAhS0XSCRBCQ7QfORl0RJyavCNtiJ01tmnGuawh874nlwzK4Le9ISEXmh2gbHuE2YXVmVfgYd</validationCert>
+</SamlSsoConfig>

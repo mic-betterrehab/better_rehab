@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Current_Office_Manager__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(  $User.FirstName &amp; &quot; &quot; &amp; $User.LastName  =  Office_Manager__c , TRUE, FALSE)</formula>
+    <label>Current Office Manager</label>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Tickets__c</entityName>
+    <fieldName>Status__c</fieldName>
+    <masterLabel>Ticket Progression</masterLabel>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;Please confirm the issue has been resolved and proceed to set the status to Closed.&lt;/p&gt;</info>
+        <picklistValueName>Closed</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>On_Behalf__c</fieldNames>
+        <info>&lt;p&gt;Your Ticket has been created, IT will be in contact shortly!&lt;/p&gt;</info>
+        <picklistValueName>Open</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>Contacted__c</fieldNames>
+        <info>&lt;p&gt;IT is working on a solution.&lt;/p&gt;</info>
+        <picklistValueName>Progress</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;&lt;span style=&quot;font-size: 16px; font-family: Arial, Helvetica, sans-serif;&quot;&gt;IT is awaiting information from yourself or any 3rd party.&lt;/span&gt;&lt;/p&gt;</info>
+        <picklistValueName>Waiting</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>__MASTER__</recordTypeName>
+</PathAssistant>

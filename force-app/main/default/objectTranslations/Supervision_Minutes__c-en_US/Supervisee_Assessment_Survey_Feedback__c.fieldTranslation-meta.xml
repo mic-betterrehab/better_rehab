@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label></label>
+    <name>Supervisee_Assessment_Survey_Feedback__c</name>
+    <picklistValues>
+        <masterLabel>No Survey Scores Recorded</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Survey Scores are above 70%</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Survey Scores are below 70%</masterLabel>
+        <translation></translation>
+    </picklistValues>
+</CustomFieldTranslation>

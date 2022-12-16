@@ -1,0 +1,23 @@
+<!--
+ - Created by Enrite Solutions on 22/12/2020.
+ -->
+
+<apex:page id="callback" controller="XeroCallBackExtension" action="{!callback}">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge" />
+        <title>Xero Callback</title>
+        <apex:includeLightning />
+        <apex:slds />
+    </head>
+    <div class="slds-text-align_center slds-p-around_xx-large">
+        <div class="slds-text-heading_large">Salesforce to Xero Configuration</div>
+        <div class="slds-text-heading_medium">Please wait whilst performing the final steps.</div>
+    </div>
+
+    <div class="slds-text-align_center slds-p-around_medium">
+        <div class="slds-text-title_caps">{!msg}</div>
+    </div>
+
+</apex:page>

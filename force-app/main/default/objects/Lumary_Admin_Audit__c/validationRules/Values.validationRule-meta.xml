@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Values</fullName>
+    <active>true</active>
+    <description>0 or 2</description>
+    <errorConditionFormula>NOT(Associate_Provider_Entered__c   =   0  ||Associate_Provider_Entered__c   = 2)</errorConditionFormula>
+    <errorDisplayField>Associate_Provider_Entered__c</errorDisplayField>
+    <errorMessage>Please select either 0 or 2</errorMessage>
+</ValidationRule>

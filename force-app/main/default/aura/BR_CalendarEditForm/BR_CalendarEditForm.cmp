@@ -1,0 +1,114 @@
+<aura:component >
+    <aura:attribute name="eventMap" type="Map" default="{}" description="JSON of event to edit passed from the calendar component"/>
+    <aura:attribute name="deviceType" type="String" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.initRun}"/>
+    <div class="slds-section slds-is-open">
+        <h2 class="slds-section__title slds-theme_shade">
+            <span class="edit-event-title slds-truncate slds-p-horizontal_small" title="EditEvent">Edit Event</span>
+        </h2>
+    </div>
+    
+    <form title="Edit Event" class="edit-event-form slds-form_stacked" style="margin:10px">
+        <p style="padding:5px"><b>Subject</b>:</p> 
+        <lightning:input label="Event Subject"
+                         name="eventName"
+                         value="{!v.eventMap.subject}"
+                         required="true"
+                         />
+        
+        <p style="padding:5px"><b>Address</b>:</p> 
+        <lightning:input label="Address"
+                         name="Address"
+                         value="{!v.eventMap.address}"
+                         required="true"
+                         />
+        
+        <div style="display:flex;direction:row;padding-top:1px;padding-bottom;10px">
+            <div style="width:50%;padding-left:2px;padding-right:4px"> 
+                <p style="padding:5px"><b>Event Type</b>:</p> 
+                <lightning:select label="Service Type" name="Service Type" required="true" value="{!v.eventMap.eventType}">
+                    <option value="Initial Appointment">Initial Appointment</option>
+                    <option value="Therapy Session">Therapy Session</option>
+                    <option value="Other PCH">Other PCH</option>
+                    <option value="Internal">Internal</option>
+                    <option value="Out of Office">Out of Office</option>
+                </lightning:select>
+            </div>
+            
+            <div style="width:50%;padding-right:2px;padding-left:4px">
+                <p style="padding:5px"><b>Organiser</b>:</p> 
+                <c:customLookup aura:id="ownerLookup" objectAPIName="User" IconName="standard:user" selectedRecord="{!v.eventMap.ownerLookup}" label="User" />                 
+            </div>
+        </div>
+        
+        <aura:if isTrue="{!v.deviceType == 'DESKTOP'}">
+            <div style="display:flex;direction:row;padding-top:1px;padding-bottom;10px">
+                <div style="width:50%;padding-left:2px;padding-right:4px"> 
+                    <aura:if isTrue="{!v.eventMap.allDay == false}">
+                        <p style="padding-left:5px"><b>Start</b>:</p>
+                        <lightning:input type="datetime" 
+                                         value="{!v.eventMap.start}" 
+                                         required="true"/>
+                    </aura:if>
+                    
+                    <aura:if isTrue="{!v.eventMap.allDay}">
+                        <p style="padding-left:5px"><b>Date</b>:</p> 
+                        <lightning:input type="date" 
+                                         value="{!v.eventMap.start}" 
+                                         required="true"/>
+                    </aura:if>
+                </div>
+                
+                <div style="width:50%;padding-right:2px;padding-left:4px">
+                    <aura:if isTrue="{!v.eventMap.allDay == false}">
+                        <p style="padding-left:5px"><b>End</b>:</p>
+                        <lightning:input type="datetime" 
+                                         value="{!v.eventMap.end}" 
+                                         required="true"/>
+                    </aura:if>
+                </div>
+            </div>        
+        </aura:if>
+        
+        <aura:if isTrue="{!v.deviceType == 'PHONE'}">
+            <aura:if isTrue="{!v.eventMap.allDay == false}">
+                <p style="padding-left:5px"><b>Start</b>:</p>
+                <lightning:input type="datetime" 
+                                 value="{!v.eventMap.start}" 
+                                 required="true"/>
+            </aura:if>
+            
+            <aura:if isTrue="{!v.eventMap.allDay == false}">
+                <p style="padding-left:5px"><b>End</b>:</p>
+                <lightning:input type="datetime" 
+                                 value="{!v.eventMap.end}" 
+                                 required="true"/>
+            </aura:if>  
+            
+            <aura:if isTrue="{!v.eventMap.allDay}">
+                <p style="padding-left:5px"><b>Date</b>:</p> 
+                <lightning:input type="date" 
+                                 value="{!v.eventMap.start}" 
+                                 required="true"/> 
+            </aura:if>
+        </aura:if>
+    
+        <p style="padding:5px" class="slds-form-element__control"><b>Comments</b>:</p>
+        <lightning:input type="String"
+                         value="{!v.eventMap.comments}"/>   
+    
+        <aura:if isTrue="{!v.eventMap.mode == 'Telehealth'}">            
+            <p style="padding:5px"><b>Meeting Link</b>:</p>
+            <lightning:input type="String" 
+                             value="{!v.eventMap.link}"/>
+        </aura:if>
+    	<aura:if isTrue="{!v.deviceType == 'DESKTOP'}">
+            <p class="note-edit" style="padding-left:5px;padding-right:5px;margin-top:20px"><b>Note: </b>If you would like to add/remove workers or clients, please do so by popping out the event and going to the workers/clients tabs.</p>
+        </aura:if>
+        
+        <aura:if isTrue="{!v.deviceType == 'PHONE'}">
+            <p class="note-edit" style="padding-left:5px;padding-right:5px;margin-top:20px"><b>Note: </b>If you would like to add/remove workers or clients and book/cancel an event, please do so on the desktop version of the calendar.</p>
+        </aura:if>
+    </form>
+</aura:component>

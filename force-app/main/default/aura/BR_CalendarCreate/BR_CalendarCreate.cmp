@@ -1,0 +1,313 @@
+<aura:component controller="CalendarController">
+    <aura:attribute name="parent" type="Aura.Component" />
+    <aura:attribute name="calendar" type="object" default="{}"/>
+    <aura:attribute name="workerId" type="String" default="" description="Record Id of the worker contact"/>
+    <aura:attribute name="loggedInUser" type="Contact" default="{ 'sobjectType': 'Contact'}" description="contact record of the currently logged in user, passed from br_calendar"/>
+    <ltng:require
+                  afterScriptsLoaded="{!c.scriptsLoaded}"
+                  />
+
+    <!--Attributes for the event creation form-->
+    <aura:attribute name="listOfDays" type="List" default="[]"/>
+    <aura:attribute name="dayOptions" type="List" default="[
+                                                           {'label': 'Mon', 'value': 'Monday'},
+                                                           {'label': 'Tue', 'value': 'Tuesday'},
+                                                           {'label': 'Wed', 'value': 'Wednesday'},
+                                                           {'label': 'Thu', 'value': 'Thursday'},
+                                                           {'label': 'Fri', 'value': 'Friday'}
+                                                           ]"/>
+    <aura:attribute name="newEvent" type="Event" default="{ 'sobjectType': 'Event'}"/>
+    <aura:attribute name="comments" type="String"/>
+    <aura:attribute name="eventLocation" type="String" default="Home"/>
+    <aura:attribute name="allDay" type="Boolean" default="false"/>
+    <aura:attribute name="reengagement" type="Boolean" default="false"/>
+    <aura:attribute name="repeat" type="Boolean" default="false"/>
+    <aura:attribute name="repeatBtnOpts" type="List" default="[{'label': 'On', 'value': 'On'}, {'label': 'After', 'value': 'After'}]"/>
+    <aura:attribute name="repeatBtn" type="String" default="After"/>
+    <aura:attribute name="maxDateRepeat" type="String" description="the max date that the repetition can occur until"/>
+    <aura:attribute name="clients" type="sObject[]" default="[]"/>
+    <aura:attribute name="workers" type="sObject[]" default="[]"/>
+    <aura:attribute name="site" type="sObject" default="{}"/>
+    <aura:attribute name="meetingLink" type="String"/>
+
+    <!-- Other attributes -->
+    <aura:attribute name='events' type="List" default="[]" />
+    <aura:attribute name="viewEvent" type="String" default="" />
+    <aura:attribute name="isLoading" type="Boolean" default="false"/>
+    <aura:attribute name="eventStatus" type="String"/>
+    <aura:attribute name="eventDetailsJSON" type="object"/>
+    <aura:attribute name="repeatDetailsJSON" type="object"/>
+    <aura:attribute name='clashingWorkerClientNames' type="String[]" default="[]" />
+    <aura:attribute name="calendarClashModalVisible" type="Boolean" default="false" />
+	<aura:attribute name="checkClash" type="Boolean" default="false"/>
+    <aura:attribute name="eventClashModalVisible" type="Boolean" default="false" />
+
+    <!-- aura method declarations (use aura:method to communicate from parent to child)-->
+    <aura:method name="passStartEndDateMethod" action="{!c.assignStartEndTime}"
+                 description="Method to pass start and end datetime from BR_Calendar UI">
+        <aura:attribute name="startDate" type="Datetime"/>
+        <aura:attribute name="endDate" type="Datetime"
+                        />
+    </aura:method>
+
+    <!-- aura handler declarations (use aura:handler and component event to communicate from child to parent AND to make a parent's function useable by its child) -->
+    <aura:handler name="clashComponentEvent" event="c:clashEvent" action="{!c.handleComponentClashEvent}"/>
+    <aura:handler name="change" value="{!v.clients}" action="{!c.handleClientChange}"/>
+    <aura:handler name="change" value="{!v.site}" action="{!c.handleSiteChange}"/>
+    <aura:handler name="change" value="{!v.eventLocation}" action="{!c.handleLocChange}" />
+
+    <!-- MCC attributes/handlers/methods -->
+    <aura:attribute name='isParentMCC' type="Boolean" default="false" />
+    <aura:attribute name="isPreselected" type="Boolean" default="false"/>
+    <aura:attribute name="preSelectedWorkers" type="sObject[]" default="[]"/>
+    <aura:attribute name="clinicianId" type="String" default=""/>
+    <aura:attribute name="searchclinicianIds" type="sObject[]" default="[]"/>
+    <aura:method name="clickResetHandle" action="{!c.clickReset}" access="PUBLIC" />
+    <aura:method name="createOrBookFromMCC" action="{!c.clickCreate}" access="PUBLIC">
+        <aura:attribute name="eventStatus" type="String"/>
+    </aura:method>
+    <aura:method name="setContactsHolder" action="{!c.handleSelectedContacts}">
+        <aura:attribute name="searchedContacts" type="sObject[]" default="[]"/>
+        <aura:attribute name="id" type="String" default=""/>
+        <aura:attribute name="isWorker" type="Boolean" />
+    </aura:method>
+
+    <!-- register events -->
+    <aura:registerEvent name="createComponentEvent" type="c:updateEvent" description="to pass the newly updated events calendar list"/>
+	<!--<aura:registerEvent name="createComponentEvent" type="c:BR_CalendarCreateEvent" description="to pass the newly updated events calendar list"/>-->
+
+    <!-- Body HTML starts here -->
+    <div aura:id='crudComponent'>
+        <div aura:id="create">
+            <div style="margin-top: 5px; padding-right:5px; padding-left:5px" aria-labelledby="newEventForm">
+                <div class="slds-section slds-is-open">
+                    <aura:if isTrue="{!v.isParentMCC == false}">
+                        <div class="slds-section__title slds-theme_shade" style="display:flex;direction:row;">
+                            <div style="width:50%;padding-left:2px">
+                                <h2 class="eventForm-section slds-section__title slds-theme_shade">
+                                    <span class="slds-truncate slds-p-horizontal_small" title="New Event">New Event</span>
+                                </h2>
+                            </div>
+
+                            <div style="width:50%;padding-right:2px">
+                                <lightning:button label="Reset Form" class="slds-button slds-float_right"
+                                                  variant="destructive" onclick="{!c.clickReset}"/>
+                            </div>
+                        </div>
+                    </aura:if>
+                    <form title="New Event" class="slds-form_stacked" style="margin:10px">
+                        <lightning:input aura:id="eventForm"
+                                         label="Event Subject"
+                                         name="eventName"
+                                         value="{!v.newEvent.Name}"
+                                         required="true"
+                                         />
+                        <lightning:input type="checkbox" label="All Day" name="allDay" checked="{!v.allDay}" onchange="{!c.handleAllDay}"/>
+                        <lightning:input type="checkbox" label="Re-engagement" name="reengagement" checked="{!v.reengagement}" onchange="{!c.handleReEngagement}"/>
+                        <aura:if isTrue="{!v.allDay == false}">
+                            <lightning:input aura:id="startdatetime"
+                                             type="datetime"
+                                             label="Start Time"
+                                             name="start"
+                                             value="{!v.newEvent.startTime}"
+                                             onchange="{!c.fillEndDateTime}"
+                                             required="true"/>
+                            <lightning:input aura:id="enddatetime"
+                                             type="datetime"
+                                             label="End Time"
+                                             name="end"
+                                             value="{!v.newEvent.endTime}"
+                                             required="true"/>
+                            <aura:set attribute="else">
+                                <lightning:input aura:id="eventForm"
+                                                 type="date"
+                                                 label="Date"
+                                                 name="start"
+                                                 value="{!v.newEvent.startTime}"
+                                                 required="true"/>
+                            </aura:set>
+                        </aura:if>
+                        <lightning:input type="checkbox" label="Repeat" name="Repeat" checked="{!v.repeat}" onchange="{!c.handleRepeat}"/>
+                        <aura:if isTrue="{! v.repeat }">
+                            <div style="display:flex;direction:row;align-items:center;justify-content:center">
+                                <lightning:input type="number" name="Every" label="Repeat Every" value="{!v.newEvent.repeatFreq}"/>
+                                <lightning:select aura:id="eventForm" label="." value="{!v.newEvent.repeatTime}" onchange="{!c.handleRepeatTimeChange}">
+                                    <option value="Day">Day</option>
+                                    <option value="Week">Week</option>
+                                    <option value="Month">Month</option>
+                                </lightning:select>
+                            </div>
+                            <aura:if isTrue="{!v.newEvent.repeatTime == 'Week'}">
+                                <div style="display:flex;direction:row;align-items:left;justify-content:left">
+                                    <fieldset class="slds-form-element">
+                                        <legend class="slds-form-element__legend slds-form-element__label">Repeat On</legend>
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-checkbox_button-group">
+                                                <aura:iteration items="{!v.dayOptions}" var="day">
+                                                    <span class="slds-button slds-checkbox_button">
+                                                        <input type="checkbox" class="workdays" value="{! day.value }" label="{!day.label}" id="{!day.label}" onchange="{!c.handleDays}"/>
+                                                        <label class="slds-checkbox_button__label" for="{!day.label}">
+                                                            <span class="slds-checkbox_faux">{!day.label}</span>
+                                                        </label>
+                                                    </span>
+                                                </aura:iteration>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </aura:if>
+
+                            <div style="display:flex;direction:row;align-items:center;justify-content:center">
+                                <lightning:radioGroup name="Ends"
+                                                      label="Ends"
+                                                      options="{! v.repeatBtnOpts }"
+                                                      value="{! v.repeatBtn }"
+                                                      type="button"
+                                                      />
+                                <aura:if isTrue="{!v.repeatBtn == 'On'}">
+                                    <lightning:input type="date" name="onDate" value="{!v.newEvent.onDate}" min="{!v.newEvent.onDate}" max="{!v.maxDateRepeat}" />
+                                    <aura:set attribute="else">
+                                        <lightning:input type="number" name="Number of Events" label="Number of Events" value="{!v.newEvent.numEvents}"/>
+                                    </aura:set>
+                                </aura:if>
+                            </div>
+                        </aura:if>
+                        <lightning:select aura:id="eventForm" label="Event Type" name="Service Type" required="true" value="{!v.newEvent.serviceType}">
+                            <option value="Therapy Session">Therapy Session</option>
+                            <option value="Initial Appointment">Initial Appointment</option>
+                            <option value="Other PCH">Other PCH</option>
+                            <option value="Internal">Internal</option>
+                            <option value="Out of Office">Out of Office</option>
+                        </lightning:select>
+                        <aura:renderIf isTrue="{! v.newEvent.serviceType != 'Out of Office'}">
+                            <c:reUsableMultiSelectLookup objectAPIName="contact"
+                                                         aura:id='clientLookup'
+                                                         filter="AND Record_Type_Name__c = 'Client'"
+                                                         IconName="standard:contact"
+                                                         lstSelectedRecords="{!v.clients}"
+                                                         label="Clients"
+                                                         parent="{!this}"
+                                                         />
+                            <aura:renderIf isTrue="{! v.isParentMCC }">
+                                <lightning:input
+                                    type="checkbox"
+                                    label="Do you want to invite all workers on the list?"
+                                    name="preselect"
+                                    onchange="{!c.onPreselect}"
+                                />
+                                <c:reUsableMultiSelectLookup
+                                    objectAPIName="contact"
+                                    aura:id='workerLookup'
+                                    filter="AND Record_Type_Name__c = 'Employee'"
+                                    IconName="standard:contact"
+                                    lstSelectedRecords="{!v.workers}"
+                                    label="Workers"
+                                    parent="{!this}"
+                                />
+                            </aura:renderIf>
+                            <aura:renderIf isTrue="{! v.isParentMCC == false }">
+                                <c:reUsableMultiSelectLookup
+                                    objectAPIName="contact"
+                                    aura:id='workerLookup'
+                                    filter="AND Record_Type_Name__c = 'Employee'"
+                                    IconName="standard:contact"
+                                    lstSelectedRecords="{!v.workers}"
+                                    label="Workers"
+                                    parent="{!this}"
+                                />
+                            </aura:renderIf>
+                            <lightning:select aura:id="eventForm" label="Mode of Delivery" name="modeofdelivery" value="{!v.newEvent.modeofdelivery}" required="true">
+                                <option value="Face to Face">Face to Face</option>
+                                <option value="Telehealth">Telehealth/Online</option>
+                            </lightning:select>
+                            <aura:renderIf isTrue="{! v.newEvent.modeofdelivery == 'Face to Face' }">
+                                <lightning:select aura:id="eventForm" label="Session Location" name="Session Location" required="true" value="{!v.eventLocation}">
+                                    <option value="Home">Home</option>
+                                    <option value="Site">Site</option>
+                                    <option value="Other">Other</option>
+                                </lightning:select>
+                                <aura:renderIf isTrue="{!v.eventLocation == 'Site' }">
+                                    <c:customLookup aura:id='siteLookup' objectAPIName="enrtcr__Site__c" IconName="standard:setup" selectedRecord="{!v.site}" label="Site" queryFields=",enrtcr__Business_Address_1__c"/>
+                                </aura:renderIf>
+                                <lightning:input aura:id="eventForm"
+                                                 label="Address"
+                                                 name="Address"
+                                                 disabled="{! v.eventLocation != 'Other' ? true : false}"
+                                                 value="{!v.newEvent.Address}"
+                                                 required="true"
+                                                 />
+                            </aura:renderIf>
+                            <aura:if isTrue="{! v.newEvent.modeofdelivery == 'Telehealth' }">
+                                <lightning:input aura:id="eventForm"
+                                                 label="Teams Link"
+                                                 name="Teams Link"
+                                                 value="{!v.meetingLink}"
+                                                 required="true"
+                                                 />
+                            </aura:if>
+                        </aura:renderIf>
+
+                        <lightning:input aura:id="eventForm"
+                                         label="Comments"
+                                         name="Comments"
+                                         value="{!v.comments}"
+                                         />
+						<aura:if isTrue="{!v.isParentMCC == false}">
+                            <div style="display:flex;direction:row;align-items:center;justify-content:flex-end">
+                                <lightning:button label="Create" class="slds-button"
+                                                  variant="brand" onclick="{!c.clickCreate}" value="Pending"/>
+                                <lightning:button label="Create and Book" class="slds-button"
+                                                  variant="success" onclick="{!c.clickCreate}" value="Booked"/>
+                            </div>
+                        </aura:if>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading spinner (keep) -->
+    <aura:if isTrue="{!v.isLoading}">
+        <div style="width:100%;height:100%">
+            <lightning:spinner alternativeText="Loading" size="large"/>
+        </div>
+    </aura:if>
+
+    <aura:if isTrue="{!v.calendarClashModalVisible}">
+        <!-- Modal/Popup Box starts here-->
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- Modal/Popup Box Header Starts here-->
+                <header class="slds-modal__header">
+                    <lightning:buttonIcon iconName="utility:close"
+                                          onclick="{! c.closeModal }"
+                                          alternativeText="close"
+                                          variant="bare-inverse"
+                                          class="slds-modal__close"/>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Conflicting Event(s) Warning</h2>
+                </header>
+                <!--Modal/Popup Box Body Starts here-->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    The following attendee(s) have conflicting event(s). Would you still like to proceed?
+                    <aura:iteration items="{!v.clashingWorkerClientNames}" var="name">
+                        <ol>
+                            <li>{!name}</li>
+                        </ol>
+                    </aura:iteration>
+                </div>
+                <!--Modal/Popup Box Footer Starts here-->
+                <footer class="slds-modal__footer">
+                    <lightning:button variant="brand-outline"
+                                      label="Not Now"
+                                      title="Not Now"
+                                      onclick="{! c.closeModal }"/>
+                    <lightning:button variant="success"
+                                      label="Proceed"
+                                      title="Proceed"
+                                      onclick="{!c.createEvent}"/>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+</aura:component>

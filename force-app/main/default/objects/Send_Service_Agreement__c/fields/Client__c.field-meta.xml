@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Client__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <inlineHelpText>Please enter the client you want to send the contract to</inlineHelpText>
+    <label>Client</label>
+    <referenceTo>Contact</referenceTo>
+    <relationshipLabel>Send Service Agreements</relationshipLabel>
+    <relationshipName>Send_Service_Agreements</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

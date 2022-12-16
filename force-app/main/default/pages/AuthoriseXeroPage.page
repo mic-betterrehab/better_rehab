@@ -1,0 +1,23 @@
+<!--
+ - Created by Enrite Solutions on 18/12/2020.
+ -->
+
+<apex:page controller="SendContactToXeroController">
+        <head>
+            <meta charset="utf-8" />
+            <meta http-equiv="x-ua-compatible" content="ie=edge" />
+            <title>Xero Authorisation</title>
+            <apex:includeLightning />
+            <apex:slds />
+        </head>
+        <div class="slds-text-align_center slds-p-around_xx-large">
+            <div class="slds-text-heading_large">Salesforce to Xero Authorisation</div>
+<!--            <div class="slds-text-heading_medium">Please wait whilst you are redirected to Xero</div>-->
+        </div>
+
+        <body>
+        <apex:form >
+            <center><apex:commandButton value="Authorise" action="{!authXero}" /></center>
+        </apex:form>
+        </body>
+</apex:page>

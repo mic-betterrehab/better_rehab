@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Open_tickets_IT</fullName>
+    <columns>NAME</columns>
+    <columns>Summary__c</columns>
+    <columns>IssueType__c</columns>
+    <columns>Assigned_To__c</columns>
+    <columns>Priority__c</columns>
+    <columns>Status__c</columns>
+    <columns>CREATEDBY_USER</columns>
+    <columns>CREATED_DATE</columns>
+    <columns>On_Behalf__c</columns>
+    <columns>LAST_UPDATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Status__c</field>
+        <operation>equals</operation>
+        <value>Open,Progress</value>
+    </filters>
+    <label>Open tickets</label>
+    <sharedTo>
+        <group>IT</group>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,93 @@
+<apex:page extensions="br_settings" standardController="Setting__c" docType="html-5.0">
+    <html>
+    	<head>
+            <title>{!settings.Name} Settings</title>    
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+        </head>   
+    
+        <div style="padding:20px;background-color:#78006c">
+            <apex:form id="theForm">
+                 <style>
+                     .sample {
+                         font-weight: bold;
+                         text-decoration: underline;
+                         font-size: 25px;
+                     }
+                     body .bPageBlock .pbBody .BR .pbSubheader{
+                     	background-color:#78006c;
+                     }
+                     body .bPageBlock .pbBody .BR .pbSubheader h3{
+                     	color:#ffffff;
+                     }
+                     .custPopup{
+                        background-color: white;
+                        border-width: 2px;
+                        border-style: solid;
+                        z-index: 9999;
+                        left: 50%;
+                        padding:10px;
+                        position: fixed;
+                        /* These are the 3 css properties you will need to change so the popup
+                        displays in the center of the screen. First set the width. Then set
+                        margin-left to negative half of what the width is. You can add
+                        the height property for a fixed size pop up if you want.*/
+                        width: 500px;
+                        margin-left: -250px;
+                        top:100px;
+                    }
+                    .popupBackground{
+                        background-color:black;
+                        opacity: 0.20;
+                        filter: alpha(opacity = 20);
+                        position: fixed;
+                        width: 100%;
+                        height: 100%;
+                        top: 0;
+                        left: 0;
+                        z-index: 9998;
+                    }
+                </style>
+                
+                <apex:pageBlock id="main">
+                  
+                    <div align="center" draggable="false">
+                        <apex:outputPanel styleClass="sample">
+                        	<apex:outputText >{!settings.Name} Settings</apex:outputText>
+                        </apex:outputPanel>
+                    </div>
+                   
+                    <apex:repeat value="{!mappedSettings}" var="key">
+                        <div >
+                            <apex:outputText >{!key} -> </apex:outputText>
+                            <apex:input label="{!key}" title="New {!key}" value="{!mappedSettings[key]}"/><br/><br/>
+                        </div>
+                    </apex:repeat>
+                    
+                    <div id="newKeys">
+                        <apex:repeat value="{!newKeyValues}" var="key" >
+                            <div>
+                                <apex:outputText >{!key} -> </apex:outputText>
+                                <apex:input label="{!key}" title="New {!key}" value="{!newKeyValues[key]}"/><br/><br/>
+                            </div>
+                    	</apex:repeat>
+                    </div>
+                    
+                    <apex:input label="New Key Name" title="New Key Name" value="{!newKeyName}" />
+					<apex:commandButton status="Add Key" action="{!addKeyToMap}" title="Add Key" reRender="main" value="Add Key" styleClass="slds-vf-button_brand" />
+                    
+                    <div id="submission" align="center" draggable="false" style="padding:20px;background-color:#f3f2f2">
+                        <apex:actionStatus id="AddStatus">
+                            <apex:facet name="start">
+                                <apex:outputText >Working.... Please do not close the page!</apex:outputText>
+                            </apex:facet>
+                            <apex:facet name="stop">
+                                <apex:commandButton status="AddStatus" styleClass="slds-vf-button_brand" id="submitButton" value="Submit" title="Submit" action="{!submit}" reRender="submission,panel1" style="width:50%;height:50%"/>
+                            </apex:facet>
+                        </apex:actionStatus>
+                    </div>
+
+                </apex:pageBlock>
+            </apex:form>
+        </div>
+    </html>
+</apex:page>

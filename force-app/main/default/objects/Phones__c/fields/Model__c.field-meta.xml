@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Model__c</fullName>
+    <externalId>false</externalId>
+    <label>Model</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>iPhone 5/SE</fullName>
+                <default>false</default>
+                <label>iPhone 5/SE</label>
+            </value>
+            <value>
+                <fullName>iPhone 6/6s</fullName>
+                <default>false</default>
+                <label>iPhone 6/6s</label>
+            </value>
+            <value>
+                <fullName>iPhone 7</fullName>
+                <default>false</default>
+                <label>iPhone 7</label>
+            </value>
+            <value>
+                <fullName>iPhone 8</fullName>
+                <default>false</default>
+                <label>iPhone 8</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

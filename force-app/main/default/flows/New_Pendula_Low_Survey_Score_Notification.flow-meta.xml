@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>53.0</apiVersion>
+    <description>Add SM Settings subflow</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>ComplaintDetails</name>
+        <dataType>String</dataType>
+        <expression>&quot;A Client responded to a Pendula - Customer Feedback Survey. They gave a score of: &quot; + {!$Record.Survey_Response__c} + &quot; out of 10.&quot; + SUBSTITUTE($Label.NewLine, &quot;-&quot;, &quot;&quot;) + SUBSTITUTE($Label.NewLine, &quot;-&quot;, &quot;&quot;) +
+&quot;Session Details: &quot; +SUBSTITUTE($Label.NewLine, &quot;-&quot;, &quot;&quot;) +SUBSTITUTE($Label.NewLine, &quot;-&quot;, &quot;&quot;)
++&quot;Session ID: &quot; + {!$Record.Event_Subject__c}
++SUBSTITUTE($Label.NewLine, &quot;-&quot;, &quot;&quot;)
++&quot;Date: &quot; + {!$Record.Start_Date_as_Text__c}
++SUBSTITUTE($Label.NewLine, &quot;-&quot;, &quot;&quot;)
++&quot;Site: &quot; + {!$Record.Worker_Site__r.Name}
++ SUBSTITUTE($Label.NewLine, &quot;-&quot;, &quot;&quot;)
++&quot;Region: &quot; + {!$Record.Event_Region__c}
++ SUBSTITUTE($Label.NewLine, &quot;-&quot;, &quot;&quot;)+ SUBSTITUTE($Label.NewLine, &quot;-&quot;, &quot;&quot;)
++ &quot;Link to Session: &quot; + {!$Record.Client_Event_Relation__r.Event_Link__c}</expression>
+    </formulas>
+    <interviewLabel>New Pendula - Low Survey Score Notification {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>New Pendula - Low Survey Score Notification</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>FREE_FORM_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordCreates>
+        <name>Create_New_Complaint_Incident</name>
+        <label>Create New Complaint/Incident</label>
+        <locationX>637</locationX>
+        <locationY>656</locationY>
+        <inputAssignments>
+            <field>Actioned_By_1__c</field>
+            <value>
+                <elementReference>Get_State_Manager_Settings.StateManagerUser.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Complaint_Details__c</field>
+            <value>
+                <elementReference>ComplaintDetails</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Complaint_Type__c</field>
+            <value>
+                <stringValue>Low Survey Score</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>OwnerId</field>
+            <value>
+                <elementReference>Get_State_Manager_Settings.StateManagerUser.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>RecordTypeId</field>
+            <value>
+                <elementReference>Low_Survey_Score_Record_Type.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Region__c</field>
+            <value>
+                <elementReference>$Record.Event_Region__c</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Severity__c</field>
+            <value>
+                <stringValue>Low</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Status__c</field>
+            <value>
+                <stringValue>Open</stringValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>enrtcr__Client__c</field>
+            <value>
+                <elementReference>$Record.Recipient__r.Id</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>enrtcr__Date_Time_of_Incident__c</field>
+            <value>
+                <elementReference>$Flow.CurrentDateTime</elementReference>
+            </value>
+        </inputAssignments>
+        <object>enrtcr__Incident_Management__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordCreates>
+    <recordLookups>
+        <name>Low_Survey_Score_Record_Type</name>
+        <label>Low Survey Score Record Type</label>
+        <locationX>437</locationX>
+        <locationY>462</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Create_New_Complaint_Incident</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>DeveloperName</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Low_Survey_Score</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>SobjectType</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>enrtcr__Incident_Management__c</stringValue>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>RecordType</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <start>
+        <locationX>50</locationX>
+        <locationY>50</locationY>
+        <connector>
+            <targetReference>Get_State_Manager_Settings</targetReference>
+        </connector>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>NPS_Description__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Detractor 1-6</stringValue>
+            </value>
+        </filters>
+        <filters>
+            <field>Survey_is_Completed__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </filters>
+        <object>Feedback_Survey__c</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <subflows>
+        <name>Get_State_Manager_Settings</name>
+        <label>Get State Manager Settings</label>
+        <locationX>197</locationX>
+        <locationY>449</locationY>
+        <connector>
+            <targetReference>Low_Survey_Score_Record_Type</targetReference>
+        </connector>
+        <flowName>Get_State_Manager</flowName>
+        <inputAssignments>
+            <name>State</name>
+            <value>
+                <elementReference>$Record.Event_Region__c</elementReference>
+            </value>
+        </inputAssignments>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </subflows>
+</Flow>

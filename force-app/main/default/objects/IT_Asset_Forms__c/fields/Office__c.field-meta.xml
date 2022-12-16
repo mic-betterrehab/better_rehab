@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Office__c</fullName>
+    <externalId>false</externalId>
+    <label>Office</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Bankstown</fullName>
+                <default>false</default>
+                <label>Bankstown</label>
+            </value>
+            <value>
+                <fullName>Brendale</fullName>
+                <default>false</default>
+                <label>Brendale</label>
+            </value>
+            <value>
+                <fullName>Briar Hill</fullName>
+                <default>false</default>
+                <label>Briar Hill</label>
+            </value>
+            <value>
+                <fullName>Castle Hill</fullName>
+                <default>false</default>
+                <label>Castle Hill</label>
+            </value>
+            <value>
+                <fullName>Maroubra</fullName>
+                <default>false</default>
+                <label>Eastern Sydney</label>
+            </value>
+            <value>
+                <fullName>Gold Coast</fullName>
+                <default>false</default>
+                <label>Gold Coast</label>
+            </value>
+            <value>
+                <fullName>Moonee Ponds</fullName>
+                <default>false</default>
+                <label>Moonee Ponds</label>
+            </value>
+            <value>
+                <fullName>Mulgrave</fullName>
+                <default>false</default>
+                <label>Mulgrave</label>
+            </value>
+            <value>
+                <fullName>Penrith</fullName>
+                <default>false</default>
+                <label>Penrith</label>
+            </value>
+            <value>
+                <fullName>Perth</fullName>
+                <default>false</default>
+                <label>Perth</label>
+            </value>
+            <value>
+                <fullName>Stones Corner</fullName>
+                <default>false</default>
+                <label>Stones Corner</label>
+            </value>
+            <value>
+                <fullName>Surrey Hills</fullName>
+                <default>false</default>
+                <label>Surrey Hills</label>
+            </value>
+            <value>
+                <fullName>Wollongong</fullName>
+                <default>false</default>
+                <label>Wollongong</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

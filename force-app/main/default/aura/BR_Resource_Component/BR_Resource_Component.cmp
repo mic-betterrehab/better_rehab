@@ -1,0 +1,47 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome" controller="BR_ResourceController" access="global">
+	<ltng:require styles="{!join(',', 
+                           $Resource.FCSv4 + '/packages/core/main.css',
+                           $Resource.FCSv4 + '/packages-premium/timeline/main.css',
+                           $Resource.FCSv4 + '/packages-premium/resource-timeline/main.css'
+                          )}"
+                  afterScriptsLoaded="{!c.scriptsLoaded}"
+                  scripts="{!join(',', 
+                           $Resource.enrtcr__jQuery,
+                           $Resource.enrtcr__momentjs,
+                           $Resource.Zipline__moment_timezone_js,
+                           $Resource.FCSv4 + '/packages/core/main.js',
+                           $Resource.FCSv4 + '/packages-premium/timeline/main.js',
+                           $Resource.FCSv4 + '/packages-premium/resource-common/main.js',
+                           $Resource.FCSv4 + '/packages-premium/resource-timeline/main.js'
+                          )}"
+	/>
+    
+    <!-- ATTRIBUTES -->
+    <aura:attribute name='calendar' type="object" default="{}" />
+    <aura:attribute name="totalResources" type="List" default="[]" description="All resources loaded into the calendar"/>
+    <aura:attribute name="filteredResources" type="List" default="[]" description="Filtered resources loaded into the calendar"/>
+    <aura:attribute name="totalEvents" type="List" default="[]" description="All events loaded for all resources"/>
+    <aura:attribute name="slotSelected" type="string" default="" description="The selected slot on the calendar" />
+    <aura:attribute name="user" type="object" default="{}" description="Details of logged in user. SYSADMIN, RESADMIN, CLINICIAN" />
+    	<!-- modal view handlers -->
+    <aura:attribute name="createFormVisible" type="Boolean" default="false" description="Show the create modal" />
+    <aura:attribute name="editFormVisible" type="Boolean" default="false" description="Show the edit/view modal" />
+    
+    
+    <!-- METHODS -->
+    <aura:method name="closeModals" action="{!c.closeModals}" access="PUBLIC" />
+    
+    <!-- HANDLERS -->
+    <aura:handler name="createResourceSlot" event="c:createResourceSlot" action="{!c.handleCreate}"/>
+    <aura:handler name="createToast" event="c:createToast" action="{!c.handleShowToast}"/>
+    <aura:handler name="updateSlot" event="c:updateSlot" action="{!c.handleUpdateSlot}"/>
+    <aura:handler name="deleteResourceSlot" event="c:deleteResourceSlot" action="{!c.handleDeleteSlot}"/>
+    
+    <aura:if isTrue="{!v.createFormVisible}">
+        <c:BR_Resource_Create_Slot parent="{!this}" />
+    </aura:if>
+    <aura:if isTrue="{!v.editFormVisible}">
+        <c:BR_Resource_Edit_Slot parent="{!this}" slotId="{!v.slotSelected}" user="{!v.user}"/>
+    </aura:if>
+    <div aura:id='calendar' ></div>
+</aura:component>

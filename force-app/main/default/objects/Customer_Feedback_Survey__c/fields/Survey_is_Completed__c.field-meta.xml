@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Survey_is_Completed__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Field is True when survey has been completed</description>
+    <externalId>false</externalId>
+    <label>Survey is Completed</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

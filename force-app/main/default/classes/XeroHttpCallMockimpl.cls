@@ -1,0 +1,15 @@
+/**
+ * Created by Enrite Solutions on 13/08/2019.
+ */
+
+global class XeroHttpCallMockimpl implements HttpCalloutMock {
+    global HTTPResponse respond(HTTPRequest req) {
+        // Create a fake response
+        HttpResponse res = new HttpResponse();
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody('{ "Id": "d12097bd-7c30-422b-bbf8-fc21a9af9f32", "Status": "OK", "ProviderName": "Lumary BR Private", "DateTimeUTC": "Date(1565658205470)", "Invoices": [ { "Type": "ACCREC", "InvoiceID": "ed0eaa42-12fd-4a84-96a9-3fd36452f296", "InvoiceNumber": "INV-0002", "Reference": "", "Payments": [], "CreditNotes": [], "Prepayments": [], "Overpayments": [], "AmountDue": 2.00, "AmountPaid": 0.00, "AmountCredited": 0.00, "CurrencyRate": 1.000000, "IsDiscounted": false, "HasAttachments": false, "HasErrors": false, "Contact": { "ContactID": "b7dbd7b5-df12-4eb0-af10-ea31cff989e7", "Name": "Enrite Test", "Addresses": [], "Phones": [], "ContactGroups": [], "ContactPersons": [], "HasValidationErrors": false }, "DateString": "2019-07-19T00:00:00", "Date": "Date(1563494400000+0000)", "DueDateString": "2019-07-23T00:00:00", "DueDate": "Date(1563840000000+0000)", "Status": "AUTHORISED", "LineAmountTypes": "Exclusive", "LineItems": [ { "Description": "Assistance from live-in carer", "UnitAmount": 1.00, "TaxType": "EXEMPTOUTPUT", "TaxAmount": 0.00, "LineAmount": 2.00, "AccountCode": "200", "Tracking": [], "Quantity": 2.0000, "LineItemID": "aa13f918-6637-4e65-b8fb-d8642310b753" } ], "SubTotal": 2.00, "TotalTax": 0.00, "Total": 2.00, "UpdatedDateUTC": "Date(1563947822997+0000)", "CurrencyCode": "AUD" }, { "Type": "ACCREC", "InvoiceID": "5db075c1-f0c2-424d-8902-ea9a77783d41", "InvoiceNumber": "INV-0004", "Reference": "", "Payments": [], "CreditNotes": [], "Prepayments": [], "Overpayments": [], "AmountDue": 67.00, "AmountPaid": 0.00, "AmountCredited": 0.00, "CurrencyRate": 1.000000, "IsDiscounted": false, "HasAttachments": false, "HasErrors": false, "Contact": { "ContactID": "b7dbd7b5-df12-4eb0-af10-ea31cff989e7", "Name": "Enrite Test", "Addresses": [], "Phones": [], "ContactGroups": [], "ContactPersons": [], "HasValidationErrors": false }, "DateString": "2019-08-12T00:00:00", "Date": "Date(1565568000000+0000)", "DueDateString": "2019-08-30T00:00:00", "DueDate": "Date(1567123200000+0000)", "Status": "AUTHORISED", "LineAmountTypes": "Exclusive", "LineItems": [ { "ItemCode": "11345", "Description": "TEST ITEM", "UnitAmount": 67.00, "TaxType": "BASEXCLUDED", "TaxAmount": 0.00, "LineAmount": 67.00, "AccountCode": "970", "Tracking": [], "Quantity": 1.0000, "LineItemID": "296607df-941a-49b6-bfce-f2b06cab152a" } ], "SubTotal": 67.00, "TotalTax": 0.00, "Total": 67.00, "UpdatedDateUTC": "Date(1565615717993+0000)", "CurrencyCode": "AUD" } ] }');
+        res.setStatusCode(200);
+        res.setStatus('OK');
+        return res;
+    }
+}

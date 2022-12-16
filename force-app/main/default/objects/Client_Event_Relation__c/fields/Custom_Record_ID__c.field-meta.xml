@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Custom_Record_ID__c</fullName>
+    <externalId>false</externalId>
+    <formula>CASESAFEID( Id )</formula>
+    <inlineHelpText>Converting the 15 case sensitive ID into an 18 case insensitive ID</inlineHelpText>
+    <label>Custom Record ID</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

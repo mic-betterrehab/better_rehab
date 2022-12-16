@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Phone_IMEI__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <externalId>false</externalId>
+    <label>Phone IMEI</label>
+    <lookupFilter>
+        <active>true</active>
+        <filterItems>
+            <field>IT_Asset__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Phone</value>
+        </filterItems>
+        <isOptional>true</isOptional>
+    </lookupFilter>
+    <referenceTo>IT_Asset__c</referenceTo>
+    <relationshipLabel>Onboardings</relationshipLabel>
+    <relationshipName>Onboardings</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,41 @@
+<apex:page standardController="enrtcr__Support_Delivered__c" extensions="overclaimConverter" action="{!autoRun}" docType="html-5.0" applyBodyTag="false">
+    <apex:slds /> 
+    <html>
+        <apex:sectionHeader title="Trying to convert to original service...."/>
+        <apex:outputText id="error" value="{!error}" ></apex:outputText><br/>
+        <!--<apex:form >
+            <style>
+                .sample {
+                    font-weight: bold;
+                    text-decoration: underline;
+                    font-size: 25px;
+                }
+                body .bPageBlock .pbBody .mainHeaders .pbSubheader{
+                    background-color:#000000;
+                }
+                body .bPageBlock .pbBody .mainHeaders .pbSubheader h3{
+                    color:#ffffff;
+                }
+            </style>
+            <apex:pageBlock >
+                <apex:outputPanel styleClass="mainHeaders" layout="block">
+                    <apex:pageBlockSection columns="2" title="Service Agreements" collapsible="false">
+                        <apex:selectList id="SAs" size="5"  value="{!selectedSA}" title="Select Service Agreement" label="Select Service Agreement">
+                            <apex:selectOptions value="{!SAs}"/>
+                            <apex:actionSupport event="onchange" rerender="SAIList" action="{!getSAIs}"/>
+                        </apex:selectList>
+                        <apex:selectList id="SAIList" size="5" value="{!selectedSAI}" title="Select SA Line Item" label="Select SA Line Item">
+                            <apex:selectOptions value="{!SAIs}"/>
+                        </apex:selectList>
+                    </apex:pageBlockSection>
+                </apex:outputPanel>
+            </apex:pageBlock>
+             <div align="center" draggable="false" style="padding:20px;background-color:#f3f2f2">
+                <apex:commandButton styleClass="slds-vf-button_brand" value="Convert SDE to new Service Agreement" title="Save" action="{!newSAconvert}" reRender="error0,error" style="width:50%;height:50%"/>   
+            </div>
+            <div id="error" align="center" draggable="false" style="padding:20px;background-color:#f3f2f2">
+                <apex:OutputText id="error0" value="{!newSAerrors}" ></apex:OutputText><br/>
+            </div>
+        </apex:form>-->
+    </html>
+</apex:page>
