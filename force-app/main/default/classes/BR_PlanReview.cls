@@ -1,5 +1,5 @@
 public class BR_PlanReview {
-    //Raf adds this line for testing
+    // Raf adds this line for testing
     // List<Contact> conList = new List<Contact>();
     //This class to set what happens when someone creates a Plan Review Report
     /*List<enrtcr__Session__c> sessionsToInsert;
