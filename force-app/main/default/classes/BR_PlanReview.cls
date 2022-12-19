@@ -1,4 +1,5 @@
 public class BR_PlanReview {
+    List<Contact> conList = new List<Contact>();
     //This class to set what happens when someone creates a Plan Review Report
     /*List<enrtcr__Session__c> sessionsToInsert;
     
